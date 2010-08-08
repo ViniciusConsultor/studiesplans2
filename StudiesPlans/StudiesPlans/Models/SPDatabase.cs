@@ -7,7 +7,7 @@ namespace StudiesPlans.Models
 {
     public partial class SPDatabase
     {
-        static SPDatabase db;
+        private static SPDatabase db;
         public static SPDatabase DB
         {
             get
