@@ -13,8 +13,7 @@ namespace StudiesPlans
     public partial class MainForm : Form
     {
         Boolean isManagementShown = false;
-        private
-             SubjectManagement subjectManagementForm = new SubjectManagement();
+        int time = 0;
 
         public MainForm()
         {
@@ -27,30 +26,12 @@ namespace StudiesPlans
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void managementBtn_Click(object sender, EventArgs e)
         {
-            FormCollection fc = Application.OpenForms;
-            foreach (Form f in fc)
+            if (this.WindowState.Equals(FormWindowState.Normal))
             {
-                if (f is SlideForm)
-                {
-                    isManagementShown = true;
-                    f.Focus();
-                    break;
-                }
-            }
-
-            if (!isManagementShown)
-            {
-                subjectManagementForm = new SubjectManagement();
-                subjectManagementForm.Show();
-                isManagementShown = true;
-            }
-            else
-            {
-                isManagementShown = false;
-                subjectManagementForm.Focus();
-                subjectManagementForm.Dispose();
+                time = 0;
+                timer.Start();
             }
         }
 
@@ -62,6 +43,86 @@ namespace StudiesPlans
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
-        } 
+        }
+
+        private void updateGUI()
+        {
+            this.Invalidate();
+            this.Update();
+        }
+
+        private void tabControl_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            Graphics graphics = e.Graphics;
+            Brush _TextBrush;
+
+            TabPage _TabPage = tabControl.TabPages[e.Index];
+            Rectangle _TabBounds = tabControl.GetTabRect(e.Index);
+
+            if (e.State == DrawItemState.Selected)
+            {
+                // Kolor tekstu i zaznaczenia zakładki
+                _TextBrush = new SolidBrush(Color.Black);
+                graphics.FillRectangle(Brushes.LightGray, e.Bounds);
+            }
+            else
+            {
+                _TextBrush = new System.Drawing.SolidBrush(e.ForeColor);
+                e.DrawBackground();
+            }
+
+            // Ustawienie własnej czcionki
+            Font _TabFont = new Font("Arial", 10, FontStyle.Bold, GraphicsUnit.Pixel);
+
+            // Wypisanie tekstu, wyjustowanie
+            StringFormat _StringFlags = new StringFormat();
+            _StringFlags.Alignment = StringAlignment.Center;
+            _StringFlags.LineAlignment = StringAlignment.Center;
+            graphics.DrawString(_TabPage.Text, _TabFont, _TextBrush,
+                         _TabBounds, new StringFormat(_StringFlags));
+
+        }
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            time += 1;
+            if (!isManagementShown)
+            {
+                this.panel1.Visible = true;
+                if (time < 10)
+                {
+                    this.Location = new Point(this.Location.X - 15 , this.Location.Y);
+                    this.Width += 30;
+                    this.managemntBtn.Location = new Point(this.managemntBtn.Location.X + 30, 27);
+                    updateGUI();
+                }
+                else
+                {
+                    isManagementShown = true;
+                    this.timer.Stop();
+                    this.managemntBtn.Text = "<";
+                }
+            }
+            else
+            {
+                if (time < 10)
+                {
+                    this.Location = new Point(this.Location.X + 15, this.Location.Y);
+                    this.Width -= 30;
+                    this.managemntBtn.Location = new Point(this.managemntBtn.Location.X - 30, 27);
+                    updateGUI();
+                }
+                else
+                {
+                    this.panel1.Visible = false;
+                    isManagementShown = false;
+                    this.timer.Stop();
+                    this.managemntBtn.Text = ">";
+                }
+            }
+
+        }
     }
+
+
 }

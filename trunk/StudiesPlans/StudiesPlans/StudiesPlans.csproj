@@ -66,9 +66,6 @@
     </Compile>
     <Compile Include="Models\UserModels.cs" />
     <Compile Include="Models\UsersRepository.cs" />
-    <Compile Include="Views\SlideForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,12 +80,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Views\SubjectManagement.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\SubjectManagement.designer.cs">
-      <DependentUpon>SubjectManagement.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -103,9 +94,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\SubjectManagement.resx">
-      <DependentUpon>SubjectManagement.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config" />
     <EntityDeploy Include="Models\SPDatabase.edmx">
