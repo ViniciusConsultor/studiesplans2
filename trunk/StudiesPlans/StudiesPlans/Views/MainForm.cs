@@ -6,14 +6,62 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using StudiesPlans.Views;
 
 namespace StudiesPlans
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
-        public Form1()
+        Boolean isManagementShown = false;
+        private
+             SubjectManagement subjectManagementForm = new SubjectManagement();
+
+        public MainForm()
         {
+           
             InitializeComponent();
         }
+
+        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FormCollection fc = Application.OpenForms;
+            foreach (Form f in fc)
+            {
+                if (f is SlideForm)
+                {
+                    isManagementShown = true;
+                    f.Focus();
+                    break;
+                }
+            }
+
+            if (!isManagementShown)
+            {
+                subjectManagementForm = new SubjectManagement();
+                subjectManagementForm.Show();
+                isManagementShown = true;
+            }
+            else
+            {
+                isManagementShown = false;
+                subjectManagementForm.Focus();
+                subjectManagementForm.Dispose();
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            new Login().Show();
+        }
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Application.Exit();
+        } 
     }
 }
