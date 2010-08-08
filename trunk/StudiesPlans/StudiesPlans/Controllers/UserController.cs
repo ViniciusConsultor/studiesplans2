@@ -8,9 +8,6 @@ namespace StudiesPlans.Controllers
 {
     public class UserController
     {
-        //public IEnumerable<User> Add(NewUser user)
-        //{ 
-        //    if(
-        //}
+
     }
 }

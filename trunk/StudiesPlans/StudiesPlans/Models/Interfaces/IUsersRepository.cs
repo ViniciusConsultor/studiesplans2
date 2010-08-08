@@ -5,7 +5,7 @@ using System.Text;
 
 namespace StudiesPlans.Models
 {
-    interface IUsersRepository
+    public interface IUsersRepository
     {
         void AddUser(NewUser user);
         void DeleteUser(int userId);

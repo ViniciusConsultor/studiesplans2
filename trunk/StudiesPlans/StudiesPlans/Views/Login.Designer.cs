@@ -80,14 +80,15 @@
             // 
             // tPassword
             // 
-            this.tPassword.Location = new System.Drawing.Point(123, 83);
+            this.tPassword.Location = new System.Drawing.Point(123, 49);
             this.tPassword.Name = "tPassword";
             this.tPassword.Size = new System.Drawing.Size(159, 20);
             this.tPassword.TabIndex = 3;
+            this.tPassword.UseSystemPasswordChar = true;
             // 
             // tUsername
             // 
-            this.tUsername.Location = new System.Drawing.Point(123, 50);
+            this.tUsername.Location = new System.Drawing.Point(123, 23);
             this.tUsername.Name = "tUsername";
             this.tUsername.Size = new System.Drawing.Size(159, 20);
             this.tUsername.TabIndex = 2;
@@ -95,7 +96,7 @@
             // lPassword
             // 
             this.lPassword.AutoSize = true;
-            this.lPassword.Location = new System.Drawing.Point(6, 86);
+            this.lPassword.Location = new System.Drawing.Point(6, 52);
             this.lPassword.Name = "lPassword";
             this.lPassword.Size = new System.Drawing.Size(39, 13);
             this.lPassword.TabIndex = 1;
@@ -104,7 +105,7 @@
             // lUsername
             // 
             this.lUsername.AutoSize = true;
-            this.lUsername.Location = new System.Drawing.Point(6, 53);
+            this.lUsername.Location = new System.Drawing.Point(6, 26);
             this.lUsername.Name = "lUsername";
             this.lUsername.Size = new System.Drawing.Size(105, 13);
             this.lUsername.TabIndex = 0;
@@ -115,7 +116,7 @@
             this.lErrors.AutoSize = true;
             this.lErrors.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lErrors.ForeColor = System.Drawing.Color.Red;
-            this.lErrors.Location = new System.Drawing.Point(6, 16);
+            this.lErrors.Location = new System.Drawing.Point(6, 77);
             this.lErrors.Name = "lErrors";
             this.lErrors.Size = new System.Drawing.Size(0, 13);
             this.lErrors.TabIndex = 6;
