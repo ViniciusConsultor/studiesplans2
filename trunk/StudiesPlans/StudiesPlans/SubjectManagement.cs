@@ -9,11 +9,13 @@ using System.Windows.Forms;
 
 namespace StudiesPlans
 {
-    public partial class Form1 : Form
+    public partial class SubjectManagement : SlideForm
     {
-        public Form1()
+        public SubjectManagement()
         {
             InitializeComponent();
         }
+        
+
     }
 }
