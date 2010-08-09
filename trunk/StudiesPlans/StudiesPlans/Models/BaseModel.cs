@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Reflection;
 using System.ComponentModel.DataAnnotations;
+using StudiesPlans.Models.Validation;
+using System.Text.RegularExpressions;
 
 namespace StudiesPlans.Models
 {
@@ -54,6 +56,15 @@ namespace StudiesPlans.Models
                             property.GetValue(this, null).ToString().Equals(int.MinValue.ToString()))
                         {
                             this.AddError(((RequiredAttribute)attr).ErrorMessage);
+                            wasError = true;
+                        }
+                    }
+                    else if (attr.GetType() == typeof(EmailAttribute))
+                    {
+                        if (!Regex.IsMatch(property.GetValue(this, null).ToString(),
+                            ((EmailAttribute)attr).Pattern))
+                        {
+                            this.AddError(((EmailAttribute)attr).ErrorMessage);
                             wasError = true;
                         }
                     }

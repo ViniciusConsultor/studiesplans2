@@ -30,9 +30,19 @@ namespace StudiesPlans.Views
                 Password = tPassword.Text
             };
 
+            User logged = null;
+
             // if user is valid and exists in databse
-            if (AccountController.Instance.LoginUser(ref login) != null)
+            if ((logged = AccountController.Instance.LoginUser(ref login)) != null)
             {
+                UserLastActive updateActive = new UserLastActive()
+                {
+                    LastActiveDate = DateTime.Now,
+                    UserID = logged.UserID
+                };
+
+                AccountController.Instance.UpdateLastActiveUser(updateActive);
+
                 new MainForm().Show();
                 this.Hide();
             }
@@ -60,6 +70,24 @@ namespace StudiesPlans.Views
             lErrors.Text = sb.ToString();
 
             //this.Close();
+        }
+
+        // Enter pressed
+        private void tUsername_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                this.bLogin_Click(this, null);
+            }
+        }
+
+        // Enter pressed
+        private void tPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue == 13)
+            {
+                this.bLogin_Click(this, null);
+            }
         }
     }
 }

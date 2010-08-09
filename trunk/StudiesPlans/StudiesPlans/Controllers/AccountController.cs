@@ -40,5 +40,18 @@ namespace StudiesPlans.Controllers
             }
             return null;
         }
+
+        public void UpdateLastActiveUser(UserLastActive user)
+        {
+            if (user == null)
+                return;
+
+            User toEdit = this.repository.GetUser(user.UserID);
+            if (toEdit != null)
+            {
+                toEdit.LastActiveDate = user.LastActiveDate;
+                SPDatabase.DB.SaveChanges();
+            }
+        }
     }
 }
