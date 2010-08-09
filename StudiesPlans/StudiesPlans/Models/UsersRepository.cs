@@ -11,21 +11,29 @@ namespace StudiesPlans.Models
     {
         private static string postfix = "Addherepostfix";
 
-        public void AddUser(NewUser user)
+        public void AddUser(ref NewUser user)
         {
             if (user == null)
                 return;
 
-            User toAdd = new User()
+            if (user.IsValid())
             {
-                Email = user.Email == null ? string.Empty : user.Email,
-                Name = user.UserName,
-                Password = user.Password,
-                RoleID = user.RoleID,
-            };
+                if (!this.UserExists(user.UserName, user.Password))
+                {
+                    User toAdd = new User()
+                    {
+                        Email = user.Email == null ? string.Empty : user.Email,
+                        Name = user.UserName,
+                        Password = user.Password,
+                        RoleID = user.RoleID,
+                    };
 
-            SPDatabase.DB.Users.AddObject(toAdd);
-            SPDatabase.DB.SaveChanges();
+                    SPDatabase.DB.Users.AddObject(toAdd);
+                    SPDatabase.DB.SaveChanges();
+                }
+                else
+                    user.AddError("Użytkownik o podanej nazwie już istnieje");
+            }
         }
 
         public void DeleteUser(int userId)
@@ -33,6 +41,19 @@ namespace StudiesPlans.Models
 
         public void EditUser(UserEdit user)
         { }
+
+        public void EditUser(UserLastActive user)
+        { 
+            if (user == null)
+                return;
+
+            User toEdit = this.GetUser(user.UserID);
+            if (toEdit != null)
+            {
+                toEdit.LastActiveDate = user.LastActiveDate;
+                SPDatabase.DB.SaveChanges();
+            }
+        }
 
         public User GetUser(string username, string password)
         {
@@ -46,12 +67,13 @@ namespace StudiesPlans.Models
 
         public User GetUser(int userId)
         {
-            return null;
+            return (from User u in SPDatabase.DB.Users
+                    where u.UserID == userId select u).FirstOrDefault();
         }
 
         public IEnumerable<User> ListUsers()
         {
-            return null;
+            return (from User u in SPDatabase.DB.Users select u);
         }
 
         private string HashPassword(string password)
@@ -70,6 +92,14 @@ namespace StudiesPlans.Models
                 sb.Append(result[i].ToString("X2"));
 
             return sb.ToString();
+        }
+
+        private bool UserExists(string username, string password)
+        {
+            if (this.GetUser(username, password) != null)
+                return true;
+            else
+                return false;
         }
     }
 }

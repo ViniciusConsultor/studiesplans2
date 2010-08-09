@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.gbLogin = new System.Windows.Forms.GroupBox();
+            this.lErrors = new System.Windows.Forms.Label();
             this.bCancel = new System.Windows.Forms.Button();
             this.bLogin = new System.Windows.Forms.Button();
             this.tPassword = new System.Windows.Forms.TextBox();
             this.tUsername = new System.Windows.Forms.TextBox();
             this.lPassword = new System.Windows.Forms.Label();
             this.lUsername = new System.Windows.Forms.Label();
-            this.lErrors = new System.Windows.Forms.Label();
             this.gbLogin.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +57,16 @@
             this.gbLogin.TabIndex = 0;
             this.gbLogin.TabStop = false;
             this.gbLogin.Text = "Podaj dane";
+            // 
+            // lErrors
+            // 
+            this.lErrors.AutoSize = true;
+            this.lErrors.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lErrors.ForeColor = System.Drawing.Color.Red;
+            this.lErrors.Location = new System.Drawing.Point(6, 77);
+            this.lErrors.Name = "lErrors";
+            this.lErrors.Size = new System.Drawing.Size(0, 13);
+            this.lErrors.TabIndex = 6;
             // 
             // bCancel
             // 
@@ -85,6 +95,7 @@
             this.tPassword.Size = new System.Drawing.Size(159, 20);
             this.tPassword.TabIndex = 3;
             this.tPassword.UseSystemPasswordChar = true;
+            this.tPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tPassword_KeyDown);
             // 
             // tUsername
             // 
@@ -92,6 +103,7 @@
             this.tUsername.Name = "tUsername";
             this.tUsername.Size = new System.Drawing.Size(159, 20);
             this.tUsername.TabIndex = 2;
+            this.tUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tUsername_KeyDown);
             // 
             // lPassword
             // 
@@ -110,16 +122,6 @@
             this.lUsername.Size = new System.Drawing.Size(105, 13);
             this.lUsername.TabIndex = 0;
             this.lUsername.Text = "Nazwa użytkownika:";
-            // 
-            // lErrors
-            // 
-            this.lErrors.AutoSize = true;
-            this.lErrors.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lErrors.ForeColor = System.Drawing.Color.Red;
-            this.lErrors.Location = new System.Drawing.Point(6, 77);
-            this.lErrors.Name = "lErrors";
-            this.lErrors.Size = new System.Drawing.Size(0, 13);
-            this.lErrors.TabIndex = 6;
             // 
             // Login
             // 

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
+using StudiesPlans.Models.Validation;
 
 namespace StudiesPlans.Models
 {
@@ -24,6 +25,7 @@ namespace StudiesPlans.Models
 
         // TODO: email validation
         [StringLength(100, ErrorMessage = "Email może mieć maksymalnie 100 znaków")]
+        [EmailAttribute(ErrorMessage = "Nieprawidłowy adres email")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Rola jest wymagana")]
@@ -38,6 +40,12 @@ namespace StudiesPlans.Models
             this.Password = string.Empty;
             this.RepeatPassword = string.Empty;
         }
+    }
+
+    public class UserLastActive
+    {
+        public int UserID { get; set; }
+        public DateTime LastActiveDate { get; set; }
     }
 
     public class NewUser : BaseModel
@@ -56,6 +64,7 @@ namespace StudiesPlans.Models
 
         // TODO: email validation
         [StringLength(100, ErrorMessage = "Email może mieć maksymalnie 100 znaków")]
+        [EmailAttribute(ErrorMessage = "Nieprawidłowy adres email")]
         public string Email { get; set; }
 
         [Required(ErrorMessage = "Rola jest wymagana")]

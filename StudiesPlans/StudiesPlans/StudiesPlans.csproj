@@ -66,6 +66,7 @@
     </Compile>
     <Compile Include="Models\UserModels.cs" />
     <Compile Include="Models\UsersRepository.cs" />
+    <Compile Include="Models\Validation\EmailValidation.cs" />
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
