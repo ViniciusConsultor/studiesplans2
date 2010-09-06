@@ -11,68 +11,50 @@ namespace StudiesPlans.Models
 {
     public class BaseModel
     {
-        List<string> Errors { get; set; }
-
-        public BaseModel()
+        // List with error messages for each object which was validate
+        public List<string> Errors { get; set; }
+        
+        // Method to validate object
+        public bool IsValid
         {
-            Errors = new List<string>();
+            get
+            {
+                return Validate(this);
+            }
         }
 
-        public IEnumerable<string> GetErrors()
+        // Private method to validate each property of object
+        private bool Validate(Object obj)
         {
-            return Errors;
-        }
-
-        public void AddError(string error)
-        {
-            Errors.Add(error);
-        }
-
-        public bool IsValid()
-        {
-            Type type = this.GetType();
+            Type type = obj.GetType();
             PropertyInfo[] properties = type.GetProperties();
-            bool wasError = false;
             foreach (PropertyInfo property in properties)
             {
-                Object[] attributes2 = property.GetCustomAttributes(true);
-
-                foreach (Object attr in attributes2)
+                bool valid = true;
+                Object[] attributes = property.GetCustomAttributes(false);
+                foreach (Object attribute in attributes)
                 {
-                    if (attr.GetType() == typeof(StringLengthAttribute))
-                    {
-                        StringLengthAttribute stringlength = (StringLengthAttribute)attr;
-                        string temp = property.GetValue(this, null).ToString();
-                        if (temp.Length < stringlength.MinimumLength || temp.Length > stringlength.MaximumLength)
-                        {
-                            this.AddError(stringlength.ErrorMessage);
-                            wasError = true;
-                        }
-                    }
-                    else if (attr.GetType() == typeof(RequiredAttribute))
-                    {
-                        if (property.GetValue(this, null).ToString() == null ||
-                            property.GetValue(this, null).ToString().Equals(string.Empty) ||
-                            property.GetValue(this, null).ToString().Equals(int.MinValue.ToString()))
-                        {
-                            this.AddError(((RequiredAttribute)attr).ErrorMessage);
-                            wasError = true;
-                        }
-                    }
-                    else if (attr.GetType() == typeof(EmailAttribute))
-                    {
-                        if (!Regex.IsMatch(property.GetValue(this, null).ToString(),
-                            ((EmailAttribute)attr).Pattern))
-                        {
-                            this.AddError(((EmailAttribute)attr).ErrorMessage);
-                            wasError = true;
-                        }
-                    }
+                    valid = ((ValidationAttribute)attribute).IsValid(property.GetValue(obj, null));
+                    if (!valid)
+                        this.AddError(((ValidationAttribute)attribute).ErrorMessage);
                 }
             }
-            if (wasError)
+            if (Errors != null && Errors.Count > 0)
                 return false;
             return true;
+        }
+
+        public void AddError(string errorMessage)
+        {
+            if (Errors == null)
+                Errors = new List<string>();
+            Errors.Add(errorMessage);
+        }
+
+        public void ClearErrors()
+        {
+            if (Errors != null)
+                this.Errors.Clear();
         }
     }
 }

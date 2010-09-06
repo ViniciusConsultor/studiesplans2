@@ -9,7 +9,6 @@ namespace StudiesPlans.Controllers
 {
     public class AccountController
     {
-
         private IUsersRepository repository;
         private static AccountController instance;
 
@@ -29,16 +28,20 @@ namespace StudiesPlans.Controllers
             this.repository = repository;
         }
 
-        public User LoginUser(ref UserLogin user)
+        public bool LoginUser(ref UserLogin user)
         {
-            if (user.IsValid())
+            if (user.IsValid)
             {
                 User logged = this.repository.GetUser(user.UserName, user.Password);
                 if (logged == null)
+                {
                     user.AddError("Błędne dane logowania");
-                return logged;
+                    return false;
+                }
+                user.UserId = logged.UserID;
+                return true;
             }
-            return null;
+            return false;
         }
 
         public void UpdateLastActiveUser(UserLastActive user)

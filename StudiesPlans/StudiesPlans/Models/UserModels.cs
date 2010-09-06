@@ -87,5 +87,7 @@ namespace StudiesPlans.Models
 
         [Required(ErrorMessage = "Podaj hasło")]
         public string Password { get; set; }
+
+        public int UserId { get; set; }
     }
 }

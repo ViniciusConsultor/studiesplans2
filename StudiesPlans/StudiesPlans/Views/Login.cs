@@ -30,64 +30,58 @@ namespace StudiesPlans.Views
                 Password = tPassword.Text
             };
 
-            User logged = null;
-
             // if user is valid and exists in databse
-            if ((logged = AccountController.Instance.LoginUser(ref login)) != null)
+            if (AccountController.Instance.LoginUser(ref login))
             {
                 UserLastActive updateActive = new UserLastActive()
                 {
                     LastActiveDate = DateTime.Now,
-                    UserID = logged.UserID
+                    UserID = login.UserId
                 };
 
+                //set new last login time
                 AccountController.Instance.UpdateLastActiveUser(updateActive);
 
-                new MainForm().Show();
-                this.Hide();
+                this.DialogResult = DialogResult.OK;
             }
-            else
-                foreach (string error in login.GetErrors())
+            else // if user is not valid show errors
+                foreach (string error in login.Errors)
                     lErrors.Text += error + "\n";
         }
 
         // Cancel button event
         private void bCancel_Click(object sender, EventArgs e)
         {
-            tPassword.Text += "Addherepostfix";
+            //tPassword.Text += "Addherepostfix";
 
-            Encoder enc = System.Text.Encoding.Unicode.GetEncoder();
-            byte[] unicodeText = new byte[tPassword.Text.Length * 2];
-            enc.GetBytes(tPassword.Text.ToCharArray(), 0, tPassword.Text.Length, unicodeText, 0, true);
+            //Encoder enc = System.Text.Encoding.Unicode.GetEncoder();
+            //byte[] unicodeText = new byte[tPassword.Text.Length * 2];
+            //enc.GetBytes(tPassword.Text.ToCharArray(), 0, tPassword.Text.Length, unicodeText, 0, true);
 
-            MD5 md5 = new MD5CryptoServiceProvider();
-            byte[] result = md5.ComputeHash(unicodeText);
+            //MD5 md5 = new MD5CryptoServiceProvider();
+            //byte[] result = md5.ComputeHash(unicodeText);
 
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < result.Length; i++)
-                sb.Append(result[i].ToString("X2"));
+            //StringBuilder sb = new StringBuilder();
+            //for (int i = 0; i < result.Length; i++)
+            //    sb.Append(result[i].ToString("X2"));
 
-            lErrors.Text = sb.ToString();
+            //lErrors.Text = sb.ToString();
 
-            //this.Close();
+            this.Close();
         }
 
         // Enter pressed
         private void tUsername_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13)
-            {
                 this.bLogin_Click(this, null);
-            }
         }
 
         // Enter pressed
         private void tPassword_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyValue == 13)
-            {
                 this.bLogin_Click(this, null);
-            }
         }
     }
 }
