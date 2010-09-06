@@ -13,7 +13,6 @@ namespace StudiesPlans
     public partial class MainForm : Form
     {
         Boolean isManagementShown = false;
-        int time = 0;
 
         public MainForm()
         {
@@ -28,12 +27,29 @@ namespace StudiesPlans
 
         private void managementBtn_Click(object sender, EventArgs e)
         {
+            int addWidth = 300;
+            int managementBtnPosition = 27;
+
+
             if (this.WindowState.Equals(FormWindowState.Normal))
             {
-                time = 0;
-                timer.Start();
+                if (!this.isManagementShown)
+                {
+                    this.Location = new Point(this.Location.X - addWidth/2, this.Location.Y);
+                    this.Width += addWidth;
+                    this.managemntBtn.Location = new Point(this.managemntBtn.Location.X + addWidth, managementBtnPosition);
+                    this.isManagementShown = true;
+                }
+                else
+                {
+                    this.Location = new Point(this.Location.X + addWidth/2, this.Location.Y);
+                    this.Width -= addWidth;
+                    this.managemntBtn.Location = new Point(this.managemntBtn.Location.X - addWidth, managementBtnPosition);
+                    this.isManagementShown = false;
+                    }
+                }
             }
-        }
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -47,8 +63,10 @@ namespace StudiesPlans
 
         private void updateGUI()
         {
+            Application.DoEvents();
             this.Invalidate();
             this.Update();
+            System.Threading.Thread.Sleep(1);
         }
 
         private void tabControl_DrawItem(object sender, DrawItemEventArgs e)
@@ -63,16 +81,16 @@ namespace StudiesPlans
             {
                 // Kolor tekstu i zaznaczenia zakładki
                 _TextBrush = new SolidBrush(Color.Black);
-                graphics.FillRectangle(Brushes.LightGray, e.Bounds);
+                graphics.FillRectangle(Brushes.White, e.Bounds);
             }
             else
             {
-                _TextBrush = new System.Drawing.SolidBrush(e.ForeColor);
-                e.DrawBackground();
+                _TextBrush = new System.Drawing.SolidBrush(Color.Black);
+                graphics.FillRectangle(Brushes.Silver, e.Bounds);
             }
 
             // Ustawienie własnej czcionki
-            Font _TabFont = new Font("Arial", 10, FontStyle.Bold, GraphicsUnit.Pixel);
+            Font _TabFont = new Font("Arial", 12, FontStyle.Bold, GraphicsUnit.Pixel);
 
             // Wypisanie tekstu, wyjustowanie
             StringFormat _StringFlags = new StringFormat();
@@ -83,45 +101,9 @@ namespace StudiesPlans
 
         }
 
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            time += 1;
-            if (!isManagementShown)
-            {
-                this.panel1.Visible = true;
-                if (time < 10)
-                {
-                    this.Location = new Point(this.Location.X - 15 , this.Location.Y);
-                    this.Width += 30;
-                    this.managemntBtn.Location = new Point(this.managemntBtn.Location.X + 30, 27);
-                    updateGUI();
-                }
-                else
-                {
-                    isManagementShown = true;
-                    this.timer.Stop();
-                    this.managemntBtn.Text = "<";
-                }
-            }
-            else
-            {
-                if (time < 10)
-                {
-                    this.Location = new Point(this.Location.X + 15, this.Location.Y);
-                    this.Width -= 30;
-                    this.managemntBtn.Location = new Point(this.managemntBtn.Location.X - 30, 27);
-                    updateGUI();
-                }
-                else
-                {
-                    this.panel1.Visible = false;
-                    isManagementShown = false;
-                    this.timer.Stop();
-                    this.managemntBtn.Text = ">";
-                }
-            }
+        
 
-        }
+        
     }
 
 
