@@ -16,7 +16,7 @@ namespace StudiesPlans.Models
             if (user == null)
                 return;
 
-            if (user.IsValid())
+            if (user.IsValid)
             {
                 if (!this.UserExists(user.UserName, user.Password))
                 {
