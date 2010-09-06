@@ -58,6 +58,8 @@
     <Compile Include="Helpers\Connection.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\RoleModels.cs" />
+    <Compile Include="Models\DatabaseObjectsImpl\SubjectImpl.cs" />
+    <Compile Include="Models\Interfaces\IDBObjectsManagement.cs" />
     <Compile Include="Models\SPDatabase.cs" />
     <Compile Include="Models\Interfaces\IUsersRepository.cs" />
     <Compile Include="Models\SPDatabase.Designer.cs">
@@ -97,7 +99,9 @@
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="App.Config" />
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
     <EntityDeploy Include="Models\SPDatabase.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>SPDatabase.Designer.cs</LastGenOutput>
@@ -111,6 +115,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="StudiesPlans.Models.SPDatabase.datasource" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

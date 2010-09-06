@@ -205,11 +205,6 @@
             this.tabPage2.Text = "Cos innego";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // timer
-            // 
-            this.timer.Interval = 10;
-            this.timer.Tick += new System.EventHandler(this.timer_Tick);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
