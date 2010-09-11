@@ -13,7 +13,7 @@ namespace StudiesPlans.Models
         public string RoleName { get; set; }
     }
 
-    public class EditRole : BaseModel
+    public class RoleEdit : BaseModel
     {
         [Required(ErrorMessage = "Nazwa jest wymagana")]
         [StringLength(50, MinimumLength = 1, ErrorMessage = "Nazwa roli nie może przekraczać 50 znaków")]

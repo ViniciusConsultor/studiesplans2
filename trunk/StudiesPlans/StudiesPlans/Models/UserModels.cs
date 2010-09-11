@@ -12,18 +12,17 @@ namespace StudiesPlans.Models
         public int UserID { get; set; }
 
         [Required(ErrorMessage = "Nazwa użytkownika jest wymagana")]
-        [StringLength(30, MinimumLength = 6, ErrorMessage = "Nazwa użytkownika musi mieć minimum 6 i maksimum 30 znaków")]
+        [StringLength(30, MinimumLength = 6, ErrorMessage = "Nazwa użytkownika musi mieć minimum 6\ni maksimum 30 znaków")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Hasło jest wymagane")]
-        [StringLength(30, MinimumLength = 8, ErrorMessage = "Hasło musi mieć minimum 6 i maksimum 30 znaków")]
+        [StringLength(30, MinimumLength = 6, ErrorMessage = "Hasło musi mieć minimum 6 i maksimum 30 znaków")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Hasło jest wymagane")]
-        [StringLength(30, MinimumLength = 8, ErrorMessage = "Hasło musi mieć minimum 6 i maksimum 30 znaków")]
+        [StringLength(30, MinimumLength = 6, ErrorMessage = "Hasło musi mieć minimum 6 i maksimum 30 znaków")]
         public string RepeatPassword { get; set; }
 
-        // TODO: email validation
         [StringLength(100, ErrorMessage = "Email może mieć maksymalnie 100 znaków")]
         [EmailAttribute(ErrorMessage = "Nieprawidłowy adres email")]
         public string Email { get; set; }
@@ -51,18 +50,17 @@ namespace StudiesPlans.Models
     public class NewUser : BaseModel
     {
         [Required(ErrorMessage = "Nazwa użytkownika jest wymagana")]
-        [StringLength(30, MinimumLength = 6, ErrorMessage = "Nazwa użytkownika musi mieć minimum 6 i maksimum 30 znaków")]
+        [StringLength(30, MinimumLength = 6, ErrorMessage = "Nazwa użytkownika musi mieć minimum 6\ni maksimum 30 znaków")]
         public string UserName { get; set; }
 
         [Required(ErrorMessage = "Hasło jest wymagane")]
-        [StringLength(30, MinimumLength = 8, ErrorMessage = "Hasło musi mieć minimum 6 i maksimum 30 znaków")]
+        [StringLength(30, MinimumLength = 6, ErrorMessage = "Hasło musi mieć minimum 6 i maksimum 30 znaków")]
         public string Password { get; set; }
 
         [Required(ErrorMessage = "Hasło jest wymagane")]
-        [StringLength(30, MinimumLength = 8, ErrorMessage = "Hasło musi mieć minimum 6 i maksimum 30 znaków")]
+        [StringLength(30, MinimumLength = 6, ErrorMessage = "Hasło musi mieć minimum 6 i maksimum 30 znaków")]
         public string RepeatPassword { get; set; }
 
-        // TODO: email validation
         [StringLength(100, ErrorMessage = "Email może mieć maksymalnie 100 znaków")]
         [EmailAttribute(ErrorMessage = "Nieprawidłowy adres email")]
         public string Email { get; set; }

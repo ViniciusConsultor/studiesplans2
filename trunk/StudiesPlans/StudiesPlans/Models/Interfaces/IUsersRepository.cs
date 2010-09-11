@@ -7,12 +7,14 @@ namespace StudiesPlans.Models
 {
     public interface IUsersRepository
     {
-        void AddUser(ref NewUser user);
-        void DeleteUser(int userId);
-        void EditUser(UserEdit user);
+        void AddUser(NewUser user);
+        void DeleteUser(User user);
+        bool EditUser(UserEdit user);
         void EditUser(UserLastActive user);
         User GetUser(int userId);
         User GetUser(string name, string password);
+        User GetUser(string name);
         IEnumerable<User> ListUsers();
+        bool UserExists(string username);
     }
 }
