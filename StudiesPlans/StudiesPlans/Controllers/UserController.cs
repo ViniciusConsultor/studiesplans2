@@ -31,5 +31,57 @@ namespace StudiesPlans.Controllers
         {
             return this.repository.ListUsers();
         }
+
+        public bool DeleteUser(string username)
+        {
+            User u = this.repository.GetUser(username);
+            if (u != null)
+            {
+                this.repository.DeleteUser(u);
+                return true;
+            }
+            return false;
+        }
+
+        public UserEdit GetUserEdit(string username)
+        {
+            User u = this.repository.GetUser(username);
+            UserEdit ue = null;
+            if (u != null)
+                ue = new UserEdit(u);
+            return ue;
+        }
+
+        public bool UpdateUser(UserEdit user)
+        {
+            if (!user.Password.Equals(user.RepeatPassword))
+                user.AddError("Oba hasła muszą być identyczne");
+            if (user.IsValid)
+            {
+                if (!this.repository.EditUser(user))
+                {
+                    user.AddError("Użytkownik nie istnieje");
+                    return false;
+                }
+                else
+                    return true;
+            }
+            return false;
+        }
+
+        public bool AddUser(NewUser user)
+        {
+            if (!user.Password.Equals(user.RepeatPassword))
+                user.AddError("Oba hasła muszą być identyczne");
+            if (this.repository.UserExists(user.UserName))
+                user.AddError("Użytkownik o takiej nazwie już istnieje");
+
+            if (user.IsValid)
+            {
+                this.repository.AddUser(user);
+                return true;
+            }
+            return false;
+        }
     }
 }

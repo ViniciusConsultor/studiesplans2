@@ -7,16 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using StudiesPlans.Views;
+using StudiesPlans.Models;
+using StudiesPlans.Controllers;
 
 namespace StudiesPlans
 {
     public partial class MainForm : Form
     {
         Boolean isManagementShown = false;
-
+        UserEdit userToEdit = null;
         public MainForm()
         {
-           
             InitializeComponent();
         }
 
@@ -29,7 +30,6 @@ namespace StudiesPlans
         {
             int addWidth = 300;
             int managementBtnPosition = 27;
-
 
             if (this.WindowState.Equals(FormWindowState.Normal))
             {
@@ -46,14 +46,8 @@ namespace StudiesPlans
                     this.Width -= addWidth;
                     this.managemntBtn.Location = new Point(this.managemntBtn.Location.X - addWidth, managementBtnPosition);
                     this.isManagementShown = false;
-                    }
                 }
             }
-        
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            new Login().Show();
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -74,14 +68,14 @@ namespace StudiesPlans
             Graphics graphics = e.Graphics;
             Brush _TextBrush;
 
-            TabPage _TabPage = tabControl.TabPages[e.Index];
-            Rectangle _TabBounds = tabControl.GetTabRect(e.Index);
+            TabPage _TabPage = pages.TabPages[e.Index];
+            Rectangle _TabBounds = pages.GetTabRect(e.Index);
 
             if (e.State == DrawItemState.Selected)
             {
                 // Kolor tekstu i zaznaczenia zakładki
                 _TextBrush = new SolidBrush(Color.Black);
-                graphics.FillRectangle(Brushes.White, e.Bounds);
+                graphics.FillRectangle(Brushes.Gray, e.Bounds);
             }
             else
             {
@@ -101,10 +95,151 @@ namespace StudiesPlans
 
         }
 
-        
+        private void pages_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (pages.SelectedIndex == 4)
+                FillWithUsers();
+        }
 
-        
+        public void FillWithUsers()
+        {
+            gridUsers.Rows.Clear();
+            IEnumerable<User> users = UserController.Instance.ListUsers();
+            if (users != null)
+            {
+                foreach (User u in users)
+                {
+                    string email = u.Email == null ? string.Empty : u.Email;
+                    string lastActiveDate = string.Empty;
+                    if (u.LastActiveDate.HasValue)
+                        lastActiveDate = u.LastActiveDate.Value.ToString();
+
+                    gridUsers.Rows.Add(u.Name, email, lastActiveDate, u.Role.Name);
+                }
+            }
+
+            cbRoles.Items.Clear();
+            IEnumerable<Role> roles = RoleController.Instance.ListRoles();
+            if (roles != null)
+            {
+                foreach (Role r in roles)
+                    cbRoles.Items.Add(r.Name);
+                cbRoles.SelectedIndex = 0;
+            }
+        }
+
+        private void gridUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.ColumnIndex == 4)
+            {
+                lblValidation.Text = string.Empty;
+                UserEdit u = UserController.Instance.GetUserEdit(gridUsers.Rows[e.RowIndex].Cells["username"].Value.ToString());
+                if (u != null)
+                {
+                    userToEdit = u;
+                    tbNewEmail.Text = u.Email;
+                    tbNewUsername.Text = u.UserName;
+                    btnUpdate.Enabled = true;
+                    btnAddUser.Enabled = false;
+                    btnCancelEdit.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("Użytkownik nie istnieje!");
+                    FillWithUsers();
+                }
+            }
+            else if (e.ColumnIndex == 5)
+            {
+                if (!UserController.Instance.DeleteUser(gridUsers.Rows[e.RowIndex].Cells["username"].Value.ToString()))
+                    MessageBox.Show("Nie można usunąć");
+                gridUsers.Rows.RemoveAt(e.RowIndex);
+            }
+        }
+
+        private bool EditUser(UserEdit u)
+        {
+            if (u != null)
+            {
+                u.UserName = tbNewUsername.Text;
+                u.Password = tbNewPassword.Text;
+                u.RepeatPassword = tbNewRepeatPassword.Text;
+                u.Email = tbNewEmail.Text;
+                int roleId = RoleController.Instance.GetRoleId(cbRoles.SelectedItem.ToString());
+                if (roleId > 0)
+                    u.RoleID = roleId;
+                
+                //todo role doesn't exist
+
+                if (!UserController.Instance.UpdateUser(u))
+                {
+                    string errors = string.Empty;
+                    foreach (string error in u.Errors)
+                        errors = errors + error + "\n";
+                    lblValidation.Text = errors;
+                    return false;
+                }
+            }
+            FillWithUsers();
+            return true;
+        }
+
+        private void btnUpdate_Click(object sender, EventArgs e)
+        {
+            if (EditUser(userToEdit))
+            {
+                btnUpdate.Enabled = false;
+                btnCancelEdit.Enabled = false;
+                btnAddUser.Enabled = true;
+                Clear();
+                userToEdit = null;
+            }
+        }
+
+        private void Clear()
+        {
+            tbNewEmail.Text = string.Empty;
+            tbNewPassword.Text = string.Empty;
+            tbNewRepeatPassword.Text = string.Empty;
+            tbNewUsername.Text = string.Empty;
+        }
+
+        private void btnAddUser_Click(object sender, EventArgs e)
+        {
+            lblValidation.Text = string.Empty;
+            NewUser user = new NewUser()
+            {
+                Email = tbNewEmail.Text,
+                Password = tbNewPassword.Text,
+                RepeatPassword = tbNewRepeatPassword.Text,
+                UserName = tbNewUsername.Text,
+                RoleID = RoleController.Instance.GetRoleId(cbRoles.SelectedItem.ToString())
+            };
+            if (!UserController.Instance.AddUser(user))
+            {
+                string errors = string.Empty;
+                foreach (string error in user.Errors)
+                    errors = errors + error + "\n";
+                lblValidation.Text = errors;
+            }
+            Clear();
+            FillWithUsers();
+        }
+
+        private void btnCancelEdit_Click(object sender, EventArgs e)
+        {
+            userToEdit = null;
+            btnAddUser.Enabled = true;
+            btnUpdate.Enabled = false;
+            btnCancelEdit.Enabled = false;
+            Clear();
+            lblValidation.Text = string.Empty;
+        }
+
+        private void btnRolesMngmt_Click(object sender, EventArgs e)
+        {
+            if (new Roles().ShowDialog() == DialogResult.Yes)
+                FillWithUsers();
+        }
     }
-
-
 }
