@@ -241,5 +241,23 @@ namespace StudiesPlans
             if (new Roles().ShowDialog() == DialogResult.Yes)
                 FillWithUsers();
         }
+
+        private void reload_Click(object sender, EventArgs e)
+        {
+            IEnumerable<SubjectsData> subjects = SubjectController.Instance.ListSubjects();
+            if (subjects != null)
+                foreach (SubjectsData subject in subjects)
+                    gridSubjects.Rows.Add(subject.Subject.Name, subject.Ects, subject.Semester.Semester1, subject.Faculty.Name, subject.Departament.Name);
+        }
+
+        private void facultymngmt_Click(object sender, EventArgs e)
+        {
+            new Faculties().ShowDialog();
+        }
+
+        private void departamentmngmt_Click(object sender, EventArgs e)
+        {
+            new Departaments().ShowDialog();
+        }
     }
 }

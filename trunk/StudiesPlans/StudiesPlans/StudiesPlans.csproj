@@ -54,11 +54,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\DepartamentController.cs" />
+    <Compile Include="Controllers\FacultyController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Helpers\Connection.cs" />
     <Compile Include="Models\BaseModel.cs" />
+    <Compile Include="Models\DepartamentModels.cs" />
+    <Compile Include="Models\DepartamentsRepository.cs" />
+    <Compile Include="Models\FacultiesRepository.cs" />
+    <Compile Include="Models\FacultyModels.cs" />
+    <Compile Include="Models\Interfaces\IDepartamentsRepository.cs" />
+    <Compile Include="Models\Interfaces\IFacultiesRepository.cs" />
     <Compile Include="Models\Interfaces\IRolesRepository.cs" />
+    <Compile Include="Models\Interfaces\ISubjectsRepository.cs" />
     <Compile Include="Models\RoleModels.cs" />
     <Compile Include="Models\DatabaseObjectsImpl\SubjectImpl.cs" />
     <Compile Include="Models\Interfaces\IDBObjectsManagement.cs" />
@@ -70,9 +80,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>SPDatabase.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\SubjectsRepository.cs" />
     <Compile Include="Models\UserModels.cs" />
     <Compile Include="Models\UsersRepository.cs" />
     <Compile Include="Models\Validation\EmailValidation.cs" />
+    <Compile Include="Views\Departaments.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Departaments.Designer.cs">
+      <DependentUpon>Departaments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Faculties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Faculties.Designer.cs">
+      <DependentUpon>Faculties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -103,6 +126,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\Departaments.resx">
+      <DependentUpon>Departaments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Faculties.resx">
+      <DependentUpon>Faculties.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
