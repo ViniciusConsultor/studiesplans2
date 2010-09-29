@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using StudiesPlans.Models.Interfaces;
-using StudiesPlans.Models;
+using StudiesPlansModels.Models;
+using StudiesPlansModels.Models.Interfaces;
 using System.Data;
 
 namespace StudiesPlans.Controllers
@@ -72,7 +72,7 @@ namespace StudiesPlans.Controllers
         public void DeleteDepartament(DepartamentEdit toEdit)
         {
             Departament d = this.repository.GetDepartament(toEdit.DepartamentName);
-            if (d != null && (d.Faculties.Count > 0 || d.Institutes.Count > 0 || d.Plans.Count > 0 || d.SubjectsDatas.Count > 0))
+            if (d != null && (d.Faculties.Count > 0 || d.Plans.Count > 0 || d.SubjectsDatas.Count > 0))
                 throw new UpdateException("Nie można usunąć wydziału,\nponieważ posiada powiązania");
             else
             {

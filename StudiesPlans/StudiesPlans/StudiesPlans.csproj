@@ -59,31 +59,6 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\UserController.cs" />
-    <Compile Include="Helpers\Connection.cs" />
-    <Compile Include="Models\BaseModel.cs" />
-    <Compile Include="Models\DepartamentModels.cs" />
-    <Compile Include="Models\DepartamentsRepository.cs" />
-    <Compile Include="Models\FacultiesRepository.cs" />
-    <Compile Include="Models\FacultyModels.cs" />
-    <Compile Include="Models\Interfaces\IDepartamentsRepository.cs" />
-    <Compile Include="Models\Interfaces\IFacultiesRepository.cs" />
-    <Compile Include="Models\Interfaces\IRolesRepository.cs" />
-    <Compile Include="Models\Interfaces\ISubjectsRepository.cs" />
-    <Compile Include="Models\RoleModels.cs" />
-    <Compile Include="Models\DatabaseObjectsImpl\SubjectImpl.cs" />
-    <Compile Include="Models\Interfaces\IDBObjectsManagement.cs" />
-    <Compile Include="Models\RolesRepository.cs" />
-    <Compile Include="Models\SPDatabase.cs" />
-    <Compile Include="Models\Interfaces\IUsersRepository.cs" />
-    <Compile Include="Models\SPDatabase.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>SPDatabase.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SubjectsRepository.cs" />
-    <Compile Include="Models\UserModels.cs" />
-    <Compile Include="Models\UsersRepository.cs" />
-    <Compile Include="Models\Validation\EmailValidation.cs" />
     <Compile Include="Views\Departaments.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,10 +119,6 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
-    <EntityDeploy Include="Models\SPDatabase.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>SPDatabase.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -166,6 +137,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\management.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StudiesPlansModels\StudiesPlansModels.csproj">
+      <Project>{53ED3666-8A44-4273-BBB7-0082ADC3BA1B}</Project>
+      <Name>StudiesPlansModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
