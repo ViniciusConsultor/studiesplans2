@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using StudiesPlans.Models;
-using StudiesPlans.Models.Interfaces;
+using StudiesPlansModels.Models;
+using StudiesPlansModels.Models.Interfaces;
 
 namespace StudiesPlans.Controllers
 {

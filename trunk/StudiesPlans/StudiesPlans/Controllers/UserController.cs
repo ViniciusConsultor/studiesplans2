@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using StudiesPlans.Models;
+using StudiesPlansModels.Models;
+using StudiesPlansModels.Models.Interfaces;
 
 namespace StudiesPlans.Controllers
 {
@@ -56,6 +57,9 @@ namespace StudiesPlans.Controllers
         {
             if (!user.Password.Equals(user.RepeatPassword))
                 user.AddError("Oba hasła muszą być identyczne");
+            User u = this.repository.GetUser(user.UserName);
+            if (u != null && ((u.UserID != user.UserID) && u.Name.Equals(user.UserName)))
+                user.AddError("Użytkownik o takiej nazwie już istnieje");
             if (user.IsValid)
             {
                 if (!this.repository.EditUser(user))

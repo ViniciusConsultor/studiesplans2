@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using StudiesPlans.Views;
-using StudiesPlans.Models;
+using StudiesPlansModels.Models;
+using StudiesPlansModels.Models.Interfaces;
 using StudiesPlans.Controllers;
 
 namespace StudiesPlans
@@ -139,6 +140,8 @@ namespace StudiesPlans
                     userToEdit = u;
                     tbNewEmail.Text = u.Email;
                     tbNewUsername.Text = u.UserName;
+                    tbNewPassword.Text = string.Empty;
+                    tbNewRepeatPassword.Text = string.Empty;
                     btnUpdate.Enabled = true;
                     btnAddUser.Enabled = false;
                     btnCancelEdit.Enabled = true;
@@ -222,8 +225,11 @@ namespace StudiesPlans
                     errors = errors + error + "\n";
                 lblValidation.Text = errors;
             }
-            Clear();
-            FillWithUsers();
+            else
+            {
+                Clear();
+                FillWithUsers();
+            }
         }
 
         private void btnCancelEdit_Click(object sender, EventArgs e)
