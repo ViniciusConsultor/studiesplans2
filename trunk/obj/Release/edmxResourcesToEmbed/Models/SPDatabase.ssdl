@@ -1,0 +1,455 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SPModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="SPModelStoreContainer">
+    <EntitySet Name="Departaments" EntityType="SPModel.Store.Departaments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Faculties" EntityType="SPModel.Store.Faculties" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="FacultiesDepartaments" EntityType="SPModel.Store.FacultiesDepartaments" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Institutes" EntityType="SPModel.Store.Institutes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Plans" EntityType="SPModel.Store.Plans" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PlansData" EntityType="SPModel.Store.PlansData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Roles" EntityType="SPModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Semesters" EntityType="SPModel.Store.Semesters" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Specializations" EntityType="SPModel.Store.Specializations" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SpecializationsData" EntityType="SPModel.Store.SpecializationsData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="StudiesTypes" EntityType="SPModel.Store.StudiesTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Subjects" EntityType="SPModel.Store.Subjects" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubjectsData" EntityType="SPModel.Store.SubjectsData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubjectTypes" EntityType="SPModel.Store.SubjectTypes" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="SubjectTypesData" EntityType="SPModel.Store.SubjectTypesData" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="SPModel.Store.Users" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_FacultiesDepartaments_Departaments" Association="SPModel.Store.FK_FacultiesDepartaments_Departaments">
+      <End Role="Departaments" EntitySet="Departaments" />
+      <End Role="FacultiesDepartaments" EntitySet="FacultiesDepartaments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FacultiesDepartaments_Faculties" Association="SPModel.Store.FK_FacultiesDepartaments_Faculties">
+      <End Role="Faculties" EntitySet="Faculties" />
+      <End Role="FacultiesDepartaments" EntitySet="FacultiesDepartaments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Plans_Departaments" Association="SPModel.Store.FK_Plans_Departaments">
+      <End Role="Departaments" EntitySet="Departaments" />
+      <End Role="Plans" EntitySet="Plans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Plans_Faculties" Association="SPModel.Store.FK_Plans_Faculties">
+      <End Role="Faculties" EntitySet="Faculties" />
+      <End Role="Plans" EntitySet="Plans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Plans_StudiesTypes" Association="SPModel.Store.FK_Plans_StudiesTypes">
+      <End Role="StudiesTypes" EntitySet="StudiesTypes" />
+      <End Role="Plans" EntitySet="Plans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Plans_Users" Association="SPModel.Store.FK_Plans_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Plans" EntitySet="Plans" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlansData_Plans" Association="SPModel.Store.FK_PlansData_Plans">
+      <End Role="Plans" EntitySet="Plans" />
+      <End Role="PlansData" EntitySet="PlansData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PlansData_SubjectsData" Association="SPModel.Store.FK_PlansData_SubjectsData">
+      <End Role="SubjectsData" EntitySet="SubjectsData" />
+      <End Role="PlansData" EntitySet="PlansData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SpecializationsData_Specializations" Association="SPModel.Store.FK_SpecializationsData_Specializations">
+      <End Role="Specializations" EntitySet="Specializations" />
+      <End Role="SpecializationsData" EntitySet="SpecializationsData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectsData_Departaments" Association="SPModel.Store.FK_SubjectsData_Departaments">
+      <End Role="Departaments" EntitySet="Departaments" />
+      <End Role="SubjectsData" EntitySet="SubjectsData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectsData_Faculties" Association="SPModel.Store.FK_SubjectsData_Faculties">
+      <End Role="Faculties" EntitySet="Faculties" />
+      <End Role="SubjectsData" EntitySet="SubjectsData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectsData_Institutes" Association="SPModel.Store.FK_SubjectsData_Institutes">
+      <End Role="Institutes" EntitySet="Institutes" />
+      <End Role="SubjectsData" EntitySet="SubjectsData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectsData_Semesters" Association="SPModel.Store.FK_SubjectsData_Semesters">
+      <End Role="Semesters" EntitySet="Semesters" />
+      <End Role="SubjectsData" EntitySet="SubjectsData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectsData_SpecializationsData" Association="SPModel.Store.FK_SubjectsData_SpecializationsData">
+      <End Role="SpecializationsData" EntitySet="SpecializationsData" />
+      <End Role="SubjectsData" EntitySet="SubjectsData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectsData_Subjects" Association="SPModel.Store.FK_SubjectsData_Subjects">
+      <End Role="Subjects" EntitySet="Subjects" />
+      <End Role="SubjectsData" EntitySet="SubjectsData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectTypesData_SubjectsData" Association="SPModel.Store.FK_SubjectTypesData_SubjectsData">
+      <End Role="SubjectsData" EntitySet="SubjectsData" />
+      <End Role="SubjectTypesData" EntitySet="SubjectTypesData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_SubjectTypesData_SubjectTypes" Association="SPModel.Store.FK_SubjectTypesData_SubjectTypes">
+      <End Role="SubjectTypes" EntitySet="SubjectTypes" />
+      <End Role="SubjectTypesData" EntitySet="SubjectTypesData" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_Roles" Association="SPModel.Store.FK_Users_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Departaments">
+    <Key>
+      <PropertyRef Name="DepartamentID" />
+    </Key>
+    <Property Name="DepartamentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Faculties">
+    <Key>
+      <PropertyRef Name="FacultyID" />
+    </Key>
+    <Property Name="FacultyID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="FacultiesDepartaments">
+    <Key>
+      <PropertyRef Name="FacultyID" />
+      <PropertyRef Name="DepartamentID" />
+    </Key>
+    <Property Name="FacultyID" Type="int" Nullable="false" />
+    <Property Name="DepartamentID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Institutes">
+    <Key>
+      <PropertyRef Name="InstituteID" />
+    </Key>
+    <Property Name="InstituteID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="Plans">
+    <Key>
+      <PropertyRef Name="PlanID" />
+    </Key>
+    <Property Name="PlanID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="int" Nullable="false" />
+    <Property Name="YearStart" Type="datetime" Nullable="false" />
+    <Property Name="YearEnd" Type="datetime" />
+    <Property Name="SemesterStart" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="SemesterEnd" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="IsMandatory" Type="bit" Nullable="false" />
+    <Property Name="DepartamentID" Type="int" Nullable="false" />
+    <Property Name="FacultyID" Type="int" Nullable="false" />
+    <Property Name="StudiesTypeID" Type="int" Nullable="false" />
+    <Property Name="LastEditUserID" Type="int" />
+  </EntityType>
+  <EntityType Name="PlansData">
+    <Key>
+      <PropertyRef Name="PlanID" />
+      <PropertyRef Name="SubjectDataID" />
+    </Key>
+    <Property Name="PlanID" Type="int" Nullable="false" />
+    <Property Name="SubjectDataID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Semesters">
+    <Key>
+      <PropertyRef Name="SemesterID" />
+    </Key>
+    <Property Name="SemesterID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="StudyYear" Type="int" Nullable="false" />
+    <Property Name="Semester" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Specializations">
+    <Key>
+      <PropertyRef Name="SpecializationID" />
+    </Key>
+    <Property Name="SpecializationID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="SpecializationsData">
+    <Key>
+      <PropertyRef Name="SpecializationDataID" />
+    </Key>
+    <Property Name="SpecializationDataID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="SpecializationID" Type="int" Nullable="false" />
+    <Property Name="IsGeneral" Type="bit" Nullable="false" />
+    <Property Name="IsElective" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="StudiesTypes">
+    <Key>
+      <PropertyRef Name="StudiesTypeID" />
+    </Key>
+    <Property Name="StudiesTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="Subjects">
+    <Key>
+      <PropertyRef Name="SubjectID" />
+    </Key>
+    <Property Name="SubjectID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="SubjectsData">
+    <Key>
+      <PropertyRef Name="SubjectDataID" />
+    </Key>
+    <Property Name="SubjectID" Type="int" Nullable="false" />
+    <Property Name="SemesterID" Type="int" Nullable="false" />
+    <Property Name="FacultyID" Type="int" Nullable="false" />
+    <Property Name="Ects" Type="float" Nullable="false" />
+    <Property Name="IsExam" Type="bit" Nullable="false" />
+    <Property Name="SpecializationDataID" Type="int" />
+    <Property Name="DepartamentID" Type="int" Nullable="false" />
+    <Property Name="SubjectDataID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="InstituteID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SubjectTypes">
+    <Key>
+      <PropertyRef Name="SubjectTypeID" />
+    </Key>
+    <Property Name="SubjectTypeID" Type="int" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SubjectTypesData">
+    <Key>
+      <PropertyRef Name="SubjectDataID" />
+      <PropertyRef Name="SubjectTypeID" />
+    </Key>
+    <Property Name="SubjectDataID" Type="int" Nullable="false" />
+    <Property Name="SubjectTypeID" Type="int" Nullable="false" />
+    <Property Name="Hours" Type="float" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="30" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="LastActiveDate" Type="datetime" />
+    <Property Name="RoleID" Type="int" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <Association Name="FK_FacultiesDepartaments_Departaments">
+    <End Role="Departaments" Type="SPModel.Store.Departaments" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="FacultiesDepartaments" Type="SPModel.Store.FacultiesDepartaments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departaments">
+        <PropertyRef Name="DepartamentID" />
+      </Principal>
+      <Dependent Role="FacultiesDepartaments">
+        <PropertyRef Name="DepartamentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FacultiesDepartaments_Faculties">
+    <End Role="Faculties" Type="SPModel.Store.Faculties" Multiplicity="1" />
+    <End Role="FacultiesDepartaments" Type="SPModel.Store.FacultiesDepartaments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculties">
+        <PropertyRef Name="FacultyID" />
+      </Principal>
+      <Dependent Role="FacultiesDepartaments">
+        <PropertyRef Name="FacultyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Plans_Departaments">
+    <End Role="Departaments" Type="SPModel.Store.Departaments" Multiplicity="1" />
+    <End Role="Plans" Type="SPModel.Store.Plans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departaments">
+        <PropertyRef Name="DepartamentID" />
+      </Principal>
+      <Dependent Role="Plans">
+        <PropertyRef Name="DepartamentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Plans_Faculties">
+    <End Role="Faculties" Type="SPModel.Store.Faculties" Multiplicity="1" />
+    <End Role="Plans" Type="SPModel.Store.Plans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculties">
+        <PropertyRef Name="FacultyID" />
+      </Principal>
+      <Dependent Role="Plans">
+        <PropertyRef Name="FacultyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Plans_StudiesTypes">
+    <End Role="StudiesTypes" Type="SPModel.Store.StudiesTypes" Multiplicity="1" />
+    <End Role="Plans" Type="SPModel.Store.Plans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="StudiesTypes">
+        <PropertyRef Name="StudiesTypeID" />
+      </Principal>
+      <Dependent Role="Plans">
+        <PropertyRef Name="StudiesTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Plans_Users">
+    <End Role="Users" Type="SPModel.Store.Users" Multiplicity="0..1" />
+    <End Role="Plans" Type="SPModel.Store.Plans" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Plans">
+        <PropertyRef Name="LastEditUserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlansData_Plans">
+    <End Role="Plans" Type="SPModel.Store.Plans" Multiplicity="1" />
+    <End Role="PlansData" Type="SPModel.Store.PlansData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Plans">
+        <PropertyRef Name="PlanID" />
+      </Principal>
+      <Dependent Role="PlansData">
+        <PropertyRef Name="PlanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PlansData_SubjectsData">
+    <End Role="SubjectsData" Type="SPModel.Store.SubjectsData" Multiplicity="1" />
+    <End Role="PlansData" Type="SPModel.Store.PlansData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubjectsData">
+        <PropertyRef Name="SubjectDataID" />
+      </Principal>
+      <Dependent Role="PlansData">
+        <PropertyRef Name="SubjectDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SpecializationsData_Specializations">
+    <End Role="Specializations" Type="SPModel.Store.Specializations" Multiplicity="1" />
+    <End Role="SpecializationsData" Type="SPModel.Store.SpecializationsData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Specializations">
+        <PropertyRef Name="SpecializationID" />
+      </Principal>
+      <Dependent Role="SpecializationsData">
+        <PropertyRef Name="SpecializationID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectsData_Departaments">
+    <End Role="Departaments" Type="SPModel.Store.Departaments" Multiplicity="1" />
+    <End Role="SubjectsData" Type="SPModel.Store.SubjectsData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Departaments">
+        <PropertyRef Name="DepartamentID" />
+      </Principal>
+      <Dependent Role="SubjectsData">
+        <PropertyRef Name="DepartamentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectsData_Faculties">
+    <End Role="Faculties" Type="SPModel.Store.Faculties" Multiplicity="1" />
+    <End Role="SubjectsData" Type="SPModel.Store.SubjectsData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Faculties">
+        <PropertyRef Name="FacultyID" />
+      </Principal>
+      <Dependent Role="SubjectsData">
+        <PropertyRef Name="FacultyID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectsData_Institutes">
+    <End Role="Institutes" Type="SPModel.Store.Institutes" Multiplicity="1" />
+    <End Role="SubjectsData" Type="SPModel.Store.SubjectsData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institutes">
+        <PropertyRef Name="InstituteID" />
+      </Principal>
+      <Dependent Role="SubjectsData">
+        <PropertyRef Name="InstituteID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectsData_Semesters">
+    <End Role="Semesters" Type="SPModel.Store.Semesters" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SubjectsData" Type="SPModel.Store.SubjectsData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Semesters">
+        <PropertyRef Name="SemesterID" />
+      </Principal>
+      <Dependent Role="SubjectsData">
+        <PropertyRef Name="SemesterID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectsData_SpecializationsData">
+    <End Role="SpecializationsData" Type="SPModel.Store.SpecializationsData" Multiplicity="0..1" />
+    <End Role="SubjectsData" Type="SPModel.Store.SubjectsData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SpecializationsData">
+        <PropertyRef Name="SpecializationDataID" />
+      </Principal>
+      <Dependent Role="SubjectsData">
+        <PropertyRef Name="SpecializationDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectsData_Subjects">
+    <End Role="Subjects" Type="SPModel.Store.Subjects" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="SubjectsData" Type="SPModel.Store.SubjectsData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Subjects">
+        <PropertyRef Name="SubjectID" />
+      </Principal>
+      <Dependent Role="SubjectsData">
+        <PropertyRef Name="SubjectID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectTypesData_SubjectsData">
+    <End Role="SubjectsData" Type="SPModel.Store.SubjectsData" Multiplicity="1" />
+    <End Role="SubjectTypesData" Type="SPModel.Store.SubjectTypesData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubjectsData">
+        <PropertyRef Name="SubjectDataID" />
+      </Principal>
+      <Dependent Role="SubjectTypesData">
+        <PropertyRef Name="SubjectDataID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_SubjectTypesData_SubjectTypes">
+    <End Role="SubjectTypes" Type="SPModel.Store.SubjectTypes" Multiplicity="1" />
+    <End Role="SubjectTypesData" Type="SPModel.Store.SubjectTypesData" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SubjectTypes">
+        <PropertyRef Name="SubjectTypeID" />
+      </Principal>
+      <Dependent Role="SubjectTypesData">
+        <PropertyRef Name="SubjectTypeID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_Roles">
+    <End Role="Roles" Type="SPModel.Store.Roles" Multiplicity="1" />
+    <End Role="Users" Type="SPModel.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
