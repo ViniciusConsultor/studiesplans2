@@ -15,7 +15,6 @@ namespace StudiesPlans
 {
     public partial class MainForm : Form
     {
-        Boolean isManagementShown = false;
         UserEdit userToEdit = null;
         public MainForm()
         {
@@ -25,30 +24,6 @@ namespace StudiesPlans
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void managementBtn_Click(object sender, EventArgs e)
-        {
-            int addWidth = 300;
-            int managementBtnPosition = 27;
-
-            if (this.WindowState.Equals(FormWindowState.Normal))
-            {
-                if (!this.isManagementShown)
-                {
-                    this.Location = new Point(this.Location.X - addWidth/2, this.Location.Y);
-                    this.Width += addWidth;
-                    this.managemntBtn.Location = new Point(this.managemntBtn.Location.X + addWidth, managementBtnPosition);
-                    this.isManagementShown = true;
-                }
-                else
-                {
-                    this.Location = new Point(this.Location.X + addWidth/2, this.Location.Y);
-                    this.Width -= addWidth;
-                    this.managemntBtn.Location = new Point(this.managemntBtn.Location.X - addWidth, managementBtnPosition);
-                    this.isManagementShown = false;
-                }
-            }
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
