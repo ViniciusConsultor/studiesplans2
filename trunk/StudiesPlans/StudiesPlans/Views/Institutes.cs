@@ -7,28 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using StudiesPlansModels.Models;
-using StudiesPlansModels.Models.Interfaces;
 using StudiesPlans.Controllers;
 
 namespace StudiesPlans.Views
 {
-    public partial class Faculties : Form
+    public partial class Institutes : Form
     {
-        private FacultyEdit toEdit = null;
-        public Faculties()
+        private InstituteEdit toEdit = null;
+        public Institutes()
         {
             InitializeComponent();
-            FillWithFaculties();
             FillWithDepartaments();
+            FillWithInstitutes();
             Disable();
-        }
-
-        private void Disable()
-        {
-            btnCancel.Enabled = false;
-            btnDelete.Enabled = false;
-            btnSave.Enabled = false;
-            btnAddFaculty.Enabled = true;
         }
 
         private void FillWithDepartaments()
@@ -40,13 +31,37 @@ namespace StudiesPlans.Views
                     clbDepartaments.Items.Add(d.Name);
         }
 
-        private void FillWithFaculties()
+        private void FillWithInstitutes()
         {
-            listFaculties.Items.Clear();
-            IEnumerable<Faculty> faculties = FacultyController.Instance.ListFaculties();
-            if (faculties != null)
-                foreach (Faculty f in faculties)
-                    listFaculties.Items.Add(f.Name);
+            listInstitutes.Items.Clear();
+            IEnumerable<Institute> institutes = InstituteController.Instance.ListInstitutes();
+            if (institutes != null)
+                foreach (Institute i in institutes)
+                    listInstitutes.Items.Add(i.Name);
+        }
+
+        private void Disable()
+        {
+            btnCancel.Enabled = false;
+            btnDelete.Enabled = false;
+            btnSave.Enabled = false;
+            btnAdd.Enabled = true;
+        }
+
+        private void Enable()
+        {
+            btnCancel.Enabled = true;
+            btnDelete.Enabled = true;
+            btnSave.Enabled = true;
+            btnAdd.Enabled = false;
+        }
+
+        private void Clear()
+        {
+            tbNewInstituteName.Text = string.Empty;
+            clbDepartaments.ClearSelected();
+            for (int i = 0; i < clbDepartaments.Items.Count; i++)
+                clbDepartaments.SetItemChecked(i, false);
         }
 
         private void btnDepartamentsMngmt_Click(object sender, EventArgs e)
@@ -60,12 +75,12 @@ namespace StudiesPlans.Views
             }
         }
 
-        private void btnAddFaculty_Click(object sender, EventArgs e)
+        private void btnAdd_Click(object sender, EventArgs e)
         {
             lblValidation.Text = string.Empty;
-            NewFaculty toAdd = new NewFaculty()
+            NewInstitute toAdd = new NewInstitute()
             {
-                FacultyName = tbNewFacultyName.Text
+                InstituteName = tbNewInstituteName.Text
             };
             List<string> list = clbDepartaments.CheckedItems.Cast<string>().ToList<string>();
             if (list != null && list.Count > 0)
@@ -82,7 +97,7 @@ namespace StudiesPlans.Views
             else
                 toAdd.Departaments = null;
 
-            if (!FacultyController.Instance.AddFaculty(toAdd))
+            if (!InstituteController.Instance.AddInstitute(toAdd))
             {
                 string errors = string.Empty;
                 foreach (string error in toAdd.Errors)
@@ -91,17 +106,9 @@ namespace StudiesPlans.Views
             }
             else
             {
-                FillWithFaculties();
+                FillWithInstitutes();
                 Clear();
             }
-        }
-
-        private void Clear()
-        {
-            tbNewFacultyName.Text = string.Empty;
-            clbDepartaments.ClearSelected();
-            for (int i = 0; i < clbDepartaments.Items.Count; i++)
-                clbDepartaments.SetItemChecked(i, false);
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -111,8 +118,8 @@ namespace StudiesPlans.Views
             {
                 try
                 {
-                    FacultyController.Instance.DeleteFaculty(toEdit);
-                    FillWithFaculties();
+                    InstituteController.Instance.DeleteInstitute(toEdit);
+                    FillWithInstitutes();
                     toEdit = null;
                     Disable();
                     Clear();
@@ -124,17 +131,17 @@ namespace StudiesPlans.Views
             }
         }
 
-        private void listFaculties_DoubleClick(object sender, EventArgs e)
+        private void listInstitutes_DoubleClick(object sender, EventArgs e)
         {
             lblValidation.Text = string.Empty;
-            if (listFaculties.SelectedIndex >= 0)
+            if (listInstitutes.SelectedIndex >= 0)
             {
-                FacultyEdit faculty = FacultyController.Instance.GetFacultyEdit(listFaculties.SelectedItem.ToString());
-                if (faculty != null)
+                InstituteEdit institute = InstituteController.Instance.GetInstituteEdit(listInstitutes.SelectedItem.ToString());
+                if (institute != null)
                 {
-                    toEdit = faculty;
+                    toEdit = institute;
                     Enable();
-                    tbNewFacultyName.Text = faculty.FacultyName;
+                    tbNewInstituteName.Text = institute.InstituteName;
                     for (int i = 0; i < clbDepartaments.Items.Count; i++)
                         clbDepartaments.SetItemChecked(i, false);
                     foreach (Departament d in toEdit.Departaments)
@@ -149,18 +156,10 @@ namespace StudiesPlans.Views
                 }
                 else
                 {
-                    lblValidation.Text = "Kierunek nie istnieje";
+                    lblValidation.Text = "Instytut nie istnieje";
                     toEdit = null;
                 }
             }
-        }
-
-        private void Enable()
-        {
-            btnCancel.Enabled = true;
-            btnDelete.Enabled = true;
-            btnSave.Enabled = true;
-            btnAddFaculty.Enabled = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -179,12 +178,12 @@ namespace StudiesPlans.Views
             lblValidation.Text = string.Empty;
             if (toEdit != null)
             {
-                string oldName = toEdit.FacultyName;
-                toEdit.FacultyName = tbNewFacultyName.Text;
+                string oldName = toEdit.InstituteName;
+                toEdit.InstituteName = tbNewInstituteName.Text;
                 if (toEdit.Errors != null)
                     toEdit.ClearErrors();
                 List<Departament> list = new List<Departament>();
-                for(int i = 0; i < clbDepartaments.CheckedItems.Count; i++)
+                for (int i = 0; i < clbDepartaments.CheckedItems.Count; i++)
                 {
                     Departament d = DepartamentController.Instance.GetDepartament(clbDepartaments.CheckedItems[i].ToString());
                     if (d != null)
@@ -195,18 +194,18 @@ namespace StudiesPlans.Views
                 else
                     toEdit.Departaments = null;
 
-                if (!FacultyController.Instance.EditFaculty(toEdit))
+                if (!InstituteController.Instance.EditInstitute(toEdit))
                 {
                     string errors = string.Empty;
                     foreach (string error in toEdit.Errors)
                         errors = errors + error + "\n";
                     lblValidation.Text = errors;
-                    toEdit.FacultyName = oldName;
+                    toEdit.InstituteName = oldName;
                 }
                 else
                 {
                     FillWithDepartaments();
-                    FillWithFaculties();
+                    FillWithInstitutes();
                     Clear();
                     Disable();
                 }

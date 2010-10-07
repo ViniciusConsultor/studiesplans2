@@ -1,6 +1,6 @@
 ﻿namespace StudiesPlans.Views
 {
-    partial class Faculties
+    partial class Institutes
     {
         /// <summary>
         /// Required designer variable.
@@ -28,49 +28,57 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listFaculties = new System.Windows.Forms.ListBox();
+            this.listInstitutes = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblValidation = new System.Windows.Forms.Label();
             this.btnDepartamentsMngmt = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
-            this.btnAddFaculty = new System.Windows.Forms.Button();
-            this.tbNewFacultyName = new System.Windows.Forms.TextBox();
+            this.btnAdd = new System.Windows.Forms.Button();
             this.clbDepartaments = new System.Windows.Forms.CheckedListBox();
-            this.lblValidation = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tbNewInstituteName = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // listFaculties
+            // listInstitutes
             // 
-            this.listFaculties.FormattingEnabled = true;
-            this.listFaculties.Location = new System.Drawing.Point(12, 12);
-            this.listFaculties.Name = "listFaculties";
-            this.listFaculties.Size = new System.Drawing.Size(182, 303);
-            this.listFaculties.TabIndex = 0;
-            this.listFaculties.DoubleClick += new System.EventHandler(this.listFaculties_DoubleClick);
+            this.listInstitutes.FormattingEnabled = true;
+            this.listInstitutes.Location = new System.Drawing.Point(12, 12);
+            this.listInstitutes.Name = "listInstitutes";
+            this.listInstitutes.Size = new System.Drawing.Size(153, 238);
+            this.listInstitutes.TabIndex = 0;
+            this.listInstitutes.DoubleClick += new System.EventHandler(this.listInstitutes_DoubleClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblValidation);
             this.groupBox1.Controls.Add(this.btnDepartamentsMngmt);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.btnDelete);
             this.groupBox1.Controls.Add(this.btnSave);
             this.groupBox1.Controls.Add(this.btnCancel);
-            this.groupBox1.Controls.Add(this.btnAddFaculty);
-            this.groupBox1.Controls.Add(this.tbNewFacultyName);
+            this.groupBox1.Controls.Add(this.btnAdd);
             this.groupBox1.Controls.Add(this.clbDepartaments);
-            this.groupBox1.Controls.Add(this.lblValidation);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(199, 9);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.groupBox1.Controls.Add(this.tbNewInstituteName);
+            this.groupBox1.Location = new System.Drawing.Point(171, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(276, 306);
+            this.groupBox1.Size = new System.Drawing.Size(282, 238);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zarządzanie";
+            // 
+            // lblValidation
+            // 
+            this.lblValidation.AutoSize = true;
+            this.lblValidation.Location = new System.Drawing.Point(8, 160);
+            this.lblValidation.Name = "lblValidation";
+            this.lblValidation.Size = new System.Drawing.Size(35, 13);
+            this.lblValidation.TabIndex = 17;
+            this.lblValidation.Text = "label3";
             // 
             // btnDepartamentsMngmt
             // 
@@ -81,104 +89,94 @@
             this.btnDepartamentsMngmt.Margin = new System.Windows.Forms.Padding(0);
             this.btnDepartamentsMngmt.Name = "btnDepartamentsMngmt";
             this.btnDepartamentsMngmt.Size = new System.Drawing.Size(21, 21);
-            this.btnDepartamentsMngmt.TabIndex = 15;
+            this.btnDepartamentsMngmt.TabIndex = 16;
             this.btnDepartamentsMngmt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnDepartamentsMngmt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDepartamentsMngmt.UseVisualStyleBackColor = true;
             this.btnDepartamentsMngmt.Click += new System.EventHandler(this.btnDepartamentsMngmt_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(8, 45);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Wydziały:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(8, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 13);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "Nazwa instytutu:";
+            // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(207, 277);
+            this.btnDelete.Location = new System.Drawing.Point(214, 209);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(60, 23);
-            this.btnDelete.TabIndex = 8;
+            this.btnDelete.Size = new System.Drawing.Size(62, 23);
+            this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Usuń";
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(141, 277);
+            this.btnSave.Location = new System.Drawing.Point(146, 209);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(60, 23);
-            this.btnSave.TabIndex = 7;
+            this.btnSave.Size = new System.Drawing.Size(62, 23);
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Zapisz";
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(75, 277);
+            this.btnCancel.Location = new System.Drawing.Point(78, 209);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(60, 23);
-            this.btnCancel.TabIndex = 6;
+            this.btnCancel.Size = new System.Drawing.Size(62, 23);
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnAddFaculty
+            // btnAdd
             // 
-            this.btnAddFaculty.Location = new System.Drawing.Point(9, 277);
-            this.btnAddFaculty.Name = "btnAddFaculty";
-            this.btnAddFaculty.Size = new System.Drawing.Size(60, 23);
-            this.btnAddFaculty.TabIndex = 5;
-            this.btnAddFaculty.Text = "Dodaj";
-            this.btnAddFaculty.UseVisualStyleBackColor = true;
-            this.btnAddFaculty.Click += new System.EventHandler(this.btnAddFaculty_Click);
-            // 
-            // tbNewFacultyName
-            // 
-            this.tbNewFacultyName.Location = new System.Drawing.Point(99, 19);
-            this.tbNewFacultyName.Name = "tbNewFacultyName";
-            this.tbNewFacultyName.Size = new System.Drawing.Size(168, 20);
-            this.tbNewFacultyName.TabIndex = 4;
+            this.btnAdd.Location = new System.Drawing.Point(10, 209);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(62, 23);
+            this.btnAdd.TabIndex = 2;
+            this.btnAdd.Text = "Dodaj";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // clbDepartaments
             // 
             this.clbDepartaments.FormattingEnabled = true;
-            this.clbDepartaments.Location = new System.Drawing.Point(99, 45);
+            this.clbDepartaments.Location = new System.Drawing.Point(102, 45);
             this.clbDepartaments.Name = "clbDepartaments";
-            this.clbDepartaments.Size = new System.Drawing.Size(168, 154);
-            this.clbDepartaments.TabIndex = 3;
+            this.clbDepartaments.Size = new System.Drawing.Size(168, 109);
+            this.clbDepartaments.TabIndex = 1;
             // 
-            // lblValidation
+            // tbNewInstituteName
             // 
-            this.lblValidation.AutoSize = true;
-            this.lblValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblValidation.ForeColor = System.Drawing.Color.Red;
-            this.lblValidation.Location = new System.Drawing.Point(6, 206);
-            this.lblValidation.Name = "lblValidation";
-            this.lblValidation.Size = new System.Drawing.Size(0, 13);
-            this.lblValidation.TabIndex = 2;
+            this.tbNewInstituteName.Location = new System.Drawing.Point(102, 19);
+            this.tbNewInstituteName.Name = "tbNewInstituteName";
+            this.tbNewInstituteName.Size = new System.Drawing.Size(168, 20);
+            this.tbNewInstituteName.TabIndex = 0;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 45);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Wydziały:";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nazwa kierunku:";
-            // 
-            // Faculties
+            // Institutes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 330);
+            this.ClientSize = new System.Drawing.Size(464, 262);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.listFaculties);
-            this.Name = "Faculties";
-            this.Text = "Zarządzanie kierunkami";
+            this.Controls.Add(this.listInstitutes);
+            this.Name = "Institutes";
+            this.Text = "Intitutes";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
@@ -187,17 +185,17 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox listFaculties;
+        private System.Windows.Forms.ListBox listInstitutes;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnAddFaculty;
-        private System.Windows.Forms.TextBox tbNewFacultyName;
+        private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.CheckedListBox clbDepartaments;
-        private System.Windows.Forms.Label lblValidation;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox tbNewInstituteName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnDepartamentsMngmt;
+        private System.Windows.Forms.Label lblValidation;
     }
 }
