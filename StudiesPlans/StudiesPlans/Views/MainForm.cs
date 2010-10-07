@@ -240,5 +240,10 @@ namespace StudiesPlans
         {
             new Departaments().ShowDialog();
         }
+
+        private void institutesmngmt_Click(object sender, EventArgs e)
+        {
+            new Institutes().ShowDialog();
+        }
     }
 }

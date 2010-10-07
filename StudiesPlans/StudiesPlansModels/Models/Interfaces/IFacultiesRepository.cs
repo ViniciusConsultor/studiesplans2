@@ -11,6 +11,8 @@ namespace StudiesPlansModels.Models.Interfaces
 
         Faculty GetFaculty(string facultyName);
 
+        Faculty GetFaculty(int facultyId);
+
         void AddFaculty(NewFaculty toAdd);
 
         FacultyEdit GetFacultyEdit(string facultyName);

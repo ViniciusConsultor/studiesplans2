@@ -54,7 +54,6 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.gbUsers = new System.Windows.Forms.GroupBox();
-            this.btnRolesMngmt = new System.Windows.Forms.Button();
             this.btnCancelEdit = new System.Windows.Forms.Button();
             this.btnAddUser = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -74,20 +73,21 @@
             this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lastActiveDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.role = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.timer = new System.Windows.Forms.Timer(this.components);
             this.plikToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pomocToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.addSubject = new System.Windows.Forms.ToolStripButton();
             this.facultymngmt = new System.Windows.Forms.ToolStripButton();
             this.departamentmngmt = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.institutesmngmt = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.btnRolesMngmt = new System.Windows.Forms.Button();
+            this.edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.menuStrip1.SuspendLayout();
             this.pages.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -119,7 +119,7 @@
             // plikToolStripMenuItem1
             // 
             this.plikToolStripMenuItem1.Name = "plikToolStripMenuItem1";
-            this.plikToolStripMenuItem1.Size = new System.Drawing.Size(34, 20);
+            this.plikToolStripMenuItem1.Size = new System.Drawing.Size(38, 20);
             this.plikToolStripMenuItem1.Text = "Plik";
             // 
             // menuToolStripMenuItem
@@ -140,7 +140,7 @@
             // oProgramieToolStripMenuItem
             // 
             this.oProgramieToolStripMenuItem.Name = "oProgramieToolStripMenuItem";
-            this.oProgramieToolStripMenuItem.Size = new System.Drawing.Size(144, 22);
+            this.oProgramieToolStripMenuItem.Size = new System.Drawing.Size(141, 22);
             this.oProgramieToolStripMenuItem.Text = "O Programie";
             // 
             // pages
@@ -188,7 +188,7 @@
             // gridSubjects
             // 
             this.gridSubjects.AllowUserToAddRows = false;
-            this.gridSubjects.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.gridSubjects.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.gridSubjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridSubjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -320,20 +320,6 @@
             this.gbUsers.TabIndex = 1;
             this.gbUsers.TabStop = false;
             this.gbUsers.Text = "Zarządzanie";
-            // 
-            // btnRolesMngmt
-            // 
-            this.btnRolesMngmt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRolesMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
-            this.btnRolesMngmt.Location = new System.Drawing.Point(234, 124);
-            this.btnRolesMngmt.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRolesMngmt.Name = "btnRolesMngmt";
-            this.btnRolesMngmt.Size = new System.Drawing.Size(21, 21);
-            this.btnRolesMngmt.TabIndex = 14;
-            this.btnRolesMngmt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRolesMngmt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRolesMngmt.UseVisualStyleBackColor = true;
-            this.btnRolesMngmt.Click += new System.EventHandler(this.btnRolesMngmt_Click);
             // 
             // btnCancelEdit
             // 
@@ -525,23 +511,6 @@
             this.role.Name = "role";
             this.role.ReadOnly = true;
             // 
-            // edit
-            // 
-            this.edit.HeaderText = "";
-            this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
-            this.edit.Name = "edit";
-            this.edit.ReadOnly = true;
-            this.edit.Width = 22;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "";
-            this.Column1.Image = ((System.Drawing.Image)(resources.GetObject("Column1.Image")));
-            this.Column1.MinimumWidth = 22;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Width = 22;
-            // 
             // plikToolStripMenuItem
             // 
             this.plikToolStripMenuItem.Name = "plikToolStripMenuItem";
@@ -560,7 +529,7 @@
             this.addSubject,
             this.facultymngmt,
             this.departamentmngmt,
-            this.toolStripButton4,
+            this.institutesmngmt,
             this.toolStripSeparator1,
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 24);
@@ -568,6 +537,29 @@
             this.toolStrip1.Size = new System.Drawing.Size(835, 25);
             this.toolStrip1.TabIndex = 7;
             this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
+            this.dataGridViewImageColumn1.MinimumWidth = 22;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.ReadOnly = true;
+            this.dataGridViewImageColumn1.Width = 22;
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.HeaderText = "";
+            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
+            this.dataGridViewImageColumn2.MinimumWidth = 22;
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.ReadOnly = true;
+            this.dataGridViewImageColumn2.Width = 22;
             // 
             // addSubject
             // 
@@ -598,19 +590,15 @@
             this.departamentmngmt.Text = "toolStripButton3";
             this.departamentmngmt.Click += new System.EventHandler(this.departamentmngmt_Click);
             // 
-            // toolStripButton4
+            // institutesmngmt
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
+            this.institutesmngmt.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.institutesmngmt.Image = ((System.Drawing.Image)(resources.GetObject("institutesmngmt.Image")));
+            this.institutesmngmt.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.institutesmngmt.Name = "institutesmngmt";
+            this.institutesmngmt.Size = new System.Drawing.Size(23, 22);
+            this.institutesmngmt.Text = "toolStripButton4";
+            this.institutesmngmt.Click += new System.EventHandler(this.institutesmngmt_Click);
             // 
             // toolStripButton1
             // 
@@ -621,23 +609,38 @@
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
             // 
-            // dataGridViewImageColumn1
+            // btnRolesMngmt
             // 
-            this.dataGridViewImageColumn1.HeaderText = "";
-            this.dataGridViewImageColumn1.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn1.Image")));
-            this.dataGridViewImageColumn1.MinimumWidth = 22;
-            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
-            this.dataGridViewImageColumn1.ReadOnly = true;
-            this.dataGridViewImageColumn1.Width = 22;
+            this.btnRolesMngmt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRolesMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
+            this.btnRolesMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRolesMngmt.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRolesMngmt.Location = new System.Drawing.Point(234, 124);
+            this.btnRolesMngmt.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRolesMngmt.Name = "btnRolesMngmt";
+            this.btnRolesMngmt.Size = new System.Drawing.Size(21, 21);
+            this.btnRolesMngmt.TabIndex = 14;
+            this.btnRolesMngmt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRolesMngmt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRolesMngmt.UseVisualStyleBackColor = true;
+            this.btnRolesMngmt.Click += new System.EventHandler(this.btnRolesMngmt_Click);
             // 
-            // dataGridViewImageColumn2
+            // edit
             // 
-            this.dataGridViewImageColumn2.HeaderText = "";
-            this.dataGridViewImageColumn2.Image = ((System.Drawing.Image)(resources.GetObject("dataGridViewImageColumn2.Image")));
-            this.dataGridViewImageColumn2.MinimumWidth = 22;
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.ReadOnly = true;
-            this.dataGridViewImageColumn2.Width = 22;
+            this.edit.HeaderText = "";
+            this.edit.Image = ((System.Drawing.Image)(resources.GetObject("edit.Image")));
+            this.edit.Name = "edit";
+            this.edit.ReadOnly = true;
+            this.edit.Width = 22;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "";
+            this.Column1.Image = ((System.Drawing.Image)(resources.GetObject("Column1.Image")));
+            this.Column1.MinimumWidth = 22;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 22;
             // 
             // MainForm
             // 
@@ -722,7 +725,7 @@
         private System.Windows.Forms.ToolStripButton addSubject;
         private System.Windows.Forms.ToolStripButton facultymngmt;
         private System.Windows.Forms.ToolStripButton departamentmngmt;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
+        private System.Windows.Forms.ToolStripButton institutesmngmt;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
     }

@@ -56,6 +56,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DepartamentController.cs" />
     <Compile Include="Controllers\FacultyController.cs" />
+    <Compile Include="Controllers\InstituteController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -70,6 +71,12 @@
     </Compile>
     <Compile Include="Views\Faculties.Designer.cs">
       <DependentUpon>Faculties.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Institutes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Institutes.Designer.cs">
+      <DependentUpon>Institutes.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Login.cs">
       <SubType>Form</SubType>
@@ -106,6 +113,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Faculties.resx">
       <DependentUpon>Faculties.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Institutes.resx">
+      <DependentUpon>Institutes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

@@ -20,6 +20,13 @@ namespace StudiesPlansModels.Models
                     select f).FirstOrDefault();
         }
 
+        public Faculty GetFaculty(int facultyId)
+        {
+            return (from Faculty f in SPDatabase.DB.Faculties
+                    where f.FacultyID == facultyId
+                    select f).FirstOrDefault();
+        }
+
         public void AddFaculty(NewFaculty toAdd)
         {
             if (toAdd != null)
@@ -29,7 +36,10 @@ namespace StudiesPlansModels.Models
                     Name = toAdd.FacultyName,
                 };
                 foreach (Departament d in toAdd.Departaments)
+                {
                     f.Departaments.Add(d);
+                }
+
                 SPDatabase.DB.Faculties.AddObject(f);
                 SPDatabase.DB.SaveChanges();
             }
@@ -49,6 +59,7 @@ namespace StudiesPlansModels.Models
                 };
                 return ff;
             }
+
             return null;
         }
 

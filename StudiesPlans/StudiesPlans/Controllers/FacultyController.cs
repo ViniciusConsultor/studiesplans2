@@ -73,6 +73,7 @@ namespace StudiesPlans.Controllers
 
                 if (toEdit.IsValid)
                 {
+                    f = this.repository.GetFaculty(toEdit.FacultyID);
                     f.Name = toEdit.FacultyName;
                     f.Departaments.Clear();
                     foreach (Departament d in toEdit.Departaments)

@@ -51,8 +51,11 @@
     <Compile Include="Models\DepartamentsRepository.cs" />
     <Compile Include="Models\FacultiesRepository.cs" />
     <Compile Include="Models\FacultyModels.cs" />
+    <Compile Include="Models\InstituteModels.cs" />
+    <Compile Include="Models\InstitutesRepository.cs" />
     <Compile Include="Models\Interfaces\IDepartamentsRepository.cs" />
     <Compile Include="Models\Interfaces\IFacultiesRepository.cs" />
+    <Compile Include="Models\Interfaces\IInstitutesRepository.cs" />
     <Compile Include="Models\Interfaces\IRolesRepository.cs" />
     <Compile Include="Models\Interfaces\ISubjectsRepository.cs" />
     <Compile Include="Models\Interfaces\IUsersRepository.cs" />
