@@ -112,7 +112,7 @@ namespace StudiesPlans.Views
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
-        {
+        {          
             lblValidation.Text = string.Empty;
             if (toEdit != null)
             {

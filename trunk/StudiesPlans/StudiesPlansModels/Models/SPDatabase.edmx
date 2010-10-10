@@ -229,7 +229,7 @@
           <Key>
             <PropertyRef Name="SubjectTypeID" />
           </Key>
-          <Property Name="SubjectTypeID" Type="int" Nullable="false" />
+          <Property Name="SubjectTypeID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
         </EntityType>
         <EntityType Name="SubjectTypesData">
@@ -511,7 +511,6 @@
           <EntitySet Name="SpecializationsDatas" EntityType="SPModel.SpecializationsData" />
           <EntitySet Name="StudiesTypes" EntityType="SPModel.StudiesType" />
           <EntitySet Name="Subjects" EntityType="SPModel.Subject" />
-          <EntitySet Name="SubjectTypes" EntityType="SPModel.SubjectType" />
           <EntitySet Name="SubjectTypesDatas" EntityType="SPModel.SubjectTypesData" />
           <EntitySet Name="Users" EntityType="SPModel.User" />
           <AssociationSet Name="FK_Plans_Faculties" Association="SPModel.FK_Plans_Faculties">
@@ -533,10 +532,6 @@
           <AssociationSet Name="FK_SpecializationsData_Specializations" Association="SPModel.FK_SpecializationsData_Specializations">
             <End Role="Specializations" EntitySet="Specializations" />
             <End Role="SpecializationsData" EntitySet="SpecializationsDatas" />
-          </AssociationSet>
-          <AssociationSet Name="FK_SubjectTypesData_SubjectTypes" Association="SPModel.FK_SubjectTypesData_SubjectTypes">
-            <End Role="SubjectTypes" EntitySet="SubjectTypes" />
-            <End Role="SubjectTypesData" EntitySet="SubjectTypesDatas" />
           </AssociationSet>
           <EntitySet Name="SubjectsDatas" EntityType="SPModel.SubjectsData" />
           <AssociationSet Name="FK_SubjectsData_Faculties" Association="SPModel.FK_SubjectsData_Faculties">
@@ -584,6 +579,11 @@
           <AssociationSet Name="InstitutesDepartaments" Association="SPModel.InstitutesDepartaments">
             <End Role="Departament" EntitySet="Departaments" />
             <End Role="Institute" EntitySet="Institutes" />
+          </AssociationSet>
+          <EntitySet Name="SubjectTypes" EntityType="SPModel.SubjectType" />
+          <AssociationSet Name="FK_SubjectTypesData_SubjectTypes" Association="SPModel.FK_SubjectTypesData_SubjectTypes">
+            <End Role="SubjectType" EntitySet="SubjectTypes" />
+            <End Role="SubjectTypesData" EntitySet="SubjectTypesDatas" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Faculty">
@@ -670,14 +670,6 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="150" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="SubjectsDatas" Relationship="SPModel.FK_SubjectsData_Subjects" FromRole="Subject" ToRole="SubjectsData" />
         </EntityType>
-        <EntityType Name="SubjectType">
-          <Key>
-            <PropertyRef Name="SubjectTypeID" />
-          </Key>
-          <Property Name="SubjectTypeID" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
-          <NavigationProperty Name="SubjectTypesDatas" Relationship="SPModel.FK_SubjectTypesData_SubjectTypes" FromRole="SubjectTypes" ToRole="SubjectTypesData" />
-        </EntityType>
         <EntityType Name="SubjectTypesData">
           <Key>
             <PropertyRef Name="SubjectDataID" />
@@ -686,8 +678,8 @@
           <Property Name="SubjectDataID" Type="Int32" Nullable="false" />
           <Property Name="SubjectTypeID" Type="Int32" Nullable="false" />
           <Property Name="Hours" Type="Double" Nullable="false" />
-          <NavigationProperty Name="SubjectType" Relationship="SPModel.FK_SubjectTypesData_SubjectTypes" FromRole="SubjectTypesData" ToRole="SubjectTypes" />
           <NavigationProperty Name="SubjectsData" Relationship="SPModel.FK_SubjectTypesData_SubjectsData" FromRole="SubjectTypesData" ToRole="SubjectsData" />
+          <NavigationProperty Name="SubjectType" Relationship="SPModel.FK_SubjectTypesData_SubjectTypes" FromRole="SubjectTypesData" ToRole="SubjectType" />
         </EntityType>
         <EntityType Name="User">
           <Key>
@@ -759,18 +751,6 @@
             </Principal>
             <Dependent Role="SpecializationsData">
               <PropertyRef Name="SpecializationID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_SubjectTypesData_SubjectTypes">
-          <End Role="SubjectTypes" Type="SPModel.SubjectType" Multiplicity="1" />
-          <End Role="SubjectTypesData" Type="SPModel.SubjectTypesData" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SubjectTypes">
-              <PropertyRef Name="SubjectTypeID" />
-            </Principal>
-            <Dependent Role="SubjectTypesData">
-              <PropertyRef Name="SubjectTypeID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -924,6 +904,26 @@
           <End Type="SPModel.Departament" Role="Departament" Multiplicity="*" />
           <End Type="SPModel.Institute" Role="Institute" Multiplicity="*" />
         </Association>
+        <EntityType Name="SubjectType">
+          <Key>
+            <PropertyRef Name="SubjectTypeID" />
+          </Key>
+          <Property Type="Int32" Name="SubjectTypeID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SubjectTypesDatas" Relationship="SPModel.FK_SubjectTypesData_SubjectTypes" FromRole="SubjectType" ToRole="SubjectTypesData" />
+        </EntityType>
+        <Association Name="FK_SubjectTypesData_SubjectTypes">
+          <End Type="SPModel.SubjectType" Role="SubjectType" Multiplicity="1" />
+          <End Type="SPModel.SubjectTypesData" Role="SubjectTypesData" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SubjectType">
+              <PropertyRef Name="SubjectTypeID" />
+            </Principal>
+            <Dependent Role="SubjectTypesData">
+              <PropertyRef Name="SubjectTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -973,10 +973,6 @@
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="Subjects"><EntityTypeMapping TypeName="SPModel.Subject"><MappingFragment StoreEntitySet="Subjects">
             <ScalarProperty Name="SubjectID" ColumnName="SubjectID" />
-            <ScalarProperty Name="Name" ColumnName="Name" />
-          </MappingFragment></EntityTypeMapping></EntitySetMapping>
-          <EntitySetMapping Name="SubjectTypes"><EntityTypeMapping TypeName="SPModel.SubjectType"><MappingFragment StoreEntitySet="SubjectTypes">
-            <ScalarProperty Name="SubjectTypeID" ColumnName="SubjectTypeID" />
             <ScalarProperty Name="Name" ColumnName="Name" />
           </MappingFragment></EntityTypeMapping></EntitySetMapping>
           <EntitySetMapping Name="SubjectTypesDatas"><EntityTypeMapping TypeName="SPModel.SubjectTypesData"><MappingFragment StoreEntitySet="SubjectTypesData">
@@ -1047,6 +1043,14 @@
               <ScalarProperty Name="DepartamentID" ColumnName="DepartamentID" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="SubjectTypes">
+            <EntityTypeMapping TypeName="SPModel.SubjectType">
+              <MappingFragment StoreEntitySet="SubjectTypes">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="SubjectTypeID" ColumnName="SubjectTypeID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -1076,69 +1080,74 @@
         <EntityTypeShape EntityType="SPModel.SpecializationsData" Width="1.5" PointX="3" PointY="14.875" Height="1.9210009765624996" IsExpanded="true" />
         <EntityTypeShape EntityType="SPModel.StudiesType" Width="1.5" PointX="6" PointY="1.875" Height="1.4279589843749996" IsExpanded="true" />
         <EntityTypeShape EntityType="SPModel.Subject" Width="1.5" PointX="3" PointY="17.5" Height="1.427958984374996" IsExpanded="true" />
-        <EntityTypeShape EntityType="SPModel.SubjectType" Width="1.5" PointX="5.25" PointY="15.875" Height="1.4279589843750031" IsExpanded="true" />
         <EntityTypeShape EntityType="SPModel.SubjectTypesData" Width="2" PointX="7.625" PointY="8.75" Height="1.7566536458333388" IsExpanded="true" />
         <EntityTypeShape EntityType="SPModel.User" Width="1.5" PointX="6" PointY="12" Height="2.2496956380208388" IsExpanded="true" />
         <AssociationConnector Association="SPModel.FK_Plans_Faculties" ManuallyRouted="false">
-          <ConnectorPoint PointX="4.5" PointY="5.4901432291666659" />
-          <ConnectorPoint PointX="6.916819254557292" PointY="5.490143229166665" />
-          <ConnectorPoint PointX="7.083485921223958" PointY="5.4901432291666659" />
-          <ConnectorPoint PointX="8.25" PointY="5.4901432291666659" />
+          <ConnectorPoint PointX="4.5" PointY="5.1957334218749995" />
+          <ConnectorPoint PointX="6.4166857401529951" PointY="5.1957334218749986" />
+          <ConnectorPoint PointX="6.5833524068196612" PointY="5.1957334218749995" />
+          <ConnectorPoint PointX="6.9167048136393232" PointY="5.1957334218749986" />
+          <ConnectorPoint PointX="7.0833714803059893" PointY="5.1957334218749995" />
+          <ConnectorPoint PointX="7.729166666666667" PointY="5.1957334218749986" />
+          <ConnectorPoint PointX="7.895833333333333" PointY="5.1957334218749995" />
+          <ConnectorPoint PointX="8.25" PointY="5.1957334218749995" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_Plans_StudiesTypes" ManuallyRouted="false">
-          <ConnectorPoint PointX="7.000152587890625" PointY="3.47068359375" />
-          <ConnectorPoint PointX="7.000152587890625" PointY="6.4860473784057779" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="6.4860473784057771" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="6.4860473784057779" />
-          <ConnectorPoint PointX="8.25" PointY="6.4860473784057779" />
+          <ConnectorPoint PointX="7.0000381469726562" PointY="3.47068359375" />
+          <ConnectorPoint PointX="7.0000381469726562" PointY="6.65125274586843" />
+          <ConnectorPoint PointX="7.729166666666667" PointY="6.6512527458684287" />
+          <ConnectorPoint PointX="7.895833333333333" PointY="6.65125274586843" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="6.6512527458684287" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="6.65125274586843" />
+          <ConnectorPoint PointX="8.25" PointY="6.65125274586843" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_Plans_Users" ManuallyRouted="false">
-          <ConnectorPoint PointX="6.5000762939453125" PointY="12" />
-          <ConnectorPoint PointX="6.5000762939453125" PointY="7.4470772959737221" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="7.4470772959737213" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="7.4470772959737221" />
-          <ConnectorPoint PointX="8.25" PointY="7.4470772959737221" />
+          <ConnectorPoint PointX="6.5000190734863281" PointY="12" />
+          <ConnectorPoint PointX="6.5000190734863281" PointY="4.691614210937499" />
+          <ConnectorPoint PointX="6.9167048136393232" PointY="4.6916142109374981" />
+          <ConnectorPoint PointX="7.0833714803059893" PointY="4.691614210937499" />
+          <ConnectorPoint PointX="7.729166666666667" PointY="4.6916142109374981" />
+          <ConnectorPoint PointX="7.895833333333333" PointY="4.691614210937499" />
+          <ConnectorPoint PointX="8.25" PointY="4.691614210937499" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_Users_Roles" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="13.0889794921875" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="13.0889794921875" />
-          <ConnectorPoint PointX="5.708333333333333" PointY="13.0889794921875" />
-          <ConnectorPoint PointX="6" PointY="13.0889794921875" />
+          <ConnectorPoint PointX="5.25" PointY="13.172841796875" />
+          <ConnectorPoint PointX="6" PointY="13.172841796875" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_SpecializationsData_Specializations" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="15.8389794921875" />
           <ConnectorPoint PointX="3" PointY="15.8389794921875" />
         </AssociationConnector>
-        <AssociationConnector Association="SPModel.FK_SubjectTypesData_SubjectTypes" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.625" PointY="15.875" />
-          <ConnectorPoint PointX="5.625" PointY="9.7401432291666659" />
-          <ConnectorPoint PointX="6.4167429606119795" PointY="9.7401432291666659" />
-          <ConnectorPoint PointX="6.5834096272786455" PointY="9.7401432291666659" />
-          <ConnectorPoint PointX="7.625" PointY="9.7401432291666659" />
-        </AssociationConnector>
         <EntityTypeShape EntityType="SPModel.SubjectsData" Width="1.5" PointX="10.5" PointY="8.25" Height="3.7288216145833388" />
         <AssociationConnector Association="SPModel.FK_SubjectsData_Faculties" >
-          <ConnectorPoint PointX="4.5" PointY="6.0164668437499991" />
-          <ConnectorPoint PointX="6.916819254557292" PointY="6.0164668437499982" />
-          <ConnectorPoint PointX="7.083485921223958" PointY="6.0164668437499991" />
-          <ConnectorPoint PointX="8" PointY="6.0164668437499991" />
+          <ConnectorPoint PointX="4.5" PointY="5.869261940104165" />
+          <ConnectorPoint PointX="6.4166857401529951" PointY="5.8692619401041641" />
+          <ConnectorPoint PointX="6.5833524068196612" PointY="5.869261940104165" />
+          <ConnectorPoint PointX="6.9167048136393232" PointY="5.8692619401041641" />
+          <ConnectorPoint PointX="7.0833714803059893" PointY="5.869261940104165" />
+          <ConnectorPoint PointX="7.729166666666667" PointY="5.8692619401041641" />
+          <ConnectorPoint PointX="7.895833333333333" PointY="5.869261940104165" />
+          <ConnectorPoint PointX="8" PointY="5.869261940104165" />
           <ConnectorPoint PointX="8" PointY="8.5956022135416656" />
           <ConnectorPoint PointX="10.25" PointY="8.5956022135416656" />
           <ConnectorPoint PointX="10.25" PointY="8" />
-          <ConnectorPoint PointX="10.725126688964844" PointY="8" />
-          <ConnectorPoint PointX="10.725126688964844" PointY="8.25" />
+          <ConnectorPoint PointX="10.829718984741211" PointY="8" />
+          <ConnectorPoint PointX="10.829718984741211" PointY="8.25" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_SubjectsData_Semesters" >
-          <ConnectorPoint PointX="4.5" PointY="1.59375" />
-          <ConnectorPoint PointX="11.131378938964843" PointY="1.59375" />
-          <ConnectorPoint PointX="11.131378938964843" PointY="8.25" />
+          <ConnectorPoint PointX="4.5" PointY="3.3552864583333339" />
+          <ConnectorPoint PointX="4.875" PointY="3.7302864583333335" />
+          <ConnectorPoint PointX="6.9167048136393232" PointY="3.7302864583333331" />
+          <ConnectorPoint PointX="7.0833714803059893" PointY="3.7302864583333335" />
+          <ConnectorPoint PointX="7.729166666666667" PointY="3.7302864583333331" />
+          <ConnectorPoint PointX="7.895833333333333" PointY="3.7302864583333335" />
+          <ConnectorPoint PointX="11.235971234741211" PointY="3.7302864583333335" />
+          <ConnectorPoint PointX="11.235971234741211" PointY="8.25" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_SubjectsData_SpecializationsData" >
           <ConnectorPoint PointX="4.5" PointY="15.34375" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="15.34375" />
-          <ConnectorPoint PointX="5.708333333333333" PointY="15.34375" />
-          <ConnectorPoint PointX="10.875" PointY="15.34375" />
-          <ConnectorPoint PointX="10.875" PointY="12.537903645833334" />
+          <ConnectorPoint PointX="10.95312375" PointY="15.34375" />
+          <ConnectorPoint PointX="10.95312375" PointY="12.537903645833334" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_SubjectsData_Subjects" >
           <ConnectorPoint PointX="4.5" PointY="18.297841796875" />
@@ -1151,25 +1160,27 @@
         </AssociationConnector>
         <AssociationConnector Association="SPModel.PlansData" >
           <ConnectorPoint PointX="9.75" PointY="6.125" />
-          <ConnectorPoint PointX="11.04804560563151" PointY="6.1249999999999991" />
-          <ConnectorPoint PointX="11.214712272298177" PointY="6.125" />
-          <ConnectorPoint PointX="11.596941969482423" PointY="6.125" />
-          <ConnectorPoint PointX="11.596941969482423" PointY="8.25" />
+          <ConnectorPoint PointX="11.152637901407877" PointY="6.1249999999999991" />
+          <ConnectorPoint PointX="11.319304568074545" PointY="6.125" />
+          <ConnectorPoint PointX="11.642223484741212" PointY="6.125" />
+          <ConnectorPoint PointX="11.642223484741212" PointY="8.25" />
         </AssociationConnector>
         <EntityTypeShape EntityType="SPModel.Departament" Width="1.5" PointX="0.75" PointY="7.25" Height="2.1725878906250031" />
         <AssociationConnector Association="SPModel.FK_Plans_Departaments" >
-          <ConnectorPoint PointX="2.25" PointY="7.2860386479868611" />
-          <ConnectorPoint PointX="7.916666666666667" PointY="7.28603864798686" />
-          <ConnectorPoint PointX="8.0833333333333339" PointY="7.2860386479868611" />
-          <ConnectorPoint PointX="8.25" PointY="7.2860386479868611" />
+          <ConnectorPoint PointX="2.25" PointY="7.34375" />
+          <ConnectorPoint PointX="6.4166857401529951" PointY="7.3437499999999991" />
+          <ConnectorPoint PointX="6.5833524068196612" PointY="7.34375" />
+          <ConnectorPoint PointX="7.729166666666667" PointY="7.3437499999999991" />
+          <ConnectorPoint PointX="7.895833333333333" PointY="7.34375" />
+          <ConnectorPoint PointX="7.916666666666667" PointY="7.3437499999999991" />
+          <ConnectorPoint PointX="8.0833333333333339" PointY="7.34375" />
+          <ConnectorPoint PointX="8.25" PointY="7.34375" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_SubjectsData_Departaments" >
-          <ConnectorPoint PointX="1.5" PointY="9.422587890625" />
+          <ConnectorPoint PointX="1.5" PointY="9.4225878906250031" />
           <ConnectorPoint PointX="1.5" PointY="11.365143229166666" />
-          <ConnectorPoint PointX="5.541666666666667" PointY="11.365143229166666" />
-          <ConnectorPoint PointX="5.708333333333333" PointY="11.365143229166666" />
-          <ConnectorPoint PointX="6.4167429606119795" PointY="11.365143229166666" />
-          <ConnectorPoint PointX="6.5834096272786455" PointY="11.365143229166666" />
+          <ConnectorPoint PointX="6.4166857401529951" PointY="11.365143229166666" />
+          <ConnectorPoint PointX="6.5833524068196612" PointY="11.365143229166666" />
           <ConnectorPoint PointX="10.5" PointY="11.365143229166666" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FacultiesDepartaments" >
@@ -1180,8 +1191,10 @@
         <EntityTypeShape EntityType="SPModel.Institute" Width="1.5" PointX="3" PointY="7.5" Height="1.7879850260416674" />
         <AssociationConnector Association="SPModel.FK_SubjectsData_Institutes" >
           <ConnectorPoint PointX="4.5" PointY="8.4393522135416656" />
-          <ConnectorPoint PointX="6.4167429606119795" PointY="8.4393522135416656" />
-          <ConnectorPoint PointX="6.5834096272786455" PointY="8.4393522135416656" />
+          <ConnectorPoint PointX="6.4166857401529951" PointY="8.4393522135416656" />
+          <ConnectorPoint PointX="6.5833524068196612" PointY="8.4393522135416656" />
+          <ConnectorPoint PointX="7.729166666666667" PointY="8.4393522135416656" />
+          <ConnectorPoint PointX="7.895833333333333" PointY="8.4393522135416656" />
           <ConnectorPoint PointX="7.916666666666667" PointY="8.4393522135416656" />
           <ConnectorPoint PointX="8.0833333333333339" PointY="8.4393522135416656" />
           <ConnectorPoint PointX="10.166666666666666" PointY="8.4393522135416656" />
@@ -1191,6 +1204,12 @@
         <AssociationConnector Association="SPModel.InstitutesDepartaments" >
           <ConnectorPoint PointX="2.25" PointY="8.3939925130208337" />
           <ConnectorPoint PointX="3" PointY="8.3939925130208337" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SPModel.SubjectType" Width="1.5" PointX="8.375" PointY="0.875" Height="1.5956835937500031" />
+        <AssociationConnector Association="SPModel.FK_SubjectTypesData_SubjectTypes" >
+          <ConnectorPoint PointX="8.375" PointY="1.6728417968750016" />
+          <ConnectorPoint PointX="7.8125" PointY="1.6728417968750016" />
+          <ConnectorPoint PointX="7.8125" PointY="8.75" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

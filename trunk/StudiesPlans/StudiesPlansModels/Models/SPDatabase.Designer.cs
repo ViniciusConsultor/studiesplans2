@@ -23,7 +23,6 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("SPModel", "FK_Plans_Users", "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StudiesPlansModels.Models.User), "Plans", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_Users_Roles", "Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Role), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.User), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_SpecializationsData_Specializations", "Specializations", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Specialization), "SpecializationsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SpecializationsData), true)]
-[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectTypesData_SubjectTypes", "SubjectTypes", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.SubjectType), "SubjectTypesData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectTypesData), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Faculties", "Faculty", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Faculty), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Semesters", "Semester", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Semester), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_SpecializationsData", "SpecializationsData", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StudiesPlansModels.Models.SpecializationsData), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
@@ -35,6 +34,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("SPModel", "FacultiesDepartaments", "Departament", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Departament), "Faculty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Faculty))]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Institutes", "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Institute), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "InstitutesDepartaments", "Departament", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Departament), "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Institute))]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectTypesData_SubjectTypes", "SubjectType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.SubjectType), "SubjectTypesData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectTypesData), true)]
 
 #endregion
 
@@ -217,22 +217,6 @@ namespace StudiesPlansModels.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<SubjectType> SubjectTypes
-        {
-            get
-            {
-                if ((_SubjectTypes == null))
-                {
-                    _SubjectTypes = base.CreateObjectSet<SubjectType>("SubjectTypes");
-                }
-                return _SubjectTypes;
-            }
-        }
-        private ObjectSet<SubjectType> _SubjectTypes;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<SubjectTypesData> SubjectTypesDatas
         {
             get
@@ -309,6 +293,22 @@ namespace StudiesPlansModels.Models
             }
         }
         private ObjectSet<Institute> _Institutes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<SubjectType> SubjectTypes
+        {
+            get
+            {
+                if ((_SubjectTypes == null))
+                {
+                    _SubjectTypes = base.CreateObjectSet<SubjectType>("SubjectTypes");
+                }
+                return _SubjectTypes;
+            }
+        }
+        private ObjectSet<SubjectType> _SubjectTypes;
 
         #endregion
         #region AddTo Methods
@@ -378,14 +378,6 @@ namespace StudiesPlansModels.Models
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the SubjectTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToSubjectTypes(SubjectType subjectType)
-        {
-            base.AddObject("SubjectTypes", subjectType);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the SubjectTypesDatas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToSubjectTypesDatas(SubjectTypesData subjectTypesData)
@@ -423,6 +415,14 @@ namespace StudiesPlansModels.Models
         public void AddToInstitutes(Institute institute)
         {
             base.AddObject("Institutes", institute);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SubjectTypes EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSubjectTypes(SubjectType subjectType)
+        {
+            base.AddObject("SubjectTypes", subjectType);
         }
 
         #endregion
@@ -2907,44 +2907,6 @@ namespace StudiesPlansModels.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectTypesData_SubjectTypes", "SubjectTypes")]
-        public SubjectType SubjectType
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SubjectType>("SPModel.FK_SubjectTypesData_SubjectTypes", "SubjectTypes").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SubjectType>("SPModel.FK_SubjectTypesData_SubjectTypes", "SubjectTypes").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<SubjectType> SubjectTypeReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SubjectType>("SPModel.FK_SubjectTypesData_SubjectTypes", "SubjectTypes");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SubjectType>("SPModel.FK_SubjectTypesData_SubjectTypes", "SubjectTypes", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectTypesData_SubjectsData", "SubjectsData")]
         public SubjectsData SubjectsData
         {
@@ -2973,6 +2935,44 @@ namespace StudiesPlansModels.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SubjectsData>("SPModel.FK_SubjectTypesData_SubjectsData", "SubjectsData", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectTypesData_SubjectTypes", "SubjectType")]
+        public SubjectType SubjectType
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SubjectType>("SPModel.FK_SubjectTypesData_SubjectTypes", "SubjectType").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SubjectType>("SPModel.FK_SubjectTypesData_SubjectTypes", "SubjectType").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<SubjectType> SubjectTypeReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SubjectType>("SPModel.FK_SubjectTypesData_SubjectTypes", "SubjectType");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SubjectType>("SPModel.FK_SubjectTypesData_SubjectTypes", "SubjectType", value);
                 }
             }
         }
