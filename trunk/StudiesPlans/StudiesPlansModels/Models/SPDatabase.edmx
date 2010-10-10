@@ -13,7 +13,9 @@
           <EntitySet Name="InstitutesDepartaments" EntityType="SPModel.Store.InstitutesDepartaments" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Plans" EntityType="SPModel.Store.Plans" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="PlansData" EntityType="SPModel.Store.PlansData" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Privilages" EntityType="SPModel.Store.Privilages" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Roles" EntityType="SPModel.Store.Roles" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="RolesPrivilages" EntityType="SPModel.Store.RolesPrivilages" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Semesters" EntityType="SPModel.Store.Semesters" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Specializations" EntityType="SPModel.Store.Specializations" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="SpecializationsData" EntityType="SPModel.Store.SpecializationsData" store:Type="Tables" Schema="dbo" />
@@ -62,6 +64,14 @@
           <AssociationSet Name="FK_PlansData_SubjectsData" Association="SPModel.Store.FK_PlansData_SubjectsData">
             <End Role="SubjectsData" EntitySet="SubjectsData" />
             <End Role="PlansData" EntitySet="PlansData" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolesPrivilages_Privilages" Association="SPModel.Store.FK_RolesPrivilages_Privilages">
+            <End Role="Privilages" EntitySet="Privilages" />
+            <End Role="RolesPrivilages" EntitySet="RolesPrivilages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolesPrivilages_Roles" Association="SPModel.Store.FK_RolesPrivilages_Roles">
+            <End Role="Roles" EntitySet="Roles" />
+            <End Role="RolesPrivilages" EntitySet="RolesPrivilages" />
           </AssociationSet>
           <AssociationSet Name="FK_SpecializationsData_Specializations" Association="SPModel.Store.FK_SpecializationsData_Specializations">
             <End Role="Specializations" EntitySet="Specializations" />
@@ -165,12 +175,27 @@
           <Property Name="PlanID" Type="int" Nullable="false" />
           <Property Name="SubjectDataID" Type="int" Nullable="false" />
         </EntityType>
+        <EntityType Name="Privilages">
+          <Key>
+            <PropertyRef Name="PrivilageID" />
+          </Key>
+          <Property Name="PrivilageID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
         <EntityType Name="Roles">
           <Key>
             <PropertyRef Name="RoleID" />
           </Key>
           <Property Name="RoleID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="RolesPrivilages">
+          <Key>
+            <PropertyRef Name="RoleID" />
+            <PropertyRef Name="PrivilageID" />
+          </Key>
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="PrivilageID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Semesters">
           <Key>
@@ -371,6 +396,30 @@
             </Principal>
             <Dependent Role="PlansData">
               <PropertyRef Name="SubjectDataID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolesPrivilages_Privilages">
+          <End Role="Privilages" Type="SPModel.Store.Privilages" Multiplicity="1" />
+          <End Role="RolesPrivilages" Type="SPModel.Store.RolesPrivilages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Privilages">
+              <PropertyRef Name="PrivilageID" />
+            </Principal>
+            <Dependent Role="RolesPrivilages">
+              <PropertyRef Name="PrivilageID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolesPrivilages_Roles">
+          <End Role="Roles" Type="SPModel.Store.Roles" Multiplicity="1" />
+          <End Role="RolesPrivilages" Type="SPModel.Store.RolesPrivilages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Roles">
+              <PropertyRef Name="RoleID" />
+            </Principal>
+            <Dependent Role="RolesPrivilages">
+              <PropertyRef Name="RoleID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -585,6 +634,11 @@
             <End Role="SubjectType" EntitySet="SubjectTypes" />
             <End Role="SubjectTypesData" EntitySet="SubjectTypesDatas" />
           </AssociationSet>
+          <EntitySet Name="Privilages" EntityType="SPModel.Privilage" />
+          <AssociationSet Name="RolesPrivilages" Association="SPModel.RolesPrivilages">
+            <End Role="Privilage" EntitySet="Privilages" />
+            <End Role="Role" EntitySet="Roles" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Faculty">
           <Key>
@@ -624,6 +678,7 @@
           <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
           <NavigationProperty Name="Users" Relationship="SPModel.FK_Users_Roles" FromRole="Roles" ToRole="Users" />
+          <NavigationProperty Name="Privilages" Relationship="SPModel.RolesPrivilages" FromRole="Role" ToRole="Privilage" />
         </EntityType>
         <EntityType Name="Semester">
           <Key>
@@ -924,6 +979,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Privilage">
+          <Key>
+            <PropertyRef Name="PrivilageID" />
+          </Key>
+          <Property Type="Int32" Name="PrivilageID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Roles" Relationship="SPModel.RolesPrivilages" FromRole="Privilage" ToRole="Role" />
+        </EntityType>
+        <Association Name="RolesPrivilages">
+          <End Type="SPModel.Privilage" Role="Privilage" Multiplicity="*" />
+          <End Type="SPModel.Role" Role="Role" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1051,7 +1118,23 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          <EntitySetMapping Name="Privilages">
+            <EntityTypeMapping TypeName="SPModel.Privilage">
+              <MappingFragment StoreEntitySet="Privilages">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="PrivilageID" ColumnName="PrivilageID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="RolesPrivilages" TypeName="SPModel.RolesPrivilages" StoreEntitySet="RolesPrivilages">
+            <EndProperty Name="Role">
+              <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+            </EndProperty>
+            <EndProperty Name="Privilage">
+              <ScalarProperty Name="PrivilageID" ColumnName="PrivilageID" />
+            </EndProperty>
+          </AssociationSetMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>
@@ -1111,8 +1194,8 @@
           <ConnectorPoint PointX="8.25" PointY="4.691614210937499" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_Users_Roles" ManuallyRouted="false">
-          <ConnectorPoint PointX="5.25" PointY="13.172841796875" />
-          <ConnectorPoint PointX="6" PointY="13.172841796875" />
+          <ConnectorPoint PointX="5.25" PointY="13.268992513020834" />
+          <ConnectorPoint PointX="6" PointY="13.268992513020834" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_SpecializationsData_Specializations" ManuallyRouted="false">
           <ConnectorPoint PointX="2.25" PointY="15.8389794921875" />
@@ -1210,6 +1293,11 @@
           <ConnectorPoint PointX="8.375" PointY="1.6728417968750016" />
           <ConnectorPoint PointX="7.8125" PointY="1.6728417968750016" />
           <ConnectorPoint PointX="7.8125" PointY="8.75" />
+        </AssociationConnector>
+        <EntityTypeShape EntityType="SPModel.Privilage" Width="1.5" PointX="1.5" PointY="12.5" Height="1.5956835937500031" />
+        <AssociationConnector Association="SPModel.RolesPrivilages" >
+          <ConnectorPoint PointX="3" PointY="13.297841796875002" />
+          <ConnectorPoint PointX="3.75" PointY="13.297841796875002" />
         </AssociationConnector>
       </Diagram>
     </Diagrams>

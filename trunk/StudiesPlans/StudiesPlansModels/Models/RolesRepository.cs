@@ -28,6 +28,12 @@ namespace StudiesPlansModels.Models
                     select r);
         }
 
+        public IEnumerable<Privilage> ListPrivilages()
+        {
+            return (from Privilage p in SPDatabase.DB.Privilages
+                    select p);
+        }
+
         public void AddRole(NewRole role)
         {
             if (role != null)
@@ -36,6 +42,12 @@ namespace StudiesPlansModels.Models
                 {
                     Name = role.RoleName
                 };
+
+                foreach (Privilage p in role.Privilages)
+                {
+                    r.Privilages.Add(p);
+                }
+
                 SPDatabase.DB.Roles.AddObject(r);
                 SPDatabase.DB.SaveChanges();
             }
@@ -63,11 +75,18 @@ namespace StudiesPlansModels.Models
             }
         }
 
-        private Role GetRole(int roleId)
+        public Role GetRole(int roleId)
         {
             return (from Role r in SPDatabase.DB.Roles
                     where r.RoleID == roleId
                     select r).FirstOrDefault();
+        }
+
+        public Privilage GetPrivilage(string name)
+        {
+            return (from Privilage p in SPDatabase.DB.Privilages
+                    where string.Compare(p.Name, name, true) == 0
+                    select p).FirstOrDefault();
         }
     }
 }

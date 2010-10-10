@@ -64,7 +64,8 @@ namespace StudiesPlans.Controllers
                 RoleEdit role = new RoleEdit()
                 {
                     RoleID = r.RoleID,
-                    RoleName = r.Name
+                    RoleName = r.Name,
+                    Privilages = r.Privilages
                 };
                 return role;
             }
@@ -87,16 +88,32 @@ namespace StudiesPlans.Controllers
             if (role != null)
             {
                 Role r = this.repository.GetRole(role.RoleName);
-                if (r != null)
+                if (r != null && r.RoleID != role.RoleID && r.Name.Equals(role.RoleName))
                     role.AddError("Rola o podanej\nnazwie już istnieje");
                 if (role.IsValid)
                 {
+                    r = this.repository.GetRole(role.RoleID);
+                    r.Name = role.RoleName;
+                    r.Privilages.Clear();
+                    foreach (Privilage p in role.Privilages)
+                        r.Privilages.Add(p);
+
                     this.repository.EditRole(role);
                     return true;
                 }
                 return false;
             }
             return false;
+        }
+
+        public IEnumerable<Privilage> ListPrivilages()
+        {
+            return this.repository.ListPrivilages();
+        }
+
+        public Privilage GetPrivilage(string name)
+        {
+            return this.repository.GetPrivilage(name);
         }
     }
 }
