@@ -35,6 +35,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Institutes", "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Institute), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "InstitutesDepartaments", "Departament", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Departament), "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Institute))]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectTypesData_SubjectTypes", "SubjectType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.SubjectType), "SubjectTypesData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectTypesData), true)]
+[assembly: EdmRelationshipAttribute("SPModel", "RolesPrivilages", "Privilage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Privilage), "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Role))]
 
 #endregion
 
@@ -309,6 +310,22 @@ namespace StudiesPlansModels.Models
             }
         }
         private ObjectSet<SubjectType> _SubjectTypes;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Privilage> Privilages
+        {
+            get
+            {
+                if ((_Privilages == null))
+                {
+                    _Privilages = base.CreateObjectSet<Privilage>("Privilages");
+                }
+                return _Privilages;
+            }
+        }
+        private ObjectSet<Privilage> _Privilages;
 
         #endregion
         #region AddTo Methods
@@ -423,6 +440,14 @@ namespace StudiesPlansModels.Models
         public void AddToSubjectTypes(SubjectType subjectType)
         {
             base.AddObject("SubjectTypes", subjectType);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Privilages EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToPrivilages(Privilage privilage)
+        {
+            base.AddObject("Privilages", privilage);
         }
 
         #endregion
@@ -1374,6 +1399,112 @@ namespace StudiesPlansModels.Models
     /// <summary>
     /// No Metadata Documentation available.
     /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SPModel", Name="Privilage")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Privilage : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Privilage object.
+        /// </summary>
+        /// <param name="privilageID">Initial value of the PrivilageID property.</param>
+        /// <param name="name">Initial value of the Name property.</param>
+        public static Privilage CreatePrivilage(global::System.Int32 privilageID, global::System.String name)
+        {
+            Privilage privilage = new Privilage();
+            privilage.PrivilageID = privilageID;
+            privilage.Name = name;
+            return privilage;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PrivilageID
+        {
+            get
+            {
+                return _PrivilageID;
+            }
+            set
+            {
+                if (_PrivilageID != value)
+                {
+                    OnPrivilageIDChanging(value);
+                    ReportPropertyChanging("PrivilageID");
+                    _PrivilageID = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("PrivilageID");
+                    OnPrivilageIDChanged();
+                }
+            }
+        }
+        private global::System.Int32 _PrivilageID;
+        partial void OnPrivilageIDChanging(global::System.Int32 value);
+        partial void OnPrivilageIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Name
+        {
+            get
+            {
+                return _Name;
+            }
+            set
+            {
+                OnNameChanging(value);
+                ReportPropertyChanging("Name");
+                _Name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Name");
+                OnNameChanged();
+            }
+        }
+        private global::System.String _Name;
+        partial void OnNameChanging(global::System.String value);
+        partial void OnNameChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "RolesPrivilages", "Role")]
+        public EntityCollection<Role> Roles
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Role>("SPModel.RolesPrivilages", "Role");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Role>("SPModel.RolesPrivilages", "Role", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
     [EdmEntityTypeAttribute(NamespaceName="SPModel", Name="Role")]
     [Serializable()]
     [DataContractAttribute(IsReference=true)]
@@ -1470,6 +1601,28 @@ namespace StudiesPlansModels.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("SPModel.FK_Users_Roles", "Users", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "RolesPrivilages", "Privilage")]
+        public EntityCollection<Privilage> Privilages
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Privilage>("SPModel.RolesPrivilages", "Privilage");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Privilage>("SPModel.RolesPrivilages", "Privilage", value);
                 }
             }
         }

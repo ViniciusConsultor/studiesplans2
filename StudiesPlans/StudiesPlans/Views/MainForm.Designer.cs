@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -41,7 +41,7 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oProgramieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pages = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.subjects = new System.Windows.Forms.TabPage();
             this.reload = new System.Windows.Forms.Button();
             this.gridSubjects = new System.Windows.Forms.DataGridView();
             this.name = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,10 +49,10 @@
             this.semester = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.faculty = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.departament = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.plancreate = new System.Windows.Forms.TabPage();
+            this.review = new System.Windows.Forms.TabPage();
+            this.archive = new System.Windows.Forms.TabPage();
+            this.users = new System.Windows.Forms.TabPage();
             this.gbUsers = new System.Windows.Forms.GroupBox();
             this.btnRolesMngmt = new System.Windows.Forms.Button();
             this.btnCancelEdit = new System.Windows.Forms.Button();
@@ -88,14 +88,14 @@
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             this.pages.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.subjects.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridSubjects)).BeginInit();
-            this.tabPage5.SuspendLayout();
+            this.users.SuspendLayout();
             this.gbUsers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridUsers)).BeginInit();
             this.toolStrip1.SuspendLayout();
@@ -149,11 +149,11 @@
             // pages
             // 
             this.pages.Alignment = System.Windows.Forms.TabAlignment.Left;
-            this.pages.Controls.Add(this.tabPage1);
-            this.pages.Controls.Add(this.tabPage2);
-            this.pages.Controls.Add(this.tabPage3);
-            this.pages.Controls.Add(this.tabPage4);
-            this.pages.Controls.Add(this.tabPage5);
+            this.pages.Controls.Add(this.subjects);
+            this.pages.Controls.Add(this.plancreate);
+            this.pages.Controls.Add(this.review);
+            this.pages.Controls.Add(this.archive);
+            this.pages.Controls.Add(this.users);
             this.pages.DrawMode = System.Windows.Forms.TabDrawMode.OwnerDrawFixed;
             this.pages.ItemSize = new System.Drawing.Size(40, 100);
             this.pages.Location = new System.Drawing.Point(0, 52);
@@ -166,17 +166,17 @@
             this.pages.DrawItem += new System.Windows.Forms.DrawItemEventHandler(this.tabControl_DrawItem);
             this.pages.SelectedIndexChanged += new System.EventHandler(this.pages_SelectedIndexChanged);
             // 
-            // tabPage1
+            // subjects
             // 
-            this.tabPage1.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage1.Controls.Add(this.reload);
-            this.tabPage1.Controls.Add(this.gridSubjects);
-            this.tabPage1.Location = new System.Drawing.Point(104, 4);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(725, 527);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Przedmioty";
+            this.subjects.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.subjects.Controls.Add(this.reload);
+            this.subjects.Controls.Add(this.gridSubjects);
+            this.subjects.Location = new System.Drawing.Point(104, 4);
+            this.subjects.Name = "subjects";
+            this.subjects.Padding = new System.Windows.Forms.Padding(3);
+            this.subjects.Size = new System.Drawing.Size(725, 527);
+            this.subjects.TabIndex = 0;
+            this.subjects.Text = "Przedmioty";
             // 
             // reload
             // 
@@ -194,14 +194,14 @@
             this.gridSubjects.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.gridSubjects.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridSubjects.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridSubjects.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.gridSubjects.ColumnHeadersHeight = 25;
             this.gridSubjects.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.name,
@@ -209,14 +209,14 @@
             this.semester,
             this.faculty,
             this.departament});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.Lavender;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridSubjects.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridSubjects.DefaultCellStyle = dataGridViewCellStyle2;
             this.gridSubjects.GridColor = System.Drawing.Color.Black;
             this.gridSubjects.Location = new System.Drawing.Point(6, 5);
             this.gridSubjects.MultiSelect = false;
@@ -257,44 +257,44 @@
             this.departament.Name = "departament";
             this.departament.ReadOnly = true;
             // 
-            // tabPage2
+            // plancreate
             // 
-            this.tabPage2.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage2.Location = new System.Drawing.Point(104, 4);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(725, 527);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Tworzenie planu";
+            this.plancreate.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.plancreate.Location = new System.Drawing.Point(104, 4);
+            this.plancreate.Name = "plancreate";
+            this.plancreate.Padding = new System.Windows.Forms.Padding(3);
+            this.plancreate.Size = new System.Drawing.Size(725, 527);
+            this.plancreate.TabIndex = 1;
+            this.plancreate.Text = "Tworzenie planu";
             // 
-            // tabPage3
+            // review
             // 
-            this.tabPage3.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage3.Location = new System.Drawing.Point(104, 4);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(725, 527);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Podgląd planu";
+            this.review.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.review.Location = new System.Drawing.Point(104, 4);
+            this.review.Name = "review";
+            this.review.Size = new System.Drawing.Size(725, 527);
+            this.review.TabIndex = 2;
+            this.review.Text = "Podgląd planu";
             // 
-            // tabPage4
+            // archive
             // 
-            this.tabPage4.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage4.Location = new System.Drawing.Point(104, 4);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(725, 527);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Archiwum";
+            this.archive.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.archive.Location = new System.Drawing.Point(104, 4);
+            this.archive.Name = "archive";
+            this.archive.Size = new System.Drawing.Size(725, 527);
+            this.archive.TabIndex = 3;
+            this.archive.Text = "Archiwum";
             // 
-            // tabPage5
+            // users
             // 
-            this.tabPage5.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.tabPage5.Controls.Add(this.gbUsers);
-            this.tabPage5.Controls.Add(this.gridUsers);
-            this.tabPage5.Location = new System.Drawing.Point(104, 4);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(725, 527);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Użytkownicy";
+            this.users.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.users.Controls.Add(this.gbUsers);
+            this.users.Controls.Add(this.gridUsers);
+            this.users.Location = new System.Drawing.Point(104, 4);
+            this.users.Name = "users";
+            this.users.Size = new System.Drawing.Size(725, 527);
+            this.users.TabIndex = 4;
+            this.users.Text = "Użytkownicy";
             // 
             // gbUsers
             // 
@@ -471,14 +471,14 @@
             this.gridUsers.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
             this.gridUsers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.gridUsers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.gridUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.gridUsers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.gridUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.gridUsers.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.username,
@@ -487,14 +487,14 @@
             this.role,
             this.edit,
             this.Column1});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.Lavender;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.gridUsers.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.Lavender;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.CornflowerBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.gridUsers.DefaultCellStyle = dataGridViewCellStyle4;
             this.gridUsers.GridColor = System.Drawing.Color.Black;
             this.gridUsers.Location = new System.Drawing.Point(3, 8);
             this.gridUsers.MultiSelect = false;
@@ -651,6 +651,16 @@
             this.toolStripButton3.Text = "toolStripButton3";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // toolStripButton4
+            // 
+            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
+            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton4.Name = "toolStripButton4";
+            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton4.Text = "toolStripButton4";
+            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "";
@@ -669,16 +679,6 @@
             this.dataGridViewImageColumn2.ReadOnly = true;
             this.dataGridViewImageColumn2.Width = 22;
             // 
-            // toolStripButton4
-            // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButton4.Text = "toolStripButton4";
-            this.toolStripButton4.Click += new System.EventHandler(this.toolStripButton4_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -696,9 +696,9 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.pages.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.subjects.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridSubjects)).EndInit();
-            this.tabPage5.ResumeLayout(false);
+            this.users.ResumeLayout(false);
             this.gbUsers.ResumeLayout(false);
             this.gbUsers.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridUsers)).EndInit();
@@ -717,12 +717,12 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem oProgramieToolStripMenuItem;
         private System.Windows.Forms.TabControl pages;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage subjects;
+        private System.Windows.Forms.TabPage plancreate;
         private System.Windows.Forms.Timer timer;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage review;
+        private System.Windows.Forms.TabPage archive;
+        private System.Windows.Forms.TabPage users;
         private System.Windows.Forms.DataGridView gridUsers;
         private System.Windows.Forms.GroupBox gbUsers;
         private System.Windows.Forms.DataGridViewTextBoxColumn username;

@@ -21,6 +21,7 @@ namespace StudiesPlans.Views
         {
             InitializeComponent();
             FillWithRoles();
+            FillWithPrivilages();
             Clear();
         }
 
@@ -35,10 +36,22 @@ namespace StudiesPlans.Views
             }
         }
 
+        private void FillWithPrivilages()
+        {
+            clbPrivilages.Items.Clear();
+            IEnumerable<Privilage> privilages = RoleController.Instance.ListPrivilages();
+            if (privilages != null)
+                foreach (Privilage p in privilages)
+                    clbPrivilages.Items.Add(p.Name);
+        }
+
         private void Clear()
         {
             lblValidation.Text = string.Empty;
             tbNewRoleName.Text = string.Empty;
+            clbPrivilages.ClearSelected();
+            for (int i = 0; i < clbPrivilages.Items.Count; i++)
+                clbPrivilages.SetItemChecked(i, false);
         }
 
         private void btnAddRole_Click(object sender, EventArgs e)
@@ -47,6 +60,22 @@ namespace StudiesPlans.Views
             {
                 RoleName = tbNewRoleName.Text
             };
+
+            List<string> list = clbPrivilages.CheckedItems.Cast<string>().ToList<string>();
+            if (list != null && list.Count > 0)
+            {
+                List<Privilage> privilages = new List<Privilage>();
+                foreach (string name in list)
+                {
+                    Privilage p = RoleController.Instance.GetPrivilage(name);
+                    if (p != null)
+                        privilages.Add(p);
+                }
+                role.Privilages = privilages.AsEnumerable();
+            }
+            else
+                role.Privilages = null;
+
             if (!RoleController.Instance.AddRole(role))
             {
                 string errors = string.Empty;
@@ -66,20 +95,40 @@ namespace StudiesPlans.Views
 
         private void listRoles_DoubleClick(object sender, EventArgs e)
         {
-            RoleEdit role = RoleController.Instance.GetRoleEdit(listRoles.SelectedItem.ToString());
-            if (role != null)
+            if (listRoles.SelectedIndex >= 0)
             {
-                roleToEdit = role;
-                btnAddRole.Enabled = false;
-                btnCancel.Enabled = true;
-                btnDeleteRole.Enabled = true;
-                btnUpdate.Enabled = true;
-                tbNewRoleName.Text = role.RoleName;
-            }
-            else
-            {
-                lblValidation.Text = "Rola nie istnieje";
-                roleToEdit = null;
+                RoleEdit role = RoleController.Instance.GetRoleEdit(listRoles.SelectedItem.ToString());
+                if (role != null)
+                {
+                    roleToEdit = role;
+                    btnAddRole.Enabled = false;
+                    btnCancel.Enabled = true;
+                    btnDeleteRole.Enabled = true;
+                    btnUpdate.Enabled = true;
+                    tbNewRoleName.Text = role.RoleName;
+
+                    for (int i = 0; i < clbPrivilages.Items.Count; i++)
+                        clbPrivilages.SetItemChecked(i, false);
+
+                    if (role.Privilages != null)
+                    {
+                        foreach (Privilage p in role.Privilages)
+                        {
+                            for (int i = 0; i < clbPrivilages.Items.Count; i++)
+                                if (p.Name.Equals(clbPrivilages.Items[i].ToString()))
+                                {
+                                    clbPrivilages.SetItemChecked(i, true);
+                                    break;
+                                }
+                        }
+                    }
+
+                }
+                else
+                {
+                    lblValidation.Text = "Rola nie istnieje";
+                    roleToEdit = null;
+                }
             }
         }
 
@@ -121,6 +170,22 @@ namespace StudiesPlans.Views
             if (roleToEdit != null)
             {
                 roleToEdit.RoleName = tbNewRoleName.Text;
+
+                List<string> list = clbPrivilages.CheckedItems.Cast<string>().ToList<string>();
+                if (list != null && list.Count > 0)
+                {
+                    List<Privilage> privilages = new List<Privilage>();
+                    foreach (string name in list)
+                    {
+                        Privilage p = RoleController.Instance.GetPrivilage(name);
+                        if (p != null)
+                            privilages.Add(p);
+                    }
+                    roleToEdit.Privilages = privilages.AsEnumerable();
+                }
+                else
+                    roleToEdit.Privilages = null;
+
                 if (!RoleController.Instance.EditRole(roleToEdit))
                 {
                     string errors = string.Empty;

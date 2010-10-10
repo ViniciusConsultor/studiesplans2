@@ -57,5 +57,10 @@ namespace StudiesPlans.Controllers
                 SPDatabase.DB.SaveChanges();
             }
         }
+
+        public User GetUser(UserLogin login)
+        {
+            return this.repository.GetUser(login.UserName, login.Password);
+        }
     }
 }

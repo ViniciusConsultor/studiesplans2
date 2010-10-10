@@ -16,9 +16,40 @@ namespace StudiesPlans
     public partial class MainForm : Form
     {
         UserEdit userToEdit = null;
-        public MainForm()
+        public MainForm(User user)
         {
             InitializeComponent();
+            pages.TabPages.Remove(subjects);
+            pages.TabPages.Remove(plancreate);
+            pages.TabPages.Remove(review);
+            pages.TabPages.Remove(archive);
+            pages.TabPages.Remove(users);
+            ManageUsers(user);
+        }
+
+        private void ManageUsers(User user)
+        {
+            bool wasPlan = false;
+            for(int i = 0; i < user.Role.Privilages.Count(); i++)
+            {
+                if (user.Role.Privilages.ElementAt(i).Name.Equals("Edycja"))
+                {
+                    pages.TabPages.Add(subjects);
+                    if (wasPlan == false)
+                    {
+                        pages.TabPages.Add(plancreate);
+                        wasPlan = true;
+                    }
+                }
+                if (user.Role.Privilages.ElementAt(i).Name.Equals("Recenzowanie") && wasPlan == false)
+                    pages.TabPages.Add(plancreate);
+                if (user.Role.Privilages.ElementAt(i).Name.Equals("Przeglądanie"))
+                    pages.TabPages.Add(review);
+                if (user.Role.Privilages.ElementAt(i).Name.Equals("Archiwizacja"))
+                    pages.TabPages.Add(archive);
+                if (user.Role.Privilages.ElementAt(i).Name.Equals("Użytkownicy"))
+                    pages.TabPages.Add(users);
+            }
         }
 
         private void helpToolStripMenuItem_Click(object sender, EventArgs e)

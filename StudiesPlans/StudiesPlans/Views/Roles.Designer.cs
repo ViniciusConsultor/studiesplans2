@@ -37,6 +37,8 @@
             this.lblValidation = new System.Windows.Forms.Label();
             this.tbNewRoleName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.clbPrivilages = new System.Windows.Forms.CheckedListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,12 +47,14 @@
             this.listRoles.FormattingEnabled = true;
             this.listRoles.Location = new System.Drawing.Point(12, 12);
             this.listRoles.Name = "listRoles";
-            this.listRoles.Size = new System.Drawing.Size(140, 186);
+            this.listRoles.Size = new System.Drawing.Size(140, 264);
             this.listRoles.TabIndex = 0;
             this.listRoles.DoubleClick += new System.EventHandler(this.listRoles_DoubleClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.clbPrivilages);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.btnDeleteRole);
             this.groupBox1.Controls.Add(this.btnCancel);
             this.groupBox1.Controls.Add(this.btnUpdate);
@@ -60,7 +64,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(158, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(238, 186);
+            this.groupBox1.Size = new System.Drawing.Size(238, 264);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zarządzanie";
@@ -68,7 +72,7 @@
             // btnDeleteRole
             // 
             this.btnDeleteRole.Enabled = false;
-            this.btnDeleteRole.Location = new System.Drawing.Point(180, 157);
+            this.btnDeleteRole.Location = new System.Drawing.Point(180, 235);
             this.btnDeleteRole.Name = "btnDeleteRole";
             this.btnDeleteRole.Size = new System.Drawing.Size(50, 23);
             this.btnDeleteRole.TabIndex = 6;
@@ -79,7 +83,7 @@
             // btnCancel
             // 
             this.btnCancel.Enabled = false;
-            this.btnCancel.Location = new System.Drawing.Point(66, 157);
+            this.btnCancel.Location = new System.Drawing.Point(66, 235);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(52, 23);
             this.btnCancel.TabIndex = 5;
@@ -90,7 +94,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(124, 157);
+            this.btnUpdate.Location = new System.Drawing.Point(124, 235);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(50, 23);
             this.btnUpdate.TabIndex = 4;
@@ -100,7 +104,7 @@
             // 
             // btnAddRole
             // 
-            this.btnAddRole.Location = new System.Drawing.Point(6, 157);
+            this.btnAddRole.Location = new System.Drawing.Point(6, 235);
             this.btnAddRole.Name = "btnAddRole";
             this.btnAddRole.Size = new System.Drawing.Size(54, 23);
             this.btnAddRole.TabIndex = 3;
@@ -111,7 +115,7 @@
             // lblValidation
             // 
             this.lblValidation.AutoSize = true;
-            this.lblValidation.Location = new System.Drawing.Point(6, 56);
+            this.lblValidation.Location = new System.Drawing.Point(7, 162);
             this.lblValidation.Name = "lblValidation";
             this.lblValidation.Size = new System.Drawing.Size(35, 13);
             this.lblValidation.TabIndex = 2;
@@ -119,9 +123,9 @@
             // 
             // tbNewRoleName
             // 
-            this.tbNewRoleName.Location = new System.Drawing.Point(71, 22);
+            this.tbNewRoleName.Location = new System.Drawing.Point(82, 22);
             this.tbNewRoleName.Name = "tbNewRoleName";
-            this.tbNewRoleName.Size = new System.Drawing.Size(159, 20);
+            this.tbNewRoleName.Size = new System.Drawing.Size(148, 20);
             this.tbNewRoleName.TabIndex = 1;
             // 
             // label1
@@ -133,11 +137,28 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Nazwa roli:";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "Uprawnienia:";
+            // 
+            // clbPrivilages
+            // 
+            this.clbPrivilages.FormattingEnabled = true;
+            this.clbPrivilages.Location = new System.Drawing.Point(82, 48);
+            this.clbPrivilages.Name = "clbPrivilages";
+            this.clbPrivilages.Size = new System.Drawing.Size(148, 109);
+            this.clbPrivilages.TabIndex = 8;
+            // 
             // Roles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 211);
+            this.ClientSize = new System.Drawing.Size(408, 289);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listRoles);
             this.Name = "Roles";
@@ -160,5 +181,7 @@
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnAddRole;
         private System.Windows.Forms.Button btnDeleteRole;
+        private System.Windows.Forms.CheckedListBox clbPrivilages;
+        private System.Windows.Forms.Label label2;
     }
 }

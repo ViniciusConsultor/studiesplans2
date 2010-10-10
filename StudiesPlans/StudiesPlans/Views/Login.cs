@@ -42,7 +42,7 @@ namespace StudiesPlans.Views
 
                 //set new last login time
                 AccountController.Instance.UpdateLastActiveUser(updateActive);
-
+                StudiesPlans.Program.user = AccountController.Instance.GetUser(login);
                 this.DialogResult = DialogResult.OK;
             }
             else // if user is not valid show errors
