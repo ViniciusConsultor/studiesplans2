@@ -57,17 +57,29 @@
     <Compile Include="Models\Interfaces\IFacultiesRepository.cs" />
     <Compile Include="Models\Interfaces\IInstitutesRepository.cs" />
     <Compile Include="Models\Interfaces\IRolesRepository.cs" />
+    <Compile Include="Models\Interfaces\ISemestersRepository.cs" />
+    <Compile Include="Models\Interfaces\ISpecializationsRepository.cs" />
+    <Compile Include="Models\Interfaces\IStudiesTypesRepository.cs" />
     <Compile Include="Models\Interfaces\ISubjectsRepository.cs" />
+    <Compile Include="Models\Interfaces\ISubjectTypesRepository.cs" />
     <Compile Include="Models\Interfaces\IUsersRepository.cs" />
     <Compile Include="Models\RoleModels.cs" />
     <Compile Include="Models\RolesRepository.cs" />
+    <Compile Include="Models\SemesterModels.cs" />
+    <Compile Include="Models\SemestersRepository.cs" />
     <Compile Include="Models\SPDatabase.cs" />
     <Compile Include="Models\SPDatabase.Designer.cs">
       <DependentUpon>SPDatabase.edmx</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Models\SpecializationModels.cs" />
+    <Compile Include="Models\SpecializationsRepository.cs" />
+    <Compile Include="Models\StudiesTypeModels.cs" />
+    <Compile Include="Models\StudiesTypesRepository.cs" />
     <Compile Include="Models\SubjectsRepository.cs" />
+    <Compile Include="Models\SubjectTypeModels.cs" />
+    <Compile Include="Models\SubjectTypesRepository.cs" />
     <Compile Include="Models\UserModels.cs" />
     <Compile Include="Models\UsersRepository.cs" />
     <Compile Include="Models\Validation\EmailValidation.cs" />

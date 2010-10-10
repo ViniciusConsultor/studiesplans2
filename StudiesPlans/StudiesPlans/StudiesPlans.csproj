@@ -58,7 +58,11 @@
     <Compile Include="Controllers\FacultyController.cs" />
     <Compile Include="Controllers\InstituteController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
+    <Compile Include="Controllers\SemesterController.cs" />
+    <Compile Include="Controllers\SpecializationController.cs" />
+    <Compile Include="Controllers\StudiesTypeController.cs" />
     <Compile Include="Controllers\SubjectController.cs" />
+    <Compile Include="Controllers\SubjectTypeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Views\Departaments.cs">
       <SubType>Form</SubType>
@@ -98,6 +102,30 @@
     <Compile Include="Views\Roles.Designer.cs">
       <DependentUpon>Roles.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Semesters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Semesters.Designer.cs">
+      <DependentUpon>Semesters.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Specializations.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Specializations.Designer.cs">
+      <DependentUpon>Specializations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\StudiesTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\StudiesTypes.Designer.cs">
+      <DependentUpon>StudiesTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SubjectTypes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\SubjectTypes.Designer.cs">
+      <DependentUpon>SubjectTypes.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -125,6 +153,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Semesters.resx">
+      <DependentUpon>Semesters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Specializations.resx">
+      <DependentUpon>Specializations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\StudiesTypes.resx">
+      <DependentUpon>StudiesTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\SubjectTypes.resx">
+      <DependentUpon>SubjectTypes.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="App.Config">
       <SubType>Designer</SubType>

@@ -46,6 +46,7 @@
             // listInstitutes
             // 
             this.listInstitutes.FormattingEnabled = true;
+            this.listInstitutes.HorizontalScrollbar = true;
             this.listInstitutes.Location = new System.Drawing.Point(12, 12);
             this.listInstitutes.Name = "listInstitutes";
             this.listInstitutes.Size = new System.Drawing.Size(153, 238);
@@ -74,11 +75,12 @@
             // lblValidation
             // 
             this.lblValidation.AutoSize = true;
+            this.lblValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblValidation.ForeColor = System.Drawing.Color.Red;
             this.lblValidation.Location = new System.Drawing.Point(8, 160);
             this.lblValidation.Name = "lblValidation";
-            this.lblValidation.Size = new System.Drawing.Size(35, 13);
+            this.lblValidation.Size = new System.Drawing.Size(0, 13);
             this.lblValidation.TabIndex = 17;
-            this.lblValidation.Text = "label3";
             // 
             // btnDepartamentsMngmt
             // 
@@ -156,6 +158,7 @@
             // clbDepartaments
             // 
             this.clbDepartaments.FormattingEnabled = true;
+            this.clbDepartaments.HorizontalScrollbar = true;
             this.clbDepartaments.Location = new System.Drawing.Point(102, 45);
             this.clbDepartaments.Name = "clbDepartaments";
             this.clbDepartaments.Size = new System.Drawing.Size(168, 109);

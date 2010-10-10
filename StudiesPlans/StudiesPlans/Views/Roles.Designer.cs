@@ -30,13 +30,13 @@
         {
             this.listRoles = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnDeleteRole = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnAddRole = new System.Windows.Forms.Button();
             this.lblValidation = new System.Windows.Forms.Label();
             this.tbNewRoleName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnDeleteRole = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +64,17 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zarządzanie";
+            // 
+            // btnDeleteRole
+            // 
+            this.btnDeleteRole.Enabled = false;
+            this.btnDeleteRole.Location = new System.Drawing.Point(180, 157);
+            this.btnDeleteRole.Name = "btnDeleteRole";
+            this.btnDeleteRole.Size = new System.Drawing.Size(50, 23);
+            this.btnDeleteRole.TabIndex = 6;
+            this.btnDeleteRole.Text = "Usuń";
+            this.btnDeleteRole.UseVisualStyleBackColor = true;
+            this.btnDeleteRole.Click += new System.EventHandler(this.btnDeleteRole_Click);
             // 
             // btnCancel
             // 
@@ -110,7 +121,7 @@
             // 
             this.tbNewRoleName.Location = new System.Drawing.Point(71, 22);
             this.tbNewRoleName.Name = "tbNewRoleName";
-            this.tbNewRoleName.Size = new System.Drawing.Size(103, 20);
+            this.tbNewRoleName.Size = new System.Drawing.Size(159, 20);
             this.tbNewRoleName.TabIndex = 1;
             // 
             // label1
@@ -121,17 +132,6 @@
             this.label1.Size = new System.Drawing.Size(59, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Nazwa roli:";
-            // 
-            // btnDeleteRole
-            // 
-            this.btnDeleteRole.Enabled = false;
-            this.btnDeleteRole.Location = new System.Drawing.Point(180, 157);
-            this.btnDeleteRole.Name = "btnDeleteRole";
-            this.btnDeleteRole.Size = new System.Drawing.Size(50, 23);
-            this.btnDeleteRole.TabIndex = 6;
-            this.btnDeleteRole.Text = "Usuń";
-            this.btnDeleteRole.UseVisualStyleBackColor = true;
-            this.btnDeleteRole.Click += new System.EventHandler(this.btnDeleteRole_Click);
             // 
             // Roles
             // 

@@ -245,5 +245,25 @@ namespace StudiesPlans
         {
             new Institutes().ShowDialog();
         }
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            new Specializations().ShowDialog();
+        }
+
+        private void toolStripButton2_Click(object sender, EventArgs e)
+        {
+            new SubjectTypes().ShowDialog();
+        }
+
+        private void toolStripButton3_Click(object sender, EventArgs e)
+        {
+            new Semesters().ShowDialog();
+        }
+
+        private void toolStripButton4_Click(object sender, EventArgs e)
+        {
+            new StudiesTypes().ShowDialog();
+        }
     }
 }
