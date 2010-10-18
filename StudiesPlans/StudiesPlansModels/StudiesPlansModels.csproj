@@ -48,25 +48,27 @@
     <Compile Include="Helpers\Connection.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\DepartamentModels.cs" />
-    <Compile Include="Models\DepartamentsRepository.cs" />
-    <Compile Include="Models\FacultiesRepository.cs" />
+    <Compile Include="Models\SubjectDataModels.cs" />
+    <Compile Include="Models\SubjectTypesModels.cs" />
+    <Compile Include="Repositories\DepartamentsRepository.cs" />
+    <Compile Include="Repositories\FacultiesRepository.cs" />
     <Compile Include="Models\FacultyModels.cs" />
     <Compile Include="Models\InstituteModels.cs" />
-    <Compile Include="Models\InstitutesRepository.cs" />
-    <Compile Include="Models\Interfaces\IDepartamentsRepository.cs" />
-    <Compile Include="Models\Interfaces\IFacultiesRepository.cs" />
-    <Compile Include="Models\Interfaces\IInstitutesRepository.cs" />
-    <Compile Include="Models\Interfaces\IRolesRepository.cs" />
-    <Compile Include="Models\Interfaces\ISemestersRepository.cs" />
-    <Compile Include="Models\Interfaces\ISpecializationsRepository.cs" />
-    <Compile Include="Models\Interfaces\IStudiesTypesRepository.cs" />
-    <Compile Include="Models\Interfaces\ISubjectsRepository.cs" />
-    <Compile Include="Models\Interfaces\ISubjectTypesRepository.cs" />
-    <Compile Include="Models\Interfaces\IUsersRepository.cs" />
+    <Compile Include="Repositories\InstitutesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IDepartamentsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IFacultiesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IInstitutesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRolesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISemestersRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISpecializationsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IStudiesTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISubjectsRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISubjectTypesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUsersRepository.cs" />
     <Compile Include="Models\RoleModels.cs" />
-    <Compile Include="Models\RolesRepository.cs" />
+    <Compile Include="Repositories\RolesRepository.cs" />
     <Compile Include="Models\SemesterModels.cs" />
-    <Compile Include="Models\SemestersRepository.cs" />
+    <Compile Include="Repositories\SemestersRepository.cs" />
     <Compile Include="Models\SPDatabase.cs" />
     <Compile Include="Models\SPDatabase.Designer.cs">
       <DependentUpon>SPDatabase.edmx</DependentUpon>
@@ -74,14 +76,14 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Models\SpecializationModels.cs" />
-    <Compile Include="Models\SpecializationsRepository.cs" />
+    <Compile Include="Repositories\SpecializationsRepository.cs" />
     <Compile Include="Models\StudiesTypeModels.cs" />
-    <Compile Include="Models\StudiesTypesRepository.cs" />
-    <Compile Include="Models\SubjectsRepository.cs" />
+    <Compile Include="Repositories\StudiesTypesRepository.cs" />
+    <Compile Include="Repositories\SubjectsRepository.cs" />
     <Compile Include="Models\SubjectTypeModels.cs" />
-    <Compile Include="Models\SubjectTypesRepository.cs" />
+    <Compile Include="Repositories\SubjectTypesRepository.cs" />
     <Compile Include="Models\UserModels.cs" />
-    <Compile Include="Models\UsersRepository.cs" />
+    <Compile Include="Repositories\UsersRepository.cs" />
     <Compile Include="Models\Validation\EmailValidation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

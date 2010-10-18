@@ -32,5 +32,15 @@ namespace StudiesPlans.Controllers
         {
             return this.repository.ListSubjects();
         }
+
+        public bool AddSubject(NewSubject ns)
+        {
+            if (ns != null && ns.IsValid)
+            {
+                this.repository.AddSubject(ns);
+                return true;
+            }
+            return false;
+        }
     }
 }
