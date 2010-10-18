@@ -30,13 +30,15 @@
         {
             this.gbLogin = new System.Windows.Forms.GroupBox();
             this.lErrors = new System.Windows.Forms.Label();
-            this.bCancel = new System.Windows.Forms.Button();
-            this.bLogin = new System.Windows.Forms.Button();
             this.tPassword = new System.Windows.Forms.TextBox();
             this.tUsername = new System.Windows.Forms.TextBox();
             this.lPassword = new System.Windows.Forms.Label();
             this.lUsername = new System.Windows.Forms.Label();
+            this.bLogin = new Telerik.WinControls.UI.RadButton();
+            this.bCancel = new Telerik.WinControls.UI.RadButton();
             this.gbLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bCancel)).BeginInit();
             this.SuspendLayout();
             // 
             // gbLogin
@@ -44,9 +46,9 @@
             this.gbLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbLogin.Controls.Add(this.lErrors);
             this.gbLogin.Controls.Add(this.bCancel);
             this.gbLogin.Controls.Add(this.bLogin);
+            this.gbLogin.Controls.Add(this.lErrors);
             this.gbLogin.Controls.Add(this.tPassword);
             this.gbLogin.Controls.Add(this.tUsername);
             this.gbLogin.Controls.Add(this.lPassword);
@@ -67,26 +69,6 @@
             this.lErrors.Name = "lErrors";
             this.lErrors.Size = new System.Drawing.Size(0, 13);
             this.lErrors.TabIndex = 6;
-            // 
-            // bCancel
-            // 
-            this.bCancel.Location = new System.Drawing.Point(147, 120);
-            this.bCancel.Name = "bCancel";
-            this.bCancel.Size = new System.Drawing.Size(135, 23);
-            this.bCancel.TabIndex = 5;
-            this.bCancel.Text = "Anuluj";
-            this.bCancel.UseVisualStyleBackColor = true;
-            this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
-            // 
-            // bLogin
-            // 
-            this.bLogin.Location = new System.Drawing.Point(6, 120);
-            this.bLogin.Name = "bLogin";
-            this.bLogin.Size = new System.Drawing.Size(135, 23);
-            this.bLogin.TabIndex = 4;
-            this.bLogin.Text = "Zaloguj";
-            this.bLogin.UseVisualStyleBackColor = true;
-            this.bLogin.Click += new System.EventHandler(this.bLogin_Click);
             // 
             // tPassword
             // 
@@ -123,10 +105,41 @@
             this.lUsername.TabIndex = 0;
             this.lUsername.Text = "Nazwa użytkownika:";
             // 
+            // bLogin
+            // 
+            this.bLogin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bLogin.ForeColor = System.Drawing.Color.Black;
+            this.bLogin.Location = new System.Drawing.Point(6, 119);
+            this.bLogin.Name = "bLogin";
+            // 
+            // 
+            // 
+            this.bLogin.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.bLogin.Size = new System.Drawing.Size(130, 24);
+            this.bLogin.TabIndex = 7;
+            this.bLogin.Text = "Zaloguj";
+            this.bLogin.Click += new System.EventHandler(this.bLogin_Click);
+            // 
+            // bCancel
+            // 
+            this.bCancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bCancel.ForeColor = System.Drawing.Color.Black;
+            this.bCancel.Location = new System.Drawing.Point(152, 119);
+            this.bCancel.Name = "bCancel";
+            // 
+            // 
+            // 
+            this.bCancel.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.bCancel.Size = new System.Drawing.Size(130, 24);
+            this.bCancel.TabIndex = 8;
+            this.bCancel.Text = "Anuluj";
+            this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(312, 173);
             this.Controls.Add(this.gbLogin);
             this.MaximizeBox = false;
@@ -136,6 +149,8 @@
             this.Text = "Zaloguj się";
             this.gbLogin.ResumeLayout(false);
             this.gbLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bCancel)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -143,12 +158,12 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbLogin;
-        private System.Windows.Forms.Button bCancel;
-        private System.Windows.Forms.Button bLogin;
         private System.Windows.Forms.TextBox tPassword;
         private System.Windows.Forms.TextBox tUsername;
         private System.Windows.Forms.Label lPassword;
         private System.Windows.Forms.Label lUsername;
         private System.Windows.Forms.Label lErrors;
+        private Telerik.WinControls.UI.RadButton bLogin;
+        private Telerik.WinControls.UI.RadButton bCancel;
     }
 }
