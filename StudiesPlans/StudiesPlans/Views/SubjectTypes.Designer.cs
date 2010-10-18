@@ -60,16 +60,16 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Location = new System.Drawing.Point(180, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(234, 199);
+            this.groupBox1.Size = new System.Drawing.Size(264, 199);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zarządzanie";
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(177, 170);
+            this.btnSave.Location = new System.Drawing.Point(184, 170);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(51, 23);
+            this.btnSave.Size = new System.Drawing.Size(58, 23);
             this.btnSave.TabIndex = 6;
             this.btnSave.Text = "Zapisz";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -77,11 +77,14 @@
             // 
             // btnDelete
             // 
+            this.btnDelete.Image = global::StudiesPlans.Properties.Resources.delete;
+            this.btnDelete.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDelete.Location = new System.Drawing.Point(120, 170);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(51, 23);
+            this.btnDelete.Size = new System.Drawing.Size(58, 23);
             this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Usuń";
+            this.btnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDelete.UseVisualStyleBackColor = true;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -136,7 +139,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 219);
+            this.ClientSize = new System.Drawing.Size(456, 219);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.listSubjectTypes);
             this.Name = "SubjectTypes";

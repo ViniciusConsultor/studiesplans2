@@ -11,11 +11,13 @@ using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
 using StudiesPlans.Controllers;
 
+
 namespace StudiesPlans
 {
     public partial class MainForm : Form
     {
         UserEdit userToEdit = null;
+        
         public MainForm(User user)
         {
             InitializeComponent();
@@ -25,6 +27,9 @@ namespace StudiesPlans
             pages.TabPages.Remove(archive);
             pages.TabPages.Remove(users);
             ManageUsers(user);
+            lRole.Text += user.Role.Name;
+            lUserName.Text += user.Name;
+            
         }
 
         private void ManageUsers(User user)
@@ -104,7 +109,7 @@ namespace StudiesPlans
 
         private void pages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (pages.SelectedIndex == 4)
+            if (pages.SelectedIndex == 14)
                 FillWithUsers();
         }
 
@@ -296,5 +301,16 @@ namespace StudiesPlans
         {
             new StudiesTypes().ShowDialog();
         }
+
+        private void radPageView1_SelectedPageChanged(object sender, EventArgs e)
+        {
+            if (radPageView1.TabIndex == 14)
+                FillWithUsers();
+        }
+
+        
+
+
+
     }
 }

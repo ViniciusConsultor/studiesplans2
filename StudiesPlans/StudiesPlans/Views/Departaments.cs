@@ -157,5 +157,7 @@ namespace StudiesPlans.Views
             if (changes)
                 this.DialogResult = DialogResult.Yes;
         }
+
+
     }
 }
