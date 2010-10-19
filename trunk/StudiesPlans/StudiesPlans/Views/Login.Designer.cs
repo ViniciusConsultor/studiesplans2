@@ -1,4 +1,4 @@
-﻿namespace StudiesPlans.Views
+namespace StudiesPlans.Views
 {
     partial class Login
     {
@@ -29,16 +29,17 @@
         private void InitializeComponent()
         {
             this.gbLogin = new System.Windows.Forms.GroupBox();
+            this.bCancel = new Telerik.WinControls.UI.RadButton();
+            this.bLogin = new Telerik.WinControls.UI.RadButton();
             this.lErrors = new System.Windows.Forms.Label();
             this.tPassword = new System.Windows.Forms.TextBox();
             this.tUsername = new System.Windows.Forms.TextBox();
             this.lPassword = new System.Windows.Forms.Label();
             this.lUsername = new System.Windows.Forms.Label();
-            this.bLogin = new Telerik.WinControls.UI.RadButton();
-            this.bCancel = new Telerik.WinControls.UI.RadButton();
             this.gbLogin.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bCancel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // gbLogin
@@ -55,10 +56,40 @@
             this.gbLogin.Controls.Add(this.lUsername);
             this.gbLogin.Location = new System.Drawing.Point(12, 12);
             this.gbLogin.Name = "gbLogin";
-            this.gbLogin.Size = new System.Drawing.Size(288, 149);
-            this.gbLogin.TabIndex = 0;
+            this.gbLogin.Size = new System.Drawing.Size(296, 149);
+            this.gbLogin.TabIndex = 1;
             this.gbLogin.TabStop = false;
             this.gbLogin.Text = "Podaj dane";
+            // 
+            // bCancel
+            // 
+            this.bCancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bCancel.ForeColor = System.Drawing.Color.Black;
+            this.bCancel.Location = new System.Drawing.Point(152, 119);
+            this.bCancel.Name = "bCancel";
+            // 
+            // 
+            // 
+            this.bCancel.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.bCancel.Size = new System.Drawing.Size(130, 24);
+            this.bCancel.TabIndex = 8;
+            this.bCancel.Text = "Anuluj";
+            this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
+            // 
+            // bLogin
+            // 
+            this.bLogin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bLogin.ForeColor = System.Drawing.Color.Black;
+            this.bLogin.Location = new System.Drawing.Point(12, 119);
+            this.bLogin.Name = "bLogin";
+            // 
+            // 
+            // 
+            this.bLogin.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.bLogin.Size = new System.Drawing.Size(130, 24);
+            this.bLogin.TabIndex = 7;
+            this.bLogin.Text = "Zaloguj";
+            this.bLogin.Click += new System.EventHandler(this.bLogin_Click);
             // 
             // lErrors
             // 
@@ -94,63 +125,38 @@
             this.lPassword.Name = "lPassword";
             this.lPassword.Size = new System.Drawing.Size(39, 13);
             this.lPassword.TabIndex = 1;
-            this.lPassword.Text = "Hasło:";
+            this.lPassword.Text = "Has�o:";
             // 
             // lUsername
             // 
             this.lUsername.AutoSize = true;
             this.lUsername.Location = new System.Drawing.Point(6, 26);
             this.lUsername.Name = "lUsername";
-            this.lUsername.Size = new System.Drawing.Size(105, 13);
+            this.lUsername.Size = new System.Drawing.Size(112, 13);
             this.lUsername.TabIndex = 0;
-            this.lUsername.Text = "Nazwa użytkownika:";
-            // 
-            // bLogin
-            // 
-            this.bLogin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bLogin.ForeColor = System.Drawing.Color.Black;
-            this.bLogin.Location = new System.Drawing.Point(6, 119);
-            this.bLogin.Name = "bLogin";
-            // 
-            // 
-            // 
-            this.bLogin.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.bLogin.Size = new System.Drawing.Size(130, 24);
-            this.bLogin.TabIndex = 7;
-            this.bLogin.Text = "Zaloguj";
-            this.bLogin.Click += new System.EventHandler(this.bLogin_Click);
-            // 
-            // bCancel
-            // 
-            this.bCancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.bCancel.ForeColor = System.Drawing.Color.Black;
-            this.bCancel.Location = new System.Drawing.Point(152, 119);
-            this.bCancel.Name = "bCancel";
-            // 
-            // 
-            // 
-            this.bCancel.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.bCancel.Size = new System.Drawing.Size(130, 24);
-            this.bCancel.TabIndex = 8;
-            this.bCancel.Text = "Anuluj";
-            this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
+            this.lUsername.Text = "Nazwa u�ytkownika:";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(312, 173);
+            this.ClientSize = new System.Drawing.Size(320, 173);
             this.Controls.Add(this.gbLogin);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Zaloguj się";
+            this.Text = "Login";
+            this.ThemeName = "ControlDefault";
             this.gbLogin.ResumeLayout(false);
             this.gbLogin.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bCancel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -158,12 +164,13 @@
         #endregion
 
         private System.Windows.Forms.GroupBox gbLogin;
+        private Telerik.WinControls.UI.RadButton bCancel;
+        private Telerik.WinControls.UI.RadButton bLogin;
+        private System.Windows.Forms.Label lErrors;
         private System.Windows.Forms.TextBox tPassword;
         private System.Windows.Forms.TextBox tUsername;
         private System.Windows.Forms.Label lPassword;
         private System.Windows.Forms.Label lUsername;
-        private System.Windows.Forms.Label lErrors;
-        private Telerik.WinControls.UI.RadButton bLogin;
-        private Telerik.WinControls.UI.RadButton bCancel;
     }
 }
+

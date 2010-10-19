@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,15 +6,17 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Telerik.WinControls;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
 using StudiesPlans.Controllers;
 
 namespace StudiesPlans.Views
 {
-    public partial class Faculties : Form
+    public partial class Faculties : Telerik.WinControls.UI.RadForm
     {
         private FacultyEdit toEdit = null;
+
         public Faculties()
         {
             InitializeComponent();
@@ -184,7 +186,7 @@ namespace StudiesPlans.Views
                 if (toEdit.Errors != null)
                     toEdit.ClearErrors();
                 List<Departament> list = new List<Departament>();
-                for(int i = 0; i < clbDepartaments.CheckedItems.Count; i++)
+                for (int i = 0; i < clbDepartaments.CheckedItems.Count; i++)
                 {
                     Departament d = DepartamentController.Instance.GetDepartament(clbDepartaments.CheckedItems[i].ToString());
                     if (d != null)
@@ -211,6 +213,12 @@ namespace StudiesPlans.Views
                     Disable();
                 }
             }
+        }
+
+        private void listFaculties_KeyDown(object sender, KeyEventArgs e)
+        {
+           if(e.KeyValue.Equals(13))
+                listFaculties_DoubleClick(sender, e);
         }
     }
 }
