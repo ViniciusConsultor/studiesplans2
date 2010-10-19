@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,16 +6,19 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Telerik.WinControls;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
 using StudiesPlans.Controllers;
 
 namespace StudiesPlans.Views
 {
-    public partial class Departaments : Form
+    public partial class Departaments : Telerik.WinControls.UI.RadForm
     {
+
         private DepartamentEdit toEdit = null;
         private bool changes = false;
+
         public Departaments()
         {
             InitializeComponent();
@@ -89,7 +92,7 @@ namespace StudiesPlans.Views
                 }
                 else
                 {
-                    lblValidation.Text = "Wydział nie istnieje";
+                    lblValidation.Text = "Wydzia� nie istnieje";
                     toEdit = null;
                 }
             }
@@ -158,6 +161,10 @@ namespace StudiesPlans.Views
                 this.DialogResult = DialogResult.Yes;
         }
 
-
+        private void listDepartaments_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyValue.Equals(13))
+                listDepartaments_DoubleClick(sender, e);
+        }
     }
 }

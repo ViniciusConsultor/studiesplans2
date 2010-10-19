@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Telerik.WinControls;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
 using StudiesPlans.Controllers;
@@ -13,14 +14,14 @@ using System.Security.Cryptography;
 
 namespace StudiesPlans.Views
 {
-    public partial class Login : Form
+    public partial class Login : Telerik.WinControls.UI.RadForm
     {
         public Login()
         {
             InitializeComponent();
         }
 
-        // Login button event
+         // Login button event
         private void bLogin_Click(object sender, EventArgs e)
         {
             lErrors.Text = "";
@@ -85,4 +86,5 @@ namespace StudiesPlans.Views
                 this.bLogin_Click(this, null);
         }
     }
+    
 }

@@ -1,65 +1,57 @@
-ï»¿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Telerik.WinControls;
+using System.Linq;
 using StudiesPlans.Views;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
 using StudiesPlans.Controllers;
-
-
-namespace StudiesPlans
+namespace StudiesPlans.Views
 {
-    public partial class MainForm : Form
+    public partial class MainForm : Telerik.WinControls.UI.RadForm
     {
         UserEdit userToEdit = null;
-        
+
         public MainForm(User user)
         {
             InitializeComponent();
-            pages.TabPages.Remove(subjects);
-            pages.TabPages.Remove(plancreate);
-            pages.TabPages.Remove(review);
-            pages.TabPages.Remove(archive);
-            pages.TabPages.Remove(users);
+            pages.Pages.Remove(plancreate);
+            pages.Pages.Remove(review);
+            pages.Pages.Remove(archive);
+            pages.Pages.Remove(users);
             ManageUsers(user);
             lRole.Text += user.Role.Name;
             lUserName.Text += user.Name;
-            
+
         }
 
         private void ManageUsers(User user)
         {
             bool wasPlan = false;
-            for(int i = 0; i < user.Role.Privilages.Count(); i++)
+            for (int i = 0; i < user.Role.Privilages.Count(); i++)
             {
                 if (user.Role.Privilages.ElementAt(i).Name.Equals("Edycja"))
                 {
-                    pages.TabPages.Add(subjects);
                     if (wasPlan == false)
                     {
-                        pages.TabPages.Add(plancreate);
+                        pages.Pages.Add(plancreate);
                         wasPlan = true;
                     }
                 }
                 if (user.Role.Privilages.ElementAt(i).Name.Equals("Recenzowanie") && wasPlan == false)
-                    pages.TabPages.Add(plancreate);
-                if (user.Role.Privilages.ElementAt(i).Name.Equals("PrzeglÄ…danie"))
-                    pages.TabPages.Add(review);
+                    pages.Pages.Add(plancreate);
+                if (user.Role.Privilages.ElementAt(i).Name.Equals("Przegl¹danie"))
+                    pages.Pages.Add(review);
                 if (user.Role.Privilages.ElementAt(i).Name.Equals("Archiwizacja"))
-                    pages.TabPages.Add(archive);
-                if (user.Role.Privilages.ElementAt(i).Name.Equals("UÅ¼ytkownicy"))
-                    pages.TabPages.Add(users);
+                    pages.Pages.Add(archive);
+                if (user.Role.Privilages.ElementAt(i).Name.Equals("U¿ytkownicy"))
+                    pages.Pages.Add(users);
             }
-        }
-
-        private void helpToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -75,47 +67,11 @@ namespace StudiesPlans
             System.Threading.Thread.Sleep(1);
         }
 
-        private void tabControl_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            Graphics graphics = e.Graphics;
-            Brush _TextBrush;
-
-            TabPage _TabPage = pages.TabPages[e.Index];
-            Rectangle _TabBounds = pages.GetTabRect(e.Index);
-
-            if (e.State == DrawItemState.Selected)
-            {
-                // Kolor tekstu i zaznaczenia zakÅ‚adki
-                _TextBrush = new SolidBrush(Color.Black);
-                graphics.FillRectangle(Brushes.Gray, e.Bounds);
-            }
-            else
-            {
-                _TextBrush = new System.Drawing.SolidBrush(Color.Black);
-                graphics.FillRectangle(Brushes.Silver, e.Bounds);
-            }
-
-            // Ustawienie wÅ‚asnej czcionki
-            Font _TabFont = new Font("Arial", 12, FontStyle.Bold, GraphicsUnit.Pixel);
-
-            // Wypisanie tekstu, wyjustowanie
-            StringFormat _StringFlags = new StringFormat();
-            _StringFlags.Alignment = StringAlignment.Center;
-            _StringFlags.LineAlignment = StringAlignment.Center;
-            graphics.DrawString(_TabPage.Text, _TabFont, _TextBrush,
-                         _TabBounds, new StringFormat(_StringFlags));
-
-        }
-
-        private void pages_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (pages.SelectedIndex == 14)
-                FillWithUsers();
-        }
-
         public void FillWithUsers()
         {
             gridUsers.Rows.Clear();
+            Image imgEdit = Image.FromFile("D:/In¿ynierka/trunk/StudiesPlans/StudiesPlans/Resources/edit.png");
+            Image imgDelete = Image.FromFile("D:/In¿ynierka/trunk/StudiesPlans/StudiesPlans/Resources/delete.png");
             IEnumerable<User> users = UserController.Instance.ListUsers();
             if (users != null)
             {
@@ -126,7 +82,7 @@ namespace StudiesPlans
                     if (u.LastActiveDate.HasValue)
                         lastActiveDate = u.LastActiveDate.Value.ToString();
 
-                    gridUsers.Rows.Add(u.Name, email, lastActiveDate, u.Role.Name);
+                    gridUsers.Rows.Add(u.Name, email, lastActiveDate, u.Role.Name, imgEdit, imgDelete);
                 }
             }
 
@@ -137,37 +93,6 @@ namespace StudiesPlans
                 foreach (Role r in roles)
                     cbRoles.Items.Add(r.Name);
                 cbRoles.SelectedIndex = 0;
-            }
-        }
-
-        private void gridUsers_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.ColumnIndex == 4)
-            {
-                lblValidation.Text = string.Empty;
-                UserEdit u = UserController.Instance.GetUserEdit(gridUsers.Rows[e.RowIndex].Cells["username"].Value.ToString());
-                if (u != null)
-                {
-                    userToEdit = u;
-                    tbNewEmail.Text = u.Email;
-                    tbNewUsername.Text = u.UserName;
-                    tbNewPassword.Text = string.Empty;
-                    tbNewRepeatPassword.Text = string.Empty;
-                    btnUpdate.Enabled = true;
-                    btnAddUser.Enabled = false;
-                    btnCancelEdit.Enabled = true;
-                }
-                else
-                {
-                    MessageBox.Show("UÅ¼ytkownik nie istnieje!");
-                    FillWithUsers();
-                }
-            }
-            else if (e.ColumnIndex == 5)
-            {
-                if (!UserController.Instance.DeleteUser(gridUsers.Rows[e.RowIndex].Cells["username"].Value.ToString()))
-                    MessageBox.Show("Nie moÅ¼na usunÄ…Ä‡");
-                gridUsers.Rows.RemoveAt(e.RowIndex);
             }
         }
 
@@ -182,7 +107,7 @@ namespace StudiesPlans
                 int roleId = RoleController.Instance.GetRoleId(cbRoles.SelectedItem.ToString());
                 if (roleId > 0)
                     u.RoleID = roleId;
-                
+
                 //todo role doesn't exist
 
                 if (!UserController.Instance.UpdateUser(u))
@@ -261,56 +186,56 @@ namespace StudiesPlans
 
         private void reload_Click(object sender, EventArgs e)
         {
-            IEnumerable<SubjectsData> subjects = SubjectController.Instance.ListSubjects();
-            if (subjects != null)
-                foreach (SubjectsData subject in subjects)
-                    gridSubjects.Rows.Add(subject.Subject.Name, subject.Ects, subject.Semester.Semester1, subject.Faculty.Name, subject.Departament.Name);
         }
 
-        private void facultymngmt_Click(object sender, EventArgs e)
+        private void gridUsers_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
-            new Faculties().ShowDialog();
+
+            if (e.ColumnIndex.Equals(4) && !e.RowIndex.Equals(-1))
+            {
+                lblValidation.Text = string.Empty;
+                UserEdit u = UserController.Instance.GetUserEdit(gridUsers.Rows[e.RowIndex].Cells["username"].Value.ToString());
+                if (u != null)
+                {
+                    userToEdit = u;
+                    tbNewEmail.Text = u.Email;
+                    tbNewUsername.Text = u.UserName;
+                    tbNewPassword.Text = string.Empty;
+                    tbNewRepeatPassword.Text = string.Empty;
+                    btnUpdate.Enabled = true;
+                    btnAddUser.Enabled = false;
+                    btnCancelEdit.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("U¿ytkownik nie istnieje!");
+                    FillWithUsers();
+                }
+            }
+            else if (e.ColumnIndex.Equals(5) && !e.RowIndex.Equals(-1))
+            {
+                if (!UserController.Instance.DeleteUser(gridUsers.Rows[e.RowIndex].Cells["username"].Value.ToString()))
+                    MessageBox.Show("Nie mo¿na usun¹æ");
+                gridUsers.Rows.RemoveAt(e.RowIndex);
+            }
         }
 
-        private void departamentmngmt_Click(object sender, EventArgs e)
+        private void pages_SelectedPageChanged(object sender, EventArgs e)
         {
-            new Departaments().ShowDialog();
-        }
-
-        private void institutesmngmt_Click(object sender, EventArgs e)
-        {
-            new Institutes().ShowDialog();
-        }
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            new Specializations().ShowDialog();
-        }
-
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            new SubjectTypes().ShowDialog();
-        }
-
-        private void toolStripButton3_Click(object sender, EventArgs e)
-        {
-            new Semesters().ShowDialog();
-        }
-
-        private void toolStripButton4_Click(object sender, EventArgs e)
-        {
-            new StudiesTypes().ShowDialog();
-        }
-
-        private void radPageView1_SelectedPageChanged(object sender, EventArgs e)
-        {
-            if (radPageView1.TabIndex == 14)
+            if (pages.TabIndex == 15)
                 FillWithUsers();
         }
 
-        
+        private void radButtonElement1_Click(object sender, EventArgs e)
+        {
+            Faculties fForm = new Faculties();
+            fForm.Show();
+        }
 
-
-
+        private void radButtonElement2_Click(object sender, EventArgs e)
+        {
+            Departaments dForm = new Departaments();
+            dForm.Show();
+        }
     }
 }

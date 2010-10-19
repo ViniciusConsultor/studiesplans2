@@ -54,6 +54,10 @@
     <Reference Include="Telerik.WinControls, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
     <Reference Include="Telerik.WinControls.GridView, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.Themes.Aqua, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Office2010, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Telerik, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Vista, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
+    <Reference Include="Telerik.WinControls.Themes.Windows7, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="Telerik.WinControls.UI, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e, processorArchitecture=MSIL" />
     <Reference Include="TelerikCommon, Version=2010.2.10.914, Culture=neutral, PublicKeyToken=5bb2a467cbec794e" />
   </ItemGroup>
@@ -75,12 +79,6 @@
     <Compile Include="Views\Departaments.Designer.cs">
       <DependentUpon>Departaments.cs</DependentUpon>
     </Compile>
-    <Compile Include="Views\Faculties.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Views\Faculties.Designer.cs">
-      <DependentUpon>Faculties.cs</DependentUpon>
-    </Compile>
     <Compile Include="Views\Institutes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,14 +91,20 @@
     <Compile Include="Views\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Views\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Views\MainForm.Designer.cs">
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Faculties.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Faculties.Designer.cs">
+      <DependentUpon>Faculties.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Roles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,18 +147,22 @@
     </Compile>
     <EmbeddedResource Include="Views\Departaments.resx">
       <DependentUpon>Departaments.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Views\Faculties.resx">
-      <DependentUpon>Faculties.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Institutes.resx">
       <DependentUpon>Institutes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Faculties.resx">
+      <DependentUpon>Faculties.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
