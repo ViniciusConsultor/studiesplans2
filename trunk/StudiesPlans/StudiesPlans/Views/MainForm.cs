@@ -214,9 +214,13 @@ namespace StudiesPlans.Views
             }
             else if (e.ColumnIndex.Equals(5) && !e.RowIndex.Equals(-1))
             {
-                if (!UserController.Instance.DeleteUser(gridUsers.Rows[e.RowIndex].Cells["username"].Value.ToString()))
-                    MessageBox.Show("Nie mo¿na usun¹æ");
-                gridUsers.Rows.RemoveAt(e.RowIndex);
+               if( MessageBox.Show ("Czy chcesz usun¹æ u¿ytkownika?", "Usuwanie u¿ytkownika",
+                   MessageBoxButtons.OKCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes));
+                {
+                    if (!UserController.Instance.DeleteUser(gridUsers.Rows[e.RowIndex].Cells["username"].Value.ToString()))
+                        MessageBox.Show("Nie mo¿na usun¹æ");
+                    gridUsers.Rows.RemoveAt(e.RowIndex);
+                }
             }
         }
 
@@ -228,14 +232,17 @@ namespace StudiesPlans.Views
 
         private void radButtonElement1_Click(object sender, EventArgs e)
         {
-            Faculties fForm = new Faculties();
-            fForm.Show();
+            new Faculties().ShowDialog();
         }
 
         private void radButtonElement2_Click(object sender, EventArgs e)
         {
-            Departaments dForm = new Departaments();
-            dForm.Show();
+             new Departaments().ShowDialog();
+        }
+
+        private void radButtonElement3_Click(object sender, EventArgs e)
+        {
+            new Institutes().ShowDialog();
         }
     }
 }
