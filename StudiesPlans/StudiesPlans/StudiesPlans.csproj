@@ -167,9 +167,11 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Semesters.resx">
       <DependentUpon>Semesters.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Specializations.resx">
       <DependentUpon>Specializations.cs</DependentUpon>
@@ -207,12 +209,6 @@
       <Project>{53ED3666-8A44-4273-BBB7-0082ADC3BA1B}</Project>
       <Name>StudiesPlansModels</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ico-study.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\ico-study1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

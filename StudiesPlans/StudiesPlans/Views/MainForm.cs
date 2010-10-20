@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using Telerik.WinControls;
 using System.Linq;
+using System.Resources;
 using StudiesPlans.Views;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
@@ -70,8 +71,6 @@ namespace StudiesPlans.Views
         public void FillWithUsers()
         {
             gridUsers.Rows.Clear();
-            Image imgEdit = Image.FromFile("D:/In¿ynierka/trunk/StudiesPlans/StudiesPlans/Resources/edit.png");
-            Image imgDelete = Image.FromFile("D:/In¿ynierka/trunk/StudiesPlans/StudiesPlans/Resources/delete.png");
             IEnumerable<User> users = UserController.Instance.ListUsers();
             if (users != null)
             {
@@ -82,7 +81,8 @@ namespace StudiesPlans.Views
                     if (u.LastActiveDate.HasValue)
                         lastActiveDate = u.LastActiveDate.Value.ToString();
 
-                    gridUsers.Rows.Add(u.Name, email, lastActiveDate, u.Role.Name, imgEdit, imgDelete);
+                    gridUsers.Rows.Add(u.Name, email, lastActiveDate, u.Role.Name, 
+                        Properties.Resources.edit, Properties.Resources.delete);
                 }
             }
 
@@ -243,6 +243,12 @@ namespace StudiesPlans.Views
         private void radButtonElement3_Click(object sender, EventArgs e)
         {
             new Institutes().ShowDialog();
+        }
+
+        private void radButtonElement4_Click(object sender, EventArgs e)
+        {
+
+            
         }
     }
 }
