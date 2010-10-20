@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -6,14 +6,16 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using Telerik.WinControls;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
 using StudiesPlans.Controllers;
 
 namespace StudiesPlans.Views
 {
-    public partial class Roles : Form
+    public partial class Roles : Telerik.WinControls.UI.RadForm
     {
+
         private RoleEdit roleToEdit = null;
         private bool changes = false;
 
@@ -101,10 +103,10 @@ namespace StudiesPlans.Views
                 if (role != null)
                 {
                     roleToEdit = role;
-                    btnAddRole.Enabled = false;
+                    btnAdd.Enabled = false;
                     btnCancel.Enabled = true;
-                    btnDeleteRole.Enabled = true;
-                    btnUpdate.Enabled = true;
+                    btnDelete.Enabled = true;
+                    btnSave.Enabled = true;
                     tbNewRoleName.Text = role.RoleName;
 
                     for (int i = 0; i < clbPrivilages.Items.Count; i++)
@@ -158,10 +160,10 @@ namespace StudiesPlans.Views
 
         private void Disable()
         {
-            btnAddRole.Enabled = true;
+            btnAdd.Enabled = true;
             btnCancel.Enabled = false;
-            btnDeleteRole.Enabled = false;
-            btnUpdate.Enabled = false;
+            btnDelete.Enabled = false;
+            btnSave.Enabled = false;
             roleToEdit = null;
         }
 

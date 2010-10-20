@@ -74,20 +74,6 @@ namespace StudiesPlans.Properties {
             }
         }
         
-        internal static System.Drawing.Bitmap ico_study {
-            get {
-                object obj = ResourceManager.GetObject("ico-study", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        internal static System.Drawing.Bitmap ico_study1 {
-            get {
-                object obj = ResourceManager.GetObject("ico-study1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
         internal static System.Drawing.Bitmap management {
             get {
                 object obj = ResourceManager.GetObject("management", resourceCulture);

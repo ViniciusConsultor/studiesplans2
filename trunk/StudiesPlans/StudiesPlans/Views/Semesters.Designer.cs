@@ -1,4 +1,4 @@
-ï»¿namespace StudiesPlans.Views
+namespace StudiesPlans.Views
 {
     partial class Semesters
     {
@@ -28,216 +28,289 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dgSemesters = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbNewSemesterName = new System.Windows.Forms.TextBox();
-            this.lblValidation = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnSave = new System.Windows.Forms.Button();
-            this.tbNewSemestrNo = new System.Windows.Forms.TextBox();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.tbNewSemesterYear = new System.Windows.Forms.TextBox();
-            this.cName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cYear = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox1.SuspendLayout();
+            this.lblValidation = new Telerik.WinControls.UI.RadLabel();
+            this.tbNewSemestrNo = new System.Windows.Forms.TextBox();
+            this.btnDelete = new Telerik.WinControls.UI.RadButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnSave = new Telerik.WinControls.UI.RadButton();
+            this.tbNewSemesterName = new System.Windows.Forms.TextBox();
+            this.btnCancel = new Telerik.WinControls.UI.RadButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnAdd = new Telerik.WinControls.UI.RadButton();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.dgSemesters = new Telerik.WinControls.UI.RadGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
+            this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSemesters)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
-            // groupBox1
+            // radGroupBox1
             // 
-            this.groupBox1.Controls.Add(this.tbNewSemesterYear);
-            this.groupBox1.Controls.Add(this.tbNewSemestrNo);
-            this.groupBox1.Controls.Add(this.btnSave);
-            this.groupBox1.Controls.Add(this.btnDelete);
-            this.groupBox1.Controls.Add(this.btnCancel);
-            this.groupBox1.Controls.Add(this.btnAdd);
-            this.groupBox1.Controls.Add(this.lblValidation);
-            this.groupBox1.Controls.Add(this.tbNewSemesterName);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(210, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(232, 238);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "ZarzÄ…dzanie";
+            this.radGroupBox1.Controls.Add(this.tbNewSemesterYear);
+            this.radGroupBox1.Controls.Add(this.lblValidation);
+            this.radGroupBox1.Controls.Add(this.tbNewSemestrNo);
+            this.radGroupBox1.Controls.Add(this.btnDelete);
+            this.radGroupBox1.Controls.Add(this.label1);
+            this.radGroupBox1.Controls.Add(this.btnSave);
+            this.radGroupBox1.Controls.Add(this.tbNewSemesterName);
+            this.radGroupBox1.Controls.Add(this.btnCancel);
+            this.radGroupBox1.Controls.Add(this.label3);
+            this.radGroupBox1.Controls.Add(this.btnAdd);
+            this.radGroupBox1.Controls.Add(this.label2);
+            this.radGroupBox1.Controls.Add(this.label4);
+            this.radGroupBox1.FooterImageIndex = -1;
+            this.radGroupBox1.FooterImageKey = "";
+            this.radGroupBox1.HeaderImageIndex = -1;
+            this.radGroupBox1.HeaderImageKey = "";
+            this.radGroupBox1.HeaderMargin = new System.Windows.Forms.Padding(0);
+            this.radGroupBox1.HeaderText = "Zarz¹dzanie";
+            this.radGroupBox1.Location = new System.Drawing.Point(233, 3);
+            this.radGroupBox1.Name = "radGroupBox1";
+            this.radGroupBox1.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
             // 
-            // dgSemesters
             // 
-            this.dgSemesters.AllowUserToAddRows = false;
-            this.dgSemesters.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-            this.dgSemesters.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.dgSemesters.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            this.dgSemesters.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSemesters.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.cName,
-            this.cNo,
-            this.cYear});
-            this.dgSemesters.Location = new System.Drawing.Point(12, 12);
-            this.dgSemesters.Name = "dgSemesters";
-            this.dgSemesters.ReadOnly = true;
-            this.dgSemesters.RowHeadersVisible = false;
-            this.dgSemesters.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgSemesters.Size = new System.Drawing.Size(192, 238);
-            this.dgSemesters.TabIndex = 2;
-            this.dgSemesters.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSemesters_CellDoubleClick);
             // 
-            // label1
+            this.radGroupBox1.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
+            this.radGroupBox1.Size = new System.Drawing.Size(243, 262);
+            this.radGroupBox1.TabIndex = 3;
+            this.radGroupBox1.Text = "Zarz¹dzanie";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nazwa:";
+            // tbNewSemesterYear
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 48);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(86, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Numer semestru:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 75);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(30, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Rok:";
-            // 
-            // tbNewSemesterName
-            // 
-            this.tbNewSemesterName.Location = new System.Drawing.Point(105, 19);
-            this.tbNewSemesterName.Name = "tbNewSemesterName";
-            this.tbNewSemesterName.Size = new System.Drawing.Size(121, 20);
-            this.tbNewSemesterName.TabIndex = 3;
+            this.tbNewSemesterYear.Location = new System.Drawing.Point(112, 85);
+            this.tbNewSemesterYear.Name = "tbNewSemesterYear";
+            this.tbNewSemesterYear.Size = new System.Drawing.Size(125, 20);
+            this.tbNewSemesterYear.TabIndex = 19;
             // 
             // lblValidation
             // 
-            this.lblValidation.AutoSize = true;
-            this.lblValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lblValidation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblValidation.ForeColor = System.Drawing.Color.Red;
-            this.lblValidation.Location = new System.Drawing.Point(6, 102);
+            this.lblValidation.Location = new System.Drawing.Point(13, 169);
             this.lblValidation.Name = "lblValidation";
-            this.lblValidation.Size = new System.Drawing.Size(41, 13);
-            this.lblValidation.TabIndex = 6;
-            this.lblValidation.Text = "label4";
             // 
-            // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(6, 209);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(50, 23);
-            this.btnAdd.TabIndex = 7;
-            this.btnAdd.Text = "Dodaj";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnCancel
-            // 
-            this.btnCancel.Location = new System.Drawing.Point(62, 209);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(50, 23);
-            this.btnCancel.TabIndex = 8;
-            this.btnCancel.Text = "Anuluj";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(118, 209);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(50, 23);
-            this.btnDelete.TabIndex = 9;
-            this.btnDelete.Text = "UsuÅ„";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(174, 209);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(50, 23);
-            this.btnSave.TabIndex = 10;
-            this.btnSave.Text = "Zapisz";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.lblValidation.RootElement.ForeColor = System.Drawing.Color.Red;
+            this.lblValidation.Size = new System.Drawing.Size(2, 2);
+            this.lblValidation.TabIndex = 22;
             // 
             // tbNewSemestrNo
             // 
             this.tbNewSemestrNo.CausesValidation = false;
-            this.tbNewSemestrNo.Location = new System.Drawing.Point(105, 45);
+            this.tbNewSemestrNo.Location = new System.Drawing.Point(112, 58);
             this.tbNewSemestrNo.Name = "tbNewSemestrNo";
-            this.tbNewSemestrNo.Size = new System.Drawing.Size(121, 20);
-            this.tbNewSemestrNo.TabIndex = 11;
+            this.tbNewSemestrNo.Size = new System.Drawing.Size(125, 20);
+            this.tbNewSemestrNo.TabIndex = 18;
             // 
-            // tbNewSemesterYear
+            // btnDelete
             // 
-            this.tbNewSemesterYear.Location = new System.Drawing.Point(105, 72);
-            this.tbNewSemesterYear.Name = "tbNewSemesterYear";
-            this.tbNewSemesterYear.Size = new System.Drawing.Size(121, 20);
-            this.tbNewSemesterYear.TabIndex = 12;
+            this.btnDelete.BackColor = System.Drawing.SystemColors.Control;
+            this.btnDelete.Enabled = false;
+            this.btnDelete.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnDelete.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.Location = new System.Drawing.Point(181, 216);
+            this.btnDelete.Name = "btnDelete";
             // 
-            // cName
             // 
-            this.cName.HeaderText = "Nazwa";
-            this.cName.Name = "cName";
             // 
-            // cNo
+            this.btnDelete.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.Size = new System.Drawing.Size(50, 33);
+            this.btnDelete.TabIndex = 20;
+            this.btnDelete.Text = "Usuñ";
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            this.cNo.HeaderText = "Numer";
-            this.cNo.Name = "cNo";
-            this.cNo.Width = 50;
+            // label1
             // 
-            // cYear
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.Red;
+            this.label1.Location = new System.Drawing.Point(13, 115);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 13);
+            this.label1.TabIndex = 17;
+            this.label1.Text = "label4";
             // 
-            this.cYear.HeaderText = "Rok";
-            this.cYear.Name = "cYear";
-            this.cYear.Width = 30;
+            // btnSave
+            // 
+            this.btnSave.BackColor = System.Drawing.SystemColors.Control;
+            this.btnSave.Enabled = false;
+            this.btnSave.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnSave.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.Location = new System.Drawing.Point(125, 216);
+            this.btnSave.Name = "btnSave";
+            // 
+            // 
+            // 
+            this.btnSave.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnSave.Size = new System.Drawing.Size(50, 33);
+            this.btnSave.TabIndex = 19;
+            this.btnSave.Text = "Zapisz";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // tbNewSemesterName
+            // 
+            this.tbNewSemesterName.Location = new System.Drawing.Point(112, 32);
+            this.tbNewSemesterName.Name = "tbNewSemesterName";
+            this.tbNewSemesterName.Size = new System.Drawing.Size(125, 20);
+            this.tbNewSemesterName.TabIndex = 16;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCancel.Enabled = false;
+            this.btnCancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Location = new System.Drawing.Point(69, 216);
+            this.btnCancel.Name = "btnCancel";
+            // 
+            // 
+            // 
+            this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Size = new System.Drawing.Size(50, 33);
+            this.btnCancel.TabIndex = 18;
+            this.btnCancel.Text = "Anuluj";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 88);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(30, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Rok:";
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.BackColor = System.Drawing.SystemColors.Control;
+            this.btnAdd.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnAdd.ForeColor = System.Drawing.Color.Black;
+            this.btnAdd.Location = new System.Drawing.Point(13, 216);
+            this.btnAdd.Name = "btnAdd";
+            // 
+            // 
+            // 
+            this.btnAdd.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnAdd.Size = new System.Drawing.Size(50, 33);
+            this.btnAdd.TabIndex = 17;
+            this.btnAdd.Text = "Dodaj";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Numer semestru:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 35);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Nazwa:";
+            // 
+            // dgSemesters
+            // 
+            this.dgSemesters.Location = new System.Drawing.Point(13, 13);
+            // 
+            // dgSemesters
+            // 
+            this.dgSemesters.MasterTemplate.AllowAddNewRow = false;
+            gridViewTextBoxColumn1.FormatString = "";
+            gridViewTextBoxColumn1.HeaderText = "Nazwa";
+            gridViewTextBoxColumn1.Name = "column1";
+            gridViewTextBoxColumn1.Width = 65;
+            gridViewTextBoxColumn2.FormatString = "";
+            gridViewTextBoxColumn2.HeaderText = "Numer";
+            gridViewTextBoxColumn2.Name = "column2";
+            gridViewTextBoxColumn2.Width = 65;
+            gridViewTextBoxColumn3.FormatString = "";
+            gridViewTextBoxColumn3.HeaderText = "Rok";
+            gridViewTextBoxColumn3.Name = "column3";
+            gridViewTextBoxColumn3.Width = 64;
+            this.dgSemesters.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3});
+            this.dgSemesters.Name = "dgSemesters";
+            this.dgSemesters.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            // 
+            // 
+            // 
+            this.dgSemesters.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.dgSemesters.ShowGroupPanel = false;
+            this.dgSemesters.Size = new System.Drawing.Size(214, 252);
+            this.dgSemesters.TabIndex = 4;
+            this.dgSemesters.Text = "radGridView1";
+            this.dgSemesters.DoubleClick += new System.EventHandler(this.dgSemesters_CellDoubleClick);
             // 
             // Semesters
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 262);
+            this.ClientSize = new System.Drawing.Size(488, 277);
             this.Controls.Add(this.dgSemesters);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.radGroupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Semesters";
-            this.Text = "Semesters";
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            // 
+            // 
+            // 
+            this.RootElement.ApplyShapeToControl = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Zarz¹dzanie semestrami";
+            this.ThemeName = "ControlDefault";
+            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
+            this.radGroupBox1.ResumeLayout(false);
+            this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSemesters)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView dgSemesters;
-        private System.Windows.Forms.Button btnSave;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Label lblValidation;
+        private Telerik.WinControls.UI.RadGroupBox radGroupBox1;
+        private Telerik.WinControls.UI.RadLabel lblValidation;
+        private Telerik.WinControls.UI.RadButton btnDelete;
+        private Telerik.WinControls.UI.RadButton btnSave;
+        private Telerik.WinControls.UI.RadButton btnCancel;
+        private Telerik.WinControls.UI.RadButton btnAdd;
+        private System.Windows.Forms.TextBox tbNewSemesterYear;
+        private System.Windows.Forms.TextBox tbNewSemestrNo;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbNewSemesterName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbNewSemesterYear;
-        private System.Windows.Forms.TextBox tbNewSemestrNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cYear;
+        private System.Windows.Forms.Label label4;
+        private Telerik.WinControls.UI.RadGridView dgSemesters;
+
     }
 }
+
