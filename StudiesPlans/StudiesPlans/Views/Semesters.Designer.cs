@@ -237,15 +237,15 @@ namespace StudiesPlans.Views
             this.dgSemesters.MasterTemplate.AllowAddNewRow = false;
             gridViewTextBoxColumn1.FormatString = "";
             gridViewTextBoxColumn1.HeaderText = "Nazwa";
-            gridViewTextBoxColumn1.Name = "column1";
+            gridViewTextBoxColumn1.Name = "cName";
             gridViewTextBoxColumn1.Width = 65;
             gridViewTextBoxColumn2.FormatString = "";
             gridViewTextBoxColumn2.HeaderText = "Numer";
-            gridViewTextBoxColumn2.Name = "column2";
+            gridViewTextBoxColumn2.Name = "cNo";
             gridViewTextBoxColumn2.Width = 65;
             gridViewTextBoxColumn3.FormatString = "";
             gridViewTextBoxColumn3.HeaderText = "Rok";
-            gridViewTextBoxColumn3.Name = "column3";
+            gridViewTextBoxColumn3.Name = "cYear";
             gridViewTextBoxColumn3.Width = 64;
             this.dgSemesters.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,

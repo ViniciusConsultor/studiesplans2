@@ -189,5 +189,10 @@ namespace StudiesPlans.Views
                 }
             }
         }
+
+        private void dgSemesters_CellDoubleClick(object sender, EventArgs e)
+        {
+
+        }
     }
 }
