@@ -63,7 +63,7 @@ namespace StudiesPlans.Views
             // 
             // bCancel
             // 
-            this.bCancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bCancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bCancel.ForeColor = System.Drawing.Color.Black;
             this.bCancel.Location = new System.Drawing.Point(152, 119);
             this.bCancel.Name = "bCancel";
@@ -78,7 +78,7 @@ namespace StudiesPlans.Views
             // 
             // bLogin
             // 
-            this.bLogin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bLogin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bLogin.ForeColor = System.Drawing.Color.Black;
             this.bLogin.Location = new System.Drawing.Point(12, 119);
             this.bLogin.Name = "bLogin";

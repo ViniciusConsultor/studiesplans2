@@ -28,12 +28,12 @@ namespace StudiesPlans.Views
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn1 = new Telerik.WinControls.UI.GridViewImageColumn();
-            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn2 = new Telerik.WinControls.UI.GridViewImageColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn3 = new Telerik.WinControls.UI.GridViewImageColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn4 = new Telerik.WinControls.UI.GridViewImageColumn();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pages = new Telerik.WinControls.UI.RadPageView();
             this.plancreate = new Telerik.WinControls.UI.RadPageViewPage();
@@ -70,6 +70,8 @@ namespace StudiesPlans.Views
             this.radToolStripSeparatorItem1 = new Telerik.WinControls.UI.RadToolStripSeparatorItem();
             this.radToolStripItem2 = new Telerik.WinControls.UI.RadToolStripItem();
             this.radButtonElement2 = new Telerik.WinControls.UI.RadButtonElement();
+            this.radToolStripItem3 = new Telerik.WinControls.UI.RadToolStripItem();
+            this.radButtonElement3 = new Telerik.WinControls.UI.RadButtonElement();
             ((System.ComponentModel.ISupportInitialize)(this.pages)).BeginInit();
             this.pages.SuspendLayout();
             this.users.SuspendLayout();
@@ -138,43 +140,43 @@ namespace StudiesPlans.Views
             // gridUsers
             // 
             this.gridUsers.MasterTemplate.AllowEditRow = false;
-            gridViewTextBoxColumn1.FormatString = "";
-            gridViewTextBoxColumn1.HeaderText = "Nazwa";
-            gridViewTextBoxColumn1.Name = "username";
-            gridViewTextBoxColumn1.Width = 110;
-            gridViewTextBoxColumn2.FormatString = "";
-            gridViewTextBoxColumn2.HeaderText = "Email";
-            gridViewTextBoxColumn2.Name = "Email";
-            gridViewTextBoxColumn2.Width = 110;
-            gridViewTextBoxColumn3.FormatString = "";
-            gridViewTextBoxColumn3.HeaderText = "Ostatnie logowanie";
-            gridViewTextBoxColumn3.MinWidth = 8;
-            gridViewTextBoxColumn3.Name = "Ostatnie logowanie";
-            gridViewTextBoxColumn3.Width = 144;
-            gridViewTextBoxColumn3.WrapText = true;
-            gridViewTextBoxColumn4.FormatString = "";
-            gridViewTextBoxColumn4.HeaderText = "Rola";
-            gridViewTextBoxColumn4.Name = "Rola";
-            gridViewTextBoxColumn4.Width = 100;
-            gridViewImageColumn1.AllowSort = false;
-            gridViewImageColumn1.DataType = typeof(System.Drawing.Image);
-            gridViewImageColumn1.FormatString = "";
-            gridViewImageColumn1.HeaderText = "";
-            gridViewImageColumn1.Name = "column1";
-            gridViewImageColumn1.Width = 25;
-            gridViewImageColumn2.AllowSort = false;
-            gridViewImageColumn2.DataType = typeof(System.Drawing.Image);
-            gridViewImageColumn2.FormatString = "";
-            gridViewImageColumn2.HeaderText = "";
-            gridViewImageColumn2.Name = "column2";
-            gridViewImageColumn2.Width = 25;
+            gridViewTextBoxColumn5.FormatString = "";
+            gridViewTextBoxColumn5.HeaderText = "Nazwa";
+            gridViewTextBoxColumn5.Name = "username";
+            gridViewTextBoxColumn5.Width = 110;
+            gridViewTextBoxColumn6.FormatString = "";
+            gridViewTextBoxColumn6.HeaderText = "Email";
+            gridViewTextBoxColumn6.Name = "Email";
+            gridViewTextBoxColumn6.Width = 110;
+            gridViewTextBoxColumn7.FormatString = "";
+            gridViewTextBoxColumn7.HeaderText = "Ostatnie logowanie";
+            gridViewTextBoxColumn7.MinWidth = 8;
+            gridViewTextBoxColumn7.Name = "Ostatnie logowanie";
+            gridViewTextBoxColumn7.Width = 144;
+            gridViewTextBoxColumn7.WrapText = true;
+            gridViewTextBoxColumn8.FormatString = "";
+            gridViewTextBoxColumn8.HeaderText = "Rola";
+            gridViewTextBoxColumn8.Name = "Rola";
+            gridViewTextBoxColumn8.Width = 100;
+            gridViewImageColumn3.AllowSort = false;
+            gridViewImageColumn3.DataType = typeof(System.Drawing.Image);
+            gridViewImageColumn3.FormatString = "";
+            gridViewImageColumn3.HeaderText = "";
+            gridViewImageColumn3.Name = "column1";
+            gridViewImageColumn3.Width = 25;
+            gridViewImageColumn4.AllowSort = false;
+            gridViewImageColumn4.DataType = typeof(System.Drawing.Image);
+            gridViewImageColumn4.FormatString = "";
+            gridViewImageColumn4.HeaderText = "";
+            gridViewImageColumn4.Name = "column2";
+            gridViewImageColumn4.Width = 25;
             this.gridUsers.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2,
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4,
-            gridViewImageColumn1,
-            gridViewImageColumn2});
+            gridViewTextBoxColumn5,
+            gridViewTextBoxColumn6,
+            gridViewTextBoxColumn7,
+            gridViewTextBoxColumn8,
+            gridViewImageColumn3,
+            gridViewImageColumn4});
             this.gridUsers.Name = "gridUsers";
             this.gridUsers.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.gridUsers.ReadOnly = true;
@@ -220,7 +222,7 @@ namespace StudiesPlans.Views
             // 
             this.btnUpdate.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnUpdate.Enabled = false;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.btnUpdate.ForeColor = System.Drawing.Color.Black;
             this.btnUpdate.Location = new System.Drawing.Point(188, 293);
             this.btnUpdate.Name = "btnUpdate";
@@ -238,7 +240,7 @@ namespace StudiesPlans.Views
             // 
             this.btnCancelEdit.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.btnCancelEdit.Enabled = false;
-            this.btnCancelEdit.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnCancelEdit.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.btnCancelEdit.ForeColor = System.Drawing.Color.Black;
             this.btnCancelEdit.Location = new System.Drawing.Point(97, 293);
             this.btnCancelEdit.Name = "btnCancelEdit";
@@ -255,7 +257,7 @@ namespace StudiesPlans.Views
             // btnAddUser
             // 
             this.btnAddUser.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnAddUser.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.btnAddUser.Font = new System.Drawing.Font("Segoe UI", 8.25F);
             this.btnAddUser.ForeColor = System.Drawing.Color.Black;
             this.btnAddUser.Location = new System.Drawing.Point(6, 293);
             this.btnAddUser.Name = "btnAddUser";
@@ -283,6 +285,7 @@ namespace StudiesPlans.Views
             this.btnRolesMngmt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnRolesMngmt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRolesMngmt.UseVisualStyleBackColor = true;
+            this.btnRolesMngmt.Click += new System.EventHandler(this.btnRolesMngmt_Click);
             // 
             // lblValidation
             // 
@@ -443,7 +446,7 @@ namespace StudiesPlans.Views
             this.radToolStrip1.RootElement.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
             this.radToolStrip1.RootElement.MinSize = new System.Drawing.Size(5, 5);
             this.radToolStrip1.ShowOverFlowButton = true;
-            this.radToolStrip1.Size = new System.Drawing.Size(842, 51);
+            this.radToolStrip1.Size = new System.Drawing.Size(842, 29);
             this.radToolStrip1.TabIndex = 17;
             this.radToolStrip1.Text = "radToolStrip1";
             // 
@@ -451,7 +454,8 @@ namespace StudiesPlans.Views
             // 
             this.radToolStripElement1.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radToolStripItem1,
-            this.radToolStripItem2});
+            this.radToolStripItem2,
+            this.radToolStripItem3});
             this.radToolStripElement1.Name = "radToolStripElement1";
             // 
             // radToolStripItem1
@@ -493,6 +497,22 @@ namespace StudiesPlans.Views
             this.radButtonElement2.ShowBorder = false;
             this.radButtonElement2.Text = "but2";
             this.radButtonElement2.Click += new System.EventHandler(this.radButtonElement2_Click);
+            // 
+            // radToolStripItem3
+            // 
+            this.radToolStripItem3.Items.AddRange(new Telerik.WinControls.RadItem[] {
+            this.radButtonElement3});
+            this.radToolStripItem3.Key = "2";
+            this.radToolStripItem3.Name = "radToolStripItem3";
+            this.radToolStripItem3.Text = "radToolStripItem3";
+            // 
+            // radButtonElement3
+            // 
+            this.radButtonElement3.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.radButtonElement3.Name = "radButtonElement3";
+            this.radButtonElement3.ShowBorder = false;
+            this.radButtonElement3.Text = "but 3";
+            this.radButtonElement3.Click += new System.EventHandler(this.radButtonElement3_Click);
             // 
             // MainForm
             // 
@@ -566,6 +586,8 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadToolStripSeparatorItem radToolStripSeparatorItem1;
         private Telerik.WinControls.UI.RadToolStripItem radToolStripItem2;
         private Telerik.WinControls.UI.RadButtonElement radButtonElement2;
+        private Telerik.WinControls.UI.RadToolStripItem radToolStripItem3;
+        private Telerik.WinControls.UI.RadButtonElement radButtonElement3;
 
     }
 }

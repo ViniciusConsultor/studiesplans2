@@ -56,7 +56,8 @@ namespace StudiesPlans.Views
             this.listFaculties.CaseSensitiveSort = true;
             this.listFaculties.Location = new System.Drawing.Point(12, 12);
             this.listFaculties.Name = "listFaculties";
-            this.listFaculties.Size = new System.Drawing.Size(179, 306);
+            this.listFaculties.Size = new System.Drawing.Size(185, 253);
+            this.listFaculties.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
             this.listFaculties.TabIndex = 0;
             this.listFaculties.Text = "radListControl1";
             this.listFaculties.ThemeName = "Office2010";
@@ -82,7 +83,7 @@ namespace StudiesPlans.Views
             this.groupManagement.HeaderImageKey = "";
             this.groupManagement.HeaderMargin = new System.Windows.Forms.Padding(0);
             this.groupManagement.HeaderText = "Zarz¹dzanie";
-            this.groupManagement.Location = new System.Drawing.Point(197, 1);
+            this.groupManagement.Location = new System.Drawing.Point(208, 3);
             this.groupManagement.Name = "groupManagement";
             this.groupManagement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
             // 
@@ -90,7 +91,7 @@ namespace StudiesPlans.Views
             // 
             this.groupManagement.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
             this.groupManagement.RootElement.ShouldPaint = true;
-            this.groupManagement.Size = new System.Drawing.Size(283, 317);
+            this.groupManagement.Size = new System.Drawing.Size(268, 262);
             this.groupManagement.TabIndex = 1;
             this.groupManagement.Text = "Zarz¹dzanie";
             this.groupManagement.ThemeName = "ControlDefault";
@@ -100,7 +101,7 @@ namespace StudiesPlans.Views
             // 
             this.lblValidation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblValidation.ForeColor = System.Drawing.Color.Red;
-            this.lblValidation.Location = new System.Drawing.Point(13, 234);
+            this.lblValidation.Location = new System.Drawing.Point(10, 179);
             this.lblValidation.Name = "lblValidation";
             // 
             // 
@@ -112,13 +113,13 @@ namespace StudiesPlans.Views
             // btnDelete
             // 
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(210, 271);
+            this.btnDelete.Location = new System.Drawing.Point(199, 216);
             this.btnDelete.Name = "btnDelete";
             // 
             // 
             // 
             this.btnDelete.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Size = new System.Drawing.Size(60, 33);
+            this.btnDelete.Size = new System.Drawing.Size(57, 33);
             this.btnDelete.TabIndex = 23;
             this.btnDelete.Text = "Usuñ";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
@@ -126,13 +127,13 @@ namespace StudiesPlans.Views
             // btnSave
             // 
             this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(145, 271);
+            this.btnSave.Location = new System.Drawing.Point(136, 216);
             this.btnSave.Name = "btnSave";
             // 
             // 
             // 
             this.btnSave.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Size = new System.Drawing.Size(60, 33);
+            this.btnSave.Size = new System.Drawing.Size(57, 33);
             this.btnSave.TabIndex = 22;
             this.btnSave.Text = "Zapisz";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
@@ -140,13 +141,13 @@ namespace StudiesPlans.Views
             // btnCancel
             // 
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(79, 271);
+            this.btnCancel.Location = new System.Drawing.Point(73, 216);
             this.btnCancel.Name = "btnCancel";
             // 
             // 
             // 
             this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Size = new System.Drawing.Size(60, 33);
+            this.btnCancel.Size = new System.Drawing.Size(57, 33);
             this.btnCancel.TabIndex = 21;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -154,13 +155,13 @@ namespace StudiesPlans.Views
             // btnAddFaculty
             // 
             this.btnAddFaculty.ForeColor = System.Drawing.Color.Black;
-            this.btnAddFaculty.Location = new System.Drawing.Point(13, 271);
+            this.btnAddFaculty.Location = new System.Drawing.Point(10, 216);
             this.btnAddFaculty.Name = "btnAddFaculty";
             // 
             // 
             // 
             this.btnAddFaculty.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.btnAddFaculty.Size = new System.Drawing.Size(60, 33);
+            this.btnAddFaculty.Size = new System.Drawing.Size(57, 33);
             this.btnAddFaculty.TabIndex = 20;
             this.btnAddFaculty.Text = "Dodaj";
             this.btnAddFaculty.Click += new System.EventHandler(this.btnAddFaculty_Click);
@@ -184,7 +185,7 @@ namespace StudiesPlans.Views
             // 
             this.tbNewFacultyName.Location = new System.Drawing.Point(106, 30);
             this.tbNewFacultyName.Name = "tbNewFacultyName";
-            this.tbNewFacultyName.Size = new System.Drawing.Size(168, 20);
+            this.tbNewFacultyName.Size = new System.Drawing.Size(153, 20);
             this.tbNewFacultyName.TabIndex = 18;
             // 
             // label2
@@ -210,14 +211,14 @@ namespace StudiesPlans.Views
             this.clbDepartaments.FormattingEnabled = true;
             this.clbDepartaments.Location = new System.Drawing.Point(106, 56);
             this.clbDepartaments.Name = "clbDepartaments";
-            this.clbDepartaments.Size = new System.Drawing.Size(168, 157);
+            this.clbDepartaments.Size = new System.Drawing.Size(153, 106);
             this.clbDepartaments.TabIndex = 4;
             // 
             // Faculties
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 330);
+            this.ClientSize = new System.Drawing.Size(488, 277);
             this.Controls.Add(this.groupManagement);
             this.Controls.Add(this.listFaculties);
             this.MaximizeBox = false;
