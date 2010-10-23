@@ -13,6 +13,22 @@ namespace StudiesPlansModels.Models
             return (from Institute i in SPDatabase.DB.Institutes select i);
         }
 
+        public List<Institute> ListInstitutes(int departamentId)
+        {
+            IEnumerable<Institute> institutes = this.ListInstitutes();
+            List<Institute> institutesDep = new List<Institute>();
+            if (institutes != null)
+            {
+                foreach (Institute f in institutes)
+                {
+                    foreach (Departament d in f.Departaments)
+                        if (d.DepartamentID == departamentId)
+                            institutesDep.Add(f);
+                }
+            }
+            return institutesDep;
+        }
+
         public Institute GetInstitute(string instituteName)
         {
             return (from Institute i in SPDatabase.DB.Institutes

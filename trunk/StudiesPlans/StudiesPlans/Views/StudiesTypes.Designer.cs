@@ -30,13 +30,13 @@
         {
             this.listStudiesTypes = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbNewStudiesTypeName = new System.Windows.Forms.TextBox();
-            this.lblValidation = new System.Windows.Forms.Label();
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.btnDelete = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAdd = new System.Windows.Forms.Button();
+            this.lblValidation = new System.Windows.Forms.Label();
+            this.tbNewStudiesTypeName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -66,21 +66,45 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Zarządzanie";
             // 
-            // label1
+            // btnSave
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nazwa:";
+            this.btnSave.Location = new System.Drawing.Point(176, 209);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(51, 23);
+            this.btnSave.TabIndex = 6;
+            this.btnSave.Text = "Zapisz";
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // tbNewStudiesTypeName
+            // btnDelete
             // 
-            this.tbNewStudiesTypeName.Location = new System.Drawing.Point(55, 19);
-            this.tbNewStudiesTypeName.Name = "tbNewStudiesTypeName";
-            this.tbNewStudiesTypeName.Size = new System.Drawing.Size(161, 20);
-            this.tbNewStudiesTypeName.TabIndex = 1;
+            this.btnDelete.Location = new System.Drawing.Point(119, 209);
+            this.btnDelete.Name = "btnDelete";
+            this.btnDelete.Size = new System.Drawing.Size(51, 23);
+            this.btnDelete.TabIndex = 5;
+            this.btnDelete.Text = "Usuń";
+            this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(63, 209);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(51, 23);
+            this.btnCancel.TabIndex = 4;
+            this.btnCancel.Text = "Anuluj";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Location = new System.Drawing.Point(6, 209);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(51, 23);
+            this.btnAdd.TabIndex = 3;
+            this.btnAdd.Text = "Dodaj";
+            this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lblValidation
             // 
@@ -93,45 +117,21 @@
             this.lblValidation.TabIndex = 2;
             this.lblValidation.Text = "label2";
             // 
-            // btnAdd
+            // tbNewStudiesTypeName
             // 
-            this.btnAdd.Location = new System.Drawing.Point(6, 209);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(51, 23);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Dodaj";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.tbNewStudiesTypeName.Location = new System.Drawing.Point(55, 19);
+            this.tbNewStudiesTypeName.Name = "tbNewStudiesTypeName";
+            this.tbNewStudiesTypeName.Size = new System.Drawing.Size(161, 20);
+            this.tbNewStudiesTypeName.TabIndex = 1;
             // 
-            // btnCancel
+            // label1
             // 
-            this.btnCancel.Location = new System.Drawing.Point(63, 209);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(51, 23);
-            this.btnCancel.TabIndex = 4;
-            this.btnCancel.Text = "Anuluj";
-            this.btnCancel.UseVisualStyleBackColor = true;
-            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
-            // 
-            // btnDelete
-            // 
-            this.btnDelete.Location = new System.Drawing.Point(119, 209);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(51, 23);
-            this.btnDelete.TabIndex = 5;
-            this.btnDelete.Text = "Usuń";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // btnSave
-            // 
-            this.btnSave.Location = new System.Drawing.Point(176, 209);
-            this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(51, 23);
-            this.btnSave.TabIndex = 6;
-            this.btnSave.Text = "Zapisz";
-            this.btnSave.UseVisualStyleBackColor = true;
-            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nazwa:";
             // 
             // StudiesTypes
             // 
@@ -142,6 +142,7 @@
             this.Controls.Add(this.listStudiesTypes);
             this.Name = "StudiesTypes";
             this.Text = "StudiesTypes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StudiesTypes_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -63,6 +63,11 @@ namespace StudiesPlans.Controllers
             return this.repository.GetStudiesTypeEdit(studiesTypeName);
         }
 
+        public StudiesType GetStudiesType(string studiesTypeName)
+        {
+            return this.repository.GetStudiesType(studiesTypeName);
+        }
+
         public bool EditStudiesType(StudiesTypeEdit toEdit)
         {
             if (toEdit != null)

@@ -30,9 +30,9 @@ namespace StudiesPlans.Controllers
         }
 
 
-        public IEnumerable<SubjectType> ListSubjectTypes()
+        public List<SubjectType> ListSubjectTypes()
         {
-            return this.repository.ListSubjectTypes();
+            return this.repository.ListSubjectTypes().ToList<SubjectType>();
         }
 
         public bool AddSubjectType(NewSubjectType toAdd)
@@ -82,6 +82,11 @@ namespace StudiesPlans.Controllers
                 }
             }
             return false;
+        }
+
+        public SubjectType GetSubjectType(string subjectTypeName)
+        {
+            return this.repository.GetSubjectType(subjectTypeName);
         }
     }
 }

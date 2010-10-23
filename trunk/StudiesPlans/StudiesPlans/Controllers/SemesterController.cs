@@ -29,9 +29,9 @@ namespace StudiesPlans.Controllers
             this.repository = repository;
         }
 
-        public IEnumerable<Semester> ListSemesters()
+        public List<Semester> ListSemesters()
         {
-            return this.repository.ListSemesters();
+            return this.repository.ListSemesters().ToList<Semester>();
         }
 
         public bool AddSemester(NewSemester toAdd)
@@ -97,6 +97,14 @@ namespace StudiesPlans.Controllers
                 }
             }
             return false;
+        }
+
+        public Semester GetSemester(string semesterName)
+        {
+            Semester semester = this.repository.GetSemester(semesterName);
+            if (semester != null)
+                return semester;
+            return null;
         }
     }
 }

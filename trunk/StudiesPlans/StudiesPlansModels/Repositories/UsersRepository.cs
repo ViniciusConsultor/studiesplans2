@@ -65,6 +65,7 @@ namespace StudiesPlansModels.Models
 
         public User GetUser(string username, string password)
         {
+
             string hashedPassword = HashPassword(password);
 
             return (from User u in SPDatabase.DB.Users

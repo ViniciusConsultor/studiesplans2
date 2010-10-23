@@ -18,5 +18,7 @@ namespace StudiesPlansModels.Models.Interfaces
         Semester GetSemester(int semesterId);
 
         void EditSemester(Semester s);
+
+        Semester GetSemester(string semesterName);
     }
 }

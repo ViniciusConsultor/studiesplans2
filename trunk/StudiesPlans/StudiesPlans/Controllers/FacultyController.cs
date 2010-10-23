@@ -52,6 +52,11 @@ namespace StudiesPlans.Controllers
             return this.repository.GetFacultyEdit(facultyName);
         }
 
+        public Faculty GetFaculty(string facultyName)
+        {
+            return this.repository.GetFaculty(facultyName);
+        }
+
         public void DeleteFaculty(FacultyEdit toEdit)
         {
             Faculty f = this.repository.GetFaculty(toEdit.FacultyName);
@@ -84,6 +89,11 @@ namespace StudiesPlans.Controllers
                 }
             }
             return false;
+        }
+
+        public List<Faculty> ListFaculties(int departamentId)
+        {
+            return this.repository.ListFaculties(departamentId);
         }
     }
 }

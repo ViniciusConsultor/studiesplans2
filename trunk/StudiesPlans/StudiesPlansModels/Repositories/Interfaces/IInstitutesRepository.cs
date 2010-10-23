@@ -20,5 +20,7 @@ namespace StudiesPlansModels.Models.Interfaces
         InstituteEdit GetInstituteEdit(string instituteName);
 
         void EditInstitute(Institute i);
+
+        List<Institute> ListInstitutes(int departamentId);
     }
 }

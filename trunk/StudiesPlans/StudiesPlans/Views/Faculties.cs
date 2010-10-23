@@ -16,6 +16,7 @@ namespace StudiesPlans.Views
     public partial class Faculties : Telerik.WinControls.UI.RadForm
     {
         private FacultyEdit toEdit = null;
+        private bool changes = false;
 
         public Faculties()
         {
@@ -95,6 +96,7 @@ namespace StudiesPlans.Views
             {
                 FillWithFaculties();
                 Clear();
+                changes = true;
             }
         }
 
@@ -118,6 +120,7 @@ namespace StudiesPlans.Views
                     toEdit = null;
                     Disable();
                     Clear();
+                    changes = true;
                 }
                 catch (UpdateException ex)
                 {
@@ -211,14 +214,21 @@ namespace StudiesPlans.Views
                     FillWithFaculties();
                     Clear();
                     Disable();
+                    changes = true;
                 }
             }
         }
 
         private void listFaculties_KeyDown(object sender, KeyEventArgs e)
         {
-           if(e.KeyValue.Equals(13))
+           if(e.KeyValue == 13)
                 listFaculties_DoubleClick(sender, e);
+        }
+
+        private void Faculties_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (changes)
+                this.DialogResult = DialogResult.Yes;
         }
     }
 }

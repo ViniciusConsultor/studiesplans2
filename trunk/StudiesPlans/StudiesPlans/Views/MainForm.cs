@@ -16,7 +16,9 @@ namespace StudiesPlans.Views
 {
     public partial class MainForm : Telerik.WinControls.UI.RadForm
     {
-        UserEdit userToEdit = null;
+        private UserEdit userToEdit = null;
+        private User logged = null;
+        public static Plan LoadedPlan = null;
 
         public MainForm(User user)
         {
@@ -28,7 +30,16 @@ namespace StudiesPlans.Views
             ManageUsers(user);
             lRole.Text += user.Role.Name;
             lUserName.Text += user.Name;
+            logged = user;
+            CreateSubjectGrid();
+        }
 
+        private void CreateSubjectGrid()
+        {
+            List<SubjectType> subjectTypes = SubjectTypeController.Instance.ListSubjectTypes().ToList<SubjectType>();
+            if (subjectTypes != null)
+                foreach (SubjectType s in subjectTypes)
+                    gridPlanSubjects.Columns.Add(s.Name, s.Name);
         }
 
         private void ManageUsers(User user)
@@ -60,13 +71,13 @@ namespace StudiesPlans.Views
             Application.Exit();
         }
 
-        private void updateGUI()
-        {
-            Application.DoEvents();
-            this.Invalidate();
-            this.Update();
-            System.Threading.Thread.Sleep(1);
-        }
+        //private void updateGUI()
+        //{
+        //    Application.DoEvents();
+        //    this.Invalidate();
+        //    this.Update();
+        //    System.Threading.Thread.Sleep(1);
+        //}
 
         public void FillWithUsers()
         {
@@ -249,6 +260,27 @@ namespace StudiesPlans.Views
         {
 
             
+        }
+
+        private void btnNewPlan_Click(object sender, EventArgs e)
+        {
+            new Plans(logged).ShowDialog();
+        }
+
+        private void btnLoadPlan_Click(object sender, EventArgs e)
+        {
+            Plan oldPlan = LoadedPlan;
+            new PlansLoad().ShowDialog();
+            if ((oldPlan != null && oldPlan.PlanID != LoadedPlan.PlanID) || (oldPlan == null && LoadedPlan != null))
+            {
+                lblPlanData.Text = LoadedPlan.Name + " " + LoadedPlan.Departament.Name + " " + LoadedPlan.Faculty.Name;
+            }
+        }
+
+        private void btnAddSubject_Click(object sender, EventArgs e)
+        {
+            if(LoadedPlan!=null)
+                new Subjects(LoadedPlan).ShowDialog();
         }
     }
 }

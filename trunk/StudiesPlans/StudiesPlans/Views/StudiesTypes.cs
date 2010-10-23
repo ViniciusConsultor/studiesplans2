@@ -14,6 +14,8 @@ namespace StudiesPlans.Views
     public partial class StudiesTypes : Form
     {
         private StudiesTypeEdit toEdit = null;
+        private bool changes = false;
+
         public StudiesTypes()
         {
             InitializeComponent();
@@ -84,6 +86,7 @@ namespace StudiesPlans.Views
             {
                 FillWithStudiesTypes();
                 Clear();
+                changes = true;
             }
         }
 
@@ -99,6 +102,7 @@ namespace StudiesPlans.Views
                     toEdit = null;
                     Disable();
                     Clear();
+                    changes = true;
                 }
                 catch (UpdateException ex)
                 {
@@ -150,8 +154,15 @@ namespace StudiesPlans.Views
                     FillWithStudiesTypes();
                     Clear();
                     Disable();
+                    changes = true;
                 }
             }
+        }
+
+        private void StudiesTypes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (changes)
+                this.DialogResult = DialogResult.Yes;
         }
     }
 }
