@@ -48,6 +48,8 @@
     <Compile Include="Helpers\Connection.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\DepartamentModels.cs" />
+    <Compile Include="Models\PlanModels.cs" />
+    <Compile Include="Repositories\PlansRepository.cs" />
     <Compile Include="Models\SubjectDataModels.cs" />
     <Compile Include="Models\SubjectTypesModels.cs" />
     <Compile Include="Repositories\DepartamentsRepository.cs" />
@@ -58,6 +60,7 @@
     <Compile Include="Repositories\Interfaces\IDepartamentsRepository.cs" />
     <Compile Include="Repositories\Interfaces\IFacultiesRepository.cs" />
     <Compile Include="Repositories\Interfaces\IInstitutesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IPlansRepository.cs" />
     <Compile Include="Repositories\Interfaces\IRolesRepository.cs" />
     <Compile Include="Repositories\Interfaces\ISemestersRepository.cs" />
     <Compile Include="Repositories\Interfaces\ISpecializationsRepository.cs" />

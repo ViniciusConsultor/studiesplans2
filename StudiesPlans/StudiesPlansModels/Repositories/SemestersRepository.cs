@@ -21,6 +21,13 @@ namespace StudiesPlansModels.Models
                     select s).FirstOrDefault();
         }
 
+        public Semester GetSemester(string semesterName)
+        {
+            return (from Semester s in SPDatabase.DB.Semesters
+                    where string.Compare(semesterName, s.Name, true) == 0
+                    select s).FirstOrDefault();
+        }
+
         public Semester GetSemester(int semesterId)
         {
             return (from Semester s in SPDatabase.DB.Semesters

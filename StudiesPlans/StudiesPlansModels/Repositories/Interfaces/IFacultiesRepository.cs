@@ -20,5 +20,7 @@ namespace StudiesPlansModels.Models.Interfaces
         void DeleteFaculty(Faculty f);
 
         void EditFaculty(Faculty toEdit);
+
+        List<Faculty> ListFaculties(int departamentId);
     }
 }

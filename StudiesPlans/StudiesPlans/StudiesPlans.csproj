@@ -66,6 +66,7 @@
     <Compile Include="Controllers\DepartamentController.cs" />
     <Compile Include="Controllers\FacultyController.cs" />
     <Compile Include="Controllers\InstituteController.cs" />
+    <Compile Include="Controllers\PlanController.cs" />
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\SemesterController.cs" />
     <Compile Include="Controllers\SpecializationController.cs" />
@@ -105,6 +106,18 @@
     <Compile Include="Views\Faculties.Designer.cs">
       <DependentUpon>Faculties.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Plans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Plans.Designer.cs">
+      <DependentUpon>Plans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlansLoad.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\PlansLoad.Designer.cs">
+      <DependentUpon>PlansLoad.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Roles.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -128,6 +141,12 @@
     </Compile>
     <Compile Include="Views\StudiesTypes.Designer.cs">
       <DependentUpon>StudiesTypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Subjects.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\Subjects.Designer.cs">
+      <DependentUpon>Subjects.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\SubjectTypes.cs">
       <SubType>Form</SubType>
@@ -165,6 +184,14 @@
       <DependentUpon>Faculties.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\Plans.resx">
+      <DependentUpon>Plans.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\PlansLoad.resx">
+      <DependentUpon>PlansLoad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\Roles.resx">
       <DependentUpon>Roles.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -179,6 +206,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Views\StudiesTypes.resx">
       <DependentUpon>StudiesTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Subjects.resx">
+      <DependentUpon>Subjects.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\SubjectTypes.resx">
       <DependentUpon>SubjectTypes.cs</DependentUpon>

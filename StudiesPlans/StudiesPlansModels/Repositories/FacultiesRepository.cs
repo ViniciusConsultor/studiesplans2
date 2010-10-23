@@ -13,6 +13,22 @@ namespace StudiesPlansModels.Models
             return (from Faculty f in SPDatabase.DB.Faculties select f);
         }
 
+        public List<Faculty> ListFaculties(int departamentId)
+        {
+            IEnumerable<Faculty> faculties = this.ListFaculties();
+            List<Faculty> facultiesDep = new List<Faculty>();
+            if (faculties != null)
+            {
+                foreach (Faculty f in faculties)
+                {
+                    foreach (Departament d in f.Departaments)
+                        if (d.DepartamentID == departamentId)
+                            facultiesDep.Add(f);
+                }
+            }
+            return facultiesDep;
+        }
+
         public Faculty GetFaculty(string facultyName)
         {
             return (from Faculty f in SPDatabase.DB.Faculties

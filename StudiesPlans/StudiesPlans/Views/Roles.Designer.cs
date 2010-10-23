@@ -29,16 +29,16 @@ namespace StudiesPlans.Views
         private void InitializeComponent()
         {
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tbNewRoleName = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.clbPrivilages = new System.Windows.Forms.CheckedListBox();
             this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             this.btnDelete = new Telerik.WinControls.UI.RadButton();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
             this.btnAdd = new Telerik.WinControls.UI.RadButton();
             this.listRoles = new Telerik.WinControls.UI.RadListControl();
-            this.clbPrivilages = new System.Windows.Forms.CheckedListBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbNewRoleName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).BeginInit();
@@ -78,6 +78,39 @@ namespace StudiesPlans.Views
             this.radGroupBox1.TabIndex = 2;
             this.radGroupBox1.Text = "Zarz¹dzanie";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 13);
+            this.label2.TabIndex = 26;
+            this.label2.Text = "Uprawnienia:";
+            // 
+            // tbNewRoleName
+            // 
+            this.tbNewRoleName.Location = new System.Drawing.Point(100, 28);
+            this.tbNewRoleName.Name = "tbNewRoleName";
+            this.tbNewRoleName.Size = new System.Drawing.Size(155, 20);
+            this.tbNewRoleName.TabIndex = 25;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 31);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(64, 13);
+            this.label1.TabIndex = 24;
+            this.label1.Text = "Nazwa roli:";
+            // 
+            // clbPrivilages
+            // 
+            this.clbPrivilages.FormattingEnabled = true;
+            this.clbPrivilages.Location = new System.Drawing.Point(100, 56);
+            this.clbPrivilages.Name = "clbPrivilages";
+            this.clbPrivilages.Size = new System.Drawing.Size(155, 106);
+            this.clbPrivilages.TabIndex = 23;
             // 
             // lblValidation
             // 
@@ -170,39 +203,6 @@ namespace StudiesPlans.Views
             this.listRoles.Text = "radListControl1";
             this.listRoles.DoubleClick += new System.EventHandler(this.listRoles_DoubleClick);
             // 
-            // clbPrivilages
-            // 
-            this.clbPrivilages.FormattingEnabled = true;
-            this.clbPrivilages.Location = new System.Drawing.Point(100, 56);
-            this.clbPrivilages.Name = "clbPrivilages";
-            this.clbPrivilages.Size = new System.Drawing.Size(155, 106);
-            this.clbPrivilages.TabIndex = 23;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 13);
-            this.label2.TabIndex = 26;
-            this.label2.Text = "Uprawnienia:";
-            // 
-            // tbNewRoleName
-            // 
-            this.tbNewRoleName.Location = new System.Drawing.Point(100, 28);
-            this.tbNewRoleName.Name = "tbNewRoleName";
-            this.tbNewRoleName.Size = new System.Drawing.Size(155, 20);
-            this.tbNewRoleName.TabIndex = 25;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 31);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(64, 13);
-            this.label1.TabIndex = 24;
-            this.label1.Text = "Nazwa roli:";
-            // 
             // Roles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,6 +220,7 @@ namespace StudiesPlans.Views
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zarz¹dzanie rolami";
             this.ThemeName = "ControlDefault";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Roles_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();

@@ -29,9 +29,9 @@ namespace StudiesPlans.Controllers
             this.repository = repository;
         }
 
-        public IEnumerable<Institute> ListInstitutes()
+        public List<Institute> ListInstitutes()
         {
-            return this.repository.ListInstitutes();
+            return this.repository.ListInstitutes().ToList<Institute>();
         }
 
         public bool AddInstitute(NewInstitute toAdd)
@@ -84,6 +84,34 @@ namespace StudiesPlans.Controllers
                 }
             }
             return false;
+        }
+
+        public List<Institute> ListInstitutes(string departamentName)
+        {
+            Departament d = DepartamentController.Instance.GetDepartament(departamentName);
+            if(d!=null)
+                return this.repository.ListInstitutes(d.DepartamentID).ToList<Institute>();
+            return null;
+        }
+
+        public Institute GetInstitute(string instituteName, int departamenId)
+        {
+            Institute institute = this.repository.GetInstitute(instituteName);
+
+            if (institute != null)
+            {
+                bool isDepartament = false;
+                foreach (Departament d in institute.Departaments)
+                    if (d.DepartamentID == departamenId)
+                    {
+                        isDepartament = true;
+                        break;
+                    }
+
+                if (isDepartament)
+                    return institute;
+            }
+            return null;
         }
     }
 }
