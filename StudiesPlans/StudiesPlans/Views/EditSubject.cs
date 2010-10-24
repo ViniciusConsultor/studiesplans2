@@ -11,10 +11,13 @@ using StudiesPlans.Controllers;
 
 namespace StudiesPlans.Views
 {
-    public partial class Subjects : Telerik.WinControls.UI.RadForm
+    public partial class EditSubject : Telerik.WinControls.UI.RadForm
     {
         Plan plan = null;
-        public Subjects(Plan plan)
+        SubjectEdit subject = null;
+        bool changes = false;
+
+        public EditSubject(Plan plan, SubjectEdit subject)
         {
             InitializeComponent();
             lblDepartament.Text = plan.Departament.Name;
@@ -23,13 +26,33 @@ namespace StudiesPlans.Views
             FillWithSemesters();
             FillWithSubjectTypes();
             this.plan = plan;
+            this.subject = subject;
+
+            tbSubjectName.Text = subject.Name;
+            cbInstitute.SelectedItem.Value = subject.Institute;
+
+            Semester sem = SemesterController.Instance.GetSemester(subject.SemesterId);
+            cbSemester.SelectedItem.Value = sem == null ? "B³¹d" : sem.Name;
+
+            seEcts.Value = Convert.ToDecimal(subject.Ects);
+            ckbxExam.Checked = subject.IsExam;
+
+            foreach (NewSubjectTypeData nst in subject.SubjectTypes)
+            {
+                SubjectType st = SubjectTypeController.Instance.GetSubjectType(nst.SubjectTypeId);
+                for (int i = 0; i < dgSubjectTypes.Rows.Count; i++)
+                {
+                    if (dgSubjectTypes.Rows[i].Cells["subjectType"].Value.ToString().Equals(st.Name))
+                        dgSubjectTypes.Rows[i].Cells["hours"].Value = nst.Hours.ToString();
+                }
+            }
         }
 
         private void FillWithSubjectTypes()
         {
             List<SubjectType> subjectTypes = SubjectTypeController.Instance.ListSubjectTypes();
             if (subjectTypes != null)
-                foreach(SubjectType st in subjectTypes)
+                foreach (SubjectType st in subjectTypes)
                     dgSubjectTypes.Rows.Add(st.Name, 0);
         }
 
@@ -61,25 +84,24 @@ namespace StudiesPlans.Views
             }
         }
 
-        private void btnAddSubject_Click(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-            Institute institute = InstituteController.Instance.GetInstitute(cbInstitute.SelectedItem.ToString(), plan.DepartamentID);
+            this.Close();
+        }
 
-            if(institute == null)
-            {
-                MessageBox.Show("Wybrany instytut ju¿ nie istnieje");
-                FillWithInstitutes();
-                return;
-            }
+        private void btnSaveSubject_Click(object sender, EventArgs e)
+        {
+            subject.ClearErrors();
+            lblValidation.Text = string.Empty;
 
-            Semester semester = SemesterController.Instance.GetSemester(cbSemester.SelectedItem.ToString());
-            
-            if(semester == null)
-            {
-                MessageBox.Show("Wybrany semestr ju¿ nie istnieje");
-                FillWithSemesters();
-                return;
-            }
+            this.subject.Ects = Convert.ToDouble(seEcts.Value);
+            this.subject.Institute = cbInstitute.SelectedItem.ToString();
+            this.subject.IsExam = ckbxExam.Checked;
+            this.subject.Name = tbSubjectName.Text;
+
+            Semester sem = SemesterController.Instance.GetSemester(cbSemester.SelectedItem.ToString());
+            if (sem != null)
+                this.subject.SemesterId = sem.SemesterID;
 
             List<NewSubjectTypeData> nstdlist = new List<NewSubjectTypeData>();
             for (int i = 0; i < dgSubjectTypes.Rows.Count; i++)
@@ -100,46 +122,26 @@ namespace StudiesPlans.Views
                 }
             }
 
-            NewSubject subject = new NewSubject()
+            this.subject.SubjectTypes = nstdlist;
+
+            if (SubjectController.Instance.EditSubject(subject))
             {
-                DepartamentId = plan.DepartamentID,
-                Ects = Convert.ToDouble(seEcts.Value),
-                FacultyId = plan.FacultyID,
-                InstituteId = institute.InstituteID,
-                IsExam = ckbxExam.Checked, 
-                Name = tbSubjectName.Text,
-                SemesterId = semester.SemesterID,
-                SubjectTypes = nstdlist,
-                PlanId = plan.PlanID
-            };
-
-            if (SubjectController.Instance.AddSubject(subject))
-            {
-                MessageBox.Show("Added");
-
-                //NewPlanData npd = new NewPlanData()
-                //{
-                //    PlanId = plan.PlanID,
-                //    SubjectId = subjectId
-                //};
-
-                //if (PlanController.Instance.AddPlanData(npd))
-                //{ }
+                changes = true;
             }
             else
             {
                 string errors = string.Empty;
-                foreach (string error in subject.Errors)
+                foreach(string error in subject.Errors)
                     errors = errors + error + "\n";
 
                 lblValidation.Text = errors;
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void EditSubject_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.Close();
+            if (changes)
+                this.DialogResult = DialogResult.Yes;
         }
-
     }
 }

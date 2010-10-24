@@ -106,5 +106,10 @@ namespace StudiesPlans.Controllers
                 return semester;
             return null;
         }
+
+        public Semester GetSemester(int semesterId)
+        {
+            return this.repository.GetSemester(semesterId);
+        }
     }
 }

@@ -109,5 +109,22 @@ namespace StudiesPlansModels.Models
 
             return null;
         }
+
+        public void DeleteSubject(SubjectsData sd)
+        {
+            if (sd != null)
+            {
+                SPDatabase.DB.SubjectsDatas.DeleteObject(sd);
+                SPDatabase.DB.SaveChanges();
+            }
+        }
+
+        public void EditSubject(SubjectsData subjectEdit)
+        {
+            if (subjectEdit != null)
+            {
+                SPDatabase.DB.SaveChanges();
+            }
+        }
     }
 }

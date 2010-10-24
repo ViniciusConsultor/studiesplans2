@@ -88,5 +88,10 @@ namespace StudiesPlans.Controllers
         {
             return this.repository.GetSubjectType(subjectTypeName);
         }
+
+        public SubjectType GetSubjectType(int subjectTypeId)
+        {
+            return this.repository.GetSubjectType(subjectTypeId);
+        }
     }
 }

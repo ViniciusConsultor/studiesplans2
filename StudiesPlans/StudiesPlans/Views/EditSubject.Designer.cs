@@ -1,6 +1,6 @@
 namespace StudiesPlans.Views
 {
-    partial class Subjects
+    partial class EditSubject
     {
         /// <summary>
         /// Required designer variable.
@@ -30,11 +30,11 @@ namespace StudiesPlans.Views
         {
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.dgSubjectTypes = new Telerik.WinControls.UI.RadGridView();
             this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
-            this.btnAddSubject = new Telerik.WinControls.UI.RadButton();
+            this.btnSaveSubject = new Telerik.WinControls.UI.RadButton();
+            this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
             this.cbInstitute = new Telerik.WinControls.UI.RadDropDownList();
             this.radLabel9 = new Telerik.WinControls.UI.RadLabel();
             this.lblDepartament = new Telerik.WinControls.UI.RadLabel();
@@ -49,12 +49,12 @@ namespace StudiesPlans.Views
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
-            this.radGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgSubjectTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddSubject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSaveSubject)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
+            this.radGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbInstitute)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDepartament)).BeginInit();
@@ -71,43 +71,6 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
-            // 
-            // radGroupBox1
-            // 
-            this.radGroupBox1.Controls.Add(this.dgSubjectTypes);
-            this.radGroupBox1.Controls.Add(this.lblValidation);
-            this.radGroupBox1.Controls.Add(this.btnCancel);
-            this.radGroupBox1.Controls.Add(this.btnAddSubject);
-            this.radGroupBox1.Controls.Add(this.cbInstitute);
-            this.radGroupBox1.Controls.Add(this.radLabel9);
-            this.radGroupBox1.Controls.Add(this.lblDepartament);
-            this.radGroupBox1.Controls.Add(this.radLabel7);
-            this.radGroupBox1.Controls.Add(this.lblFaculty);
-            this.radGroupBox1.Controls.Add(this.ckbxExam);
-            this.radGroupBox1.Controls.Add(this.seEcts);
-            this.radGroupBox1.Controls.Add(this.cbSemester);
-            this.radGroupBox1.Controls.Add(this.tbSubjectName);
-            this.radGroupBox1.Controls.Add(this.radLabel5);
-            this.radGroupBox1.Controls.Add(this.radLabel4);
-            this.radGroupBox1.Controls.Add(this.radLabel3);
-            this.radGroupBox1.Controls.Add(this.radLabel2);
-            this.radGroupBox1.Controls.Add(this.radLabel1);
-            this.radGroupBox1.FooterImageIndex = -1;
-            this.radGroupBox1.FooterImageKey = "";
-            this.radGroupBox1.HeaderImageIndex = -1;
-            this.radGroupBox1.HeaderImageKey = "";
-            this.radGroupBox1.HeaderMargin = new System.Windows.Forms.Padding(0);
-            this.radGroupBox1.HeaderText = "Dodaj przedmiot";
-            this.radGroupBox1.Location = new System.Drawing.Point(12, 12);
-            this.radGroupBox1.Name = "radGroupBox1";
-            this.radGroupBox1.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
-            // 
-            // 
-            // 
-            this.radGroupBox1.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
-            this.radGroupBox1.Size = new System.Drawing.Size(446, 255);
-            this.radGroupBox1.TabIndex = 0;
-            this.radGroupBox1.Text = "Dodaj przedmiot";
             // 
             // dgSubjectTypes
             // 
@@ -157,14 +120,51 @@ namespace StudiesPlans.Views
             this.btnCancel.Text = "Zamknij";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // btnAddSubject
+            // btnSaveSubject
             // 
-            this.btnAddSubject.Location = new System.Drawing.Point(13, 218);
-            this.btnAddSubject.Name = "btnAddSubject";
-            this.btnAddSubject.Size = new System.Drawing.Size(130, 24);
-            this.btnAddSubject.TabIndex = 14;
-            this.btnAddSubject.Text = "Dodaj przedmiot";
-            this.btnAddSubject.Click += new System.EventHandler(this.btnAddSubject_Click);
+            this.btnSaveSubject.Location = new System.Drawing.Point(13, 218);
+            this.btnSaveSubject.Name = "btnSaveSubject";
+            this.btnSaveSubject.Size = new System.Drawing.Size(130, 24);
+            this.btnSaveSubject.TabIndex = 14;
+            this.btnSaveSubject.Text = "Zapisz zmiany";
+            this.btnSaveSubject.Click += new System.EventHandler(this.btnSaveSubject_Click);
+            // 
+            // radGroupBox1
+            // 
+            this.radGroupBox1.Controls.Add(this.dgSubjectTypes);
+            this.radGroupBox1.Controls.Add(this.lblValidation);
+            this.radGroupBox1.Controls.Add(this.btnCancel);
+            this.radGroupBox1.Controls.Add(this.btnSaveSubject);
+            this.radGroupBox1.Controls.Add(this.cbInstitute);
+            this.radGroupBox1.Controls.Add(this.radLabel9);
+            this.radGroupBox1.Controls.Add(this.lblDepartament);
+            this.radGroupBox1.Controls.Add(this.radLabel7);
+            this.radGroupBox1.Controls.Add(this.lblFaculty);
+            this.radGroupBox1.Controls.Add(this.ckbxExam);
+            this.radGroupBox1.Controls.Add(this.seEcts);
+            this.radGroupBox1.Controls.Add(this.cbSemester);
+            this.radGroupBox1.Controls.Add(this.tbSubjectName);
+            this.radGroupBox1.Controls.Add(this.radLabel5);
+            this.radGroupBox1.Controls.Add(this.radLabel4);
+            this.radGroupBox1.Controls.Add(this.radLabel3);
+            this.radGroupBox1.Controls.Add(this.radLabel2);
+            this.radGroupBox1.Controls.Add(this.radLabel1);
+            this.radGroupBox1.FooterImageIndex = -1;
+            this.radGroupBox1.FooterImageKey = "";
+            this.radGroupBox1.HeaderImageIndex = -1;
+            this.radGroupBox1.HeaderImageKey = "";
+            this.radGroupBox1.HeaderMargin = new System.Windows.Forms.Padding(0);
+            this.radGroupBox1.HeaderText = "Dodaj przedmiot";
+            this.radGroupBox1.Location = new System.Drawing.Point(8, 12);
+            this.radGroupBox1.Name = "radGroupBox1";
+            this.radGroupBox1.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
+            // 
+            // 
+            // 
+            this.radGroupBox1.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
+            this.radGroupBox1.Size = new System.Drawing.Size(446, 255);
+            this.radGroupBox1.TabIndex = 1;
+            this.radGroupBox1.Text = "Dodaj przedmiot";
             // 
             // cbInstitute
             // 
@@ -290,26 +290,27 @@ namespace StudiesPlans.Views
             this.radLabel1.TabIndex = 0;
             this.radLabel1.Text = "Nazwa:";
             // 
-            // Subjects
+            // EditSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 279);
+            this.ClientSize = new System.Drawing.Size(462, 279);
             this.Controls.Add(this.radGroupBox1);
-            this.Name = "Subjects";
+            this.Name = "EditSubject";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "Subjects";
+            this.Text = "EditSubject";
             this.ThemeName = "ControlDefault";
-            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
-            this.radGroupBox1.ResumeLayout(false);
-            this.radGroupBox1.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditSubject_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgSubjectTypes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnAddSubject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSaveSubject)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
+            this.radGroupBox1.ResumeLayout(false);
+            this.radGroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbInstitute)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDepartament)).EndInit();
@@ -331,10 +332,11 @@ namespace StudiesPlans.Views
 
         #endregion
 
-        private Telerik.WinControls.UI.RadGroupBox radGroupBox1;
+        private Telerik.WinControls.UI.RadGridView dgSubjectTypes;
         private Telerik.WinControls.UI.RadLabel lblValidation;
         private Telerik.WinControls.UI.RadButton btnCancel;
-        private Telerik.WinControls.UI.RadButton btnAddSubject;
+        private Telerik.WinControls.UI.RadButton btnSaveSubject;
+        private Telerik.WinControls.UI.RadGroupBox radGroupBox1;
         private Telerik.WinControls.UI.RadDropDownList cbInstitute;
         private Telerik.WinControls.UI.RadLabel radLabel9;
         private Telerik.WinControls.UI.RadLabel lblDepartament;
@@ -349,7 +351,6 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadLabel radLabel3;
         private Telerik.WinControls.UI.RadLabel radLabel2;
         private Telerik.WinControls.UI.RadLabel radLabel1;
-        private Telerik.WinControls.UI.RadGridView dgSubjectTypes;
     }
 }
 
