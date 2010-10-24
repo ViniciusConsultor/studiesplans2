@@ -8,6 +8,11 @@ namespace StudiesPlansModels.Models.Interfaces
     public interface ISubjectsRepository
     {
         IEnumerable<SubjectsData> ListSubjects();
+
         void AddSubject(NewSubject ns);
+
+        SubjectsData GetSubjectData(int subjectDataId);
+
+        SubjectsData GetSubjectData(string subjectName, int departamentId, double ects, int facultyId, int instituteId, bool isExam, int planId, int semesterId);
     }
 }

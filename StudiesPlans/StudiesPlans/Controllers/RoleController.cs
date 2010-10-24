@@ -45,7 +45,7 @@ namespace StudiesPlans.Controllers
             { 
                 Role r = this.repository.GetRole(role.RoleName);
                 if (r != null)
-                    role.AddError("Rola o podanej\nnazwie już istnieje");
+                    role.AddError("Rola o podanej nazwie już istnieje");
                 if (role.IsValid)
                 {
                     this.repository.AddRole(role);
@@ -88,7 +88,7 @@ namespace StudiesPlans.Controllers
             if (role != null)
             {
                 Role r = this.repository.GetRole(role.RoleName);
-                if (r != null && r.RoleID != role.RoleID && r.Name.Equals(role.RoleName))
+                if (r != null && r.RoleID != role.RoleID && r.Name.ToLower().Equals(role.RoleName.ToLower()))
                     role.AddError("Rola o podanej\nnazwie już istnieje");
                 if (role.IsValid)
                 {

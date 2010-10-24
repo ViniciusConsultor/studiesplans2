@@ -57,5 +57,27 @@ namespace StudiesPlans.Controllers
         {
             return this.repository.GetPlan(planName);
         }
+
+        public bool AddPlanData(NewPlanData npd)
+        {
+            SubjectsData sd = SubjectController.Instance.GetSubject(npd.SubjectId);
+            Plan p = this.GetPlan(npd.PlanId);
+
+            if (p == null || sd == null)
+            {
+
+                return false;
+            }
+            else
+            {
+                this.repository.AddPlanData(npd);
+                return true;
+            }
+        }
+
+        public Plan GetPlan(int planId)
+        {
+            return this.repository.GetPlan(planId);
+        }
     }
 }

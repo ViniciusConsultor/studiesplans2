@@ -172,6 +172,7 @@ namespace StudiesPlans.Views
             // 
             // clbDepartaments
             // 
+            this.clbDepartaments.CheckOnClick = true;
             this.clbDepartaments.FormattingEnabled = true;
             this.clbDepartaments.HorizontalScrollbar = true;
             this.clbDepartaments.Location = new System.Drawing.Point(102, 56);

@@ -34,7 +34,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("SPModel", "FK_Plans_Departaments", "Departament", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Departament), "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_Plans_Faculties", "Faculty", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Faculty), "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_Plans_StudiesTypes", "StudiesType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.StudiesType), "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), true)]
-[assembly: EdmRelationshipAttribute("SPModel", "FK_Plans_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StudiesPlansModels.Models.User), "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), true)]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_Plans_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.User), "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "PlansData", "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData))]
 
 #endregion
@@ -923,25 +923,21 @@ namespace StudiesPlansModels.Models
         /// </summary>
         /// <param name="planID">Initial value of the PlanID property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        /// <param name="yearStart">Initial value of the YearStart property.</param>
-        /// <param name="semesterStart">Initial value of the SemesterStart property.</param>
-        /// <param name="semesterEnd">Initial value of the SemesterEnd property.</param>
         /// <param name="isMandatory">Initial value of the IsMandatory property.</param>
         /// <param name="departamentID">Initial value of the DepartamentID property.</param>
         /// <param name="facultyID">Initial value of the FacultyID property.</param>
         /// <param name="studiesTypeID">Initial value of the StudiesTypeID property.</param>
-        public static Plan CreatePlan(global::System.Int32 planID, global::System.String name, global::System.DateTime yearStart, global::System.Int32 semesterStart, global::System.Int32 semesterEnd, global::System.Boolean isMandatory, global::System.Int32 departamentID, global::System.Int32 facultyID, global::System.Int32 studiesTypeID)
+        /// <param name="lastEditUserID">Initial value of the LastEditUserID property.</param>
+        public static Plan CreatePlan(global::System.Int32 planID, global::System.String name, global::System.Boolean isMandatory, global::System.Int32 departamentID, global::System.Int32 facultyID, global::System.Int32 studiesTypeID, global::System.Int32 lastEditUserID)
         {
             Plan plan = new Plan();
             plan.PlanID = planID;
             plan.Name = name;
-            plan.YearStart = yearStart;
-            plan.SemesterStart = semesterStart;
-            plan.SemesterEnd = semesterEnd;
             plan.IsMandatory = isMandatory;
             plan.DepartamentID = departamentID;
             plan.FacultyID = facultyID;
             plan.StudiesTypeID = studiesTypeID;
+            plan.LastEditUserID = lastEditUserID;
             return plan;
         }
 
@@ -1002,9 +998,9 @@ namespace StudiesPlansModels.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.DateTime YearStart
+        public Nullable<global::System.DateTime> YearStart
         {
             get
             {
@@ -1019,8 +1015,8 @@ namespace StudiesPlansModels.Models
                 OnYearStartChanged();
             }
         }
-        private global::System.DateTime _YearStart;
-        partial void OnYearStartChanging(global::System.DateTime value);
+        private Nullable<global::System.DateTime> _YearStart;
+        partial void OnYearStartChanging(Nullable<global::System.DateTime> value);
         partial void OnYearStartChanged();
     
         /// <summary>
@@ -1050,9 +1046,9 @@ namespace StudiesPlansModels.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 SemesterStart
+        public Nullable<global::System.Int32> SemesterStart
         {
             get
             {
@@ -1067,16 +1063,16 @@ namespace StudiesPlansModels.Models
                 OnSemesterStartChanged();
             }
         }
-        private global::System.Int32 _SemesterStart;
-        partial void OnSemesterStartChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _SemesterStart;
+        partial void OnSemesterStartChanging(Nullable<global::System.Int32> value);
         partial void OnSemesterStartChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 SemesterEnd
+        public Nullable<global::System.Int32> SemesterEnd
         {
             get
             {
@@ -1091,8 +1087,8 @@ namespace StudiesPlansModels.Models
                 OnSemesterEndChanged();
             }
         }
-        private global::System.Int32 _SemesterEnd;
-        partial void OnSemesterEndChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _SemesterEnd;
+        partial void OnSemesterEndChanging(Nullable<global::System.Int32> value);
         partial void OnSemesterEndChanged();
     
         /// <summary>
@@ -1194,9 +1190,9 @@ namespace StudiesPlansModels.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
         [DataMemberAttribute()]
-        public Nullable<global::System.Int32> LastEditUserID
+        public global::System.Int32 LastEditUserID
         {
             get
             {
@@ -1211,8 +1207,8 @@ namespace StudiesPlansModels.Models
                 OnLastEditUserIDChanged();
             }
         }
-        private Nullable<global::System.Int32> _LastEditUserID;
-        partial void OnLastEditUserIDChanging(Nullable<global::System.Int32> value);
+        private global::System.Int32 _LastEditUserID;
+        partial void OnLastEditUserIDChanging(global::System.Int32 value);
         partial void OnLastEditUserIDChanged();
 
         #endregion

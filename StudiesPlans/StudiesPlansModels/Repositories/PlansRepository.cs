@@ -43,5 +43,21 @@ namespace StudiesPlansModels.Repositories
                     where string.Compare(planName, p.Name, true) == 0
                     select p).FirstOrDefault();
         }
+
+        public Plan GetPlan(int planId)
+        {
+            return (from Plan p in SPDatabase.DB.Plans
+                    where p.PlanID == planId
+                    select p).FirstOrDefault();
+        }
+
+        public void AddPlanData(NewPlanData newPlanData)
+        {
+            if (newPlanData != null)
+            {
+                
+            }
+            
+        }
     }
 }
