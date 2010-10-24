@@ -109,15 +109,31 @@ namespace StudiesPlans.Views
                 IsExam = ckbxExam.Checked, 
                 Name = tbSubjectName.Text,
                 SemesterId = semester.SemesterID,
-                SubjectTypes = nstdlist
+                SubjectTypes = nstdlist,
+                PlanId = plan.PlanID
             };
 
             if (SubjectController.Instance.AddSubject(subject))
             {
                 MessageBox.Show("Added");
+
+                //NewPlanData npd = new NewPlanData()
+                //{
+                //    PlanId = plan.PlanID,
+                //    SubjectId = subjectId
+                //};
+
+                //if (PlanController.Instance.AddPlanData(npd))
+                //{ }
             }
             else
-            { }
+            {
+                string errors = string.Empty;
+                foreach (string error in subject.Errors)
+                    errors = errors + error + "\n";
+
+                lblValidation.Text = errors;
+            }
         }
 
     }

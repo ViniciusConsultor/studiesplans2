@@ -40,6 +40,10 @@ namespace StudiesPlans.Views
             if (subjectTypes != null)
                 foreach (SubjectType s in subjectTypes)
                     gridPlanSubjects.Columns.Add(s.Name, s.Name);
+
+            gridPlanSubjects.AutoSizeRows = true;
+            gridPlanSubjects.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridPlanSubjects.AutoSize = true;
         }
 
         private void ManageUsers(User user)
@@ -92,8 +96,14 @@ namespace StudiesPlans.Views
                     if (u.LastActiveDate.HasValue)
                         lastActiveDate = u.LastActiveDate.Value.ToString();
 
-                    gridUsers.Rows.Add(u.Name, email, lastActiveDate, u.Role.Name, 
-                        Properties.Resources.edit, Properties.Resources.delete);
+                    gridUsers.Rows.Add(null, null);
+
+                    gridUsers.Rows[gridUsers.Rows.Count - 1].Cells["usernameColumn"].Value = u.Name;
+                    gridUsers.Rows[gridUsers.Rows.Count - 1].Cells["emailColumn"].Value = email;
+                    gridUsers.Rows[gridUsers.Rows.Count - 1].Cells["lastLoginColumn"].Value = lastActiveDate;
+                    gridUsers.Rows[gridUsers.Rows.Count - 1].Cells["roleColumn"].Value = u.Role.Name;
+                    gridUsers.Rows[gridUsers.Rows.Count - 1].Cells["editUserColumn"].Value = Properties.Resources.edit;
+                    gridUsers.Rows[gridUsers.Rows.Count - 1].Cells["deleteUserColumn"].Value = Properties.Resources.delete;          
                 }
             }
 
@@ -202,10 +212,10 @@ namespace StudiesPlans.Views
         private void gridUsers_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
 
-            if (e.ColumnIndex.Equals(4) && !e.RowIndex.Equals(-1))
+            if (e.Column.Name.Equals("editUserColumn") && !e.RowIndex.Equals(-1))
             {
                 lblValidation.Text = string.Empty;
-                UserEdit u = UserController.Instance.GetUserEdit(gridUsers.Rows[e.RowIndex].Cells["username"].Value.ToString());
+                UserEdit u = UserController.Instance.GetUserEdit(gridUsers.Rows[e.RowIndex].Cells["usernameColumn"].Value.ToString());
                 if (u != null)
                 {
                     userToEdit = u;
@@ -223,14 +233,21 @@ namespace StudiesPlans.Views
                     FillWithUsers();
                 }
             }
-            else if (e.ColumnIndex.Equals(5) && !e.RowIndex.Equals(-1))
+            else if (e.Column.Name.Equals("deleteUserColumn") && !e.RowIndex.Equals(-1))
             {
                if( MessageBox.Show ("Czy chcesz usun¹æ u¿ytkownika?", "Usuwanie u¿ytkownika",
                    MessageBoxButtons.OKCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes));
                 {
-                    if (!UserController.Instance.DeleteUser(gridUsers.Rows[e.RowIndex].Cells["username"].Value.ToString()))
+                    if (!UserController.Instance.DeleteUser(gridUsers.Rows[e.RowIndex].Cells["usernameColumn"].Value.ToString()))
                         MessageBox.Show("Nie mo¿na usun¹æ");
-                    gridUsers.Rows.RemoveAt(e.RowIndex);
+                    else
+                    {
+                        gridUsers.Rows.RemoveAt(e.RowIndex);
+                        Clear();
+                        btnUpdate.Enabled = false;
+                        btnAddUser.Enabled = true;
+                        btnCancelEdit.Enabled = false;
+                    }
                 }
             }
         }
@@ -274,13 +291,42 @@ namespace StudiesPlans.Views
             if ((oldPlan != null && oldPlan.PlanID != LoadedPlan.PlanID) || (oldPlan == null && LoadedPlan != null))
             {
                 lblPlanData.Text = LoadedPlan.Name + " " + LoadedPlan.Departament.Name + " " + LoadedPlan.Faculty.Name;
+                LoadPlanToGrid(LoadedPlan);
             }
+        }
+
+        private void LoadPlanToGrid(Plan LoadedPlan)
+        {
+            gridPlanSubjects.Rows.Clear();
+            gridPlanSubjects.EnableSorting = false;
+            if (LoadedPlan.SubjectsDatas != null)
+            {
+                foreach (SubjectsData sd in LoadedPlan.SubjectsDatas)
+                {
+                    gridPlanSubjects.Rows.Add(null, null);
+                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["subjectName"].Value = sd.Subject.Name;
+                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["semester"].Value = sd.Semester.Semester1.ToString();
+                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["ects"].Value = sd.Ects.ToString();
+                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["isExam"].Value = sd.IsExam;
+                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["institute"].Value = sd.Institute.Name;
+
+                    foreach (SubjectTypesData st in sd.SubjectTypesDatas)
+                    {
+                        gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells[st.SubjectType.Name].Value = st.Hours.ToString();
+                    }
+                }
+
+            }
+            gridPlanSubjects.EnableSorting = true;
         }
 
         private void btnAddSubject_Click(object sender, EventArgs e)
         {
-            if(LoadedPlan!=null)
+            if (LoadedPlan != null)
+            {
                 new Subjects(LoadedPlan).ShowDialog();
+                LoadPlanToGrid(LoadedPlan);
+            }
         }
     }
 }

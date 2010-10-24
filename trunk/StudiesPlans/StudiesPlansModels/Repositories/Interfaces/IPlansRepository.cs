@@ -13,5 +13,9 @@ namespace StudiesPlansModels.Repositories.Interfaces
         IEnumerable<Plan> ListPlans();
 
         Plan GetPlan(string planName);
+
+        Plan GetPlan(int planId);
+
+        void AddPlanData(NewPlanData npd);
     }
 }

@@ -157,15 +157,15 @@
           </Key>
           <Property Name="PlanID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="nvarchar" Nullable="false" MaxLength="100" />
-          <Property Name="YearStart" Type="datetime" Nullable="false" />
+          <Property Name="YearStart" Type="datetime" />
           <Property Name="YearEnd" Type="datetime" />
-          <Property Name="SemesterStart" Type="int" Nullable="false" />
-          <Property Name="SemesterEnd" Type="int" Nullable="false" />
+          <Property Name="SemesterStart" Type="int" />
+          <Property Name="SemesterEnd" Type="int" />
           <Property Name="IsMandatory" Type="bit" Nullable="false" />
           <Property Name="DepartamentID" Type="int" Nullable="false" />
           <Property Name="FacultyID" Type="int" Nullable="false" />
           <Property Name="StudiesTypeID" Type="int" Nullable="false" />
-          <Property Name="LastEditUserID" Type="int" />
+          <Property Name="LastEditUserID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="PlansData">
           <Key>
@@ -364,7 +364,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Plans_Users">
-          <End Role="Users" Type="SPModel.Store.Users" Multiplicity="0..1" />
+          <End Role="Users" Type="SPModel.Store.Users" Multiplicity="1" />
           <End Role="Plans" Type="SPModel.Store.Plans" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Users">
@@ -924,15 +924,15 @@
           </Key>
           <Property Type="Int32" Name="PlanID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Type="String" Name="Name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Type="DateTime" Name="YearStart" Nullable="false" />
+          <Property Type="DateTime" Name="YearStart" />
           <Property Type="DateTime" Name="YearEnd" />
-          <Property Type="Int32" Name="SemesterStart" Nullable="false" />
-          <Property Type="Int32" Name="SemesterEnd" Nullable="false" />
+          <Property Type="Int32" Name="SemesterStart" />
+          <Property Type="Int32" Name="SemesterEnd" />
           <Property Type="Boolean" Name="IsMandatory" Nullable="false" />
           <Property Type="Int32" Name="DepartamentID" Nullable="false" />
           <Property Type="Int32" Name="FacultyID" Nullable="false" />
           <Property Type="Int32" Name="StudiesTypeID" Nullable="false" />
-          <Property Type="Int32" Name="LastEditUserID" />
+          <Property Type="Int32" Name="LastEditUserID" Nullable="false" />
           <NavigationProperty Name="Departament" Relationship="SPModel.FK_Plans_Departaments" FromRole="Plan" ToRole="Departament" />
           <NavigationProperty Name="Faculty" Relationship="SPModel.FK_Plans_Faculties" FromRole="Plan" ToRole="Faculty" />
           <NavigationProperty Name="StudiesType" Relationship="SPModel.FK_Plans_StudiesTypes" FromRole="Plan" ToRole="StudiesType" />
@@ -976,7 +976,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Plans_Users">
-          <End Type="SPModel.User" Role="User" Multiplicity="0..1" />
+          <End Type="SPModel.User" Role="User" Multiplicity="1" />
           <End Type="SPModel.Plan" Role="Plan" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="User">
@@ -1199,13 +1199,13 @@
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_SubjectsData_SpecializationsData" >
           <ConnectorPoint PointX="4.5" PointY="15.9612939453125" />
-          <ConnectorPoint PointX="11.008789921875" PointY="15.9612939453125" />
-          <ConnectorPoint PointX="11.008789921875" PointY="12.537903645833334" />
+          <ConnectorPoint PointX="11.010880389404298" PointY="15.9612939453125" />
+          <ConnectorPoint PointX="11.010880389404298" PointY="12.537903645833334" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_SubjectsData_Subjects" >
           <ConnectorPoint PointX="4.5" PointY="18.297841796875" />
-          <ConnectorPoint PointX="11.5356474609375" PointY="18.297841796875" />
-          <ConnectorPoint PointX="11.5356474609375" PointY="12.537903645833334" />
+          <ConnectorPoint PointX="11.536692694702149" PointY="18.297841796875" />
+          <ConnectorPoint PointX="11.536692694702149" PointY="12.537903645833334" />
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_SubjectTypesData_SubjectsData" >
           <ConnectorPoint PointX="10.5" PointY="9.7401432291666659" />
@@ -1277,10 +1277,10 @@
         </AssociationConnector>
         <AssociationConnector Association="SPModel.FK_Plans_Users" >
           <ConnectorPoint PointX="7.5" PointY="13.578797200520832" />
-          <ConnectorPoint PointX="10.925456588541666" PointY="13.578797200520832" />
-          <ConnectorPoint PointX="11.092123255208334" PointY="13.578797200520832" />
-          <ConnectorPoint PointX="11.452314127604167" PointY="13.578797200520832" />
-          <ConnectorPoint PointX="11.618980794270835" PointY="13.578797200520832" />
+          <ConnectorPoint PointX="10.927547056070964" PointY="13.578797200520832" />
+          <ConnectorPoint PointX="11.094213722737631" PointY="13.578797200520832" />
+          <ConnectorPoint PointX="11.453359361368815" PointY="13.578797200520832" />
+          <ConnectorPoint PointX="11.620026028035483" PointY="13.578797200520832" />
           <ConnectorPoint PointX="12.40625" PointY="13.578797200520832" />
           <ConnectorPoint PointX="12.40625" PointY="7.2206022135416674" />
         </AssociationConnector>
@@ -1288,7 +1288,7 @@
           <ConnectorPoint PointX="11.709472153846154" PointY="7.2206022135416674" />
           <ConnectorPoint PointX="11.709472153846154" PointY="8.25" />
         </AssociationConnector>
-      </Diagram>
+        </Diagram>
     </Diagrams>
   </Designer>
 </edmx:Edmx>

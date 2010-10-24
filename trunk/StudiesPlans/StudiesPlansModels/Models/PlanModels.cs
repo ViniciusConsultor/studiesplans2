@@ -31,4 +31,10 @@ namespace StudiesPlansModels.Models
 
         public int LastEditedUserId { get; set; }
     }
+
+    public class NewPlanData : BaseModel
+    {
+        public int PlanId { get; set; }
+        public int SubjectId { get; set; }
+    }
 }

@@ -35,12 +35,21 @@ namespace StudiesPlans.Controllers
 
         public bool AddSubject(NewSubject ns)
         {
+            SubjectsData sd = this.repository.GetSubjectData(ns.Name, ns.DepartamentId, ns.Ects, ns.FacultyId, ns.InstituteId, ns.IsExam, ns.PlanId, ns.SemesterId);
+            if (sd != null)
+                ns.AddError("Przedmiot o podanych danych już istnieje w planie");
+
             if (ns != null && ns.IsValid)
             {
                 this.repository.AddSubject(ns);
                 return true;
             }
             return false;
+        }
+
+        public SubjectsData GetSubject(int subjectDataId)
+        {
+            return this.repository.GetSubjectData(subjectDataId);
         }
     }
 }

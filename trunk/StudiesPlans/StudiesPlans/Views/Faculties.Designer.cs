@@ -171,7 +171,7 @@ namespace StudiesPlans.Views
             this.btnDepartamentsMngmt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnDepartamentsMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
             this.btnDepartamentsMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDepartamentsMngmt.Location = new System.Drawing.Point(65, 56);
+            this.btnDepartamentsMngmt.Location = new System.Drawing.Point(79, 56);
             this.btnDepartamentsMngmt.Margin = new System.Windows.Forms.Padding(0);
             this.btnDepartamentsMngmt.Name = "btnDepartamentsMngmt";
             this.btnDepartamentsMngmt.Size = new System.Drawing.Size(21, 21);
@@ -208,6 +208,7 @@ namespace StudiesPlans.Views
             // 
             // clbDepartaments
             // 
+            this.clbDepartaments.CheckOnClick = true;
             this.clbDepartaments.FormattingEnabled = true;
             this.clbDepartaments.Location = new System.Drawing.Point(106, 56);
             this.clbDepartaments.Name = "clbDepartaments";

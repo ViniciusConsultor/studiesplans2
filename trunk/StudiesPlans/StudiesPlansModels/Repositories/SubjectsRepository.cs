@@ -33,6 +33,7 @@ namespace StudiesPlansModels.Models
             }
 
             s = this.GetSubject(subject.Name);
+            
             SubjectsData sd = new SubjectsData()
             {
                 DepartamentID = subject.DepartamentId,
@@ -44,6 +45,10 @@ namespace StudiesPlansModels.Models
                 SpecializationDataID = null,
                 SubjectID = s.SubjectID
             };
+
+            Plan p = GetPlan(subject.PlanId);
+            if (p != null)
+                sd.Plans.Add(p);
 
             foreach (NewSubjectTypeData d in subject.SubjectTypes)
             {
@@ -60,6 +65,13 @@ namespace StudiesPlansModels.Models
             SPDatabase.DB.SaveChanges();
         }
 
+        private Plan GetPlan(int planId)
+        {
+            return (from Plan p in SPDatabase.DB.Plans
+                    where p.PlanID == planId
+                    select p).FirstOrDefault();
+        }
+
         public void AddSubjectName(Subject newSubject)
         {
             if (newSubject != null)
@@ -67,6 +79,35 @@ namespace StudiesPlansModels.Models
                 SPDatabase.DB.Subjects.AddObject(newSubject);
                 SPDatabase.DB.SaveChanges();
             }
+        }
+
+        public SubjectsData GetSubjectData(int subjectDataId)
+        {
+            return (from SubjectsData sd in SPDatabase.DB.SubjectsDatas
+                    where sd.SubjectDataID == subjectDataId
+                    select sd).FirstOrDefault();
+        }
+
+        public SubjectsData GetSubjectData(string subjectName, int departamentId, double ects, int facultyId, int instituteId, bool isExam, int planId, int semesterId)
+        {
+            SubjectsData s = (from SubjectsData sd in SPDatabase.DB.SubjectsDatas
+                              where sd.DepartamentID == departamentId &&
+                              sd.Ects == ects &&
+                              sd.FacultyID == facultyId &&
+                              sd.InstituteID == instituteId &&
+                              sd.IsExam == isExam &&
+                              sd.SemesterID == semesterId &&
+                              string.Compare(sd.Subject.Name, subjectName, true) == 0
+                              select sd).FirstOrDefault();
+
+            if(s!=null)
+                foreach (Plan p in s.Plans)
+                {
+                    if (p.PlanID == planId)
+                        return s;
+                }
+
+            return null;
         }
     }
 }

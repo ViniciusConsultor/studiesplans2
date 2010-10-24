@@ -30,5 +30,7 @@ namespace StudiesPlansModels.Models
         public double Ects { get; set; }
 
         public IEnumerable<NewSubjectTypeData> SubjectTypes { get; set; }
+
+        public int PlanId { get; set; }
     }
 }

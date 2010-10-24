@@ -106,6 +106,7 @@ namespace StudiesPlans.Views
             // 
             // clbPrivilages
             // 
+            this.clbPrivilages.CheckOnClick = true;
             this.clbPrivilages.FormattingEnabled = true;
             this.clbPrivilages.Location = new System.Drawing.Point(100, 56);
             this.clbPrivilages.Name = "clbPrivilages";
