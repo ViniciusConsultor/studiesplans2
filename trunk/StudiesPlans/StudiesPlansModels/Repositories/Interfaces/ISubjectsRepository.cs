@@ -14,5 +14,13 @@ namespace StudiesPlansModels.Models.Interfaces
         SubjectsData GetSubjectData(int subjectDataId);
 
         SubjectsData GetSubjectData(string subjectName, int departamentId, double ects, int facultyId, int instituteId, bool isExam, int planId, int semesterId);
+
+        void DeleteSubject(SubjectsData sd);
+
+        Subject GetSubject(string subjectName);
+
+        void AddSubjectName(Subject newSubject);
+
+        void EditSubject(SubjectsData st);
     }
 }

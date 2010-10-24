@@ -305,7 +305,7 @@ namespace StudiesPlans.Views
                 {
                     gridPlanSubjects.Rows.Add(null, null);
                     gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["subjectName"].Value = sd.Subject.Name;
-                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["semester"].Value = sd.Semester.Semester1.ToString();
+                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["semester"].Value = sd.Semester.Name;
                     gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["ects"].Value = sd.Ects.ToString();
                     gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["isExam"].Value = sd.IsExam;
                     gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["institute"].Value = sd.Institute.Name;
@@ -325,6 +325,70 @@ namespace StudiesPlans.Views
             if (LoadedPlan != null)
             {
                 new Subjects(LoadedPlan).ShowDialog();
+                LoadPlanToGrid(LoadedPlan);
+            }
+        }
+
+        private SubjectEdit CreateSubjectEditFromGrid()
+        {
+            int row = gridPlanSubjects.SelectedRows.ElementAt(0).Index;
+
+            Semester sem = SemesterController.Instance.GetSemester(gridPlanSubjects.Rows[row].Cells["semester"].Value.ToString());
+            int semId = sem == null ? 0 : sem.SemesterID;
+
+            SubjectEdit ns = new SubjectEdit()
+            {
+                Departament = LoadedPlan.Departament.Name,
+                Faculty = LoadedPlan.Faculty.Name,
+                Institute = gridPlanSubjects.Rows[row].Cells["institute"].Value.ToString(),
+                Ects = Convert.ToDouble(gridPlanSubjects.Rows[row].Cells["ects"].Value),
+                IsExam = Convert.ToBoolean(gridPlanSubjects.Rows[row].Cells["isExam"].Value),
+                Name = gridPlanSubjects.Rows[row].Cells["subjectName"].Value.ToString(),
+                PlanId = LoadedPlan.PlanID,
+                SemesterId = semId
+            };
+
+            List<NewSubjectTypeData> nstdlist = new List<NewSubjectTypeData>();
+            List<SubjectType> list = SubjectTypeController.Instance.ListSubjectTypes();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (gridPlanSubjects.Rows[row].Cells[list.ElementAt(i).Name].Value != null
+                    && !gridPlanSubjects.Rows[row].Cells[list.ElementAt(i).Name].Value.ToString().Equals(string.Empty))
+                {
+                    NewSubjectTypeData nstd = new NewSubjectTypeData()
+                    {
+                        Hours = Convert.ToInt32(gridPlanSubjects.Rows[row].Cells[list.ElementAt(i).Name].Value),
+                        SubjectTypeId = list.ElementAt(i).SubjectTypeID
+                    };
+                    nstdlist.Add(nstd);
+                }
+            }
+
+            ns.SubjectTypes = nstdlist;
+
+            SubjectsData sd = SubjectController.Instance.GetSubject(ns);
+            ns.SubjectId = sd.SubjectDataID;
+            return ns;
+        }
+
+        private void btnDeleteSubject_Click(object sender, EventArgs e)
+        {
+            SubjectEdit ns = CreateSubjectEditFromGrid();
+
+            if (SubjectController.Instance.DeleteSubject(ns))
+            {
+                LoadedPlan = PlanController.Instance.GetPlan(LoadedPlan.PlanID);
+                LoadPlanToGrid(LoadedPlan);
+            }
+        }
+
+        private void btnEditSubject_Click(object sender, EventArgs e)
+        {
+            SubjectEdit ns = CreateSubjectEditFromGrid();
+
+            if (new EditSubject(LoadedPlan, ns).ShowDialog() == DialogResult.Yes)
+            {
+                LoadedPlan = PlanController.Instance.GetPlan(LoadedPlan.PlanID);
                 LoadPlanToGrid(LoadedPlan);
             }
         }
