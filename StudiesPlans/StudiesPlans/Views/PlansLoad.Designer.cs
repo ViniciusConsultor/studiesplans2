@@ -42,24 +42,34 @@ namespace StudiesPlans.Views
             this.lstPlan.CaseSensitiveSort = true;
             this.lstPlan.Location = new System.Drawing.Point(12, 12);
             this.lstPlan.Name = "lstPlan";
-            this.lstPlan.Size = new System.Drawing.Size(177, 225);
+            this.lstPlan.Size = new System.Drawing.Size(219, 225);
             this.lstPlan.TabIndex = 0;
             this.lstPlan.Text = "radListControl1";
             // 
             // btnLoad
             // 
+            this.btnLoad.ForeColor = System.Drawing.Color.Black;
             this.btnLoad.Location = new System.Drawing.Point(12, 243);
             this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(97, 24);
+            // 
+            // 
+            // 
+            this.btnLoad.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnLoad.Size = new System.Drawing.Size(100, 30);
             this.btnLoad.TabIndex = 1;
             this.btnLoad.Text = "Wczytaj";
             this.btnLoad.Click += new System.EventHandler(this.btnLoad_Click);
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(115, 243);
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Location = new System.Drawing.Point(132, 243);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(74, 24);
+            // 
+            // 
+            // 
+            this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Size = new System.Drawing.Size(100, 30);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -68,16 +78,18 @@ namespace StudiesPlans.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(201, 279);
+            this.ClientSize = new System.Drawing.Size(243, 285);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.lstPlan);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "PlansLoad";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "PlansLoad";
+            this.Text = "Wczytaj plan";
             this.ThemeName = "ControlDefault";
             ((System.ComponentModel.ISupportInitialize)(this.lstPlan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnLoad)).EndInit();

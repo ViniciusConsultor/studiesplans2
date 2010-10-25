@@ -115,9 +115,10 @@ namespace StudiesPlans.Views
             // 
             // 
             this.radGroupBox1.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
-            this.radGroupBox1.Size = new System.Drawing.Size(513, 287);
+            this.radGroupBox1.Size = new System.Drawing.Size(323, 287);
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "Nowy plan";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             // 
             // btnStudiesTypesMngmt
             // 
@@ -312,16 +313,26 @@ namespace StudiesPlans.Views
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(159, 250);
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Location = new System.Drawing.Point(178, 250);
             this.btnCancel.Name = "btnCancel";
+            // 
+            // 
+            // 
+            this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Size = new System.Drawing.Size(130, 24);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Anuluj";
             // 
             // btnAddPlan
             // 
-            this.btnAddPlan.Location = new System.Drawing.Point(13, 250);
+            this.btnAddPlan.ForeColor = System.Drawing.Color.Black;
+            this.btnAddPlan.Location = new System.Drawing.Point(14, 250);
             this.btnAddPlan.Name = "btnAddPlan";
+            // 
+            // 
+            // 
+            this.btnAddPlan.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnAddPlan.Size = new System.Drawing.Size(130, 24);
             this.btnAddPlan.TabIndex = 0;
             this.btnAddPlan.Text = "Dodaj plan";
@@ -331,13 +342,16 @@ namespace StudiesPlans.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(537, 311);
+            this.ClientSize = new System.Drawing.Size(347, 311);
             this.Controls.Add(this.radGroupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Plans";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plan";
             this.ThemeName = "ControlDefault";
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();

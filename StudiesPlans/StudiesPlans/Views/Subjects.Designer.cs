@@ -98,7 +98,7 @@ namespace StudiesPlans.Views
             this.radGroupBox1.HeaderImageKey = "";
             this.radGroupBox1.HeaderMargin = new System.Windows.Forms.Padding(0);
             this.radGroupBox1.HeaderText = "Dodaj przedmiot";
-            this.radGroupBox1.Location = new System.Drawing.Point(12, 12);
+            this.radGroupBox1.Location = new System.Drawing.Point(8, 12);
             this.radGroupBox1.Name = "radGroupBox1";
             this.radGroupBox1.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
             // 
@@ -108,25 +108,32 @@ namespace StudiesPlans.Views
             this.radGroupBox1.Size = new System.Drawing.Size(446, 255);
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "Dodaj przedmiot";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             // 
             // dgSubjectTypes
             // 
             this.dgSubjectTypes.AutoSize = true;
             this.dgSubjectTypes.AutoSizeRows = true;
-            this.dgSubjectTypes.Location = new System.Drawing.Point(234, 43);
+            this.dgSubjectTypes.Location = new System.Drawing.Point(242, 23);
             // 
             // dgSubjectTypes
             // 
+            this.dgSubjectTypes.MasterTemplate.AllowAddNewRow = false;
+            this.dgSubjectTypes.MasterTemplate.AllowColumnResize = false;
+            this.dgSubjectTypes.MasterTemplate.AllowDeleteRow = false;
+            this.dgSubjectTypes.MasterTemplate.AllowDragToGroup = false;
+            this.dgSubjectTypes.MasterTemplate.AllowEditRow = false;
+            this.dgSubjectTypes.MasterTemplate.AllowRowResize = false;
             this.dgSubjectTypes.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             gridViewTextBoxColumn1.FormatString = "";
             gridViewTextBoxColumn1.HeaderText = "Typ";
             gridViewTextBoxColumn1.Name = "subjectType";
             gridViewTextBoxColumn1.ReadOnly = true;
-            gridViewTextBoxColumn1.Width = 76;
+            gridViewTextBoxColumn1.Width = 86;
             gridViewTextBoxColumn2.FormatString = "";
             gridViewTextBoxColumn2.HeaderText = "Godziny";
             gridViewTextBoxColumn2.Name = "hours";
-            gridViewTextBoxColumn2.Width = 75;
+            gridViewTextBoxColumn2.Width = 84;
             this.dgSubjectTypes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2});
@@ -137,7 +144,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.dgSubjectTypes.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.dgSubjectTypes.Size = new System.Drawing.Size(172, 150);
+            this.dgSubjectTypes.Size = new System.Drawing.Size(191, 170);
             this.dgSubjectTypes.TabIndex = 17;
             this.dgSubjectTypes.Text = "radGridView1";
             // 
@@ -150,18 +157,28 @@ namespace StudiesPlans.Views
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(149, 218);
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Location = new System.Drawing.Point(242, 210);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(130, 24);
+            // 
+            // 
+            // 
+            this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Size = new System.Drawing.Size(130, 32);
             this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Zamknij";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAddSubject
             // 
-            this.btnAddSubject.Location = new System.Drawing.Point(13, 218);
+            this.btnAddSubject.ForeColor = System.Drawing.Color.Black;
+            this.btnAddSubject.Location = new System.Drawing.Point(72, 210);
             this.btnAddSubject.Name = "btnAddSubject";
-            this.btnAddSubject.Size = new System.Drawing.Size(130, 24);
+            // 
+            // 
+            // 
+            this.btnAddSubject.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnAddSubject.Size = new System.Drawing.Size(130, 32);
             this.btnAddSubject.TabIndex = 14;
             this.btnAddSubject.Text = "Dodaj przedmiot";
             this.btnAddSubject.Click += new System.EventHandler(this.btnAddSubject_Click);
@@ -294,14 +311,17 @@ namespace StudiesPlans.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(470, 279);
+            this.ClientSize = new System.Drawing.Size(462, 279);
             this.Controls.Add(this.radGroupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Subjects";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "Subjects";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Zarz¹dzanie przedmiotami - dodawanie przedmiotu";
             this.ThemeName = "ControlDefault";
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);

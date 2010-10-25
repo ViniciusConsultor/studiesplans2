@@ -28,8 +28,8 @@ namespace StudiesPlans.Views
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.dgSubjectTypes = new Telerik.WinControls.UI.RadGridView();
             this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
@@ -76,23 +76,29 @@ namespace StudiesPlans.Views
             // 
             this.dgSubjectTypes.AutoSize = true;
             this.dgSubjectTypes.AutoSizeRows = true;
-            this.dgSubjectTypes.Location = new System.Drawing.Point(234, 43);
+            this.dgSubjectTypes.Location = new System.Drawing.Point(242, 23);
             // 
             // dgSubjectTypes
             // 
+            this.dgSubjectTypes.MasterTemplate.AllowAddNewRow = false;
+            this.dgSubjectTypes.MasterTemplate.AllowColumnReorder = false;
+            this.dgSubjectTypes.MasterTemplate.AllowColumnResize = false;
+            this.dgSubjectTypes.MasterTemplate.AllowDeleteRow = false;
+            this.dgSubjectTypes.MasterTemplate.AllowEditRow = false;
+            this.dgSubjectTypes.MasterTemplate.AllowRowResize = false;
             this.dgSubjectTypes.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn1.FormatString = "";
-            gridViewTextBoxColumn1.HeaderText = "Typ";
-            gridViewTextBoxColumn1.Name = "subjectType";
-            gridViewTextBoxColumn1.ReadOnly = true;
-            gridViewTextBoxColumn1.Width = 76;
-            gridViewTextBoxColumn2.FormatString = "";
-            gridViewTextBoxColumn2.HeaderText = "Godziny";
-            gridViewTextBoxColumn2.Name = "hours";
-            gridViewTextBoxColumn2.Width = 75;
+            gridViewTextBoxColumn3.FormatString = "";
+            gridViewTextBoxColumn3.HeaderText = "Typ";
+            gridViewTextBoxColumn3.Name = "subjectType";
+            gridViewTextBoxColumn3.ReadOnly = true;
+            gridViewTextBoxColumn3.Width = 86;
+            gridViewTextBoxColumn4.FormatString = "";
+            gridViewTextBoxColumn4.HeaderText = "Godziny";
+            gridViewTextBoxColumn4.Name = "hours";
+            gridViewTextBoxColumn4.Width = 84;
             this.dgSubjectTypes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2});
+            gridViewTextBoxColumn3,
+            gridViewTextBoxColumn4});
             this.dgSubjectTypes.MasterTemplate.EnableGrouping = false;
             this.dgSubjectTypes.Name = "dgSubjectTypes";
             this.dgSubjectTypes.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
@@ -100,7 +106,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.dgSubjectTypes.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.dgSubjectTypes.Size = new System.Drawing.Size(172, 150);
+            this.dgSubjectTypes.Size = new System.Drawing.Size(191, 170);
             this.dgSubjectTypes.TabIndex = 17;
             this.dgSubjectTypes.Text = "radGridView1";
             // 
@@ -113,18 +119,28 @@ namespace StudiesPlans.Views
             // 
             // btnCancel
             // 
-            this.btnCancel.Location = new System.Drawing.Point(149, 218);
+            this.btnCancel.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Location = new System.Drawing.Point(242, 210);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(130, 24);
+            // 
+            // 
+            // 
+            this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnCancel.Size = new System.Drawing.Size(130, 32);
             this.btnCancel.TabIndex = 15;
             this.btnCancel.Text = "Zamknij";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSaveSubject
             // 
-            this.btnSaveSubject.Location = new System.Drawing.Point(13, 218);
+            this.btnSaveSubject.ForeColor = System.Drawing.Color.Black;
+            this.btnSaveSubject.Location = new System.Drawing.Point(72, 210);
             this.btnSaveSubject.Name = "btnSaveSubject";
-            this.btnSaveSubject.Size = new System.Drawing.Size(130, 24);
+            // 
+            // 
+            // 
+            this.btnSaveSubject.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnSaveSubject.Size = new System.Drawing.Size(130, 32);
             this.btnSaveSubject.TabIndex = 14;
             this.btnSaveSubject.Text = "Zapisz zmiany";
             this.btnSaveSubject.Click += new System.EventHandler(this.btnSaveSubject_Click);
@@ -154,7 +170,7 @@ namespace StudiesPlans.Views
             this.radGroupBox1.HeaderImageIndex = -1;
             this.radGroupBox1.HeaderImageKey = "";
             this.radGroupBox1.HeaderMargin = new System.Windows.Forms.Padding(0);
-            this.radGroupBox1.HeaderText = "Dodaj przedmiot";
+            this.radGroupBox1.HeaderText = "Edytuj przedmiot";
             this.radGroupBox1.Location = new System.Drawing.Point(8, 12);
             this.radGroupBox1.Name = "radGroupBox1";
             this.radGroupBox1.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
@@ -164,7 +180,8 @@ namespace StudiesPlans.Views
             this.radGroupBox1.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
             this.radGroupBox1.Size = new System.Drawing.Size(446, 255);
             this.radGroupBox1.TabIndex = 1;
-            this.radGroupBox1.Text = "Dodaj przedmiot";
+            this.radGroupBox1.Text = "Edytuj przedmiot";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             // 
             // cbInstitute
             // 
@@ -296,12 +313,15 @@ namespace StudiesPlans.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(462, 279);
             this.Controls.Add(this.radGroupBox1);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "EditSubject";
             // 
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.Text = "EditSubject";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Zarz¹dzanie przedmiotami - edycja przedmiotu";
             this.ThemeName = "ControlDefault";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EditSubject_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.dgSubjectTypes)).EndInit();
