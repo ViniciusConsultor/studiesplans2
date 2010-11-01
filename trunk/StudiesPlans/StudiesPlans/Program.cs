@@ -18,9 +18,25 @@ namespace StudiesPlans
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Login login = new Login();
-
-            if (login.ShowDialog() == DialogResult.OK)
+            //Login login = new Login();
+            Privilage p = new Privilage()
+            {
+                Name = "Edycja"
+            };
+            List<Privilage> pp = new List<Privilage>();
+            pp.Add(p);
+            Role r = new Role()
+            {
+                Name = "a",
+            };
+            r.Privilages.Add(p);
+            
+            user = new User()
+            {
+                Name = "Administrator",
+                Role = r
+            };
+           // if (login.ShowDialog() == DialogResult.OK)
             {
                 Application.Run(new MainForm(user));
             }

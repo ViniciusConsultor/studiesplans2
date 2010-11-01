@@ -32,8 +32,6 @@ namespace StudiesPlans.Views
             this.btnStudiesTypesMngmt = new Telerik.WinControls.UI.RadButton();
             this.btnFacultiesMngmt = new Telerik.WinControls.UI.RadButton();
             this.btnDepartamentsMngmt = new Telerik.WinControls.UI.RadButton();
-            this.tbYearEnd = new Telerik.WinControls.UI.RadDateTimePicker();
-            this.tbYearStart = new Telerik.WinControls.UI.RadDateTimePicker();
             this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             this.cbStudiesType = new Telerik.WinControls.UI.RadDropDownList();
             this.cbFaculty = new Telerik.WinControls.UI.RadDropDownList();
@@ -46,8 +44,6 @@ namespace StudiesPlans.Views
             this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel5 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel4 = new Telerik.WinControls.UI.RadLabel();
-            this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
-            this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
             this.btnAddPlan = new Telerik.WinControls.UI.RadButton();
@@ -56,8 +52,6 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnStudiesTypesMngmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFacultiesMngmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDepartamentsMngmt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbYearEnd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbYearStart)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbStudiesType)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbFaculty)).BeginInit();
@@ -70,8 +64,6 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddPlan)).BeginInit();
@@ -83,8 +75,6 @@ namespace StudiesPlans.Views
             this.radGroupBox1.Controls.Add(this.btnStudiesTypesMngmt);
             this.radGroupBox1.Controls.Add(this.btnFacultiesMngmt);
             this.radGroupBox1.Controls.Add(this.btnDepartamentsMngmt);
-            this.radGroupBox1.Controls.Add(this.tbYearEnd);
-            this.radGroupBox1.Controls.Add(this.tbYearStart);
             this.radGroupBox1.Controls.Add(this.lblValidation);
             this.radGroupBox1.Controls.Add(this.cbStudiesType);
             this.radGroupBox1.Controls.Add(this.cbFaculty);
@@ -97,8 +87,6 @@ namespace StudiesPlans.Views
             this.radGroupBox1.Controls.Add(this.radLabel6);
             this.radGroupBox1.Controls.Add(this.radLabel5);
             this.radGroupBox1.Controls.Add(this.radLabel4);
-            this.radGroupBox1.Controls.Add(this.radLabel3);
-            this.radGroupBox1.Controls.Add(this.radLabel2);
             this.radGroupBox1.Controls.Add(this.radLabel1);
             this.radGroupBox1.Controls.Add(this.btnCancel);
             this.radGroupBox1.Controls.Add(this.btnAddPlan);
@@ -123,7 +111,7 @@ namespace StudiesPlans.Views
             // btnStudiesTypesMngmt
             // 
             this.btnStudiesTypesMngmt.Image = global::StudiesPlans.Properties.Resources.management;
-            this.btnStudiesTypesMngmt.Location = new System.Drawing.Point(123, 205);
+            this.btnStudiesTypesMngmt.Location = new System.Drawing.Point(125, 153);
             this.btnStudiesTypesMngmt.Name = "btnStudiesTypesMngmt";
             this.btnStudiesTypesMngmt.Size = new System.Drawing.Size(20, 20);
             this.btnStudiesTypesMngmt.TabIndex = 23;
@@ -132,7 +120,7 @@ namespace StudiesPlans.Views
             // btnFacultiesMngmt
             // 
             this.btnFacultiesMngmt.Image = global::StudiesPlans.Properties.Resources.management;
-            this.btnFacultiesMngmt.Location = new System.Drawing.Point(123, 179);
+            this.btnFacultiesMngmt.Location = new System.Drawing.Point(125, 127);
             this.btnFacultiesMngmt.Name = "btnFacultiesMngmt";
             this.btnFacultiesMngmt.Size = new System.Drawing.Size(20, 20);
             this.btnFacultiesMngmt.TabIndex = 22;
@@ -144,49 +132,17 @@ namespace StudiesPlans.Views
             this.btnDepartamentsMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnDepartamentsMngmt.Image = global::StudiesPlans.Properties.Resources.management;
             this.btnDepartamentsMngmt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnDepartamentsMngmt.Location = new System.Drawing.Point(123, 155);
+            this.btnDepartamentsMngmt.Location = new System.Drawing.Point(125, 101);
             this.btnDepartamentsMngmt.Name = "btnDepartamentsMngmt";
             this.btnDepartamentsMngmt.Size = new System.Drawing.Size(20, 20);
             this.btnDepartamentsMngmt.TabIndex = 21;
             this.btnDepartamentsMngmt.Click += new System.EventHandler(this.btnDepartamentsMngmt_Click);
             // 
-            // tbYearEnd
-            // 
-            this.tbYearEnd.Culture = new System.Globalization.CultureInfo("pl-PL");
-            this.tbYearEnd.CustomFormat = "YYYY";
-            this.tbYearEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.tbYearEnd.Location = new System.Drawing.Point(149, 75);
-            this.tbYearEnd.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.tbYearEnd.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.tbYearEnd.Name = "tbYearEnd";
-            this.tbYearEnd.NullDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.tbYearEnd.Size = new System.Drawing.Size(159, 20);
-            this.tbYearEnd.TabIndex = 20;
-            this.tbYearEnd.TabStop = false;
-            this.tbYearEnd.Text = "radDateTimePicker2";
-            this.tbYearEnd.Value = new System.DateTime(2010, 10, 23, 14, 10, 8, 644);
-            // 
-            // tbYearStart
-            // 
-            this.tbYearStart.Culture = new System.Globalization.CultureInfo("pl-PL");
-            this.tbYearStart.CustomFormat = "YYYY";
-            this.tbYearStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.tbYearStart.Location = new System.Drawing.Point(149, 49);
-            this.tbYearStart.MaxDate = new System.DateTime(9998, 12, 31, 0, 0, 0, 0);
-            this.tbYearStart.MinDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.tbYearStart.Name = "tbYearStart";
-            this.tbYearStart.NullDate = new System.DateTime(1753, 1, 1, 0, 0, 0, 0);
-            this.tbYearStart.Size = new System.Drawing.Size(159, 20);
-            this.tbYearStart.TabIndex = 19;
-            this.tbYearStart.TabStop = false;
-            this.tbYearStart.Text = "radDateTimePicker1";
-            this.tbYearStart.Value = new System.DateTime(2010, 10, 23, 14, 9, 59, 837);
-            // 
             // lblValidation
             // 
             this.lblValidation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblValidation.ForeColor = System.Drawing.Color.Red;
-            this.lblValidation.Location = new System.Drawing.Point(332, 19);
+            this.lblValidation.Location = new System.Drawing.Point(14, 188);
             this.lblValidation.Name = "lblValidation";
             // 
             // 
@@ -198,7 +154,7 @@ namespace StudiesPlans.Views
             // cbStudiesType
             // 
             this.cbStudiesType.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            this.cbStudiesType.Location = new System.Drawing.Point(149, 205);
+            this.cbStudiesType.Location = new System.Drawing.Point(151, 153);
             this.cbStudiesType.Name = "cbStudiesType";
             this.cbStudiesType.Size = new System.Drawing.Size(159, 20);
             this.cbStudiesType.TabIndex = 17;
@@ -207,7 +163,7 @@ namespace StudiesPlans.Views
             // cbFaculty
             // 
             this.cbFaculty.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            this.cbFaculty.Location = new System.Drawing.Point(149, 179);
+            this.cbFaculty.Location = new System.Drawing.Point(151, 127);
             this.cbFaculty.Name = "cbFaculty";
             this.cbFaculty.Size = new System.Drawing.Size(159, 20);
             this.cbFaculty.TabIndex = 16;
@@ -216,7 +172,7 @@ namespace StudiesPlans.Views
             // cbDepartament
             // 
             this.cbDepartament.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
-            this.cbDepartament.Location = new System.Drawing.Point(149, 153);
+            this.cbDepartament.Location = new System.Drawing.Point(151, 101);
             this.cbDepartament.Name = "cbDepartament";
             this.cbDepartament.Size = new System.Drawing.Size(159, 20);
             this.cbDepartament.TabIndex = 15;
@@ -225,7 +181,7 @@ namespace StudiesPlans.Views
             // 
             // tbSemEnd
             // 
-            this.tbSemEnd.Location = new System.Drawing.Point(149, 127);
+            this.tbSemEnd.Location = new System.Drawing.Point(151, 75);
             this.tbSemEnd.Name = "tbSemEnd";
             this.tbSemEnd.Size = new System.Drawing.Size(159, 20);
             this.tbSemEnd.TabIndex = 14;
@@ -233,7 +189,7 @@ namespace StudiesPlans.Views
             // 
             // tbSemStart
             // 
-            this.tbSemStart.Location = new System.Drawing.Point(149, 101);
+            this.tbSemStart.Location = new System.Drawing.Point(151, 49);
             this.tbSemStart.Name = "tbSemStart";
             this.tbSemStart.Size = new System.Drawing.Size(159, 20);
             this.tbSemStart.TabIndex = 13;
@@ -241,7 +197,7 @@ namespace StudiesPlans.Views
             // 
             // tbPlanName
             // 
-            this.tbPlanName.Location = new System.Drawing.Point(149, 23);
+            this.tbPlanName.Location = new System.Drawing.Point(151, 23);
             this.tbPlanName.Name = "tbPlanName";
             this.tbPlanName.Size = new System.Drawing.Size(159, 20);
             this.tbPlanName.TabIndex = 10;
@@ -249,7 +205,7 @@ namespace StudiesPlans.Views
             // 
             // radLabel8
             // 
-            this.radLabel8.Location = new System.Drawing.Point(14, 207);
+            this.radLabel8.Location = new System.Drawing.Point(14, 155);
             this.radLabel8.Name = "radLabel8";
             this.radLabel8.Size = new System.Drawing.Size(69, 18);
             this.radLabel8.TabIndex = 9;
@@ -257,7 +213,7 @@ namespace StudiesPlans.Views
             // 
             // radLabel7
             // 
-            this.radLabel7.Location = new System.Drawing.Point(14, 182);
+            this.radLabel7.Location = new System.Drawing.Point(14, 129);
             this.radLabel7.Name = "radLabel7";
             this.radLabel7.Size = new System.Drawing.Size(52, 18);
             this.radLabel7.TabIndex = 8;
@@ -265,7 +221,7 @@ namespace StudiesPlans.Views
             // 
             // radLabel6
             // 
-            this.radLabel6.Location = new System.Drawing.Point(14, 155);
+            this.radLabel6.Location = new System.Drawing.Point(13, 103);
             this.radLabel6.Name = "radLabel6";
             this.radLabel6.Size = new System.Drawing.Size(48, 18);
             this.radLabel6.TabIndex = 7;
@@ -273,7 +229,7 @@ namespace StudiesPlans.Views
             // 
             // radLabel5
             // 
-            this.radLabel5.Location = new System.Drawing.Point(14, 129);
+            this.radLabel5.Location = new System.Drawing.Point(14, 77);
             this.radLabel5.Name = "radLabel5";
             this.radLabel5.Size = new System.Drawing.Size(113, 18);
             this.radLabel5.TabIndex = 6;
@@ -281,27 +237,11 @@ namespace StudiesPlans.Views
             // 
             // radLabel4
             // 
-            this.radLabel4.Location = new System.Drawing.Point(13, 103);
+            this.radLabel4.Location = new System.Drawing.Point(13, 51);
             this.radLabel4.Name = "radLabel4";
             this.radLabel4.Size = new System.Drawing.Size(111, 18);
             this.radLabel4.TabIndex = 5;
             this.radLabel4.Text = "Semestr rozpoczêcia:";
-            // 
-            // radLabel3
-            // 
-            this.radLabel3.Location = new System.Drawing.Point(14, 77);
-            this.radLabel3.Name = "radLabel3";
-            this.radLabel3.Size = new System.Drawing.Size(92, 18);
-            this.radLabel3.TabIndex = 4;
-            this.radLabel3.Text = "Rok zakoñczenia:";
-            // 
-            // radLabel2
-            // 
-            this.radLabel2.Location = new System.Drawing.Point(13, 51);
-            this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(90, 18);
-            this.radLabel2.TabIndex = 3;
-            this.radLabel2.Text = "Rok rozpoczêcia:";
             // 
             // radLabel1
             // 
@@ -323,6 +263,7 @@ namespace StudiesPlans.Views
             this.btnCancel.Size = new System.Drawing.Size(130, 24);
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Anuluj";
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAddPlan
             // 
@@ -354,14 +295,13 @@ namespace StudiesPlans.Views
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plan";
             this.ThemeName = "ControlDefault";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Plans_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnStudiesTypesMngmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFacultiesMngmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDepartamentsMngmt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbYearEnd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbYearStart)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbStudiesType)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbFaculty)).EndInit();
@@ -374,8 +314,6 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddPlan)).EndInit();
@@ -391,24 +329,20 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadDropDownList cbStudiesType;
         private Telerik.WinControls.UI.RadDropDownList cbFaculty;
         private Telerik.WinControls.UI.RadDropDownList cbDepartament;
-        private Telerik.WinControls.UI.RadTextBox tbSemEnd;
-        private Telerik.WinControls.UI.RadTextBox tbSemStart;
         private Telerik.WinControls.UI.RadTextBox tbPlanName;
         private Telerik.WinControls.UI.RadLabel radLabel8;
         private Telerik.WinControls.UI.RadLabel radLabel7;
         private Telerik.WinControls.UI.RadLabel radLabel6;
-        private Telerik.WinControls.UI.RadLabel radLabel5;
-        private Telerik.WinControls.UI.RadLabel radLabel4;
-        private Telerik.WinControls.UI.RadLabel radLabel3;
-        private Telerik.WinControls.UI.RadLabel radLabel2;
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadButton btnCancel;
         private Telerik.WinControls.UI.RadButton btnAddPlan;
-        private Telerik.WinControls.UI.RadDateTimePicker tbYearEnd;
-        private Telerik.WinControls.UI.RadDateTimePicker tbYearStart;
         private Telerik.WinControls.UI.RadButton btnStudiesTypesMngmt;
         private Telerik.WinControls.UI.RadButton btnFacultiesMngmt;
         private Telerik.WinControls.UI.RadButton btnDepartamentsMngmt;
+        private Telerik.WinControls.UI.RadTextBox tbSemEnd;
+        private Telerik.WinControls.UI.RadTextBox tbSemStart;
+        private Telerik.WinControls.UI.RadLabel radLabel5;
+        private Telerik.WinControls.UI.RadLabel radLabel4;
 
     }
 }

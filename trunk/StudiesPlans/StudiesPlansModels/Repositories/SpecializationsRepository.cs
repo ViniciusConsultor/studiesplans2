@@ -13,6 +13,13 @@ namespace StudiesPlansModels.Models
             return (from Specialization s in SPDatabase.DB.Specializations select s);
         }
 
+        public IEnumerable<Specialization> ListSpecializations(int departamentId, int facultyId)
+        {
+            return (from Specialization s in SPDatabase.DB.Specializations 
+                    where s.DepartamentID == departamentId && s.FacultyID == facultyId
+                    select s);
+        }
+
         public Specialization GetSpecialization(string name)
         {
             return (from Specialization s in SPDatabase.DB.Specializations
@@ -34,6 +41,8 @@ namespace StudiesPlansModels.Models
                 Specialization i = new Specialization()
                 {
                     Name = toAdd.SpecializationName,
+                    FacultyID = toAdd.FacultyId,
+                    DepartamentID = toAdd.DepartamentId
                 };
 
                 SPDatabase.DB.Specializations.AddObject(i);
@@ -49,7 +58,9 @@ namespace StudiesPlansModels.Models
                 SpecializationEdit ss = new SpecializationEdit()
                 {
                     SpecializationID = s.SpecializationID,
-                    SpecializationName = s.Name
+                    SpecializationName = s.Name,
+                    DepartamentId = s.DepartamentID,
+                    FacultyId = s.FacultyID
                 };
                 return ss;
             }

@@ -144,6 +144,7 @@
             this.Controls.Add(this.listSubjectTypes);
             this.Name = "SubjectTypes";
             this.Text = "SubjectTypes";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SubjectTypes_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

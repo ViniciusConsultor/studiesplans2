@@ -35,6 +35,9 @@ namespace StudiesPlans.Controllers
             if (p != null && p.Name.ToLower().Equals(plan.Name.ToLower()))
                 plan.AddError("Plan o podanej\nnazwie już istnieje");
 
+            if (plan.SemesterEnd <= 0 || plan.SemesterStart <= 0)
+                plan.AddError("Niepoprawna wartość semestru");
+
             if (plan != null)
             {
                 if (plan.IsValid)

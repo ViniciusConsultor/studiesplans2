@@ -15,6 +15,8 @@ namespace StudiesPlans.Views
     public partial class Institutes : Telerik.WinControls.UI.RadForm
     {
         private InstituteEdit toEdit = null;
+        bool changes = false;
+
         public Institutes()
         {
             InitializeComponent();
@@ -109,6 +111,7 @@ namespace StudiesPlans.Views
             {
                 FillWithInstitutes();
                 Clear();
+                changes = true;
             }
         }
 
@@ -124,6 +127,7 @@ namespace StudiesPlans.Views
                     toEdit = null;
                     Disable();
                     Clear();
+                    changes = true;
                 }
                 catch (UpdateException ex)
                 {
@@ -209,8 +213,15 @@ namespace StudiesPlans.Views
                     FillWithInstitutes();
                     Clear();
                     Disable();
+                    changes = true;
                 }
             }
+        }
+
+        private void Institutes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (changes)
+                this.DialogResult = DialogResult.Yes;
         }
     }
 }

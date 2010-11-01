@@ -19,22 +19,24 @@ using System.Runtime.Serialization;
 #region EDM Relationship Metadata
 
 [assembly: EdmRelationshipAttribute("SPModel", "FK_Users_Roles", "Roles", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Role), "Users", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.User), true)]
-[assembly: EdmRelationshipAttribute("SPModel", "FK_SpecializationsData_Specializations", "Specializations", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Specialization), "SpecializationsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SpecializationsData), true)]
-[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Faculties", "Faculty", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Faculty), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
-[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Semesters", "Semester", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Semester), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
-[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_SpecializationsData", "SpecializationsData", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StudiesPlansModels.Models.SpecializationsData), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
-[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Subjects", "Subject", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Subject), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
-[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectTypesData_SubjectsData", "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.SubjectsData), "SubjectTypesData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectTypesData), true)]
-[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Departaments", "Departament", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Departament), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FacultiesDepartaments", "Departament", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Departament), "Faculty", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Faculty))]
-[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Institutes", "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Institute), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "InstitutesDepartaments", "Departament", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Departament), "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Institute))]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectTypesData_SubjectTypes", "SubjectType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.SubjectType), "SubjectTypesData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectTypesData), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "RolesPrivilages", "Privilage", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Privilage), "Role", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Role))]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_Specializations_Departaments", "Departament", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Departament), "Specialization", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Specialization), true)]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_Specializations_Faculties", "Faculty", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Faculty), "Specialization", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Specialization), true)]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_SpecializationsData_Specializations", "Specialization", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Specialization), "SpecializationsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SpecializationsData), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_Plans_Departaments", "Departament", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Departament), "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_Plans_Faculties", "Faculty", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Faculty), "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_Plans_StudiesTypes", "StudiesType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.StudiesType), "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_Plans_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.User), "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), true)]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Departaments", "Departament", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Departament), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Faculties", "Faculty", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Faculty), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Institutes", "Institute", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StudiesPlansModels.Models.Institute), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Semesters", "Semester", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Semester), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_SpecializationsData", "SpecializationsData", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(StudiesPlansModels.Models.SpecializationsData), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectsData_Subjects", "Subject", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Subject), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData), true)]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_SubjectTypesData_SubjectsData", "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.SubjectsData), "SubjectTypesData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectTypesData), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "PlansData", "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData))]
 
 #endregion
@@ -138,22 +140,6 @@ namespace StudiesPlansModels.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<Specialization> Specializations
-        {
-            get
-            {
-                if ((_Specializations == null))
-                {
-                    _Specializations = base.CreateObjectSet<Specialization>("Specializations");
-                }
-                return _Specializations;
-            }
-        }
-        private ObjectSet<Specialization> _Specializations;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<SpecializationsData> SpecializationsDatas
         {
             get
@@ -234,22 +220,6 @@ namespace StudiesPlansModels.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        public ObjectSet<SubjectsData> SubjectsDatas
-        {
-            get
-            {
-                if ((_SubjectsDatas == null))
-                {
-                    _SubjectsDatas = base.CreateObjectSet<SubjectsData>("SubjectsDatas");
-                }
-                return _SubjectsDatas;
-            }
-        }
-        private ObjectSet<SubjectsData> _SubjectsDatas;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
         public ObjectSet<Departament> Departaments
         {
             get
@@ -314,6 +284,22 @@ namespace StudiesPlansModels.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
+        public ObjectSet<Specialization> Specializations
+        {
+            get
+            {
+                if ((_Specializations == null))
+                {
+                    _Specializations = base.CreateObjectSet<Specialization>("Specializations");
+                }
+                return _Specializations;
+            }
+        }
+        private ObjectSet<Specialization> _Specializations;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
         public ObjectSet<Plan> Plans
         {
             get
@@ -326,6 +312,22 @@ namespace StudiesPlansModels.Models
             }
         }
         private ObjectSet<Plan> _Plans;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<SubjectsData> SubjectsDatas
+        {
+            get
+            {
+                if ((_SubjectsDatas == null))
+                {
+                    _SubjectsDatas = base.CreateObjectSet<SubjectsData>("SubjectsDatas");
+                }
+                return _SubjectsDatas;
+            }
+        }
+        private ObjectSet<SubjectsData> _SubjectsDatas;
 
         #endregion
         #region AddTo Methods
@@ -352,14 +354,6 @@ namespace StudiesPlansModels.Models
         public void AddToSemesters(Semester semester)
         {
             base.AddObject("Semesters", semester);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the Specializations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToSpecializations(Specialization specialization)
-        {
-            base.AddObject("Specializations", specialization);
         }
     
         /// <summary>
@@ -403,14 +397,6 @@ namespace StudiesPlansModels.Models
         }
     
         /// <summary>
-        /// Deprecated Method for adding a new object to the SubjectsDatas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToSubjectsDatas(SubjectsData subjectsData)
-        {
-            base.AddObject("SubjectsDatas", subjectsData);
-        }
-    
-        /// <summary>
         /// Deprecated Method for adding a new object to the Departaments EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToDepartaments(Departament departament)
@@ -443,11 +429,27 @@ namespace StudiesPlansModels.Models
         }
     
         /// <summary>
+        /// Deprecated Method for adding a new object to the Specializations EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSpecializations(Specialization specialization)
+        {
+            base.AddObject("Specializations", specialization);
+        }
+    
+        /// <summary>
         /// Deprecated Method for adding a new object to the Plans EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
         /// </summary>
         public void AddToPlans(Plan plan)
         {
             base.AddObject("Plans", plan);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the SubjectsDatas EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToSubjectsDatas(SubjectsData subjectsData)
+        {
+            base.AddObject("SubjectsDatas", subjectsData);
         }
 
         #endregion
@@ -545,28 +547,6 @@ namespace StudiesPlansModels.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectsData_Departaments", "SubjectsData")]
-        public EntityCollection<SubjectsData> SubjectsDatas
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SubjectsData>("SPModel.FK_SubjectsData_Departaments", "SubjectsData");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SubjectsData>("SPModel.FK_SubjectsData_Departaments", "SubjectsData", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SPModel", "FacultiesDepartaments", "Faculty")]
         public EntityCollection<Faculty> Faculties
         {
@@ -611,6 +591,28 @@ namespace StudiesPlansModels.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_Specializations_Departaments", "Specialization")]
+        public EntityCollection<Specialization> Specializations
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Specialization>("SPModel.FK_Specializations_Departaments", "Specialization");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Specialization>("SPModel.FK_Specializations_Departaments", "Specialization", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_Plans_Departaments", "Plan")]
         public EntityCollection<Plan> Plans
         {
@@ -623,6 +625,28 @@ namespace StudiesPlansModels.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Plan>("SPModel.FK_Plans_Departaments", "Plan", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectsData_Departaments", "SubjectsData")]
+        public EntityCollection<SubjectsData> SubjectsDatas
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SubjectsData>("SPModel.FK_SubjectsData_Departaments", "SubjectsData");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SubjectsData>("SPModel.FK_SubjectsData_Departaments", "SubjectsData", value);
                 }
             }
         }
@@ -717,28 +741,6 @@ namespace StudiesPlansModels.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectsData_Faculties", "SubjectsData")]
-        public EntityCollection<SubjectsData> SubjectsDatas
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SubjectsData>("SPModel.FK_SubjectsData_Faculties", "SubjectsData");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SubjectsData>("SPModel.FK_SubjectsData_Faculties", "SubjectsData", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SPModel", "FacultiesDepartaments", "Departament")]
         public EntityCollection<Departament> Departaments
         {
@@ -761,6 +763,28 @@ namespace StudiesPlansModels.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_Specializations_Faculties", "Specialization")]
+        public EntityCollection<Specialization> Specializations
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Specialization>("SPModel.FK_Specializations_Faculties", "Specialization");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Specialization>("SPModel.FK_Specializations_Faculties", "Specialization", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_Plans_Faculties", "Plan")]
         public EntityCollection<Plan> Plans
         {
@@ -773,6 +797,28 @@ namespace StudiesPlansModels.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Plan>("SPModel.FK_Plans_Faculties", "Plan", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectsData_Faculties", "SubjectsData")]
+        public EntityCollection<SubjectsData> SubjectsDatas
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SubjectsData>("SPModel.FK_SubjectsData_Faculties", "SubjectsData");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SubjectsData>("SPModel.FK_SubjectsData_Faculties", "SubjectsData", value);
                 }
             }
         }
@@ -867,28 +913,6 @@ namespace StudiesPlansModels.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectsData_Institutes", "SubjectsData")]
-        public EntityCollection<SubjectsData> SubjectsDatas
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SubjectsData>("SPModel.FK_SubjectsData_Institutes", "SubjectsData");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SubjectsData>("SPModel.FK_SubjectsData_Institutes", "SubjectsData", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SPModel", "InstitutesDepartaments", "Departament")]
         public EntityCollection<Departament> Departaments
         {
@@ -901,6 +925,28 @@ namespace StudiesPlansModels.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Departament>("SPModel.InstitutesDepartaments", "Departament", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectsData_Institutes", "SubjectsData")]
+        public EntityCollection<SubjectsData> SubjectsDatas
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<SubjectsData>("SPModel.FK_SubjectsData_Institutes", "SubjectsData");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SubjectsData>("SPModel.FK_SubjectsData_Institutes", "SubjectsData", value);
                 }
             }
         }
@@ -1210,6 +1256,30 @@ namespace StudiesPlansModels.Models
         private global::System.Int32 _LastEditUserID;
         partial void OnLastEditUserIDChanging(global::System.Int32 value);
         partial void OnLastEditUserIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Review
+        {
+            get
+            {
+                return _Review;
+            }
+            set
+            {
+                OnReviewChanging(value);
+                ReportPropertyChanging("Review");
+                _Review = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Review");
+                OnReviewChanged();
+            }
+        }
+        private global::System.String _Review;
+        partial void OnReviewChanging(global::System.String value);
+        partial void OnReviewChanged();
 
         #endregion
     
@@ -1799,11 +1869,15 @@ namespace StudiesPlansModels.Models
         /// </summary>
         /// <param name="specializationID">Initial value of the SpecializationID property.</param>
         /// <param name="name">Initial value of the Name property.</param>
-        public static Specialization CreateSpecialization(global::System.Int32 specializationID, global::System.String name)
+        /// <param name="departamentID">Initial value of the DepartamentID property.</param>
+        /// <param name="facultyID">Initial value of the FacultyID property.</param>
+        public static Specialization CreateSpecialization(global::System.Int32 specializationID, global::System.String name, global::System.Int32 departamentID, global::System.Int32 facultyID)
         {
             Specialization specialization = new Specialization();
             specialization.SpecializationID = specializationID;
             specialization.Name = name;
+            specialization.DepartamentID = departamentID;
+            specialization.FacultyID = facultyID;
             return specialization;
         }
 
@@ -1860,10 +1934,134 @@ namespace StudiesPlansModels.Models
         private global::System.String _Name;
         partial void OnNameChanging(global::System.String value);
         partial void OnNameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 DepartamentID
+        {
+            get
+            {
+                return _DepartamentID;
+            }
+            set
+            {
+                OnDepartamentIDChanging(value);
+                ReportPropertyChanging("DepartamentID");
+                _DepartamentID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("DepartamentID");
+                OnDepartamentIDChanged();
+            }
+        }
+        private global::System.Int32 _DepartamentID;
+        partial void OnDepartamentIDChanging(global::System.Int32 value);
+        partial void OnDepartamentIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 FacultyID
+        {
+            get
+            {
+                return _FacultyID;
+            }
+            set
+            {
+                OnFacultyIDChanging(value);
+                ReportPropertyChanging("FacultyID");
+                _FacultyID = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("FacultyID");
+                OnFacultyIDChanged();
+            }
+        }
+        private global::System.Int32 _FacultyID;
+        partial void OnFacultyIDChanging(global::System.Int32 value);
+        partial void OnFacultyIDChanged();
 
         #endregion
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_Specializations_Departaments", "Departament")]
+        public Departament Departament
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Departament>("SPModel.FK_Specializations_Departaments", "Departament").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Departament>("SPModel.FK_Specializations_Departaments", "Departament").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Departament> DepartamentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Departament>("SPModel.FK_Specializations_Departaments", "Departament");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Departament>("SPModel.FK_Specializations_Departaments", "Departament", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_Specializations_Faculties", "Faculty")]
+        public Faculty Faculty
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Faculty>("SPModel.FK_Specializations_Faculties", "Faculty").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Faculty>("SPModel.FK_Specializations_Faculties", "Faculty").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Faculty> FacultyReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Faculty>("SPModel.FK_Specializations_Faculties", "Faculty");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Faculty>("SPModel.FK_Specializations_Faculties", "Faculty", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2029,16 +2227,16 @@ namespace StudiesPlansModels.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SpecializationsData_Specializations", "Specializations")]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SpecializationsData_Specializations", "Specialization")]
         public Specialization Specialization
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Specialization>("SPModel.FK_SpecializationsData_Specializations", "Specializations").Value;
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Specialization>("SPModel.FK_SpecializationsData_Specializations", "Specialization").Value;
             }
             set
             {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Specialization>("SPModel.FK_SpecializationsData_Specializations", "Specializations").Value = value;
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Specialization>("SPModel.FK_SpecializationsData_Specializations", "Specialization").Value = value;
             }
         }
         /// <summary>
@@ -2050,13 +2248,13 @@ namespace StudiesPlansModels.Models
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Specialization>("SPModel.FK_SpecializationsData_Specializations", "Specializations");
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Specialization>("SPModel.FK_SpecializationsData_Specializations", "Specialization");
             }
             set
             {
                 if ((value != null))
                 {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Specialization>("SPModel.FK_SpecializationsData_Specializations", "Specializations", value);
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Specialization>("SPModel.FK_SpecializationsData_Specializations", "Specialization", value);
                 }
             }
         }
@@ -2318,8 +2516,9 @@ namespace StudiesPlansModels.Models
         /// <param name="isExam">Initial value of the IsExam property.</param>
         /// <param name="departamentID">Initial value of the DepartamentID property.</param>
         /// <param name="subjectDataID">Initial value of the SubjectDataID property.</param>
-        /// <param name="instituteID">Initial value of the InstituteID property.</param>
-        public static SubjectsData CreateSubjectsData(global::System.Int32 subjectID, global::System.Int32 semesterID, global::System.Int32 facultyID, global::System.Double ects, global::System.Boolean isExam, global::System.Int32 departamentID, global::System.Int32 subjectDataID, global::System.Int32 instituteID)
+        /// <param name="isElective">Initial value of the IsElective property.</param>
+        /// <param name="isGeneral">Initial value of the IsGeneral property.</param>
+        public static SubjectsData CreateSubjectsData(global::System.Int32 subjectID, global::System.Int32 semesterID, global::System.Int32 facultyID, global::System.Double ects, global::System.Boolean isExam, global::System.Int32 departamentID, global::System.Int32 subjectDataID, global::System.Boolean isElective, global::System.Boolean isGeneral)
         {
             SubjectsData subjectsData = new SubjectsData();
             subjectsData.SubjectID = subjectID;
@@ -2329,7 +2528,8 @@ namespace StudiesPlansModels.Models
             subjectsData.IsExam = isExam;
             subjectsData.DepartamentID = departamentID;
             subjectsData.SubjectDataID = subjectDataID;
-            subjectsData.InstituteID = instituteID;
+            subjectsData.IsElective = isElective;
+            subjectsData.IsGeneral = isGeneral;
             return subjectsData;
         }
 
@@ -2534,9 +2734,9 @@ namespace StudiesPlansModels.Models
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        public global::System.Int32 InstituteID
+        public Nullable<global::System.Int32> InstituteID
         {
             get
             {
@@ -2551,13 +2751,99 @@ namespace StudiesPlansModels.Models
                 OnInstituteIDChanged();
             }
         }
-        private global::System.Int32 _InstituteID;
-        partial void OnInstituteIDChanging(global::System.Int32 value);
+        private Nullable<global::System.Int32> _InstituteID;
+        partial void OnInstituteIDChanging(Nullable<global::System.Int32> value);
         partial void OnInstituteIDChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsElective
+        {
+            get
+            {
+                return _IsElective;
+            }
+            set
+            {
+                OnIsElectiveChanging(value);
+                ReportPropertyChanging("IsElective");
+                _IsElective = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsElective");
+                OnIsElectiveChanged();
+            }
+        }
+        private global::System.Boolean _IsElective;
+        partial void OnIsElectiveChanging(global::System.Boolean value);
+        partial void OnIsElectiveChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Boolean IsGeneral
+        {
+            get
+            {
+                return _IsGeneral;
+            }
+            set
+            {
+                OnIsGeneralChanging(value);
+                ReportPropertyChanging("IsGeneral");
+                _IsGeneral = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("IsGeneral");
+                OnIsGeneralChanged();
+            }
+        }
+        private global::System.Boolean _IsGeneral;
+        partial void OnIsGeneralChanging(global::System.Boolean value);
+        partial void OnIsGeneralChanged();
 
         #endregion
     
         #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectsData_Departaments", "Departament")]
+        public Departament Departament
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Departament>("SPModel.FK_SubjectsData_Departaments", "Departament").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Departament>("SPModel.FK_SubjectsData_Departaments", "Departament").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Departament> DepartamentReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Departament>("SPModel.FK_SubjectsData_Departaments", "Departament");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Departament>("SPModel.FK_SubjectsData_Departaments", "Departament", value);
+                }
+            }
+        }
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -2593,6 +2879,44 @@ namespace StudiesPlansModels.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Faculty>("SPModel.FK_SubjectsData_Faculties", "Faculty", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectsData_Institutes", "Institute")]
+        public Institute Institute
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("SPModel.FK_SubjectsData_Institutes", "Institute").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("SPModel.FK_SubjectsData_Institutes", "Institute").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Institute> InstituteReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("SPModel.FK_SubjectsData_Institutes", "Institute");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Institute>("SPModel.FK_SubjectsData_Institutes", "Institute", value);
                 }
             }
         }
@@ -2729,82 +3053,6 @@ namespace StudiesPlansModels.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<SubjectTypesData>("SPModel.FK_SubjectTypesData_SubjectsData", "SubjectTypesData", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectsData_Departaments", "Departament")]
-        public Departament Departament
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Departament>("SPModel.FK_SubjectsData_Departaments", "Departament").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Departament>("SPModel.FK_SubjectsData_Departaments", "Departament").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Departament> DepartamentReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Departament>("SPModel.FK_SubjectsData_Departaments", "Departament");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Departament>("SPModel.FK_SubjectsData_Departaments", "Departament", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectsData_Institutes", "Institute")]
-        public Institute Institute
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("SPModel.FK_SubjectsData_Institutes", "Institute").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("SPModel.FK_SubjectsData_Institutes", "Institute").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<Institute> InstituteReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Institute>("SPModel.FK_SubjectsData_Institutes", "Institute");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Institute>("SPModel.FK_SubjectsData_Institutes", "Institute", value);
                 }
             }
         }
@@ -3056,44 +3304,6 @@ namespace StudiesPlansModels.Models
         [XmlIgnoreAttribute()]
         [SoapIgnoreAttribute()]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectTypesData_SubjectsData", "SubjectsData")]
-        public SubjectsData SubjectsData
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SubjectsData>("SPModel.FK_SubjectTypesData_SubjectsData", "SubjectsData").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SubjectsData>("SPModel.FK_SubjectTypesData_SubjectsData", "SubjectsData").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<SubjectsData> SubjectsDataReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SubjectsData>("SPModel.FK_SubjectTypesData_SubjectsData", "SubjectsData");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SubjectsData>("SPModel.FK_SubjectTypesData_SubjectsData", "SubjectsData", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
         [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectTypesData_SubjectTypes", "SubjectType")]
         public SubjectType SubjectType
         {
@@ -3122,6 +3332,44 @@ namespace StudiesPlansModels.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SubjectType>("SPModel.FK_SubjectTypesData_SubjectTypes", "SubjectType", value);
+                }
+            }
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_SubjectTypesData_SubjectsData", "SubjectsData")]
+        public SubjectsData SubjectsData
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SubjectsData>("SPModel.FK_SubjectTypesData_SubjectsData", "SubjectsData").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SubjectsData>("SPModel.FK_SubjectTypesData_SubjectsData", "SubjectsData").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<SubjectsData> SubjectsDataReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<SubjectsData>("SPModel.FK_SubjectTypesData_SubjectsData", "SubjectsData");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<SubjectsData>("SPModel.FK_SubjectTypesData_SubjectsData", "SubjectsData", value);
                 }
             }
         }

@@ -29,7 +29,13 @@ namespace StudiesPlansModels.Models
         [Required(ErrorMessage = "Punkty ECTS są wymagane")]
         public double Ects { get; set; }
 
+        public bool IsElective { get; set; }
+
+        public bool IsGeneral { get; set; }
+
         public IEnumerable<NewSubjectTypeData> SubjectTypes { get; set; }
+
+        public IEnumerable<NewSpecializationData> Specializations { get; set; }
 
         public int PlanId { get; set; }
     }

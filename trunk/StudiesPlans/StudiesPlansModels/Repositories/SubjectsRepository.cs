@@ -32,37 +32,94 @@ namespace StudiesPlansModels.Models
                 this.AddSubjectName(newSubject);
             }
 
-            s = this.GetSubject(subject.Name);
-            
-            SubjectsData sd = new SubjectsData()
+            if (subject.Specializations != null && subject.Specializations.Count() > 0 && subject.IsGeneral == false)
             {
-                DepartamentID = subject.DepartamentId,
-                Ects = subject.Ects,
-                FacultyID = subject.FacultyId,
-                InstituteID = subject.InstituteId,
-                IsExam = subject.IsExam,
-                SemesterID = subject.SemesterId,
-                SpecializationDataID = null,
-                SubjectID = s.SubjectID
-            };
+                s = this.GetSubject(subject.Name);
 
-            Plan p = GetPlan(subject.PlanId);
-            if (p != null)
-                sd.Plans.Add(p);
-
-            foreach (NewSubjectTypeData d in subject.SubjectTypes)
-            {
-                SubjectTypesData std = new SubjectTypesData()
+                for (int i = 0; i < subject.Specializations.Count(); i++)
                 {
-                    Hours = d.Hours,
-                    SubjectTypeID = d.SubjectTypeId
+                    SpecializationsData specDat = new SpecializationsData()
+                    {
+                        IsElective = subject.Specializations.ElementAt(i).IsElective,
+                        IsGeneral = subject.Specializations.ElementAt(i).IsGenereal,
+                        SpecializationID = subject.Specializations.ElementAt(i).SpecializationId
+                    };
+
+                    SPDatabase.DB.SpecializationsDatas.AddObject(specDat);
+
+                    SubjectsData sd = new SubjectsData()
+                    {
+                        DepartamentID = subject.DepartamentId,
+                        Ects = subject.Ects,
+                        FacultyID = subject.FacultyId,
+                        InstituteID = subject.InstituteId,
+                        IsExam = subject.IsExam,
+                        SemesterID = subject.SemesterId,
+                        SpecializationDataID = specDat.SpecializationDataID,
+                        SubjectID = s.SubjectID,
+                        IsElective = subject.IsElective,
+                        IsGeneral = false
+                    };
+
+                    Plan p = GetPlan(subject.PlanId);
+                    if (p != null)
+                        sd.Plans.Add(p);
+
+                    foreach (NewSubjectTypeData d in subject.SubjectTypes)
+                    {
+                        SubjectTypesData std = new SubjectTypesData()
+                        {
+                            Hours = d.Hours,
+                            SubjectTypeID = d.SubjectTypeId
+                        };
+
+                        sd.SubjectTypesDatas.Add(std);
+                    }
+
+                    SPDatabase.DB.SubjectsDatas.AddObject(sd);
+                    SPDatabase.DB.SaveChanges();
+                }
+
+            }
+            //else
+           // {
+                s = this.GetSubject(subject.Name);
+
+                SubjectsData sdd = new SubjectsData()
+                {
+                    DepartamentID = subject.DepartamentId,
+                    Ects = subject.Ects,
+                    FacultyID = subject.FacultyId,
+                    IsExam = subject.IsExam,
+                    SemesterID = subject.SemesterId,
+                    SpecializationDataID = null,
+                    SubjectID = s.SubjectID
                 };
 
-                sd.SubjectTypesDatas.Add(std);
-            }
+                if (subject.InstituteId > 0)
+                    sdd.InstituteID = subject.InstituteId;
+                else
+                    sdd.InstituteID = null;
 
-            SPDatabase.DB.SubjectsDatas.AddObject(sd);
-            SPDatabase.DB.SaveChanges();
+                Plan pp = GetPlan(subject.PlanId);
+                if (pp != null)
+                    sdd.Plans.Add(pp);
+
+                foreach (NewSubjectTypeData d in subject.SubjectTypes)
+                {
+                    SubjectTypesData std = new SubjectTypesData()
+                    {
+                        Hours = d.Hours,
+                        SubjectTypeID = d.SubjectTypeId
+                    };
+
+                    sdd.SubjectTypesDatas.Add(std);
+                }
+
+                SPDatabase.DB.SubjectsDatas.AddObject(sdd);
+                SPDatabase.DB.SaveChanges();
+           // }
+            
         }
 
         private Plan GetPlan(int planId)

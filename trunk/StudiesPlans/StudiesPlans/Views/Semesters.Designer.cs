@@ -36,7 +36,6 @@ namespace StudiesPlans.Views
             this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             this.tbNewSemestrNo = new System.Windows.Forms.TextBox();
             this.btnDelete = new Telerik.WinControls.UI.RadButton();
-            this.label1 = new System.Windows.Forms.Label();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
             this.tbNewSemesterName = new System.Windows.Forms.TextBox();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
@@ -62,7 +61,6 @@ namespace StudiesPlans.Views
             this.radGroupBox1.Controls.Add(this.lblValidation);
             this.radGroupBox1.Controls.Add(this.tbNewSemestrNo);
             this.radGroupBox1.Controls.Add(this.btnDelete);
-            this.radGroupBox1.Controls.Add(this.label1);
             this.radGroupBox1.Controls.Add(this.btnSave);
             this.radGroupBox1.Controls.Add(this.tbNewSemesterName);
             this.radGroupBox1.Controls.Add(this.btnCancel);
@@ -99,7 +97,7 @@ namespace StudiesPlans.Views
             // 
             this.lblValidation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblValidation.ForeColor = System.Drawing.Color.Red;
-            this.lblValidation.Location = new System.Drawing.Point(13, 169);
+            this.lblValidation.Location = new System.Drawing.Point(13, 118);
             this.lblValidation.Name = "lblValidation";
             // 
             // 
@@ -132,17 +130,6 @@ namespace StudiesPlans.Views
             this.btnDelete.TabIndex = 20;
             this.btnDelete.Text = "Usuñ";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(13, 115);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "label4";
             // 
             // btnSave
             // 
@@ -253,6 +240,7 @@ namespace StudiesPlans.Views
             gridViewTextBoxColumn3});
             this.dgSemesters.Name = "dgSemesters";
             this.dgSemesters.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.dgSemesters.ReadOnly = true;
             // 
             // 
             // 
@@ -261,7 +249,6 @@ namespace StudiesPlans.Views
             this.dgSemesters.Size = new System.Drawing.Size(214, 252);
             this.dgSemesters.TabIndex = 4;
             this.dgSemesters.Text = "radGridView1";
-            this.dgSemesters.DoubleClick += new System.EventHandler(this.dgSemesters_CellDoubleClick);
             // 
             // Semesters
             // 
@@ -280,6 +267,7 @@ namespace StudiesPlans.Views
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zarz¹dzanie semestrami";
             this.ThemeName = "ControlDefault";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Semesters_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
@@ -304,7 +292,6 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadButton btnAdd;
         private System.Windows.Forms.TextBox tbNewSemesterYear;
         private System.Windows.Forms.TextBox tbNewSemestrNo;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbNewSemesterName;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;

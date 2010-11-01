@@ -95,5 +95,10 @@ namespace StudiesPlans.Controllers
         {
             return this.repository.ListFaculties(departamentId);
         }
+
+        public Faculty GetFaculty(int facultyId)
+        {
+            return this.repository.GetFaculty(facultyId);
+        }
     }
 }

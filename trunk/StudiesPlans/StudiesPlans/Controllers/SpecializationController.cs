@@ -5,6 +5,7 @@ using System.Text;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
 using System.Data;
+using System.Linq;
 
 namespace StudiesPlans.Controllers
 {
@@ -39,6 +40,10 @@ namespace StudiesPlans.Controllers
             Specialization s = this.repository.GetSpecialization(toAdd.SpecializationName);
             if (s != null)
                 toAdd.AddError("Specjalizacja o takiej nazwie już\nistnieje");
+
+            if (toAdd.DepartamentId == 0 || toAdd.FacultyId == 0)
+                toAdd.AddError("Wydział lub kierunek nie istnieje");
+
             if (toAdd.IsValid)
             {
                 this.repository.AddSpecialization(toAdd);
@@ -71,16 +76,26 @@ namespace StudiesPlans.Controllers
                 if (s != null && s.SpecializationID != toEdit.SpecializationID && s.Name.Equals(toEdit.SpecializationName))
                     toEdit.AddError("Specjalizacja o takiej nazwie\njuż istnieje");
 
+                if (toEdit.DepartamentId == 0 || toEdit.FacultyId == 0)
+                    toEdit.AddError("Wydział lub kierunek nie istnieje");
+
                 if (toEdit.IsValid)
                 {
                     s = this.repository.GetSpecialization(toEdit.SpecializationID);
                     s.Name = toEdit.SpecializationName;
+                    s.FacultyID = toEdit.FacultyId;
+                    s.DepartamentID = toEdit.DepartamentId;
                    
                     this.repository.EditSpecialization(s);
                     return true;
                 }
             }
             return false;
+        }
+
+        public List<Specialization> ListSpecializations(int departamentId, int facultyId)
+        {
+            return this.repository.ListSpecializations(departamentId, facultyId).ToList();
         }
     }
 }

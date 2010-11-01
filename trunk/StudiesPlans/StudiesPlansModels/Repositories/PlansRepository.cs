@@ -22,8 +22,6 @@ namespace StudiesPlansModels.Repositories
                     SemesterEnd = plan.SemesterEnd,
                     SemesterStart = plan.SemesterStart,
                     StudiesTypeID = plan.StudiesTypeId,
-                    YearStart = plan.YearStart,
-                    YearEnd = plan.YearEnd,
                     LastEditUserID = plan.LastEditedUserId
                 };
 
