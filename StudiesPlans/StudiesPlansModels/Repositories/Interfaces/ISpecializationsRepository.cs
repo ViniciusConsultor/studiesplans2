@@ -20,5 +20,7 @@ namespace StudiesPlansModels.Models.Interfaces
         Specialization GetSpecialization(int id);
 
         void EditSpecialization(Specialization s);
+
+        IEnumerable<Specialization> ListSpecializations(int departamentId, int facultyId);
     }
 }

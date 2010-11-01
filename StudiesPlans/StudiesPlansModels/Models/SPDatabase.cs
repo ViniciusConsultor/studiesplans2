@@ -11,11 +11,16 @@ namespace StudiesPlansModels.Models
         public static SPDatabase DB
         {
             get
-            { 
+            {
                 if (db == null)
                     db = new SPDatabase(ConnectionString);
 
                 return db;
+            }
+
+            set
+            {
+                db = value;
             }
         }
 

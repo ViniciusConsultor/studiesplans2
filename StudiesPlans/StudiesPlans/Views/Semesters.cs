@@ -15,6 +15,8 @@ namespace StudiesPlans.Views
     public partial class Semesters : Telerik.WinControls.UI.RadForm
     {
         private SemesterEdit toEdit = null;
+        bool changes = false;
+
         public Semesters()
         {
             InitializeComponent();
@@ -85,37 +87,7 @@ namespace StudiesPlans.Views
             {
                 FillWithSemesters();
                 Clear();
-            }
-        }
-
-        private void dgSemesters_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            lblValidation.Text = string.Empty;
-            if (e.RowIndex >= 0)
-            {
-                int no = 0;
-                int year = 0;
-
-                int.TryParse(dgSemesters.Rows[e.RowIndex].Cells["cNo"].Value.ToString(), out no);
-                int.TryParse(dgSemesters.Rows[e.RowIndex].Cells["cYear"].Value.ToString(), out year);
-                
-                SemesterEdit semester = SemesterController.Instance.GetSemesterEdit(
-                    dgSemesters.Rows[e.RowIndex].Cells["cName"].Value.ToString(),
-                    no, year);
-
-                if (semester != null)
-                {
-                    toEdit = semester;
-                    Enable();
-                    tbNewSemesterName.Text = semester.SemesterName;
-                    tbNewSemestrNo.Text = semester.SemesterNo.ToString();
-                    tbNewSemesterYear.Text = semester.SemesterYear.ToString();
-                }
-                else
-                {
-                    lblValidation.Text = "Semestr nie istnieje";
-                    toEdit = null;
-                }
+                changes = true;
             }
         }
 
@@ -141,6 +113,7 @@ namespace StudiesPlans.Views
                     toEdit = null;
                     Disable();
                     Clear();
+                    changes = true;
                 }
                 catch (UpdateException ex)
                 {
@@ -186,13 +159,78 @@ namespace StudiesPlans.Views
                     FillWithSemesters();
                     Clear();
                     Disable();
+                    changes = true;
                 }
             }
         }
 
-        private void dgSemesters_CellDoubleClick(object sender, EventArgs e)
+        private void dgSemesters_DoubleClick(object sender, Telerik.WinControls.UI.GridViewRowEventArgs e)
         {
+            lblValidation.Text = string.Empty;
+            if (e.Row.Index >= 0)
+            {
+                int no = 0;
+                int year = 0;
 
+                int.TryParse(dgSemesters.Rows[e.Row.Index].Cells["cNo"].Value.ToString(), out no);
+                int.TryParse(dgSemesters.Rows[e.Row.Index].Cells["cYear"].Value.ToString(), out year);
+
+                SemesterEdit semester = SemesterController.Instance.GetSemesterEdit(
+                    dgSemesters.Rows[e.Row.Index].Cells["cName"].Value.ToString(),
+                    no, year);
+
+                if (semester != null)
+                {
+                    toEdit = semester;
+                    Enable();
+                    tbNewSemesterName.Text = semester.SemesterName;
+                    tbNewSemestrNo.Text = semester.SemesterNo.ToString();
+                    tbNewSemesterYear.Text = semester.SemesterYear.ToString();
+                }
+                else
+                {
+                    lblValidation.Text = "Semestr nie istnieje";
+                    toEdit = null;
+                }
+            }
+        }
+
+        private void dgSemesters_DoubleClick(object sender, EventArgs e)
+        {
+            Telerik.WinControls.UI.GridViewRowEventArgs ee = (Telerik.WinControls.UI.GridViewRowEventArgs)e;
+            lblValidation.Text = string.Empty;
+            if (ee.Row.Index >= 0)
+            {
+                int no = 0;
+                int year = 0;
+
+                int.TryParse(dgSemesters.Rows[ee.Row.Index].Cells["cNo"].Value.ToString(), out no);
+                int.TryParse(dgSemesters.Rows[ee.Row.Index].Cells["cYear"].Value.ToString(), out year);
+
+                SemesterEdit semester = SemesterController.Instance.GetSemesterEdit(
+                    dgSemesters.Rows[ee.Row.Index].Cells["cName"].Value.ToString(),
+                    no, year);
+
+                if (semester != null)
+                {
+                    toEdit = semester;
+                    Enable();
+                    tbNewSemesterName.Text = semester.SemesterName;
+                    tbNewSemestrNo.Text = semester.SemesterNo.ToString();
+                    tbNewSemesterYear.Text = semester.SemesterYear.ToString();
+                }
+                else
+                {
+                    lblValidation.Text = "Semestr nie istnieje";
+                    toEdit = null;
+                }
+            }
+        }
+
+        private void Semesters_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (changes)
+                this.DialogResult = DialogResult.Yes;
         }
     }
 }

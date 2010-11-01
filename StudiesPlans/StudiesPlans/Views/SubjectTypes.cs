@@ -14,6 +14,8 @@ namespace StudiesPlans.Views
     public partial class SubjectTypes : Form
     {
         private SubjectTypeEdit toEdit = null;
+        private bool changes = false;
+
         public SubjectTypes()
         {
             InitializeComponent();
@@ -74,6 +76,7 @@ namespace StudiesPlans.Views
             {
                 FillWithSubjectTypes();
                 Clear();
+                changes = true;
             }
         }
 
@@ -119,6 +122,7 @@ namespace StudiesPlans.Views
                     toEdit = null;
                     Disable();
                     Clear();
+                    changes = true;
                 }
                 catch (UpdateException ex)
                 {
@@ -150,8 +154,14 @@ namespace StudiesPlans.Views
                     FillWithSubjectTypes();
                     Clear();
                     Disable();
+                    changes = true;
                 }
             }
+        }
+
+        private void SubjectTypes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.DialogResult = DialogResult.Yes;
         }
     }
 }

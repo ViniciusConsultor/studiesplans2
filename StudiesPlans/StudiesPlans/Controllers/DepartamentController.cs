@@ -97,5 +97,10 @@ namespace StudiesPlans.Controllers
             }
             return false;
         }
+
+        public Departament GetDepartament(int departamentId)
+        {
+            return this.repository.GetDepartament(departamentId);
+        }
     }
 }

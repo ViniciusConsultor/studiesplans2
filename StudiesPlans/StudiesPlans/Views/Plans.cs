@@ -14,6 +14,8 @@ namespace StudiesPlans.Views
     public partial class Plans : Telerik.WinControls.UI.RadForm
     {
         User loggedUser = null;
+        bool added = false;
+        Plan addedPlan = null;
 
         public Plans(User user)
         {
@@ -105,8 +107,8 @@ namespace StudiesPlans.Views
             NewPlan plan = new NewPlan()
             {
                 Name = tbPlanName.Text,
-                YearStart = tbYearStart.Value,
-                YearEnd = tbYearEnd.Value,
+              //  YearStart = tbYearStart.Value,
+              //  YearEnd = tbYearEnd.Value,
                 DepartamentId = departamentId,
                 FacultyId = facultyId,
                 StudiesTypeId = studiesTypeId,
@@ -118,6 +120,8 @@ namespace StudiesPlans.Views
             if (PlanController.Instance.AddPlan(plan))
             {
                 MessageBox.Show("Plan zosta³ dodany", "Info");
+                added = true;
+                addedPlan = PlanController.Instance.GetPlan(tbPlanName.Text);
                 Clear();
             }
             else
@@ -154,6 +158,21 @@ namespace StudiesPlans.Views
         {
             if (new StudiesTypes().ShowDialog() == DialogResult.Yes)
                 FillWithStudiesTypes();
+        }
+
+        private void Plans_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (added)
+            {
+                this.DialogResult = DialogResult.Yes;
+                if (addedPlan != null)
+                    MainForm.LoadedPlan = addedPlan;
+            }
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

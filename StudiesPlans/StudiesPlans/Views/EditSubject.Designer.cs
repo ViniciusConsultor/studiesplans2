@@ -28,8 +28,8 @@ namespace StudiesPlans.Views
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.dgSubjectTypes = new Telerik.WinControls.UI.RadGridView();
             this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
@@ -84,21 +84,20 @@ namespace StudiesPlans.Views
             this.dgSubjectTypes.MasterTemplate.AllowColumnReorder = false;
             this.dgSubjectTypes.MasterTemplate.AllowColumnResize = false;
             this.dgSubjectTypes.MasterTemplate.AllowDeleteRow = false;
-            this.dgSubjectTypes.MasterTemplate.AllowEditRow = false;
             this.dgSubjectTypes.MasterTemplate.AllowRowResize = false;
             this.dgSubjectTypes.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn3.FormatString = "";
-            gridViewTextBoxColumn3.HeaderText = "Typ";
-            gridViewTextBoxColumn3.Name = "subjectType";
-            gridViewTextBoxColumn3.ReadOnly = true;
-            gridViewTextBoxColumn3.Width = 86;
-            gridViewTextBoxColumn4.FormatString = "";
-            gridViewTextBoxColumn4.HeaderText = "Godziny";
-            gridViewTextBoxColumn4.Name = "hours";
-            gridViewTextBoxColumn4.Width = 84;
+            gridViewTextBoxColumn1.FormatString = "";
+            gridViewTextBoxColumn1.HeaderText = "Typ";
+            gridViewTextBoxColumn1.Name = "subjectType";
+            gridViewTextBoxColumn1.ReadOnly = true;
+            gridViewTextBoxColumn1.Width = 86;
+            gridViewTextBoxColumn2.FormatString = "";
+            gridViewTextBoxColumn2.HeaderText = "Godziny";
+            gridViewTextBoxColumn2.Name = "hours";
+            gridViewTextBoxColumn2.Width = 84;
             this.dgSubjectTypes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4});
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2});
             this.dgSubjectTypes.MasterTemplate.EnableGrouping = false;
             this.dgSubjectTypes.Name = "dgSubjectTypes";
             this.dgSubjectTypes.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);

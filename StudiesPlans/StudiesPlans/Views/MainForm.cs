@@ -39,11 +39,16 @@ namespace StudiesPlans.Views
             List<SubjectType> subjectTypes = SubjectTypeController.Instance.ListSubjectTypes().ToList<SubjectType>();
             if (subjectTypes != null)
                 foreach (SubjectType s in subjectTypes)
+                {
                     gridPlanSubjects.Columns.Add(s.Name, s.Name);
+                    Telerik.WinControls.UI.GridViewDataColumn col = gridPlanSubjects.Columns[s.Name];
+                    col.Width = 100;
+                    col.AutoSizeMode = Telerik.WinControls.UI.BestFitColumnMode.DisplayedDataCells;
+                }
 
-            gridPlanSubjects.AutoSizeRows = true;
-            gridPlanSubjects.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridPlanSubjects.AutoSize = true;
+           // gridPlanSubjects.AutoSizeRows = true;
+           // gridPlanSubjects.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+           // gridPlanSubjects.AutoSize = true;
         }
 
         private void ManageUsers(User user)
@@ -236,7 +241,7 @@ namespace StudiesPlans.Views
             else if (e.Column.Name.Equals("deleteUserColumn") && !e.RowIndex.Equals(-1))
             {
                if( MessageBox.Show ("Czy chcesz usun¹æ u¿ytkownika?", "Usuwanie u¿ytkownika",
-                   MessageBoxButtons.OKCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes));
+                   MessageBoxButtons.OKCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
                 {
                     if (!UserController.Instance.DeleteUser(gridUsers.Rows[e.RowIndex].Cells["usernameColumn"].Value.ToString()))
                         MessageBox.Show("Nie mo¿na usun¹æ");
@@ -258,30 +263,11 @@ namespace StudiesPlans.Views
                 FillWithUsers();
         }
 
-        private void radButtonElement1_Click(object sender, EventArgs e)
-        {
-            new Faculties().ShowDialog();
-        }
-
-        private void radButtonElement2_Click(object sender, EventArgs e)
-        {
-             new Departaments().ShowDialog();
-        }
-
-        private void radButtonElement3_Click(object sender, EventArgs e)
-        {
-            new Institutes().ShowDialog();
-        }
-
-        private void radButtonElement4_Click(object sender, EventArgs e)
-        {
-
-            
-        }
-
         private void btnNewPlan_Click(object sender, EventArgs e)
         {
-            new Plans(logged).ShowDialog();
+            if (new Plans(logged).ShowDialog() == DialogResult.Yes
+                && LoadedPlan != null)
+                LoadPlanToGrid(LoadedPlan);               
         }
 
         private void btnLoadPlan_Click(object sender, EventArgs e)
@@ -290,13 +276,15 @@ namespace StudiesPlans.Views
             new PlansLoad().ShowDialog();
             if ((oldPlan != null && oldPlan.PlanID != LoadedPlan.PlanID) || (oldPlan == null && LoadedPlan != null))
             {
-                lblPlanData.Text = LoadedPlan.Name + " " + LoadedPlan.Departament.Name + " " + LoadedPlan.Faculty.Name;
                 LoadPlanToGrid(LoadedPlan);
             }
         }
 
         private void LoadPlanToGrid(Plan LoadedPlan)
         {
+            lblPlanData.Text = "Plan: " + LoadedPlan.Name + " Wydzia³: " + LoadedPlan.Departament.Name + " Kierunek: "
+                + LoadedPlan.Faculty.Name + " Studia: " + LoadedPlan.StudiesType.Name;
+            
             gridPlanSubjects.Rows.Clear();
             gridPlanSubjects.EnableSorting = false;
             if (LoadedPlan.SubjectsDatas != null)
@@ -308,7 +296,19 @@ namespace StudiesPlans.Views
                     gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["semester"].Value = sd.Semester.Name;
                     gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["ects"].Value = sd.Ects.ToString();
                     gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["isExam"].Value = sd.IsExam;
-                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["institute"].Value = sd.Institute.Name;
+                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["isGeneral"].Value = sd.IsGeneral;
+                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["isElective"].Value = sd.IsElective;
+                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["institute"].Value = sd.Institute == null ? "Brak" : sd.Institute.Name;
+
+                    if (sd.SpecializationDataID > 0)
+                    {
+                        string value = sd.SpecializationsData.Specialization.Name;
+                        if (sd.SpecializationsData.IsElective)
+                            value += " Obieralny";
+                        else if (sd.SpecializationsData.IsGeneral)
+                            value += " Obowi¹zkowy";
+                        gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["specialization"].Value = value;
+                    }
 
                     foreach (SubjectTypesData st in sd.SubjectTypesDatas)
                     {
@@ -391,6 +391,50 @@ namespace StudiesPlans.Views
                 LoadedPlan = PlanController.Instance.GetPlan(LoadedPlan.PlanID);
                 LoadPlanToGrid(LoadedPlan);
             }
+        }
+
+        private void radButtonElement7_Click(object sender, EventArgs e)
+        {
+            new Departaments().ShowDialog();
+        }
+
+        private void radButtonElement8_Click(object sender, EventArgs e)
+        {
+            new Faculties().ShowDialog();
+        }
+
+        private void radButtonElement9_Click(object sender, EventArgs e)
+        {
+            List<SubjectType> subjectTypes = SubjectTypeController.Instance.ListSubjectTypes().ToList<SubjectType>();
+
+            SPDatabase.DB = null;
+            
+            if (new SubjectTypes().ShowDialog() == DialogResult.Yes)
+            {
+                foreach (SubjectType st in subjectTypes)
+                    gridPlanSubjects.Columns.Remove(st.Name);
+                CreateSubjectGrid();
+            }
+        }
+
+        private void radButtonElement10_Click(object sender, EventArgs e)
+        {
+            new StudiesTypes().ShowDialog();
+        }
+
+        private void radButtonElement11_Click(object sender, EventArgs e)
+        {
+            new Institutes().ShowDialog();
+        }
+
+        private void radButtonElement12_Click(object sender, EventArgs e)
+        {
+            new Specializations().ShowDialog();
+        }
+
+        private void radButtonElement13_Click(object sender, EventArgs e)
+        {
+            new Semesters().ShowDialog();
         }
     }
 }

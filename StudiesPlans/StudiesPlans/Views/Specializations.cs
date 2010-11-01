@@ -15,12 +15,47 @@ namespace StudiesPlans.Views
     public partial class Specializations : Telerik.WinControls.UI.RadForm
     {
         private SpecializationEdit toEdit = null;
+        bool changes = false;
+
         public Specializations()
         {
             InitializeComponent();
             FillWithSpecializations();
+            FillWithDepartaments();
+            FillWithFaculties();
             Clear();
             Disable();
+        }
+
+        private void FillWithFaculties()
+        {
+            lstFaculties.Items.Clear();
+            if (lstDepartaments.SelectedIndex >= 0)
+            {
+                Departament dep = DepartamentController.Instance.GetDepartament(lstDepartaments.SelectedItem.ToString());
+                if (dep != null)
+                {
+                    IEnumerable<Faculty> faculties = FacultyController.Instance.ListFaculties(dep.DepartamentID);
+                    if (faculties != null)
+                    {
+                        foreach (Faculty f in faculties)
+                            lstFaculties.Items.Add(f.Name);
+                        lstFaculties.SelectedIndex = 0;
+                    }
+                }
+            }
+        }
+
+        private void FillWithDepartaments()
+        {
+            lstDepartaments.Items.Clear();
+            IEnumerable<Departament> departaments = DepartamentController.Instance.ListDepartaments();
+            if (departaments != null)
+            {
+                foreach (Departament d in departaments)
+                    lstDepartaments.Items.Add(d.Name);
+                lstDepartaments.SelectedIndex = 0;
+            }
         }
 
         private void FillWithSpecializations()
@@ -59,9 +94,15 @@ namespace StudiesPlans.Views
         private void btnAdd_Click(object sender, EventArgs e)
         {
             lblValidation.Text = string.Empty;
+
+            Departament dep = DepartamentController.Instance.GetDepartament(lstDepartaments.SelectedItem.ToString());
+            Faculty fac = FacultyController.Instance.GetFaculty(lstFaculties.SelectedItem.ToString());
+
             NewSpecialization toAdd = new NewSpecialization()
             {
-                SpecializationName = tbNewSpecializationName.Text
+                SpecializationName = tbNewSpecializationName.Text,
+                DepartamentId = dep == null? 0 : dep.DepartamentID,
+                FacultyId = fac == null? 0 : fac.FacultyID
             };
 
             if (!SpecializationController.Instance.AddSpecialization(toAdd))
@@ -75,6 +116,7 @@ namespace StudiesPlans.Views
             {
                 FillWithSpecializations();
                 Clear();
+                changes = true;
             }
         }
 
@@ -90,6 +132,7 @@ namespace StudiesPlans.Views
                     toEdit = null;
                     Disable();
                     Clear();
+                    changes = true;
                 }
                 catch (UpdateException ex)
                 {
@@ -109,6 +152,21 @@ namespace StudiesPlans.Views
                     toEdit = specialization;
                     Enable();
                     tbNewSpecializationName.Text = specialization.SpecializationName;
+
+                    Departament dep = DepartamentController.Instance.GetDepartament(specialization.DepartamentId);
+                    Faculty fac = FacultyController.Instance.GetFaculty(specialization.FacultyId);
+
+                    if (dep != null)
+                        for (int i = 0; i<lstDepartaments.Items.Count; i++)
+                            if(lstDepartaments.Items[i].Text.Equals(dep.Name))
+                                lstDepartaments.SelectedIndex = i;
+                        //lstDepartaments.SelectedItem.Value = dep.Name;
+
+                    if (fac != null && dep != null)
+                        for (int i = 0; i < lstFaculties.Items.Count; i++)
+                            if (lstFaculties.Items[i].Text.Equals(fac.Name))
+                                lstFaculties.SelectedIndex = i;
+                        //lstFaculties.SelectedItem.Value = fac.Name;
                 }
                 else
                 {
@@ -135,6 +193,13 @@ namespace StudiesPlans.Views
             {
                 string oldName = toEdit.SpecializationName;
                 toEdit.SpecializationName = tbNewSpecializationName.Text;
+
+                Departament dep = DepartamentController.Instance.GetDepartament(lstDepartaments.SelectedItem.ToString());
+                Faculty fac = FacultyController.Instance.GetFaculty(lstFaculties.SelectedItem.ToString());
+                
+                toEdit.DepartamentId = dep == null ? 0 : dep.DepartamentID;
+                toEdit.FacultyId = fac == null ? 0 : fac.FacultyID;
+
                 if (toEdit.Errors != null)
                     toEdit.ClearErrors();
 
@@ -151,8 +216,35 @@ namespace StudiesPlans.Views
                     FillWithSpecializations();
                     Clear();
                     Disable();
+                    changes = true;
                 }
             }
+        }
+
+        private void lstDepartaments_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            FillWithFaculties();
+        }
+
+        private void btnDepartamentsMngmt_Click(object sender, EventArgs e)
+        {
+            if (new Departaments().ShowDialog() == DialogResult.Yes)
+            {
+                FillWithDepartaments();
+                FillWithFaculties();
+            }
+        }
+
+        private void btnFacultiesManagement_Click(object sender, EventArgs e)
+        {
+            if (new Faculties().ShowDialog() == DialogResult.Yes)
+                FillWithFaculties();
+        }
+
+        private void Specializations_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (changes)
+                this.DialogResult = DialogResult.Yes;
         }
     }
 }

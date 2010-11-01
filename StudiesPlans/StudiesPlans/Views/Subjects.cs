@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using Telerik.WinControls;
 using StudiesPlansModels.Models;
 using StudiesPlans.Controllers;
+using System.Linq;
+using Telerik.WinControls.UI;
 
 namespace StudiesPlans.Views
 {
@@ -19,18 +21,34 @@ namespace StudiesPlans.Views
             InitializeComponent();
             lblDepartament.Text = plan.Departament.Name;
             lblFaculty.Text = plan.Faculty.Name;
+            this.plan = plan;
             FillWithInstitutes();
             FillWithSemesters();
             FillWithSubjectTypes();
-            this.plan = plan;
+            FillWithSpecializations();
         }
 
         private void FillWithSubjectTypes()
         {
+            dgSubjectTypes.Rows.Clear();
             List<SubjectType> subjectTypes = SubjectTypeController.Instance.ListSubjectTypes();
             if (subjectTypes != null)
                 foreach(SubjectType st in subjectTypes)
                     dgSubjectTypes.Rows.Add(st.Name, 0);
+        }
+
+        private void FillWithSpecializations()
+        { 
+            List<Specialization> list = SpecializationController.Instance.ListSpecializations(plan.DepartamentID, plan.FacultyID).ToList<Specialization>();
+            List<string> names = new List<string>();
+            foreach (Specialization item in list)
+                names.Add(item.Name);
+            GridViewComboBoxColumn chkCol = dgSpecializations.Columns["specialization"] as GridViewComboBoxColumn;
+            if (chkCol != null)
+            {
+                chkCol.DataSource = names;
+                chkCol.AutoSizeMode = BestFitColumnMode.DisplayedDataCells;
+            }
         }
 
         private void FillWithSemesters()
@@ -50,6 +68,7 @@ namespace StudiesPlans.Views
         private void FillWithInstitutes()
         {
             cbInstitute.Items.Clear();
+            cbInstitute.Items.Add("Brak");
 
             List<Institute> instiutes = InstituteController.Instance.ListInstitutes(lblDepartament.Text);
 
@@ -63,9 +82,11 @@ namespace StudiesPlans.Views
 
         private void btnAddSubject_Click(object sender, EventArgs e)
         {
-            Institute institute = InstituteController.Instance.GetInstitute(cbInstitute.SelectedItem.ToString(), plan.DepartamentID);
+            Institute institute = null;
+            if (!cbInstitute.SelectedItem.ToString().Equals("Brak"))
+                institute = InstituteController.Instance.GetInstitute(cbInstitute.SelectedItem.ToString(), plan.DepartamentID);
 
-            if(institute == null)
+            if (institute == null && !cbInstitute.SelectedItem.ToString().Equals("Brak"))
             {
                 MessageBox.Show("Wybrany instytut ju¿ nie istnieje");
                 FillWithInstitutes();
@@ -100,17 +121,38 @@ namespace StudiesPlans.Views
                 }
             }
 
+            List<NewSpecializationData> nspdlist = new List<NewSpecializationData>();
+            if (dgSpecializations.Enabled == true)
+                for (int i = 0; i < dgSpecializations.Rows.Count; i++)
+                { 
+                    SpecializationEdit s = SpecializationController.Instance.GetSpecializationEdit(dgSpecializations.Rows[i].Cells["specialization"].Value.ToString());
+                    if (s!=null)
+                    {
+                        NewSpecializationData nspd = new NewSpecializationData()
+                        {
+                            IsElective = Convert.ToBoolean(dgSpecializations.Rows[i].Cells["elective"].Value),
+                            IsGenereal = Convert.ToBoolean(dgSpecializations.Rows[i].Cells["general"].Value),
+                            SpecializationId = s.SpecializationID
+                        };
+
+                        nspdlist.Add(nspd);
+                    }
+                }
+
             NewSubject subject = new NewSubject()
             {
                 DepartamentId = plan.DepartamentID,
                 Ects = Convert.ToDouble(seEcts.Value),
                 FacultyId = plan.FacultyID,
-                InstituteId = institute.InstituteID,
+                InstituteId = institute == null ? 0 : institute.InstituteID,
                 IsExam = ckbxExam.Checked, 
                 Name = tbSubjectName.Text,
                 SemesterId = semester.SemesterID,
                 SubjectTypes = nstdlist,
-                PlanId = plan.PlanID
+                PlanId = plan.PlanID,
+                Specializations = nspdlist.Count > 0 ? nspdlist : null,
+                IsElective = cbElective.Checked,
+                IsGeneral = cbGeneral.Checked
             };
 
             if (SubjectController.Instance.AddSubject(subject))
@@ -141,6 +183,55 @@ namespace StudiesPlans.Views
             this.Close();
         }
 
+        private void cbElective_ToggleStateChanged(object sender, StateChangedEventArgs args)
+        {
+            if (cbElective.Checked)
+            {
+                dgSpecializations.Columns["elective"].ReadOnly = true;
+
+                for (int i = 0; i < dgSpecializations.Rows.Count; i++)
+                    dgSpecializations.Rows[i].Cells["elective"].Value = false;
+            }
+            else
+                dgSpecializations.Columns["elective"].ReadOnly = false;
+        }
+
+        private void btnSemestersMnmgt_Click(object sender, EventArgs e)
+        {
+            if (new Semesters().ShowDialog() == DialogResult.Yes)
+                FillWithSemesters();
+        }
+
+        private void btnInstitutesMngmt_Click(object sender, EventArgs e)
+        {
+            if (new Institutes().ShowDialog() == DialogResult.Yes)
+                FillWithInstitutes();
+        }
+
+        private void btnSpecMngmt_Click(object sender, EventArgs e)
+        {
+            if (new Specializations().ShowDialog() == DialogResult.Yes)
+                FillWithSpecializations();
+        }
+
+        private void btnSubjectTypesMnmgt_Click(object sender, EventArgs e)
+        {
+            if (new SubjectTypes().ShowDialog() == DialogResult.Yes)
+                FillWithSubjectTypes();
+        }
+
+        private void btnClearSpec_Click(object sender, EventArgs e)
+        {
+            dgSpecializations.Rows.Clear();
+        }
+
+        private void cbGeneral_ToggleStateChanged(object sender, StateChangedEventArgs args)
+        {
+            if (cbGeneral.Checked)
+                dgSpecializations.Enabled = false;
+            else
+                dgSpecializations.Enabled = true;
+        }
 
     }
 }
