@@ -187,13 +187,17 @@ namespace StudiesPlans.Views
         {
             if (cbElective.Checked)
             {
+                cbGeneral.Enabled = false;
                 dgSpecializations.Columns["elective"].ReadOnly = true;
 
                 for (int i = 0; i < dgSpecializations.Rows.Count; i++)
                     dgSpecializations.Rows[i].Cells["elective"].Value = false;
             }
             else
+            {
                 dgSpecializations.Columns["elective"].ReadOnly = false;
+                cbGeneral.Enabled = true;
+            }
         }
 
         private void btnSemestersMnmgt_Click(object sender, EventArgs e)
@@ -228,9 +232,15 @@ namespace StudiesPlans.Views
         private void cbGeneral_ToggleStateChanged(object sender, StateChangedEventArgs args)
         {
             if (cbGeneral.Checked)
+            {
                 dgSpecializations.Enabled = false;
+                cbElective.Enabled = false;
+            }
             else
+            {
                 dgSpecializations.Enabled = true;
+                cbElective.Enabled = true;
+            }
         }
 
     }

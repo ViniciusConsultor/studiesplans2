@@ -8,6 +8,8 @@ using System.Windows.Forms;
 using Telerik.WinControls;
 using StudiesPlansModels.Models;
 using StudiesPlans.Controllers;
+using Telerik.WinControls.UI;
+using System.Linq;
 
 namespace StudiesPlans.Views
 {
@@ -20,13 +22,14 @@ namespace StudiesPlans.Views
         public EditSubject(Plan plan, SubjectEdit subject)
         {
             InitializeComponent();
+            this.plan = plan;
+            this.subject = subject;
             lblDepartament.Text = plan.Departament.Name;
             lblFaculty.Text = plan.Faculty.Name;
             FillWithInstitutes();
             FillWithSemesters();
             FillWithSubjectTypes();
-            this.plan = plan;
-            this.subject = subject;
+            FillWithSpecializations();
 
             tbSubjectName.Text = subject.Name;
             cbInstitute.SelectedItem.Value = subject.Institute;
@@ -56,6 +59,20 @@ namespace StudiesPlans.Views
                     dgSubjectTypes.Rows.Add(st.Name, 0);
         }
 
+        private void FillWithSpecializations()
+        {
+            List<Specialization> list = SpecializationController.Instance.ListSpecializations(plan.DepartamentID, plan.FacultyID).ToList<Specialization>();
+            List<string> names = new List<string>();
+            foreach (Specialization item in list)
+                names.Add(item.Name);
+            GridViewComboBoxColumn chkCol = dgSpecializations.Columns["specialization"] as GridViewComboBoxColumn;
+            if (chkCol != null)
+            {
+                chkCol.DataSource = names;
+                chkCol.AutoSizeMode = BestFitColumnMode.DisplayedDataCells;
+            }
+        }
+
         private void FillWithSemesters()
         {
             cbSemester.Items.Clear();
@@ -73,6 +90,7 @@ namespace StudiesPlans.Views
         private void FillWithInstitutes()
         {
             cbInstitute.Items.Clear();
+            cbInstitute.Items.Add("Brak");
 
             List<Institute> instiutes = InstituteController.Instance.ListInstitutes(lblDepartament.Text);
 
@@ -142,6 +160,48 @@ namespace StudiesPlans.Views
         {
             if (changes)
                 this.DialogResult = DialogResult.Yes;
+        }
+
+        private void btnClearSpec_Click(object sender, EventArgs e)
+        {
+            dgSpecializations.Rows.Clear();
+        }
+
+        private void btnSpecMngmt_Click(object sender, EventArgs e)
+        {
+            if (new Specializations().ShowDialog() == DialogResult.Yes)
+                FillWithSpecializations();
+        }
+
+        private void cbGeneral_ToggleStateChanged(object sender, StateChangedEventArgs args)
+        {
+            if (cbGeneral.Checked)
+            {
+                dgSpecializations.Enabled = false;
+                cbElective.Enabled = false;
+            }
+            else
+            {
+                dgSpecializations.Enabled = true;
+                cbElective.Enabled = true;
+            }
+        }
+
+        private void cbElective_ToggleStateChanged(object sender, StateChangedEventArgs args)
+        {
+            if (cbElective.Checked)
+            {
+                cbGeneral.Enabled = false;
+                dgSpecializations.Columns["elective"].ReadOnly = true;
+
+                for (int i = 0; i < dgSpecializations.Rows.Count; i++)
+                    dgSpecializations.Rows[i].Cells["elective"].Value = false;
+            }
+            else
+            {
+                dgSpecializations.Columns["elective"].ReadOnly = false;
+                cbGeneral.Enabled = true;
+            }
         }
     }
 }

@@ -93,7 +93,9 @@ namespace StudiesPlansModels.Models
                     IsExam = subject.IsExam,
                     SemesterID = subject.SemesterId,
                     SpecializationDataID = null,
-                    SubjectID = s.SubjectID
+                    SubjectID = s.SubjectID,
+                    IsElective = subject.IsElective,
+                    IsGeneral = subject.IsGeneral
                 };
 
                 if (subject.InstituteId > 0)
@@ -147,11 +149,16 @@ namespace StudiesPlansModels.Models
 
         public SubjectsData GetSubjectData(string subjectName, int departamentId, double ects, int facultyId, int instituteId, bool isExam, int planId, int semesterId)
         {
+            int? instituteId2 = null;
+            if (instituteId > 0)
+                instituteId2 = instituteId;
+
             SubjectsData s = (from SubjectsData sd in SPDatabase.DB.SubjectsDatas
                               where sd.DepartamentID == departamentId &&
                               sd.Ects == ects &&
                               sd.FacultyID == facultyId &&
-                              sd.InstituteID == instituteId &&
+                              ((instituteId == 0 && sd.InstituteID == null) ||
+                              sd.InstituteID == instituteId) &&
                               sd.IsExam == isExam &&
                               sd.SemesterID == semesterId &&
                               string.Compare(sd.Subject.Name, subjectName, true) == 0

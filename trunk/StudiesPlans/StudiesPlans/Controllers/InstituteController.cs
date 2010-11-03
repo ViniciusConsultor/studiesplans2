@@ -96,20 +96,24 @@ namespace StudiesPlans.Controllers
 
         public Institute GetInstitute(string instituteName, int departamenId)
         {
-            Institute institute = this.repository.GetInstitute(instituteName);
-
-            if (institute != null)
+            if (instituteName != null)
             {
-                bool isDepartament = false;
-                foreach (Departament d in institute.Departaments)
-                    if (d.DepartamentID == departamenId)
-                    {
-                        isDepartament = true;
-                        break;
-                    }
+                Institute institute = this.repository.GetInstitute(instituteName);
 
-                if (isDepartament)
-                    return institute;
+                if (institute != null)
+                {
+                    bool isDepartament = false;
+                    foreach (Departament d in institute.Departaments)
+                        if (d.DepartamentID == departamenId)
+                        {
+                            isDepartament = true;
+                            break;
+                        }
+
+                    if (isDepartament)
+                        return institute;
+                }
+                return null;
             }
             return null;
         }
