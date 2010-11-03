@@ -340,7 +340,7 @@ namespace StudiesPlans.Views
             {
                 Departament = LoadedPlan.Departament.Name,
                 Faculty = LoadedPlan.Faculty.Name,
-                Institute = gridPlanSubjects.Rows[row].Cells["institute"].Value.ToString(),
+                Institute = gridPlanSubjects.Rows[row].Cells["institute"].Value.ToString().Equals("Brak") ? null : gridPlanSubjects.Rows[row].Cells["institute"].Value.ToString(),
                 Ects = Convert.ToDouble(gridPlanSubjects.Rows[row].Cells["ects"].Value),
                 IsExam = Convert.ToBoolean(gridPlanSubjects.Rows[row].Cells["isExam"].Value),
                 Name = gridPlanSubjects.Rows[row].Cells["subjectName"].Value.ToString(),
@@ -373,12 +373,15 @@ namespace StudiesPlans.Views
 
         private void btnDeleteSubject_Click(object sender, EventArgs e)
         {
-            SubjectEdit ns = CreateSubjectEditFromGrid();
-
-            if (SubjectController.Instance.DeleteSubject(ns))
+            if (LoadedPlan != null)
             {
-                LoadedPlan = PlanController.Instance.GetPlan(LoadedPlan.PlanID);
-                LoadPlanToGrid(LoadedPlan);
+                SubjectEdit ns = CreateSubjectEditFromGrid();
+
+                if (SubjectController.Instance.DeleteSubject(ns))
+                {
+                    LoadedPlan = PlanController.Instance.GetPlan(LoadedPlan.PlanID);
+                    LoadPlanToGrid(LoadedPlan);
+                }
             }
         }
 

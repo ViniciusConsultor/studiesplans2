@@ -34,6 +34,8 @@ namespace StudiesPlans.Views
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
+            this.cbGeneral = new Telerik.WinControls.UI.RadCheckBox();
             this.btnClearSpec = new Telerik.WinControls.UI.RadButton();
             this.btnSpecMngmt = new Telerik.WinControls.UI.RadButton();
             this.btnSubjectTypesMnmgt = new Telerik.WinControls.UI.RadButton();
@@ -60,10 +62,10 @@ namespace StudiesPlans.Views
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            this.cbGeneral = new Telerik.WinControls.UI.RadCheckBox();
-            this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbGeneral)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClearSpec)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSpecMngmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSubjectTypesMnmgt)).BeginInit();
@@ -89,8 +91,6 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbGeneral)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -141,6 +141,22 @@ namespace StudiesPlans.Views
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "Dodaj przedmiot";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            // 
+            // radLabel6
+            // 
+            this.radLabel6.Location = new System.Drawing.Point(13, 199);
+            this.radLabel6.Name = "radLabel6";
+            this.radLabel6.Size = new System.Drawing.Size(78, 18);
+            this.radLabel6.TabIndex = 25;
+            this.radLabel6.Text = "Obowi¹zkowy:";
+            // 
+            // cbGeneral
+            // 
+            this.cbGeneral.Location = new System.Drawing.Point(117, 199);
+            this.cbGeneral.Name = "cbGeneral";
+            this.cbGeneral.Size = new System.Drawing.Size(15, 15);
+            this.cbGeneral.TabIndex = 24;
+            this.cbGeneral.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.cbGeneral_ToggleStateChanged);
             // 
             // btnClearSpec
             // 
@@ -453,22 +469,6 @@ namespace StudiesPlans.Views
             this.radLabel1.TabIndex = 0;
             this.radLabel1.Text = "Nazwa:";
             // 
-            // cbGeneral
-            // 
-            this.cbGeneral.Location = new System.Drawing.Point(117, 199);
-            this.cbGeneral.Name = "cbGeneral";
-            this.cbGeneral.Size = new System.Drawing.Size(15, 15);
-            this.cbGeneral.TabIndex = 24;
-            this.cbGeneral.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.cbGeneral_ToggleStateChanged);
-            // 
-            // radLabel6
-            // 
-            this.radLabel6.Location = new System.Drawing.Point(13, 199);
-            this.radLabel6.Name = "radLabel6";
-            this.radLabel6.Size = new System.Drawing.Size(78, 18);
-            this.radLabel6.TabIndex = 25;
-            this.radLabel6.Text = "Obowi¹zkowy:";
-            // 
             // Subjects
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -488,6 +488,8 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbGeneral)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnClearSpec)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSpecMngmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSubjectTypesMnmgt)).EndInit();
@@ -513,8 +515,6 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbGeneral)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
