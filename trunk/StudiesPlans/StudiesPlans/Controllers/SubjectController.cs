@@ -37,7 +37,16 @@ namespace StudiesPlans.Controllers
         {
             SubjectsData sd = this.repository.GetSubjectData(ns.Name, ns.DepartamentId, ns.Ects, ns.FacultyId, ns.InstituteId, ns.IsExam, ns.PlanId, ns.SemesterId);
             if (sd != null)
-                ns.AddError("Przedmiot o podanych danych już istnieje w planie");
+                ns.AddError("Przedmiot o podanych danych już\nistnieje w planie");
+
+            if (ns.IsElective && ns.IsGeneral)
+                ns.AddError("Przedmiot nie może być\njednocześnie obowiązkowy i obieralny");
+
+            if (!ns.IsElective && !ns.IsGeneral && (ns.Specializations == null || ns.Specializations.Count() == 0))
+                ns.AddError("Przedmiot musi być obowiązkowy\nlub obieralny dla wszystkich lub\nprzynajmniej na jednej specjalności");
+
+            if (ns.SubjectTypes == null || ns.SubjectTypes.Count() == 0)
+                ns.AddError("Przedmiot musi być przypisany\nprzynajmniej do jednego typu");
 
             if (ns != null && ns.IsValid)
             {

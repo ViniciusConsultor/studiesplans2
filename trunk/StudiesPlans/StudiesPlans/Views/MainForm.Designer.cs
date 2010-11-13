@@ -36,13 +36,13 @@ namespace StudiesPlans.Views
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn3 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn1 = new Telerik.WinControls.UI.GridViewImageColumn();
             Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn2 = new Telerik.WinControls.UI.GridViewImageColumn();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.pages = new Telerik.WinControls.UI.RadPageView();
             this.plancreate = new Telerik.WinControls.UI.RadPageViewPage();
             this.lblPlanData = new Telerik.WinControls.UI.RadLabel();
@@ -53,6 +53,10 @@ namespace StudiesPlans.Views
             this.btnNewPlan = new Telerik.WinControls.UI.RadButton();
             this.gridPlanSubjects = new Telerik.WinControls.UI.RadGridView();
             this.review = new Telerik.WinControls.UI.RadPageViewPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.pagePreview1 = new PdfSharp.Forms.PagePreview();
+            this.button1 = new System.Windows.Forms.Button();
             this.archive = new Telerik.WinControls.UI.RadPageViewPage();
             this.users = new Telerik.WinControls.UI.RadPageViewPage();
             this.gridUsers = new Telerik.WinControls.UI.RadGridView();
@@ -106,6 +110,7 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnAddSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNewPlan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPlanSubjects)).BeginInit();
+            this.review.SuspendLayout();
             this.users.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gridUsers)).BeginInit();
             this.gbUsers1.SuspendLayout();
@@ -126,7 +131,7 @@ namespace StudiesPlans.Views
             this.pages.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.pages.Location = new System.Drawing.Point(0, 33);
             this.pages.Name = "pages";
-            this.pages.SelectedPage = this.plancreate;
+            this.pages.SelectedPage = this.review;
             this.pages.Size = new System.Drawing.Size(842, 545);
             this.pages.TabIndex = 15;
             this.pages.Text = "radPageView1";
@@ -290,10 +295,55 @@ namespace StudiesPlans.Views
             // 
             // review
             // 
+            this.review.Controls.Add(this.button2);
+            this.review.Controls.Add(this.textBox1);
+            this.review.Controls.Add(this.pagePreview1);
+            this.review.Controls.Add(this.button1);
             this.review.Location = new System.Drawing.Point(10, 37);
             this.review.Name = "review";
             this.review.Size = new System.Drawing.Size(821, 497);
             this.review.Text = "Przegl¹d planu";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(190, 471);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(84, 473);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 4;
+            // 
+            // pagePreview1
+            // 
+            this.pagePreview1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.pagePreview1.DesktopColor = System.Drawing.SystemColors.ControlDark;
+            this.pagePreview1.Location = new System.Drawing.Point(3, 3);
+            this.pagePreview1.Name = "pagePreview1";
+            this.pagePreview1.PageColor = System.Drawing.Color.GhostWhite;
+            this.pagePreview1.PageSize = ((PdfSharp.Drawing.XSize)(resources.GetObject("pagePreview1.PageSize")));
+            this.pagePreview1.PageSizeF = new System.Drawing.Size(1283, 595);
+            this.pagePreview1.Size = new System.Drawing.Size(815, 465);
+            this.pagePreview1.TabIndex = 3;
+            this.pagePreview1.Zoom = PdfSharp.Forms.Zoom.FullPage;
+            this.pagePreview1.ZoomPercent = 46;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(3, 471);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // archive
             // 
@@ -316,7 +366,7 @@ namespace StudiesPlans.Views
             this.gridUsers.AutoSizeRows = true;
             this.gridUsers.Location = new System.Drawing.Point(3, 3);
             // 
-            // gridUsers
+            // 
             // 
             this.gridUsers.MasterTemplate.AllowEditRow = false;
             gridViewTextBoxColumn6.FormatString = "";
@@ -612,7 +662,7 @@ namespace StudiesPlans.Views
             this.radToolStrip1.RootElement.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
             this.radToolStrip1.RootElement.MinSize = new System.Drawing.Size(5, 5);
             this.radToolStrip1.ShowOverFlowButton = true;
-            this.radToolStrip1.Size = new System.Drawing.Size(842, 49);
+            this.radToolStrip1.Size = new System.Drawing.Size(842, 27);
             this.radToolStrip1.TabIndex = 17;
             this.radToolStrip1.Text = "radToolStrip1";
             // 
@@ -781,9 +831,9 @@ namespace StudiesPlans.Views
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(842, 612);
+            this.Controls.Add(this.pages);
             this.Controls.Add(this.radToolStrip1);
             this.Controls.Add(this.radStatusStrip1);
-            this.Controls.Add(this.pages);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
@@ -794,6 +844,7 @@ namespace StudiesPlans.Views
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plany Studiów";
             this.ThemeName = "ControlDefault";
+            this.Load += new System.EventHandler(this.MainForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pages)).EndInit();
             this.pages.ResumeLayout(false);
             this.plancreate.ResumeLayout(false);
@@ -805,6 +856,8 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnAddSubject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnNewPlan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPlanSubjects)).EndInit();
+            this.review.ResumeLayout(false);
+            this.review.PerformLayout();
             this.users.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gridUsers)).EndInit();
             this.gbUsers1.ResumeLayout(false);
@@ -875,6 +928,10 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadButtonElement radButtonElement6;
         private Telerik.WinControls.UI.RadToolStripElement radToolStripElement1;
         private Telerik.WinControls.UI.RadToolStripItem radToolStripItem2;
+        private System.Windows.Forms.Button button1;
+        private PdfSharp.Forms.PagePreview pagePreview1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 

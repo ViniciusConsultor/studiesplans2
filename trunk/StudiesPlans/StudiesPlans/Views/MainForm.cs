@@ -12,6 +12,10 @@ using StudiesPlans.Views;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
 using StudiesPlans.Controllers;
+using System.Drawing.Printing;
+using PdfSharp.Pdf;
+using PdfSharp.Drawing;
+using StudiesPlans.Pdf;
 namespace StudiesPlans.Views
 {
     public partial class MainForm : Telerik.WinControls.UI.RadForm
@@ -19,6 +23,7 @@ namespace StudiesPlans.Views
         private UserEdit userToEdit = null;
         private User logged = null;
         public static Plan LoadedPlan = null;
+        PdfPage page = new PdfPage();
 
         public MainForm(User user)
         {
@@ -345,7 +350,9 @@ namespace StudiesPlans.Views
                 IsExam = Convert.ToBoolean(gridPlanSubjects.Rows[row].Cells["isExam"].Value),
                 Name = gridPlanSubjects.Rows[row].Cells["subjectName"].Value.ToString(),
                 PlanId = LoadedPlan.PlanID,
-                SemesterId = semId
+                SemesterId = semId,
+                IsGeneral = Convert.ToBoolean(gridPlanSubjects.Rows[row].Cells["isGeneral"].Value),
+                IsElective = Convert.ToBoolean(gridPlanSubjects.Rows[row].Cells["isElective"].Value)
             };
 
             List<NewSubjectTypeData> nstdlist = new List<NewSubjectTypeData>();
@@ -439,5 +446,46 @@ namespace StudiesPlans.Views
         {
             new Semesters().ShowDialog();
         }
+
+        private void radButton1_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+  
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (LoadedPlan != null)
+            {
+                RenderPdf render = new RenderPdf();
+                render.LoadedPlan = LoadedPlan;
+                pagePreview1.SetRenderEvent(render.Render);
+                PdfDocument pdf = new PdfDocument();
+                page = pdf.AddPage();
+                page.Orientation = PdfSharp.PageOrientation.Landscape;
+                XGraphics gfx = XGraphics.FromPdfPage(page);
+                render.Render(gfx);
+
+                pdf.Save(@"C:\first.pdf");
+            }
+
+        }
+ 
+        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
+        {
+            
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int zoom = 0;
+            int.TryParse(textBox1.Text, out zoom);
+            pagePreview1.ZoomPercent = zoom;
+        }
+
     }
 }

@@ -137,7 +137,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.radGroupBox1.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
-            this.radGroupBox1.Size = new System.Drawing.Size(446, 465);
+            this.radGroupBox1.Size = new System.Drawing.Size(453, 465);
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "Dodaj przedmiot";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
@@ -222,7 +222,9 @@ namespace StudiesPlans.Views
             // 
             // dgSpecializations
             // 
+            this.dgSpecializations.MasterTemplate.AddNewRowPosition = Telerik.WinControls.UI.SystemRowPosition.Bottom;
             this.dgSpecializations.MasterTemplate.AllowCellContextMenu = false;
+            this.dgSpecializations.MasterTemplate.AllowDragToGroup = false;
             this.dgSpecializations.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             gridViewComboBoxColumn1.DisplayMember = null;
             gridViewComboBoxColumn1.FormatString = "";
@@ -231,7 +233,7 @@ namespace StudiesPlans.Views
             gridViewComboBoxColumn1.ValueMember = null;
             gridViewComboBoxColumn1.Width = 73;
             gridViewCheckBoxColumn1.FormatString = "";
-            gridViewCheckBoxColumn1.HeaderText = "G³ówny";
+            gridViewCheckBoxColumn1.HeaderText = "Obowi¹zkowy";
             gridViewCheckBoxColumn1.Name = "general";
             gridViewCheckBoxColumn1.Width = 73;
             gridViewCheckBoxColumn2.FormatString = "";
@@ -254,6 +256,9 @@ namespace StudiesPlans.Views
             this.dgSpecializations.Size = new System.Drawing.Size(219, 145);
             this.dgSpecializations.TabIndex = 20;
             this.dgSpecializations.Text = "specializations";
+            this.dgSpecializations.UserAddingRow += new Telerik.WinControls.UI.GridViewRowCancelEventHandler(this.dgSpecializations_UserAddingRow);
+            this.dgSpecializations.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.dgSpecializations_CellClick);
+            this.dgSpecializations.CellValueChanged += new Telerik.WinControls.UI.GridViewCellEventHandler(this.dgSpecializations_CellValueChanged);
             // 
             // label1
             // 
@@ -291,29 +296,36 @@ namespace StudiesPlans.Views
             gridViewTextBoxColumn1.HeaderText = "Typ";
             gridViewTextBoxColumn1.Name = "subjectType";
             gridViewTextBoxColumn1.ReadOnly = true;
-            gridViewTextBoxColumn1.Width = 86;
+            gridViewTextBoxColumn1.Width = 100;
             gridViewTextBoxColumn2.FormatString = "";
             gridViewTextBoxColumn2.HeaderText = "Godziny";
             gridViewTextBoxColumn2.Name = "hours";
-            gridViewTextBoxColumn2.Width = 84;
+            gridViewTextBoxColumn2.Width = 96;
             this.dgSubjectTypes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2});
             this.dgSubjectTypes.MasterTemplate.EnableGrouping = false;
+            this.dgSubjectTypes.MasterTemplate.ShowRowHeaderColumn = false;
             this.dgSubjectTypes.Name = "dgSubjectTypes";
             this.dgSubjectTypes.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             // 
             // 
             // 
             this.dgSubjectTypes.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.dgSubjectTypes.Size = new System.Drawing.Size(191, 145);
+            this.dgSubjectTypes.Size = new System.Drawing.Size(198, 145);
             this.dgSubjectTypes.TabIndex = 17;
             this.dgSubjectTypes.Text = "radGridView1";
             // 
             // lblValidation
             // 
+            this.lblValidation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblValidation.ForeColor = System.Drawing.Color.Red;
             this.lblValidation.Location = new System.Drawing.Point(250, 25);
             this.lblValidation.Name = "lblValidation";
+            // 
+            // 
+            // 
+            this.lblValidation.RootElement.ForeColor = System.Drawing.Color.Red;
             this.lblValidation.Size = new System.Drawing.Size(2, 2);
             this.lblValidation.TabIndex = 16;
             // 
@@ -473,7 +485,7 @@ namespace StudiesPlans.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(462, 489);
+            this.ClientSize = new System.Drawing.Size(473, 489);
             this.Controls.Add(this.radGroupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
