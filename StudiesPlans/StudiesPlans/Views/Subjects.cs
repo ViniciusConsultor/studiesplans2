@@ -124,18 +124,21 @@ namespace StudiesPlans.Views
             List<NewSpecializationData> nspdlist = new List<NewSpecializationData>();
             if (dgSpecializations.Enabled == true)
                 for (int i = 0; i < dgSpecializations.Rows.Count; i++)
-                { 
-                    SpecializationEdit s = SpecializationController.Instance.GetSpecializationEdit(dgSpecializations.Rows[i].Cells["specialization"].Value.ToString());
-                    if (s!=null)
+                {
+                    if (dgSpecializations.Rows[i].Cells["specialization"].Value != null)
                     {
-                        NewSpecializationData nspd = new NewSpecializationData()
+                        SpecializationEdit s = SpecializationController.Instance.GetSpecializationEdit(dgSpecializations.Rows[i].Cells["specialization"].Value.ToString());
+                        if (s != null)
                         {
-                            IsElective = Convert.ToBoolean(dgSpecializations.Rows[i].Cells["elective"].Value),
-                            IsGenereal = Convert.ToBoolean(dgSpecializations.Rows[i].Cells["general"].Value),
-                            SpecializationId = s.SpecializationID
-                        };
+                            NewSpecializationData nspd = new NewSpecializationData()
+                            {
+                                IsElective = Convert.ToBoolean(dgSpecializations.Rows[i].Cells["elective"].Value),
+                                IsGenereal = Convert.ToBoolean(dgSpecializations.Rows[i].Cells["general"].Value),
+                                SpecializationId = s.SpecializationID
+                            };
 
-                        nspdlist.Add(nspd);
+                            nspdlist.Add(nspd);
+                        }
                     }
                 }
 
@@ -156,18 +159,7 @@ namespace StudiesPlans.Views
             };
 
             if (SubjectController.Instance.AddSubject(subject))
-            {
-                MessageBox.Show("Added");
-
-                //NewPlanData npd = new NewPlanData()
-                //{
-                //    PlanId = plan.PlanID,
-                //    SubjectId = subjectId
-                //};
-
-                //if (PlanController.Instance.AddPlanData(npd))
-                //{ }
-            }
+                RadMessageBox.Show("Przedmiot zosta³ dodany", "Wiadomoœæ");
             else
             {
                 string errors = string.Empty;
@@ -241,6 +233,22 @@ namespace StudiesPlans.Views
                 dgSpecializations.Enabled = true;
                 cbElective.Enabled = true;
             }
+        }
+
+        private void dgSpecializations_CellClick(object sender, GridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgSpecializations_CellValueChanged(object sender, GridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgSpecializations_UserAddingRow(object sender, GridViewRowCancelEventArgs e)
+        {
+            if (Convert.ToBoolean(e.Rows[0].Cells["general"].Value))
+                MessageBox.Show("general");
         }
 
     }

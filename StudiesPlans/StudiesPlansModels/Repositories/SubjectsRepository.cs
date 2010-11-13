@@ -61,6 +61,11 @@ namespace StudiesPlansModels.Models
                         IsGeneral = false
                     };
 
+                    if (subject.InstituteId > 0)
+                        sd.InstituteID = subject.InstituteId;
+                    else
+                        sd.InstituteID = null;
+
                     Plan p = GetPlan(subject.PlanId);
                     if (p != null)
                         sd.Plans.Add(p);

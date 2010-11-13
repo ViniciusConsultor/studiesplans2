@@ -49,6 +49,9 @@ namespace StudiesPlans.Views
                         dgSubjectTypes.Rows[i].Cells["hours"].Value = nst.Hours.ToString();
                 }
             }
+
+            cbElective.Checked = subject.IsElective;
+            cbGeneral.Checked = subject.IsGeneral;
         }
 
         private void FillWithSubjectTypes()

@@ -68,5 +68,11 @@ namespace StudiesPlansModels.Models
         public int PlanId { get; set; }
 
         public int SubjectId { get; set; }
+
+        public bool IsElective { get; set; }
+
+        public bool IsGeneral { get; set; }
+
+        public IEnumerable<NewSpecializationData> Specializations { get; set; }
     }
 }
