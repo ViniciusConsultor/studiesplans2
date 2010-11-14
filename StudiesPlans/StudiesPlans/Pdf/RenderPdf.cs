@@ -12,11 +12,13 @@ namespace StudiesPlans.Pdf
     public class RenderPdf
     {
         public Plan LoadedPlan { get; set; }
+        public double Width { get; set; }
+        public double Height { get; set; }
 
         public void Render(XGraphics gfx)
         {
             XPen pen;
-            double x = 50, y = 100;
+            double x = 50;
             XFont fontH1 = new XFont("Times", 18, XFontStyle.Bold);
 
             XPdfFontOptions options = new XPdfFontOptions(PdfFontEncoding.Unicode, PdfFontEmbedding.Always);
@@ -34,9 +36,7 @@ namespace StudiesPlans.Pdf
             gfx.DrawString(LoadedPlan.Name + " " + LoadedPlan.Departament.Name + " " + LoadedPlan.Faculty.Name + " " + LoadedPlan.StudiesType.Name, font, XBrushes.Black, x, 20);
             
             // draw table headers
-            gfx.DrawLine(pen, tablePositionX, tablePositionY, tablePositionX2, tablePositionY);
             gfx.DrawLine(pen, tablePositionX, tablePositionY, tablePositionX, tablePositionY2);
-            gfx.DrawLine(pen, tablePositionX, tablePositionY2, tablePositionX2, tablePositionY2);
             gfx.DrawLine(pen, tablePositionX + 30, tablePositionY, tablePositionX + 30, tablePositionY2);
             
             tablePositionY += 11;
@@ -45,6 +45,9 @@ namespace StudiesPlans.Pdf
 
             List<Semester> semesters = new List<Semester>();
             List<SubjectTypesData> subjectTypes = new List<SubjectTypesData>();
+
+            Size semNameLength = new Size(0, 0);
+            System.Drawing.Font ff = new Font("Times", 12);
 
             foreach (SubjectsData sd in LoadedPlan.SubjectsDatas)
             {
@@ -67,7 +70,12 @@ namespace StudiesPlans.Pdf
                 }
 
                 if (!semOnList)
+                {
                     semesters.Add(sd.Semester);
+                    Size tmp = System.Windows.Forms.TextRenderer.MeasureText(sd.Semester.Name, ff);
+                    if (tmp.Width > semNameLength.Width)
+                        semNameLength = tmp;
+                }
             }
 
             semesters = semesters.OrderBy(c => c.Semester1).ToList();
@@ -75,7 +83,6 @@ namespace StudiesPlans.Pdf
             double oldX = tablePositionX;
 
             Size nameLength = new Size(0, 0);
-            System.Drawing.Font ff = new Font("Times", 12);
 
             LoadedPlan.SubjectsDatas.OrderBy(c => c.Semester.Semester1);
             List<string> subjectNames = new List<string>();
@@ -96,10 +103,19 @@ namespace StudiesPlans.Pdf
             }
 
             tablePositionX = nameLength.Width + 2;
-            gfx.DrawLine(pen, tablePositionX, tablePositionY2 - 15, tablePositionX2, tablePositionY2 - 15);
-
             tablePositionY -= 11;
             gfx.DrawLine(pen, tablePositionX, tablePositionY, tablePositionX, tablePositionY2);
+
+            double semLength = 15 * (subjectTypes.Count + 1);
+            double diff = 0;
+            if (semLength + 40 < semNameLength.Width)
+                diff = semNameLength.Width - semLength - 40;
+            else if (semLength >= semNameLength.Width)
+                diff = 0;
+            else
+                diff = 40;
+
+            semLength += diff;
 
             foreach (Semester s in semesters)
             {
@@ -115,13 +131,20 @@ namespace StudiesPlans.Pdf
                 tablePositionX += 15;
                 gfx.DrawLine(pen, tablePositionX, tablePositionY2 - 15, tablePositionX, tablePositionY2);
                 gfx.DrawString("ECTS", font, XBrushes.Black, tablePositionX + 2, tablePositionY2 - 2);
-                tablePositionX += 40;
+                tablePositionX += diff;
                 gfx.DrawLine(pen, tablePositionX, tablePositionY, tablePositionX, tablePositionY2);
             }
 
-            double semLength = 15 * (subjectTypes.Count + 1) + 40;
+
             tablePositionX = oldX;
+            double oldY = tablePositionY2;
+            double oldY2 = tablePositionY2+15;
             int lp = 1;
+
+            double fullLength = nameLength.Width + (semLength * semesters.Count) + 2;
+            gfx.DrawLine(pen, tablePositionX, 30, fullLength, 30);
+            gfx.DrawLine(pen, tablePositionX, tablePositionY2, fullLength, tablePositionY2);
+            gfx.DrawLine(pen, nameLength.Width + 2, tablePositionY2 - 15, fullLength, tablePositionY2 - 15);
             foreach (string name in subjectNames)
             {
                 int offset = 0;
@@ -130,7 +153,7 @@ namespace StudiesPlans.Pdf
                 gfx.DrawLine(pen, tablePositionX, tablePositionY, tablePositionX, tablePositionY2);
                 offset+=2;
                 gfx.DrawString(lp.ToString(), font, XBrushes.Black, tablePositionX + offset, tablePositionY + 11);
-                gfx.DrawLine(pen, tablePositionX, tablePositionY2, tablePositionX2, tablePositionY2);
+                gfx.DrawLine(pen, tablePositionX, tablePositionY2, fullLength, tablePositionY2);
                 offset+=28;
                 gfx.DrawLine(pen, tablePositionX + 30, tablePositionY, tablePositionX + offset, tablePositionY2);
                 lp++;
@@ -154,26 +177,41 @@ namespace StudiesPlans.Pdf
                                     {
                                         if (std.SubjectType.Name.Equals(std2.SubjectType.Name))
                                             gfx.DrawString(std.Hours.ToString(), font, XBrushes.Black, (nameLength.Width + 4) + (no * semLength) + (15 * stno), tablePositionY + 11);
-                                        gfx.DrawLine(pen, (nameLength.Width + 15) + 2 + (no * semLength) + (15 * stno), tablePositionY, (nameLength.Width + 15) + 2 + (no * semLength) + (15 * stno), tablePositionY2);
-                                        stno++;
-                                    }
-                                   // gfx.DrawLine(pen, (nameLength.Width + 15) + 2 + (no * semLength) + (15 * stno), tablePositionY, (nameLength.Width + 15) + 2 + (no * semLength) + (15 * stno), tablePositionY2);
                                         
+                                        stno++;
+                                    }  
                                 }
-
-
-                                if (sd.IsExam)
-                                {
-                                    gfx.DrawString("x", font, XBrushes.Black, (nameLength.Width + 4) + ((no + 1) * (semLength - 53)), tablePositionY + 11);
-                                }
-                                gfx.DrawLine(pen, (nameLength.Width + 2) + ((no + 1) * semLength), tablePositionY, (nameLength.Width + 2) + ((no + 1) * semLength), tablePositionY2);
-                                gfx.DrawString(sd.Ects.ToString(), font, XBrushes.Black, (nameLength.Width + 4) + ((no + 1) * (semLength - 38)), tablePositionY + 11);      
+                                if (sd.IsExam)                                                                                  // -53
+                                    gfx.DrawString("x", font, XBrushes.Black, (nameLength.Width + 4) + ((no + 1) * (semLength ) - 13  - diff), tablePositionY + 11);
+                                                                                                                                       // -38              
+                                gfx.DrawString(sd.Ects.ToString(), font, XBrushes.Black, (nameLength.Width + 4) + ((no + 1) * (semLength) + 2 - diff), tablePositionY + 11);      
                             }
                             no++;
                         }  
                     }
                 }
-            }                  
+            } 
+
+            // draw grid
+            tablePositionX = oldX + 32 + nameLength.Width;
+            for (int i = 0; i < subjectNames.Count; i++)
+            {
+                for (int j = 0; j < semesters.Count; j++)
+                {
+                    for (int k = 0; k < subjectTypes.Count; k++)
+                    {
+                        gfx.DrawLine(pen, (nameLength.Width + 15) + 2 + (j * semLength) + (15 * k), oldY, (nameLength.Width + 15) + 2 + (j * semLength) + (15 * k), oldY2);
+                                        
+                    }
+                    gfx.DrawLine(pen, (nameLength.Width + 2) + ((j + 1) * (semLength) - diff), oldY, (nameLength.Width + 2) + ((j + 1) * (semLength) - diff), oldY2);
+                    gfx.DrawLine(pen, (nameLength.Width + 2) + ((j + 1) * semLength), oldY, (nameLength.Width + 2) + ((j + 1) * semLength), oldY2);
+                
+                }
+                oldY = oldY2;
+                oldY2 += 15;
+            }
+
+            this.Width = fullLength + 30;
         }
     }
 }

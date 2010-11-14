@@ -261,10 +261,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pdf\MigraDoc.DocumentObjectModel.dll" />
-    <Content Include="Pdf\MigraDoc.Rendering.dll" />
-    <Content Include="Pdf\MigraDoc.RtfRendering.dll" />
-    <Content Include="Pdf\PdfSharp.Charting.dll" />
     <Content Include="Pdf\PdfSharp.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
