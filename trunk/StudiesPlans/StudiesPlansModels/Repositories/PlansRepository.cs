@@ -30,7 +30,7 @@ namespace StudiesPlansModels.Repositories
             }
         }
 
-        public IEnumerable<Plan> ListPlans()
+        public IEnumerable<Plan> ListActivePlans()
         {
             return (from Plan p in SPDatabase.DB.Plans select p);
         }

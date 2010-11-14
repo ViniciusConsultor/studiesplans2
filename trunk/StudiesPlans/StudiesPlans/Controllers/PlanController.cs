@@ -53,7 +53,7 @@ namespace StudiesPlans.Controllers
 
         public List<Plan> ListPlans()
         {
-            return this.repository.ListPlans().ToList<Plan>();
+            return this.repository.ListActivePlans().ToList<Plan>();
         }
 
         public Plan GetPlan(string planName)

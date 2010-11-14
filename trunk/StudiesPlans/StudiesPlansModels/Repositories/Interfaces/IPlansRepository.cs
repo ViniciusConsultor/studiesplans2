@@ -10,7 +10,7 @@ namespace StudiesPlansModels.Repositories.Interfaces
     {
         void AddPlan(NewPlan plan);
 
-        IEnumerable<Plan> ListPlans();
+        IEnumerable<Plan> ListActivePlans();
 
         Plan GetPlan(string planName);
 

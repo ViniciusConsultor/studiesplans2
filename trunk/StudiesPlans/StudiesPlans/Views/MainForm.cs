@@ -16,6 +16,7 @@ using System.Drawing.Printing;
 using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using StudiesPlans.Pdf;
+using StudiesPlans.Xml;
 namespace StudiesPlans.Views
 {
     public partial class MainForm : Telerik.WinControls.UI.RadForm
@@ -447,11 +448,6 @@ namespace StudiesPlans.Views
             new Semesters().ShowDialog();
         }
 
-        private void MainForm_Load(object sender, EventArgs e)
-        {
-  
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             if (LoadedPlan != null)
@@ -476,6 +472,13 @@ namespace StudiesPlans.Views
             int zoom = 0;
             int.TryParse(textBox1.Text, out zoom);
             pagePreview1.ZoomPercent = zoom;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            XmlPlan plantToXml = new XmlPlan(LoadedPlan);
+            plantToXml.CreateXmlDocument();
+            plantToXml.SaveXmlDocument(@"C:\text.xml");
         }
 
     }
