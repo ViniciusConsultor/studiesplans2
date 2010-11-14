@@ -447,11 +447,6 @@ namespace StudiesPlans.Views
             new Semesters().ShowDialog();
         }
 
-        private void radButton1_Click(object sender, EventArgs e)
-        {
-            
-        }
-
         private void MainForm_Load(object sender, EventArgs e)
         {
   
@@ -469,15 +464,11 @@ namespace StudiesPlans.Views
                 page.Orientation = PdfSharp.PageOrientation.Landscape;
                 XGraphics gfx = XGraphics.FromPdfPage(page);
                 render.Render(gfx);
-
+                page.Width = new XUnit(render.Width);
                 pdf.Save(@"C:\first.pdf");
+                pagePreview1.PageSize = new XSize(render.Width, pagePreview1.PageSize.Height);
             }
 
-        }
- 
-        private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
-        {
-            
         }
 
         private void button2_Click(object sender, EventArgs e)

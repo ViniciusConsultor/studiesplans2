@@ -323,6 +323,8 @@ namespace StudiesPlans.Views
             // 
             // pagePreview1
             // 
+            this.pagePreview1.AutoScroll = true;
+            this.pagePreview1.AutoSize = true;
             this.pagePreview1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pagePreview1.DesktopColor = System.Drawing.SystemColors.ControlDark;
             this.pagePreview1.Location = new System.Drawing.Point(3, 3);
