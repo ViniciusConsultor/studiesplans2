@@ -96,7 +96,7 @@ namespace StudiesPlans.Views
             // 
             this.lblValidation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblValidation.ForeColor = System.Drawing.Color.Red;
-            this.lblValidation.Location = new System.Drawing.Point(14, 171);
+            this.lblValidation.Location = new System.Drawing.Point(10, 169);
             this.lblValidation.Name = "lblValidation";
             // 
             // 

@@ -48,17 +48,22 @@ namespace StudiesPlans.Views
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            Plan toLoad = PlanController.Instance.GetPlan(lstPlan.SelectedItem.ToString());
-            if (toLoad != null)
+            if (lstPlan.Items.Count > 0)
             {
-                if (!this.IsArchive)
-                    StudiesPlans.Views.MainForm.LoadedPlan = toLoad;
+                Plan toLoad = PlanController.Instance.GetPlan(lstPlan.SelectedItem.ToString());
+
+                if (toLoad != null)
+                {
+                    if (!this.IsArchive)
+                        StudiesPlans.Views.MainForm.LoadedPlan = toLoad;
+                    else
+                        StudiesPlans.Views.MainForm.ArchivedPlan = toLoad;
+
+                    this.Close();
+                }
                 else
-                    StudiesPlans.Views.MainForm.ArchivedPlan = toLoad;
-                this.Close();
+                    MessageBox.Show("Wybrany plan nie istnieje");
             }
-            else
-                MessageBox.Show("Wybrany plan nie istnieje");               
         }
     }
 }

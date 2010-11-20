@@ -30,12 +30,12 @@ namespace StudiesPlans.Views
         {
             this.listFaculties = new Telerik.WinControls.UI.RadListControl();
             this.groupManagement = new Telerik.WinControls.UI.RadGroupBox();
+            this.btnDepartamentsMngmt = new Telerik.WinControls.UI.RadButton();
             this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             this.btnDelete = new Telerik.WinControls.UI.RadButton();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
             this.btnAddFaculty = new Telerik.WinControls.UI.RadButton();
-            this.btnDepartamentsMngmt = new System.Windows.Forms.Button();
             this.tbNewFacultyName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -43,6 +43,7 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.listFaculties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.groupManagement)).BeginInit();
             this.groupManagement.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDepartamentsMngmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
@@ -67,12 +68,12 @@ namespace StudiesPlans.Views
             // groupManagement
             // 
             this.groupManagement.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.groupManagement.Controls.Add(this.btnDepartamentsMngmt);
             this.groupManagement.Controls.Add(this.lblValidation);
             this.groupManagement.Controls.Add(this.btnDelete);
             this.groupManagement.Controls.Add(this.btnSave);
             this.groupManagement.Controls.Add(this.btnCancel);
             this.groupManagement.Controls.Add(this.btnAddFaculty);
-            this.groupManagement.Controls.Add(this.btnDepartamentsMngmt);
             this.groupManagement.Controls.Add(this.tbNewFacultyName);
             this.groupManagement.Controls.Add(this.label2);
             this.groupManagement.Controls.Add(this.label1);
@@ -97,11 +98,23 @@ namespace StudiesPlans.Views
             this.groupManagement.ThemeName = "ControlDefault";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.groupManagement.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             // 
+            // btnDepartamentsMngmt
+            // 
+            this.btnDepartamentsMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
+            this.btnDepartamentsMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDepartamentsMngmt.Image = global::StudiesPlans.Properties.Resources.management;
+            this.btnDepartamentsMngmt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDepartamentsMngmt.Location = new System.Drawing.Point(80, 56);
+            this.btnDepartamentsMngmt.Name = "btnDepartamentsMngmt";
+            this.btnDepartamentsMngmt.Size = new System.Drawing.Size(20, 20);
+            this.btnDepartamentsMngmt.TabIndex = 25;
+            this.btnDepartamentsMngmt.Click += new System.EventHandler(this.btnDepartamentsMngmt_Click);
+            // 
             // lblValidation
             // 
             this.lblValidation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblValidation.ForeColor = System.Drawing.Color.Red;
-            this.lblValidation.Location = new System.Drawing.Point(10, 179);
+            this.lblValidation.Location = new System.Drawing.Point(13, 162);
             this.lblValidation.Name = "lblValidation";
             // 
             // 
@@ -166,21 +179,6 @@ namespace StudiesPlans.Views
             this.btnAddFaculty.Text = "Dodaj";
             this.btnAddFaculty.Click += new System.EventHandler(this.btnAddFaculty_Click);
             // 
-            // btnDepartamentsMngmt
-            // 
-            this.btnDepartamentsMngmt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnDepartamentsMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
-            this.btnDepartamentsMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDepartamentsMngmt.Location = new System.Drawing.Point(79, 56);
-            this.btnDepartamentsMngmt.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDepartamentsMngmt.Name = "btnDepartamentsMngmt";
-            this.btnDepartamentsMngmt.Size = new System.Drawing.Size(21, 21);
-            this.btnDepartamentsMngmt.TabIndex = 19;
-            this.btnDepartamentsMngmt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDepartamentsMngmt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDepartamentsMngmt.UseVisualStyleBackColor = true;
-            this.btnDepartamentsMngmt.Click += new System.EventHandler(this.btnDepartamentsMngmt_Click);
-            // 
             // tbNewFacultyName
             // 
             this.tbNewFacultyName.Location = new System.Drawing.Point(106, 30);
@@ -191,7 +189,7 @@ namespace StudiesPlans.Views
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 60);
+            this.label2.Location = new System.Drawing.Point(7, 56);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 17;
@@ -237,6 +235,7 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.groupManagement)).EndInit();
             this.groupManagement.ResumeLayout(false);
             this.groupManagement.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDepartamentsMngmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
@@ -252,7 +251,6 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadListControl listFaculties;
         private Telerik.WinControls.UI.RadGroupBox groupManagement;
         private System.Windows.Forms.CheckedListBox clbDepartaments;
-        private System.Windows.Forms.Button btnDepartamentsMngmt;
         private System.Windows.Forms.TextBox tbNewFacultyName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
@@ -261,6 +259,7 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadButton btnSave;
         private Telerik.WinControls.UI.RadButton btnCancel;
         private Telerik.WinControls.UI.RadLabel lblValidation;
+        private Telerik.WinControls.UI.RadButton btnDepartamentsMngmt;
     }
 }
 

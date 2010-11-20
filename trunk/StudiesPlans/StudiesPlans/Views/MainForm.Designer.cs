@@ -28,29 +28,29 @@ namespace StudiesPlans.Views
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn20 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn21 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn22 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn10 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn23 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn24 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn11 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn12 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn29 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn30 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn31 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn13 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn32 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn33 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn14 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn15 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn25 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn26 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn27 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn28 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn3 = new Telerik.WinControls.UI.GridViewImageColumn();
-            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn4 = new Telerik.WinControls.UI.GridViewImageColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn15 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn16 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn17 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn7 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn18 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn19 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn8 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn9 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn34 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn35 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn36 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn37 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn5 = new Telerik.WinControls.UI.GridViewImageColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn6 = new Telerik.WinControls.UI.GridViewImageColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn38 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn39 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn40 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn16 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn41 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn42 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn17 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn18 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             this.pages = new Telerik.WinControls.UI.RadPageView();
             this.plancreate = new Telerik.WinControls.UI.RadPageViewPage();
             this.lblPlanData = new Telerik.WinControls.UI.RadLabel();
@@ -147,7 +147,7 @@ namespace StudiesPlans.Views
             this.pages.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.pages.Location = new System.Drawing.Point(0, 33);
             this.pages.Name = "pages";
-            this.pages.SelectedPage = this.archive;
+            this.pages.SelectedPage = this.plancreate;
             this.pages.Size = new System.Drawing.Size(842, 545);
             this.pages.TabIndex = 15;
             this.pages.Text = "radPageView1";
@@ -256,46 +256,46 @@ namespace StudiesPlans.Views
             // 
             // gridPlanSubjects
             // 
-            gridViewTextBoxColumn20.FormatString = "";
-            gridViewTextBoxColumn20.HeaderText = "Nazwa";
-            gridViewTextBoxColumn20.Multiline = true;
-            gridViewTextBoxColumn20.Name = "subjectName";
-            gridViewTextBoxColumn20.Width = 100;
-            gridViewTextBoxColumn21.FormatString = "";
-            gridViewTextBoxColumn21.HeaderText = "Semestr";
-            gridViewTextBoxColumn21.Name = "semester";
-            gridViewTextBoxColumn21.Width = 100;
-            gridViewTextBoxColumn22.FormatString = "";
-            gridViewTextBoxColumn22.HeaderText = "ECTS";
-            gridViewTextBoxColumn22.Name = "ects";
-            gridViewTextBoxColumn22.Width = 100;
-            gridViewCheckBoxColumn10.FormatString = "";
-            gridViewCheckBoxColumn10.HeaderText = "Egzamin";
-            gridViewCheckBoxColumn10.Name = "isExam";
-            gridViewCheckBoxColumn10.Width = 100;
-            gridViewTextBoxColumn23.HeaderText = "Instytut";
-            gridViewTextBoxColumn23.Multiline = true;
-            gridViewTextBoxColumn23.Name = "institute";
-            gridViewTextBoxColumn23.Width = 100;
-            gridViewTextBoxColumn24.HeaderText = "Specializacja";
-            gridViewTextBoxColumn24.Multiline = true;
-            gridViewTextBoxColumn24.Name = "specialization";
-            gridViewTextBoxColumn24.Width = 100;
-            gridViewCheckBoxColumn11.HeaderText = "Obowi¹zkowy";
-            gridViewCheckBoxColumn11.Name = "isGeneral";
-            gridViewCheckBoxColumn11.Width = 100;
-            gridViewCheckBoxColumn12.HeaderText = "Obieralny";
-            gridViewCheckBoxColumn12.Name = "isElective";
-            gridViewCheckBoxColumn12.Width = 100;
+            gridViewTextBoxColumn29.FormatString = "";
+            gridViewTextBoxColumn29.HeaderText = "Nazwa";
+            gridViewTextBoxColumn29.Multiline = true;
+            gridViewTextBoxColumn29.Name = "subjectName";
+            gridViewTextBoxColumn29.Width = 100;
+            gridViewTextBoxColumn30.FormatString = "";
+            gridViewTextBoxColumn30.HeaderText = "Semestr";
+            gridViewTextBoxColumn30.Name = "semester";
+            gridViewTextBoxColumn30.Width = 100;
+            gridViewTextBoxColumn31.FormatString = "";
+            gridViewTextBoxColumn31.HeaderText = "ECTS";
+            gridViewTextBoxColumn31.Name = "ects";
+            gridViewTextBoxColumn31.Width = 100;
+            gridViewCheckBoxColumn13.FormatString = "";
+            gridViewCheckBoxColumn13.HeaderText = "Egzamin";
+            gridViewCheckBoxColumn13.Name = "isExam";
+            gridViewCheckBoxColumn13.Width = 100;
+            gridViewTextBoxColumn32.HeaderText = "Instytut";
+            gridViewTextBoxColumn32.Multiline = true;
+            gridViewTextBoxColumn32.Name = "institute";
+            gridViewTextBoxColumn32.Width = 100;
+            gridViewTextBoxColumn33.HeaderText = "Specializacja";
+            gridViewTextBoxColumn33.Multiline = true;
+            gridViewTextBoxColumn33.Name = "specialization";
+            gridViewTextBoxColumn33.Width = 100;
+            gridViewCheckBoxColumn14.HeaderText = "Obowi¹zkowy";
+            gridViewCheckBoxColumn14.Name = "isGeneral";
+            gridViewCheckBoxColumn14.Width = 100;
+            gridViewCheckBoxColumn15.HeaderText = "Obieralny";
+            gridViewCheckBoxColumn15.Name = "isElective";
+            gridViewCheckBoxColumn15.Width = 100;
             this.gridPlanSubjects.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn20,
-            gridViewTextBoxColumn21,
-            gridViewTextBoxColumn22,
-            gridViewCheckBoxColumn10,
-            gridViewTextBoxColumn23,
-            gridViewTextBoxColumn24,
-            gridViewCheckBoxColumn11,
-            gridViewCheckBoxColumn12});
+            gridViewTextBoxColumn29,
+            gridViewTextBoxColumn30,
+            gridViewTextBoxColumn31,
+            gridViewCheckBoxColumn13,
+            gridViewTextBoxColumn32,
+            gridViewTextBoxColumn33,
+            gridViewCheckBoxColumn14,
+            gridViewCheckBoxColumn15});
             this.gridPlanSubjects.MasterTemplate.EnableGrouping = false;
             this.gridPlanSubjects.MasterTemplate.HorizontalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysShow;
             this.gridPlanSubjects.Name = "gridPlanSubjects";
@@ -401,43 +401,43 @@ namespace StudiesPlans.Views
             // gridUsers
             // 
             this.gridUsers.MasterTemplate.AllowEditRow = false;
-            gridViewTextBoxColumn25.FormatString = "";
-            gridViewTextBoxColumn25.HeaderText = "Nazwa";
-            gridViewTextBoxColumn25.Name = "usernameColumn";
-            gridViewTextBoxColumn25.Width = 110;
-            gridViewTextBoxColumn26.FormatString = "";
-            gridViewTextBoxColumn26.HeaderText = "Email";
-            gridViewTextBoxColumn26.Name = "emailColumn";
-            gridViewTextBoxColumn26.Width = 110;
-            gridViewTextBoxColumn27.FormatString = "";
-            gridViewTextBoxColumn27.HeaderText = "Ostatnie logowanie";
-            gridViewTextBoxColumn27.MinWidth = 8;
-            gridViewTextBoxColumn27.Name = "lastLoginColumn";
-            gridViewTextBoxColumn27.Width = 144;
-            gridViewTextBoxColumn27.WrapText = true;
-            gridViewTextBoxColumn28.FormatString = "";
-            gridViewTextBoxColumn28.HeaderText = "Rola";
-            gridViewTextBoxColumn28.Name = "roleColumn";
-            gridViewTextBoxColumn28.Width = 100;
-            gridViewImageColumn3.AllowSort = false;
-            gridViewImageColumn3.DataType = typeof(System.Drawing.Image);
-            gridViewImageColumn3.FormatString = "";
-            gridViewImageColumn3.HeaderText = "";
-            gridViewImageColumn3.Name = "editUserColumn";
-            gridViewImageColumn3.Width = 25;
-            gridViewImageColumn4.AllowSort = false;
-            gridViewImageColumn4.DataType = typeof(System.Drawing.Image);
-            gridViewImageColumn4.FormatString = "";
-            gridViewImageColumn4.HeaderText = "";
-            gridViewImageColumn4.Name = "deleteUserColumn";
-            gridViewImageColumn4.Width = 25;
+            gridViewTextBoxColumn34.FormatString = "";
+            gridViewTextBoxColumn34.HeaderText = "Nazwa";
+            gridViewTextBoxColumn34.Name = "usernameColumn";
+            gridViewTextBoxColumn34.Width = 110;
+            gridViewTextBoxColumn35.FormatString = "";
+            gridViewTextBoxColumn35.HeaderText = "Email";
+            gridViewTextBoxColumn35.Name = "emailColumn";
+            gridViewTextBoxColumn35.Width = 110;
+            gridViewTextBoxColumn36.FormatString = "";
+            gridViewTextBoxColumn36.HeaderText = "Ostatnie logowanie";
+            gridViewTextBoxColumn36.MinWidth = 8;
+            gridViewTextBoxColumn36.Name = "lastLoginColumn";
+            gridViewTextBoxColumn36.Width = 144;
+            gridViewTextBoxColumn36.WrapText = true;
+            gridViewTextBoxColumn37.FormatString = "";
+            gridViewTextBoxColumn37.HeaderText = "Rola";
+            gridViewTextBoxColumn37.Name = "roleColumn";
+            gridViewTextBoxColumn37.Width = 100;
+            gridViewImageColumn5.AllowSort = false;
+            gridViewImageColumn5.DataType = typeof(System.Drawing.Image);
+            gridViewImageColumn5.FormatString = "";
+            gridViewImageColumn5.HeaderText = "";
+            gridViewImageColumn5.Name = "editUserColumn";
+            gridViewImageColumn5.Width = 25;
+            gridViewImageColumn6.AllowSort = false;
+            gridViewImageColumn6.DataType = typeof(System.Drawing.Image);
+            gridViewImageColumn6.FormatString = "";
+            gridViewImageColumn6.HeaderText = "";
+            gridViewImageColumn6.Name = "deleteUserColumn";
+            gridViewImageColumn6.Width = 25;
             this.gridUsers.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn25,
-            gridViewTextBoxColumn26,
-            gridViewTextBoxColumn27,
-            gridViewTextBoxColumn28,
-            gridViewImageColumn3,
-            gridViewImageColumn4});
+            gridViewTextBoxColumn34,
+            gridViewTextBoxColumn35,
+            gridViewTextBoxColumn36,
+            gridViewTextBoxColumn37,
+            gridViewImageColumn5,
+            gridViewImageColumn6});
             this.gridUsers.Name = "gridUsers";
             this.gridUsers.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.gridUsers.ReadOnly = true;
@@ -866,46 +866,46 @@ namespace StudiesPlans.Views
             // 
             // gridArchievePlan
             // 
-            gridViewTextBoxColumn15.FormatString = "";
-            gridViewTextBoxColumn15.HeaderText = "Nazwa";
-            gridViewTextBoxColumn15.Multiline = true;
-            gridViewTextBoxColumn15.Name = "subjectName";
-            gridViewTextBoxColumn15.Width = 100;
-            gridViewTextBoxColumn16.FormatString = "";
-            gridViewTextBoxColumn16.HeaderText = "Semestr";
-            gridViewTextBoxColumn16.Name = "semester";
-            gridViewTextBoxColumn16.Width = 100;
-            gridViewTextBoxColumn17.FormatString = "";
-            gridViewTextBoxColumn17.HeaderText = "ECTS";
-            gridViewTextBoxColumn17.Name = "ects";
-            gridViewTextBoxColumn17.Width = 100;
-            gridViewCheckBoxColumn7.FormatString = "";
-            gridViewCheckBoxColumn7.HeaderText = "Egzamin";
-            gridViewCheckBoxColumn7.Name = "isExam";
-            gridViewCheckBoxColumn7.Width = 100;
-            gridViewTextBoxColumn18.HeaderText = "Instytut";
-            gridViewTextBoxColumn18.Multiline = true;
-            gridViewTextBoxColumn18.Name = "institute";
-            gridViewTextBoxColumn18.Width = 100;
-            gridViewTextBoxColumn19.HeaderText = "Specializacja";
-            gridViewTextBoxColumn19.Multiline = true;
-            gridViewTextBoxColumn19.Name = "specialization";
-            gridViewTextBoxColumn19.Width = 100;
-            gridViewCheckBoxColumn8.HeaderText = "Obowi¹zkowy";
-            gridViewCheckBoxColumn8.Name = "isGeneral";
-            gridViewCheckBoxColumn8.Width = 100;
-            gridViewCheckBoxColumn9.HeaderText = "Obieralny";
-            gridViewCheckBoxColumn9.Name = "isElective";
-            gridViewCheckBoxColumn9.Width = 100;
+            gridViewTextBoxColumn38.FormatString = "";
+            gridViewTextBoxColumn38.HeaderText = "Nazwa";
+            gridViewTextBoxColumn38.Multiline = true;
+            gridViewTextBoxColumn38.Name = "subjectName";
+            gridViewTextBoxColumn38.Width = 100;
+            gridViewTextBoxColumn39.FormatString = "";
+            gridViewTextBoxColumn39.HeaderText = "Semestr";
+            gridViewTextBoxColumn39.Name = "semester";
+            gridViewTextBoxColumn39.Width = 100;
+            gridViewTextBoxColumn40.FormatString = "";
+            gridViewTextBoxColumn40.HeaderText = "ECTS";
+            gridViewTextBoxColumn40.Name = "ects";
+            gridViewTextBoxColumn40.Width = 100;
+            gridViewCheckBoxColumn16.FormatString = "";
+            gridViewCheckBoxColumn16.HeaderText = "Egzamin";
+            gridViewCheckBoxColumn16.Name = "isExam";
+            gridViewCheckBoxColumn16.Width = 100;
+            gridViewTextBoxColumn41.HeaderText = "Instytut";
+            gridViewTextBoxColumn41.Multiline = true;
+            gridViewTextBoxColumn41.Name = "institute";
+            gridViewTextBoxColumn41.Width = 100;
+            gridViewTextBoxColumn42.HeaderText = "Specializacja";
+            gridViewTextBoxColumn42.Multiline = true;
+            gridViewTextBoxColumn42.Name = "specialization";
+            gridViewTextBoxColumn42.Width = 100;
+            gridViewCheckBoxColumn17.HeaderText = "Obowi¹zkowy";
+            gridViewCheckBoxColumn17.Name = "isGeneral";
+            gridViewCheckBoxColumn17.Width = 100;
+            gridViewCheckBoxColumn18.HeaderText = "Obieralny";
+            gridViewCheckBoxColumn18.Name = "isElective";
+            gridViewCheckBoxColumn18.Width = 100;
             this.gridArchievePlan.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn15,
-            gridViewTextBoxColumn16,
-            gridViewTextBoxColumn17,
-            gridViewCheckBoxColumn7,
-            gridViewTextBoxColumn18,
-            gridViewTextBoxColumn19,
-            gridViewCheckBoxColumn8,
-            gridViewCheckBoxColumn9});
+            gridViewTextBoxColumn38,
+            gridViewTextBoxColumn39,
+            gridViewTextBoxColumn40,
+            gridViewCheckBoxColumn16,
+            gridViewTextBoxColumn41,
+            gridViewTextBoxColumn42,
+            gridViewCheckBoxColumn17,
+            gridViewCheckBoxColumn18});
             this.gridArchievePlan.MasterTemplate.EnableGrouping = false;
             this.gridArchievePlan.MasterTemplate.HorizontalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysShow;
             this.gridArchievePlan.Name = "gridArchievePlan";

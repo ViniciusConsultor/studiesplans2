@@ -72,12 +72,10 @@ namespace StudiesPlans.Controllers
         public void DeleteDepartament(DepartamentEdit toEdit)
         {
             Departament d = this.repository.GetDepartament(toEdit.DepartamentName);
-            if (d != null && (d.Faculties.Count > 0 || d.Plans.Count > 0 || d.SubjectsDatas.Count > 0))
+            if (d != null && (d.Faculties.Count > 0 || d.Plans.Count > 0 || d.SubjectsDatas.Count > 0 || d.Institutes.Count > 0 || d.Specializations.Count > 0))
                 throw new UpdateException("Nie można usunąć wydziału,\nponieważ posiada powiązania");
             else
-            {
                 this.repository.DeleteDepartament(d);
-            }
         }
 
         public bool EditDepartament(DepartamentEdit toEdit)

@@ -29,7 +29,6 @@ namespace StudiesPlans.Controllers
             this.repository = repository;
         }
 
-
         public List<SubjectType> ListSubjectTypes()
         {
             return this.repository.ListSubjectTypes().ToList<SubjectType>();
@@ -59,9 +58,7 @@ namespace StudiesPlans.Controllers
             if (st != null && st.SubjectTypesDatas.Count > 0)
                 throw new UpdateException("Nie można usunąć typu przedmiotu,\nponieważ posiada powiązania");
             else
-            {
                 this.repository.DeleteSubjectType(st);
-            }
         }
 
         public bool EditSubjectType(SubjectTypeEdit toEdit)
