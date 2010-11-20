@@ -13,10 +13,24 @@ namespace StudiesPlans.Views
 {
     public partial class PlansLoad : Telerik.WinControls.UI.RadForm
     {
-        public PlansLoad()
+        public bool IsArchive { get; set; }
+
+        public PlansLoad(bool archive)
         {
             InitializeComponent();
-            FillWithPlans();
+            IsArchive = archive;
+            if (!this.IsArchive)
+                FillWithPlans();
+            else
+                FillWithArchive();
+        }
+
+        private void FillWithArchive()
+        {
+            List<Plan> plans = PlanController.Instance.ListArchivedPlans();
+            if (plans != null)
+                foreach (Plan p in plans)
+                    lstPlan.Items.Add(p.Name);
         }
 
         private void FillWithPlans()
@@ -37,7 +51,10 @@ namespace StudiesPlans.Views
             Plan toLoad = PlanController.Instance.GetPlan(lstPlan.SelectedItem.ToString());
             if (toLoad != null)
             {
-                StudiesPlans.Views.MainForm.LoadedPlan = toLoad;
+                if (!this.IsArchive)
+                    StudiesPlans.Views.MainForm.LoadedPlan = toLoad;
+                else
+                    StudiesPlans.Views.MainForm.ArchivedPlan = toLoad;
                 this.Close();
             }
             else

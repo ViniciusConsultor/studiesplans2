@@ -17,6 +17,7 @@ using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using StudiesPlans.Pdf;
 using StudiesPlans.Xml;
+using Telerik.WinControls.UI;
 namespace StudiesPlans.Views
 {
     public partial class MainForm : Telerik.WinControls.UI.RadForm
@@ -25,6 +26,7 @@ namespace StudiesPlans.Views
         private User logged = null;
         public static Plan LoadedPlan = null;
         PdfPage page = new PdfPage();
+        public static Plan ArchivedPlan = null;
 
         public MainForm(User user)
         {
@@ -47,7 +49,11 @@ namespace StudiesPlans.Views
                 foreach (SubjectType s in subjectTypes)
                 {
                     gridPlanSubjects.Columns.Add(s.Name, s.Name);
+                    gridArchievePlan.Columns.Add(s.Name, s.Name);
                     Telerik.WinControls.UI.GridViewDataColumn col = gridPlanSubjects.Columns[s.Name];
+                    col.Width = 100;
+                    col.AutoSizeMode = Telerik.WinControls.UI.BestFitColumnMode.DisplayedDataCells;
+                    col = gridArchievePlan.Columns[s.Name];
                     col.Width = 100;
                     col.AutoSizeMode = Telerik.WinControls.UI.BestFitColumnMode.DisplayedDataCells;
                 }
@@ -86,13 +92,7 @@ namespace StudiesPlans.Views
             Application.Exit();
         }
 
-        //private void updateGUI()
-        //{
-        //    Application.DoEvents();
-        //    this.Invalidate();
-        //    this.Update();
-        //    System.Threading.Thread.Sleep(1);
-        //}
+        #region Users
 
         public void FillWithUsers()
         {
@@ -139,8 +139,6 @@ namespace StudiesPlans.Views
                 int roleId = RoleController.Instance.GetRoleId(cbRoles.SelectedItem.ToString());
                 if (roleId > 0)
                     u.RoleID = roleId;
-
-                //todo role doesn't exist
 
                 if (!UserController.Instance.UpdateUser(u))
                 {
@@ -216,10 +214,6 @@ namespace StudiesPlans.Views
                 FillWithUsers();
         }
 
-        private void reload_Click(object sender, EventArgs e)
-        {
-        }
-
         private void gridUsers_CellClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
         {
 
@@ -269,42 +263,52 @@ namespace StudiesPlans.Views
                 FillWithUsers();
         }
 
+        #endregion
+
+        #region Plans
+
         private void btnNewPlan_Click(object sender, EventArgs e)
         {
             if (new Plans(logged).ShowDialog() == DialogResult.Yes
                 && LoadedPlan != null)
-                LoadPlanToGrid(LoadedPlan);               
+                LoadPlanToGrid(LoadedPlan, false);               
         }
 
         private void btnLoadPlan_Click(object sender, EventArgs e)
         {
             Plan oldPlan = LoadedPlan;
-            new PlansLoad().ShowDialog();
+            new PlansLoad(false).ShowDialog();
             if ((oldPlan != null && oldPlan.PlanID != LoadedPlan.PlanID) || (oldPlan == null && LoadedPlan != null))
             {
-                LoadPlanToGrid(LoadedPlan);
+                LoadPlanToGrid(LoadedPlan, false);
             }
         }
 
-        private void LoadPlanToGrid(Plan LoadedPlan)
+        private void LoadPlanToGrid(Plan LoadedPlan, bool archive)
         {
+            RadGridView grid = null;
+            if (!archive)
+                grid = gridPlanSubjects;
+            else
+                grid = gridArchievePlan;
+
             lblPlanData.Text = "Plan: " + LoadedPlan.Name + " Wydzia³: " + LoadedPlan.Departament.Name + " Kierunek: "
                 + LoadedPlan.Faculty.Name + " Studia: " + LoadedPlan.StudiesType.Name;
             
-            gridPlanSubjects.Rows.Clear();
-            gridPlanSubjects.EnableSorting = false;
+            grid.Rows.Clear();
+            grid.EnableSorting = false;
             if (LoadedPlan.SubjectsDatas != null)
             {
                 foreach (SubjectsData sd in LoadedPlan.SubjectsDatas)
                 {
-                    gridPlanSubjects.Rows.Add(null, null);
-                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["subjectName"].Value = sd.Subject.Name;
-                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["semester"].Value = sd.Semester.Name;
-                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["ects"].Value = sd.Ects.ToString();
-                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["isExam"].Value = sd.IsExam;
-                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["isGeneral"].Value = sd.IsGeneral;
-                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["isElective"].Value = sd.IsElective;
-                    gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["institute"].Value = sd.Institute == null ? "Brak" : sd.Institute.Name;
+                    grid.Rows.Add(null, null);
+                    grid.Rows[grid.Rows.Count - 1].Cells["subjectName"].Value = sd.Subject.Name;
+                    grid.Rows[grid.Rows.Count - 1].Cells["semester"].Value = sd.Semester.Name;
+                    grid.Rows[grid.Rows.Count - 1].Cells["ects"].Value = sd.Ects.ToString();
+                    grid.Rows[grid.Rows.Count - 1].Cells["isExam"].Value = sd.IsExam;
+                    grid.Rows[grid.Rows.Count - 1].Cells["isGeneral"].Value = sd.IsGeneral;
+                    grid.Rows[grid.Rows.Count - 1].Cells["isElective"].Value = sd.IsElective;
+                    grid.Rows[grid.Rows.Count - 1].Cells["institute"].Value = sd.Institute == null ? "Brak" : sd.Institute.Name;
 
                     if (sd.SpecializationDataID > 0)
                     {
@@ -313,17 +317,17 @@ namespace StudiesPlans.Views
                             value += " Obieralny";
                         else if (sd.SpecializationsData.IsGeneral)
                             value += " Obowi¹zkowy";
-                        gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells["specialization"].Value = value;
+                        grid.Rows[grid.Rows.Count - 1].Cells["specialization"].Value = value;
                     }
 
                     foreach (SubjectTypesData st in sd.SubjectTypesDatas)
                     {
-                        gridPlanSubjects.Rows[gridPlanSubjects.Rows.Count - 1].Cells[st.SubjectType.Name].Value = st.Hours.ToString();
+                        grid.Rows[grid.Rows.Count - 1].Cells[st.SubjectType.Name].Value = st.Hours.ToString();
                     }
                 }
 
             }
-            gridPlanSubjects.EnableSorting = true;
+            grid.EnableSorting = true;
         }
 
         private void btnAddSubject_Click(object sender, EventArgs e)
@@ -331,7 +335,7 @@ namespace StudiesPlans.Views
             if (LoadedPlan != null)
             {
                 new Subjects(LoadedPlan).ShowDialog();
-                LoadPlanToGrid(LoadedPlan);
+                LoadPlanToGrid(LoadedPlan, false);
             }
         }
 
@@ -388,7 +392,7 @@ namespace StudiesPlans.Views
                 if (SubjectController.Instance.DeleteSubject(ns))
                 {
                     LoadedPlan = PlanController.Instance.GetPlan(LoadedPlan.PlanID);
-                    LoadPlanToGrid(LoadedPlan);
+                    LoadPlanToGrid(LoadedPlan, false);
                 }
             }
         }
@@ -400,9 +404,13 @@ namespace StudiesPlans.Views
             if (new EditSubject(LoadedPlan, ns).ShowDialog() == DialogResult.Yes)
             {
                 LoadedPlan = PlanController.Instance.GetPlan(LoadedPlan.PlanID);
-                LoadPlanToGrid(LoadedPlan);
+                LoadPlanToGrid(LoadedPlan, false);
             }
         }
+
+        #endregion
+
+        #region ToolBar
 
         private void radButtonElement7_Click(object sender, EventArgs e)
         {
@@ -448,6 +456,10 @@ namespace StudiesPlans.Views
             new Semesters().ShowDialog();
         }
 
+        #endregion
+
+        #region Preview
+
         private void button1_Click(object sender, EventArgs e)
         {
             if (LoadedPlan != null)
@@ -474,6 +486,10 @@ namespace StudiesPlans.Views
             pagePreview1.ZoomPercent = zoom;
         }
 
+        #endregion
+
+        #region Archive
+
         private void button3_Click(object sender, EventArgs e)
         {
             XmlPlan plantToXml = new XmlPlan(LoadedPlan);
@@ -481,5 +497,34 @@ namespace StudiesPlans.Views
             plantToXml.SaveXmlDocument(@"C:\text.xml");
         }
 
+        private void btnLoadArchivePlan_Click(object sender, EventArgs e)
+        {
+            Plan oldPlan = ArchivedPlan;
+            new PlansLoad(true).ShowDialog();
+            if ((oldPlan != null && oldPlan.PlanID != ArchivedPlan.PlanID) || (oldPlan == null && ArchivedPlan != null))
+            {
+                LoadPlanToGrid(ArchivedPlan, true);
+            }
+        }
+
+        private void CopyFromArchive()
+        {
+            if (ArchivedPlan != null)
+            {
+                PlanController.Instance.CopyArchivePlan(ArchivedPlan.PlanID, LoadedPlan.PlanID);
+            }
+            else
+            {
+                RadMessageBox.Show("Nale¿y wybraæ plan archiwalny", "B³¹d");
+            }
+        }
+
+        private void btnCopyArchivePlan_Click(object sender, EventArgs e)
+        {
+            if (LoadedPlan != null && ArchivedPlan != null)
+                CopyFromArchive();
+        }
+
+        #endregion
     }
 }

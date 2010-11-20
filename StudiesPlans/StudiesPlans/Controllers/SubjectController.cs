@@ -121,7 +121,11 @@ namespace StudiesPlans.Controllers
                     int departamentId = dep == null ? 0 : dep.DepartamentID;
 
                     Institute inst = InstituteController.Instance.GetInstitute(subject.Institute, departamentId);
-                    st.InstituteID = inst == null ? 0 : inst.InstituteID;
+                    
+                    if (inst != null)
+                        st.InstituteID = inst.InstituteID;
+                    else
+                        st.InstituteID = null;
 
                     st.Ects = subject.Ects;
                     st.IsExam = subject.IsExam;
