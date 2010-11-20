@@ -32,7 +32,7 @@ namespace StudiesPlansModels.Repositories
 
         public IEnumerable<Plan> ListActivePlans()
         {
-            return (from Plan p in SPDatabase.DB.Plans select p);
+            return (from Plan p in SPDatabase.DB.Plans where p.IsArchiewed == false select p);
         }
 
         public Plan GetPlan(string planName)
@@ -56,6 +56,11 @@ namespace StudiesPlansModels.Repositories
                 
             }
             
+        }
+
+        public IEnumerable<Plan> ListArchivedPlans()
+        { 
+            return (from Plan p in SPDatabase.DB.Plans where p.IsArchiewed == true select p);
         }
     }
 }
