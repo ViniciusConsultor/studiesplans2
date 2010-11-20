@@ -37,25 +37,27 @@ namespace StudiesPlans.Controllers
         public bool AddInstitute(NewInstitute toAdd)
         {
             Institute i = this.repository.GetInstitute(toAdd.InstituteName);
+            
             if (i != null)
                 toAdd.AddError("Instytut o takiej nazwie już istnieje");
+
             if (toAdd.IsValid)
             {
                 this.repository.AddInstitute(toAdd);
                 return true;
             }
+
             return false;
         }
 
         public void DeleteInstitute(InstituteEdit toEdit)
         {
             Institute i = this.repository.GetInstitute(toEdit.InstituteName);
+
             if (i != null && i.SubjectsDatas.Count > 0)
                 throw new UpdateException("Nie można usunąć instytutu,\nponieważ posiada powiązania");
             else
-            {
                 this.repository.DeleteInstitute(i);
-            }
         }
 
         public InstituteEdit GetInstituteEdit(string instituteName)
@@ -89,12 +91,14 @@ namespace StudiesPlans.Controllers
         public List<Institute> ListInstitutes(string departamentName)
         {
             Departament d = DepartamentController.Instance.GetDepartament(departamentName);
+
             if(d!=null)
                 return this.repository.ListInstitutes(d.DepartamentID).ToList<Institute>();
+
             return null;
         }
 
-        public Institute GetInstitute(string instituteName, int departamenId)
+        public Institute GetInstitute(string instituteName, int departamentId)
         {
             if (instituteName != null)
             {
@@ -104,7 +108,7 @@ namespace StudiesPlans.Controllers
                 {
                     bool isDepartament = false;
                     foreach (Departament d in institute.Departaments)
-                        if (d.DepartamentID == departamenId)
+                        if (d.DepartamentID == departamentId)
                         {
                             isDepartament = true;
                             break;

@@ -95,8 +95,13 @@ namespace StudiesPlans.Views
         {
             lblValidation.Text = string.Empty;
 
-            Departament dep = DepartamentController.Instance.GetDepartament(lstDepartaments.SelectedItem.ToString());
-            Faculty fac = FacultyController.Instance.GetFaculty(lstFaculties.SelectedItem.ToString());
+            Departament dep = null;
+            if (lstDepartaments.Items.Count > 0)
+                dep = DepartamentController.Instance.GetDepartament(lstDepartaments.SelectedItem.ToString());
+
+            Faculty fac = null;
+            if (lstFaculties.Items.Count > 0)
+                FacultyController.Instance.GetFaculty(lstFaculties.SelectedItem.ToString());
 
             NewSpecialization toAdd = new NewSpecialization()
             {

@@ -60,7 +60,7 @@ namespace StudiesPlans.Controllers
         public void DeleteFaculty(FacultyEdit toEdit)
         {
             Faculty f = this.repository.GetFaculty(toEdit.FacultyName);
-            if (f != null && (f.Plans.Count > 0 || f.SubjectsDatas.Count > 0))
+            if (f != null && (f.Plans.Count > 0 || f.SubjectsDatas.Count > 0 || f.Specializations.Count > 0))
                 throw new UpdateException("Nie można usunąć kierunku,\nponieważ posiada powiązania");
             else
             {

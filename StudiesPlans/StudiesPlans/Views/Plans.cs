@@ -40,22 +40,26 @@ namespace StudiesPlans.Views
 
         private void FillWithFaculties()
         {
-            Departament dep = DepartamentController.Instance.GetDepartament(cbDepartament.SelectedItem.ToString());
             cbFaculty.Items.Clear();
 
-            if (dep != null)
+            if (cbDepartament.Items.Count > 0)
             {
-                List<Faculty> faculties = FacultyController.Instance.ListFaculties(dep.DepartamentID);
+                Departament dep = DepartamentController.Instance.GetDepartament(cbDepartament.SelectedItem.ToString());
 
-                if (faculties != null)
-                    foreach (Faculty f in faculties)
-                        cbFaculty.Items.Add(f.Name);
-                cbFaculty.SelectedIndex = 0;
-            }
-            else
-            {
-                MessageBox.Show("Wybrany wydzia³ nie istnieje");
-                FillWithDepartaments();
+                if (dep != null)
+                {
+                    List<Faculty> faculties = FacultyController.Instance.ListFaculties(dep.DepartamentID);
+
+                    if (faculties != null)
+                        foreach (Faculty f in faculties)
+                            cbFaculty.Items.Add(f.Name);
+                    cbFaculty.SelectedIndex = 0;
+                }
+                else
+                {
+                    MessageBox.Show("Wybrany wydzia³ nie istnieje");
+                    FillWithDepartaments();
+                }
             }
         }
 
@@ -84,17 +88,26 @@ namespace StudiesPlans.Views
             lblValidation.Text = string.Empty;
 
             int departamentId = 0;
-            Departament dep = DepartamentController.Instance.GetDepartament(cbDepartament.SelectedItem.ToString());
+            Departament dep = null;
+            if (cbDepartament.Items.Count > 0)
+                dep = DepartamentController.Instance.GetDepartament(cbDepartament.SelectedItem.ToString());
+            
             if(dep != null)
                 departamentId = dep.DepartamentID;
 
             int facultyId = 0;
-            Faculty fac = FacultyController.Instance.GetFaculty(cbFaculty.SelectedItem.ToString());
+            Faculty fac = null;
+            if(cbFaculty.Items.Count > 0)
+                fac = FacultyController.Instance.GetFaculty(cbFaculty.SelectedItem.ToString());
+
             if (fac != null)
                 facultyId = fac.FacultyID;
 
             int studiesTypeId = 0;
-            StudiesType st = StudiesTypeController.Instance.GetStudiesType(cbStudiesType.SelectedItem.ToString());
+            StudiesType st = null;
+            if (cbStudiesType.Items.Count > 0)
+                st = StudiesTypeController.Instance.GetStudiesType(cbStudiesType.SelectedItem.ToString());
+
             if (st != null)
                 studiesTypeId = st.StudiesTypeID;
 

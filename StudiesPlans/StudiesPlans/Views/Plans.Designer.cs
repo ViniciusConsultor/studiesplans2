@@ -103,7 +103,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.radGroupBox1.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
-            this.radGroupBox1.Size = new System.Drawing.Size(323, 287);
+            this.radGroupBox1.Size = new System.Drawing.Size(323, 296);
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "Nowy plan";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
@@ -142,7 +142,7 @@ namespace StudiesPlans.Views
             // 
             this.lblValidation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
             this.lblValidation.ForeColor = System.Drawing.Color.Red;
-            this.lblValidation.Location = new System.Drawing.Point(14, 188);
+            this.lblValidation.Location = new System.Drawing.Point(14, 179);
             this.lblValidation.Name = "lblValidation";
             // 
             // 
@@ -254,7 +254,7 @@ namespace StudiesPlans.Views
             // btnCancel
             // 
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(178, 250);
+            this.btnCancel.Location = new System.Drawing.Point(180, 259);
             this.btnCancel.Name = "btnCancel";
             // 
             // 
@@ -268,7 +268,7 @@ namespace StudiesPlans.Views
             // btnAddPlan
             // 
             this.btnAddPlan.ForeColor = System.Drawing.Color.Black;
-            this.btnAddPlan.Location = new System.Drawing.Point(14, 250);
+            this.btnAddPlan.Location = new System.Drawing.Point(13, 259);
             this.btnAddPlan.Name = "btnAddPlan";
             // 
             // 
@@ -283,7 +283,7 @@ namespace StudiesPlans.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(347, 311);
+            this.ClientSize = new System.Drawing.Size(347, 320);
             this.Controls.Add(this.radGroupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

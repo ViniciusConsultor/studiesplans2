@@ -9,7 +9,7 @@ namespace StudiesPlansModels.Models
     public class NewFaculty : BaseModel
     {
         [RequiredAttribute(ErrorMessage = "Nazwa kierunku jest wymagana")]
-        [StringLength(250, ErrorMessage = "Maksymalna długość nawy kierunku to 250 znaków")]
+        [StringLength(250, ErrorMessage = "Maksymalna długość nawy kierunku to\n250 znaków")]
         public string FacultyName { get; set; }
 
         [Required(ErrorMessage = "Wybierz przynajmniej jeden wydział")]
@@ -19,7 +19,7 @@ namespace StudiesPlansModels.Models
     public class FacultyEdit : BaseModel
     {
         [RequiredAttribute(ErrorMessage = "Nazwa kierunku jest wymagana")]
-        [StringLength(250, ErrorMessage = "Maksymalna długość nawy kierunku to 250 znaków")]
+        [StringLength(250, ErrorMessage = "Maksymalna długość nawy kierunku to\n250 znaków")]
         public string FacultyName { get; set; }
 
         [Required(ErrorMessage = "Wybierz przynajmniej jeden wydział")]

@@ -9,7 +9,7 @@ namespace StudiesPlansModels.Models
     public class NewInstitute : BaseModel
     {
         [RequiredAttribute(ErrorMessage = "Nazwa instytutu jest wymagana")]
-        [StringLength(300, ErrorMessage = "Maksymalna długość nawy instytutu to 300 znaków")]
+        [StringLength(300, ErrorMessage = "Maksymalna długość nawy instytutu to\n300 znaków")]
         public string InstituteName { get; set; }
 
         [Required(ErrorMessage = "Wybierz przynajmniej jeden wydział")]
@@ -19,7 +19,7 @@ namespace StudiesPlansModels.Models
     public class InstituteEdit : BaseModel
     {
         [RequiredAttribute(ErrorMessage = "Nazwa instytutu jest wymagana")]
-        [StringLength(300, ErrorMessage = "Maksymalna długość nawy instytutu to 300 znaków")]
+        [StringLength(300, ErrorMessage = "Maksymalna długość nawy instytutu to\n300 znaków")]
         public string InstituteName { get; set; }
 
         [Required(ErrorMessage = "Wybierz przynajmniej jeden wydział")]
