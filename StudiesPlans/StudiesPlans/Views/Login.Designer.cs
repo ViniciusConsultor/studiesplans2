@@ -28,14 +28,21 @@ namespace StudiesPlans.Views
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gbLogin = new System.Windows.Forms.GroupBox();
             this.bCancel = new Telerik.WinControls.UI.RadButton();
+            this.ellipseShape1 = new Telerik.WinControls.EllipseShape();
             this.bLogin = new Telerik.WinControls.UI.RadButton();
             this.lErrors = new System.Windows.Forms.Label();
             this.tPassword = new System.Windows.Forms.TextBox();
             this.tUsername = new System.Windows.Forms.TextBox();
             this.lPassword = new System.Windows.Forms.Label();
             this.lUsername = new System.Windows.Forms.Label();
+            this.roundRectShape1 = new Telerik.WinControls.RoundRectShape(this.components);
+            this.qaShape1 = new Telerik.WinControls.Tests.QAShape();
+            this.donutShape1 = new Telerik.WinControls.Tests.DonutShape();
+            this.mediaShape1 = new Telerik.WinControls.Tests.MediaShape();
+            this.customShape1 = new Telerik.WinControls.OldShapeEditor.CustomShape();
             this.gbLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bLogin)).BeginInit();
@@ -65,31 +72,38 @@ namespace StudiesPlans.Views
             // 
             this.bCancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bCancel.ForeColor = System.Drawing.Color.Black;
-            this.bCancel.Location = new System.Drawing.Point(152, 119);
+            this.bCancel.Location = new System.Drawing.Point(163, 111);
             this.bCancel.Name = "bCancel";
             // 
             // 
             // 
             this.bCancel.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.bCancel.Size = new System.Drawing.Size(130, 24);
+            this.bCancel.RootElement.Shape = this.roundRectShape1;
+            this.bCancel.Size = new System.Drawing.Size(95, 32);
             this.bCancel.TabIndex = 8;
             this.bCancel.Text = "Anuluj";
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.bCancel.GetChildAt(0))).Text = "Anuluj";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.bCancel.GetChildAt(0))).Shape = this.roundRectShape1;
             // 
             // bLogin
             // 
             this.bLogin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bLogin.ForeColor = System.Drawing.Color.Black;
-            this.bLogin.Location = new System.Drawing.Point(12, 119);
+            this.bLogin.Location = new System.Drawing.Point(42, 111);
             this.bLogin.Name = "bLogin";
             // 
             // 
             // 
             this.bLogin.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.bLogin.Size = new System.Drawing.Size(130, 24);
+            this.bLogin.RootElement.ShouldPaint = false;
+            this.bLogin.RootElement.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            this.bLogin.Size = new System.Drawing.Size(95, 32);
             this.bLogin.TabIndex = 7;
             this.bLogin.Text = "Zaloguj";
             this.bLogin.Click += new System.EventHandler(this.bLogin_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.bLogin.GetChildAt(0))).Text = "Zaloguj";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.bLogin.GetChildAt(0))).Shape = this.roundRectShape1;
             // 
             // lErrors
             // 
@@ -136,6 +150,10 @@ namespace StudiesPlans.Views
             this.lUsername.TabIndex = 0;
             this.lUsername.Text = "Nazwa u¿ytkownika:";
             // 
+            // customShape1
+            // 
+            this.customShape1.Dimension = new System.Drawing.Rectangle(0, 0, 0, 0);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +189,12 @@ namespace StudiesPlans.Views
         private System.Windows.Forms.TextBox tUsername;
         private System.Windows.Forms.Label lPassword;
         private System.Windows.Forms.Label lUsername;
+        private Telerik.WinControls.EllipseShape ellipseShape1;
+        private Telerik.WinControls.RoundRectShape roundRectShape1;
+        private Telerik.WinControls.Tests.QAShape qaShape1;
+        private Telerik.WinControls.Tests.DonutShape donutShape1;
+        private Telerik.WinControls.Tests.MediaShape mediaShape1;
+        private Telerik.WinControls.OldShapeEditor.CustomShape customShape1;
     }
 }
 

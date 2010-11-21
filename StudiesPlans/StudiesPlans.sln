@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudiesPlansWeb", "StudiesP
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudiesPlansModels", "StudiesPlansModels\StudiesPlansModels.csproj", "{53ED3666-8A44-4273-BBB7-0082ADC3BA1B}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{39930538-1B0C-45B7-BC39-791498CEC277}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,12 @@ Global
 		{53ED3666-8A44-4273-BBB7-0082ADC3BA1B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{53ED3666-8A44-4273-BBB7-0082ADC3BA1B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{53ED3666-8A44-4273-BBB7-0082ADC3BA1B}.Release|x86.ActiveCfg = Release|Any CPU
+		{39930538-1B0C-45B7-BC39-791498CEC277}.Debug|Any CPU.ActiveCfg = Debug
+		{39930538-1B0C-45B7-BC39-791498CEC277}.Debug|Mixed Platforms.ActiveCfg = Debug
+		{39930538-1B0C-45B7-BC39-791498CEC277}.Debug|x86.ActiveCfg = Debug
+		{39930538-1B0C-45B7-BC39-791498CEC277}.Release|Any CPU.ActiveCfg = Release
+		{39930538-1B0C-45B7-BC39-791498CEC277}.Release|Mixed Platforms.ActiveCfg = Release
+		{39930538-1B0C-45B7-BC39-791498CEC277}.Release|x86.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

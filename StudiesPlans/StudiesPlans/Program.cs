@@ -39,7 +39,7 @@ namespace StudiesPlans
             if (login.ShowDialog() == DialogResult.OK)
             {
                 Application.Run(new MainForm(user));
-            }
+           }
         }
     }
 }

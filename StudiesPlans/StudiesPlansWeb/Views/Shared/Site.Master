@@ -14,6 +14,7 @@
         <div id="title">
             <h1>Plany studiów</h1>
         </div>
+        <br />
         <div id="logindisplay">
              <% Html.RenderPartial("LogOnUserControl"); %>
         </div> 
@@ -23,6 +24,7 @@
         <div id="menucontainer">
             <ul id="menu">              
                 <li><%: Html.ActionLink("Strona główna", "Index", "Home")%></li>
+                <li><%: Html.ActionLink("Plany studiów", "Plans", "Home")%></li>
                 <li><%: Html.ActionLink("About", "About", "Home")%></li>
             </ul>
         </div>
