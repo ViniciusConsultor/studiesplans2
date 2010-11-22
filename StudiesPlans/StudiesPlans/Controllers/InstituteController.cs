@@ -70,7 +70,7 @@ namespace StudiesPlans.Controllers
             if (toEdit != null)
             {
                 Institute i = this.repository.GetInstitute(toEdit.InstituteName);
-                if (i != null && i.InstituteID != toEdit.InstituteID && i.Name.Equals(toEdit.InstituteName))
+                if (i != null && i.InstituteID != toEdit.InstituteID && i.Name.ToLower().Equals(toEdit.InstituteName.ToLower()))
                     toEdit.AddError("Instytut o takiej nazwie już istnieje");
 
                 if (toEdit.IsValid)

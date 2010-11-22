@@ -195,20 +195,25 @@ namespace StudiesPlans.Views
             }
         }
 
-        private void dgSemesters_DoubleClick(object sender, EventArgs e)
+        private void Semesters_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Telerik.WinControls.UI.GridViewRowEventArgs ee = (Telerik.WinControls.UI.GridViewRowEventArgs)e;
+            if (changes)
+                this.DialogResult = DialogResult.Yes;
+        }
+
+        private void dgSemesters_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
             lblValidation.Text = string.Empty;
-            if (ee.Row.Index >= 0)
+            if (e.Row.Index >= 0)
             {
                 int no = 0;
                 int year = 0;
 
-                int.TryParse(dgSemesters.Rows[ee.Row.Index].Cells["cNo"].Value.ToString(), out no);
-                int.TryParse(dgSemesters.Rows[ee.Row.Index].Cells["cYear"].Value.ToString(), out year);
+                int.TryParse(dgSemesters.Rows[e.Row.Index].Cells["cNo"].Value.ToString(), out no);
+                int.TryParse(dgSemesters.Rows[e.Row.Index].Cells["cYear"].Value.ToString(), out year);
 
                 SemesterEdit semester = SemesterController.Instance.GetSemesterEdit(
-                    dgSemesters.Rows[ee.Row.Index].Cells["cName"].Value.ToString(),
+                    dgSemesters.Rows[e.Row.Index].Cells["cName"].Value.ToString(),
                     no, year);
 
                 if (semester != null)
@@ -225,12 +230,6 @@ namespace StudiesPlans.Views
                     toEdit = null;
                 }
             }
-        }
-
-        private void Semesters_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            if (changes)
-                this.DialogResult = DialogResult.Yes;
         }
     }
 }

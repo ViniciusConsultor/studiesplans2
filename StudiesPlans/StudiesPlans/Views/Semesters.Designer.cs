@@ -217,27 +217,31 @@ namespace StudiesPlans.Views
             // 
             // dgSemesters
             // 
+            this.dgSemesters.AutoSize = true;
+            this.dgSemesters.AutoSizeRows = true;
             this.dgSemesters.Location = new System.Drawing.Point(13, 13);
             // 
             // dgSemesters
             // 
             this.dgSemesters.MasterTemplate.AllowAddNewRow = false;
+            this.dgSemesters.MasterTemplate.AllowDragToGroup = false;
+            this.dgSemesters.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             gridViewTextBoxColumn1.FormatString = "";
             gridViewTextBoxColumn1.HeaderText = "Nazwa";
             gridViewTextBoxColumn1.Name = "cName";
-            gridViewTextBoxColumn1.Width = 65;
+            gridViewTextBoxColumn1.Width = 118;
             gridViewTextBoxColumn2.FormatString = "";
             gridViewTextBoxColumn2.HeaderText = "Numer";
             gridViewTextBoxColumn2.Name = "cNo";
-            gridViewTextBoxColumn2.Width = 65;
             gridViewTextBoxColumn3.FormatString = "";
             gridViewTextBoxColumn3.HeaderText = "Rok";
             gridViewTextBoxColumn3.Name = "cYear";
-            gridViewTextBoxColumn3.Width = 64;
+            gridViewTextBoxColumn3.Width = 45;
             this.dgSemesters.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
             gridViewTextBoxColumn3});
+            this.dgSemesters.MasterTemplate.ShowRowHeaderColumn = false;
             this.dgSemesters.Name = "dgSemesters";
             this.dgSemesters.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.dgSemesters.ReadOnly = true;
@@ -249,6 +253,7 @@ namespace StudiesPlans.Views
             this.dgSemesters.Size = new System.Drawing.Size(214, 252);
             this.dgSemesters.TabIndex = 4;
             this.dgSemesters.Text = "radGridView1";
+            this.dgSemesters.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.dgSemesters_CellDoubleClick);
             // 
             // Semesters
             // 
@@ -279,6 +284,7 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.dgSemesters)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
