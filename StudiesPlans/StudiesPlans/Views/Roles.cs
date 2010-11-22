@@ -124,7 +124,6 @@ namespace StudiesPlans.Views
                                 }
                         }
                     }
-
                 }
                 else
                 {
@@ -142,8 +141,10 @@ namespace StudiesPlans.Views
                 {
                     RoleController.Instance.DeleteRole(roleToEdit);
                     FillWithRoles();
+                    Clear();
                     changes = true;
                     roleToEdit = null;
+                    Disable();
                 }
                 catch (UpdateException ex)
                 {
@@ -171,6 +172,7 @@ namespace StudiesPlans.Views
         {
             if (roleToEdit != null)
             {
+                roleToEdit.ClearErrors();
                 roleToEdit.RoleName = tbNewRoleName.Text;
 
                 List<string> list = clbPrivilages.CheckedItems.Cast<string>().ToList<string>();

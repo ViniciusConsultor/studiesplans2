@@ -101,7 +101,7 @@ namespace StudiesPlans.Views
 
             Faculty fac = null;
             if (lstFaculties.Items.Count > 0)
-                FacultyController.Instance.GetFaculty(lstFaculties.SelectedItem.ToString());
+                fac = FacultyController.Instance.GetFaculty(lstFaculties.SelectedItem.ToString());
 
             NewSpecialization toAdd = new NewSpecialization()
             {
