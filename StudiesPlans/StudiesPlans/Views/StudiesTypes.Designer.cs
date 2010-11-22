@@ -187,6 +187,7 @@ namespace StudiesPlans
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Typy studiów";
             this.ThemeName = "ControlDefault";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.StudiesTypes_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();

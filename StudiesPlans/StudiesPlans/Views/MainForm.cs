@@ -66,6 +66,7 @@ namespace StudiesPlans.Views
         private void ManageUsers(User user)
         {
             bool wasPlan = false;
+            bool disableButtons = true;
             for (int i = 0; i < user.Role.Privilages.Count(); i++)
             {
                 if (user.Role.Privilages.ElementAt(i).Name.Equals("Edycja"))
@@ -74,6 +75,7 @@ namespace StudiesPlans.Views
                     {
                         pages.Pages.Add(plancreate);
                         wasPlan = true;
+                        disableButtons = false;
                     }
                 }
                 if (user.Role.Privilages.ElementAt(i).Name.Equals("Recenzowanie") && wasPlan == false)
@@ -85,6 +87,20 @@ namespace StudiesPlans.Views
                 if (user.Role.Privilages.ElementAt(i).Name.Equals("U¿ytkownicy"))
                     pages.Pages.Add(users);
             }
+
+            if (disableButtons)
+                DisableToolbarButtons();
+        }
+
+        private void DisableToolbarButtons()
+        {
+            btnDepMngmt.Enabled = false;
+            btnFacMnmgt.Enabled = false;
+            btnInstMnmgt.Enabled = false;
+            btnSemMnmgt.Enabled = false;
+            btnSpecMnmgt.Enabled = false;
+            btnStuMnmgt.Enabled = false;
+            btnSubTMnmgt.Enabled = false;
         }
 
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
