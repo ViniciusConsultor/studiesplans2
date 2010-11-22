@@ -49,7 +49,10 @@ namespace StudiesPlans.Controllers
             User u = this.repository.GetUser(username);
             UserEdit ue = null;
             if (u != null)
+            {
                 ue = new UserEdit(u);
+                ue.RoleID = u.RoleID;
+            }
             return ue;
         }
 
@@ -57,9 +60,11 @@ namespace StudiesPlans.Controllers
         {
             if (!user.Password.Equals(user.RepeatPassword))
                 user.AddError("Oba hasła muszą być identyczne");
+
             User u = this.repository.GetUser(user.UserName);
-            if (u != null && ((u.UserID != user.UserID) && u.Name.Equals(user.UserName)))
+            if (u != null && ((u.UserID != user.UserID) && u.Name.ToLower().Equals(user.UserName.ToLower())))
                 user.AddError("Użytkownik o takiej nazwie już istnieje");
+
             if (user.IsValid)
             {
                 if (!this.repository.EditUser(user))

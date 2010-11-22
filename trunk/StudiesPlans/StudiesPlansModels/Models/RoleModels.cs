@@ -9,7 +9,7 @@ namespace StudiesPlansModels.Models
     public class NewRole : BaseModel
     {
         [Required(ErrorMessage = "Nazwa jest wymagana")]
-        [StringLength(50, MinimumLength = 1, ErrorMessage = "Nazwa roli nie może przekraczać 50 znaków")]
+        [StringLength(50, ErrorMessage = "Nazwa roli nie może przekraczać 50 znaków")]
         public string RoleName { get; set; }
 
         [Required(ErrorMessage = "Wybierz przynajmniej jedno uprawnienie")]
@@ -19,7 +19,7 @@ namespace StudiesPlansModels.Models
     public class RoleEdit : BaseModel
     {
         [Required(ErrorMessage = "Nazwa jest wymagana")]
-        [StringLength(50, MinimumLength = 1, ErrorMessage = "Nazwa roli nie może przekraczać 50 znaków")]
+        [StringLength(50, ErrorMessage = "Nazwa roli nie może przekraczać 50 znaków")]
         public string RoleName { get; set; }
 
         [Required(ErrorMessage = "Wybierz przynajmniej jedno uprawnienie")]

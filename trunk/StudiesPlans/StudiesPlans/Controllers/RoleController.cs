@@ -115,5 +115,10 @@ namespace StudiesPlans.Controllers
         {
             return this.repository.GetPrivilage(name);
         }
+
+        public Role GetRole(int roleId)
+        {
+            return this.repository.GetRole(roleId);
+        }
     }
 }

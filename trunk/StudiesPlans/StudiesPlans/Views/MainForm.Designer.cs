@@ -151,7 +151,7 @@ namespace StudiesPlans.Views
             this.pages.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.pages.Location = new System.Drawing.Point(0, 33);
             this.pages.Name = "pages";
-            this.pages.SelectedPage = this.archive;
+            this.pages.SelectedPage = this.users;
             this.pages.Size = new System.Drawing.Size(842, 545);
             this.pages.TabIndex = 15;
             this.pages.Text = "radPageView1";
@@ -431,7 +431,7 @@ namespace StudiesPlans.Views
             this.gridArchievePlan.AutoSizeRows = true;
             this.gridArchievePlan.Location = new System.Drawing.Point(3, 27);
             // 
-            // gridArchievePlan
+            // 
             // 
             gridViewTextBoxColumn20.FormatString = "";
             gridViewTextBoxColumn20.HeaderText = "Nazwa";

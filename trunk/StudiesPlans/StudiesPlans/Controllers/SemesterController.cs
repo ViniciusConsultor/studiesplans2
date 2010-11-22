@@ -81,7 +81,7 @@ namespace StudiesPlans.Controllers
             if (toEdit != null)
             {
                 Semester s = this.repository.GetSemester(toEdit.SemesterName, toEdit.SemesterNo, toEdit.SemesterYear);
-                if (s != null && s.SemesterID != toEdit.SemesterID && s.Name.Equals(toEdit.SemesterName) && 
+                if (s != null && s.SemesterID != toEdit.SemesterID && s.Name.ToLower().Equals(toEdit.SemesterName.ToLower()) && 
                     s.Semester1 == toEdit.SemesterNo && s.StudyYear == toEdit.SemesterYear)
                     toEdit.AddError("Semestr o takich danych\njuż istnieje");
 

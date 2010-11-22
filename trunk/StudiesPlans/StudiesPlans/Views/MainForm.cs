@@ -124,25 +124,30 @@ namespace StudiesPlans.Views
             {
                 foreach (Role r in roles)
                     cbRoles.Items.Add(r.Name);
-                cbRoles.SelectedIndex = 0;
+                
+                if (cbRoles.Items.Count > 0)
+                    cbRoles.SelectedIndex = 0;
             }
         }
 
         private bool EditUser(UserEdit u)
         {
+            string errors = string.Empty;
+            lblValidation.Text = "";
+            u.ClearErrors();
             if (u != null)
             {
                 u.UserName = tbNewUsername.Text;
                 u.Password = tbNewPassword.Text;
                 u.RepeatPassword = tbNewRepeatPassword.Text;
                 u.Email = tbNewEmail.Text;
+
                 int roleId = RoleController.Instance.GetRoleId(cbRoles.SelectedItem.ToString());
                 if (roleId > 0)
                     u.RoleID = roleId;
 
                 if (!UserController.Instance.UpdateUser(u))
                 {
-                    string errors = string.Empty;
                     foreach (string error in u.Errors)
                         errors = errors + error + "\n";
                     lblValidation.Text = errors;
@@ -224,6 +229,22 @@ namespace StudiesPlans.Views
                 if (u != null)
                 {
                     userToEdit = u;
+
+                    Role r = RoleController.Instance.GetRole(u.RoleID);
+                    if (r != null)
+                    {
+                        int index = 0;
+                        foreach (string role in cbRoles.Items)
+                        {
+                            if (!role.ToLower().Equals(r.Name.ToLower()))
+                                index++;
+                            else
+                                break;
+                        }
+
+                        cbRoles.SelectedIndex = index;
+                    }
+
                     tbNewEmail.Text = u.Email;
                     tbNewUsername.Text = u.UserName;
                     tbNewPassword.Text = string.Empty;
@@ -240,19 +261,24 @@ namespace StudiesPlans.Views
             }
             else if (e.Column.Name.Equals("deleteUserColumn") && !e.RowIndex.Equals(-1))
             {
-               if( MessageBox.Show ("Czy chcesz usun规 u縴tkownika?", "Usuwanie u縴tkownika",
-                   MessageBoxButtons.OKCancel, MessageBoxIcon.Question).Equals(DialogResult.Yes))
+                if(RadMessageBox.Show ("Czy chcesz usun规 u縴tkownika?", "Usuwanie u縴tkownika",
+                   MessageBoxButtons.YesNo, RadMessageIcon.Question).Equals(DialogResult.Yes))
                 {
-                    if (!UserController.Instance.DeleteUser(gridUsers.Rows[e.RowIndex].Cells["usernameColumn"].Value.ToString()))
-                        MessageBox.Show("Nie mo縩a usun规");
-                    else
+                    if (!gridUsers.Rows[e.RowIndex].Cells["usernameColumn"].Value.ToString().Equals(logged.Name))
                     {
-                        gridUsers.Rows.RemoveAt(e.RowIndex);
-                        Clear();
-                        btnUpdate.Enabled = false;
-                        btnAddUser.Enabled = true;
-                        btnCancelEdit.Enabled = false;
+                        if (!UserController.Instance.DeleteUser(gridUsers.Rows[e.RowIndex].Cells["usernameColumn"].Value.ToString()))
+                            RadMessageBox.Show("Nie mo縩a usun规", "B彻d");
+                        else
+                        {
+                            gridUsers.Rows.RemoveAt(e.RowIndex);
+                            Clear();
+                            btnUpdate.Enabled = false;
+                            btnAddUser.Enabled = true;
+                            btnCancelEdit.Enabled = false;
+                        }
                     }
+                    else
+                        RadMessageBox.Show("Nie mo縩a usun规 w砤snego u縴tkownika!", "B彻d");
                 }
             }
         }
