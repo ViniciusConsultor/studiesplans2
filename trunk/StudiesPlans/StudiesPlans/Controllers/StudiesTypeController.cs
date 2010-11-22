@@ -73,7 +73,7 @@ namespace StudiesPlans.Controllers
             if (toEdit != null)
             {
                 StudiesType st = this.repository.GetStudiesType(toEdit.StudiesTypeName);
-                if (st != null && st.StudiesTypeID != toEdit.StudiesTypeID && st.Name.Equals(toEdit.StudiesTypeName))
+                if (st != null && st.StudiesTypeID != toEdit.StudiesTypeID && st.Name.ToLower().Equals(toEdit.StudiesTypeName.ToLower()))
                     toEdit.AddError("Typ studiów o takiej nazwie\njuż istnieje");
 
                 if (toEdit.IsValid)

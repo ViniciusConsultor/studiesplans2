@@ -37,13 +37,15 @@ namespace StudiesPlans.Controllers
         public bool AddSubjectType(NewSubjectType toAdd)
         {
             SubjectType st = this.repository.GetSubjectType(toAdd.SubjectTypeName);
-            if (st != null)
+            if (st != null && st.Name.ToLower().Equals(toAdd.SubjectTypeName.ToLower()))
                 toAdd.AddError("Typ przedmiotu o takiej nazwie już\nistnieje");
+
             if (toAdd.IsValid)
             {
                 this.repository.AddSubjectType(toAdd);
                 return true;
             }
+
             return false;
         }
 
@@ -66,7 +68,7 @@ namespace StudiesPlans.Controllers
             if (toEdit != null)
             {
                 SubjectType st = this.repository.GetSubjectType(toEdit.SubjectTypeName);
-                if (st != null && st.SubjectTypeID != toEdit.SubjectTypeID && st.Name.Equals(toEdit.SubjectTypeName))
+                if (st != null && st.SubjectTypeID != toEdit.SubjectTypeID && st.Name.ToLower().Equals(toEdit.SubjectTypeName.ToLower()))
                     toEdit.AddError("Typ przedmiotu o takiej nazwie\njuż istnieje");
 
                 if (toEdit.IsValid)

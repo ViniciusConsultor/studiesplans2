@@ -141,6 +141,9 @@ namespace StudiesPlans.Views
             // 
             // pages
             // 
+            this.pages.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pages.Controls.Add(this.plancreate);
             this.pages.Controls.Add(this.review);
             this.pages.Controls.Add(this.archive);
@@ -148,7 +151,7 @@ namespace StudiesPlans.Views
             this.pages.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.pages.Location = new System.Drawing.Point(0, 33);
             this.pages.Name = "pages";
-            this.pages.SelectedPage = this.plancreate;
+            this.pages.SelectedPage = this.archive;
             this.pages.Size = new System.Drawing.Size(842, 545);
             this.pages.TabIndex = 15;
             this.pages.Text = "radPageView1";
@@ -181,6 +184,7 @@ namespace StudiesPlans.Views
             // 
             // btnDeleteSubject
             // 
+            this.btnDeleteSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDeleteSubject.ForeColor = System.Drawing.Color.Black;
             this.btnDeleteSubject.Location = new System.Drawing.Point(690, 473);
             this.btnDeleteSubject.Name = "btnDeleteSubject";
@@ -195,6 +199,7 @@ namespace StudiesPlans.Views
             // 
             // btnEditSubject
             // 
+            this.btnEditSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnEditSubject.ForeColor = System.Drawing.Color.Black;
             this.btnEditSubject.Location = new System.Drawing.Point(554, 473);
             this.btnEditSubject.Name = "btnEditSubject";
@@ -209,6 +214,7 @@ namespace StudiesPlans.Views
             // 
             // btnLoadPlan
             // 
+            this.btnLoadPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLoadPlan.ForeColor = System.Drawing.Color.Black;
             this.btnLoadPlan.Location = new System.Drawing.Point(139, 473);
             this.btnLoadPlan.Name = "btnLoadPlan";
@@ -223,6 +229,7 @@ namespace StudiesPlans.Views
             // 
             // btnAddSubject
             // 
+            this.btnAddSubject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddSubject.ForeColor = System.Drawing.Color.Black;
             this.btnAddSubject.Location = new System.Drawing.Point(418, 473);
             this.btnAddSubject.Name = "btnAddSubject";
@@ -237,6 +244,7 @@ namespace StudiesPlans.Views
             // 
             // btnNewPlan
             // 
+            this.btnNewPlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnNewPlan.ForeColor = System.Drawing.Color.Black;
             this.btnNewPlan.Location = new System.Drawing.Point(3, 473);
             this.btnNewPlan.Name = "btnNewPlan";
@@ -251,6 +259,9 @@ namespace StudiesPlans.Views
             // 
             // gridPlanSubjects
             // 
+            this.gridPlanSubjects.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gridPlanSubjects.AutoSize = true;
             this.gridPlanSubjects.AutoSizeRows = true;
             this.gridPlanSubjects.Location = new System.Drawing.Point(3, 27);
@@ -323,6 +334,7 @@ namespace StudiesPlans.Views
             // 
             // button2
             // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button2.Location = new System.Drawing.Point(190, 471);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
@@ -333,6 +345,7 @@ namespace StudiesPlans.Views
             // 
             // textBox1
             // 
+            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox1.Location = new System.Drawing.Point(84, 473);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 20);
@@ -340,22 +353,26 @@ namespace StudiesPlans.Views
             // 
             // pagePreview1
             // 
+            this.pagePreview1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pagePreview1.AutoScroll = true;
-            this.pagePreview1.AutoSize = true;
+            this.pagePreview1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.pagePreview1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.pagePreview1.DesktopColor = System.Drawing.SystemColors.ControlDark;
             this.pagePreview1.Location = new System.Drawing.Point(3, 3);
             this.pagePreview1.Name = "pagePreview1";
-            this.pagePreview1.PageColor = System.Drawing.Color.GhostWhite;
+            this.pagePreview1.PageColor = System.Drawing.Color.White;
             this.pagePreview1.PageSize = ((PdfSharp.Drawing.XSize)(resources.GetObject("pagePreview1.PageSize")));
             this.pagePreview1.PageSizeF = new System.Drawing.Size(1283, 595);
             this.pagePreview1.Size = new System.Drawing.Size(815, 465);
             this.pagePreview1.TabIndex = 3;
-            this.pagePreview1.Zoom = PdfSharp.Forms.Zoom.FullPage;
+            this.pagePreview1.Zoom = PdfSharp.Forms.Zoom.BestFit;
             this.pagePreview1.ZoomPercent = 46;
             // 
             // button1
             // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.Location = new System.Drawing.Point(3, 471);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -377,8 +394,9 @@ namespace StudiesPlans.Views
             // 
             // btnLoadArchivePlan
             // 
+            this.btnLoadArchivePlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnLoadArchivePlan.ForeColor = System.Drawing.Color.Black;
-            this.btnLoadArchivePlan.Location = new System.Drawing.Point(220, 470);
+            this.btnLoadArchivePlan.Location = new System.Drawing.Point(220, 473);
             this.btnLoadArchivePlan.Name = "btnLoadArchivePlan";
             // 
             // 
@@ -391,8 +409,9 @@ namespace StudiesPlans.Views
             // 
             // btnCopyArchivePlan
             // 
+            this.btnCopyArchivePlan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnCopyArchivePlan.ForeColor = System.Drawing.Color.Black;
-            this.btnCopyArchivePlan.Location = new System.Drawing.Point(84, 470);
+            this.btnCopyArchivePlan.Location = new System.Drawing.Point(84, 473);
             this.btnCopyArchivePlan.Name = "btnCopyArchivePlan";
             // 
             // 
@@ -405,9 +424,12 @@ namespace StudiesPlans.Views
             // 
             // gridArchievePlan
             // 
+            this.gridArchievePlan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gridArchievePlan.AutoSize = true;
             this.gridArchievePlan.AutoSizeRows = true;
-            this.gridArchievePlan.Location = new System.Drawing.Point(3, 3);
+            this.gridArchievePlan.Location = new System.Drawing.Point(3, 27);
             // 
             // gridArchievePlan
             // 
@@ -466,7 +488,8 @@ namespace StudiesPlans.Views
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(3, 471);
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.button3.Location = new System.Drawing.Point(3, 474);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 0;
@@ -485,6 +508,9 @@ namespace StudiesPlans.Views
             // 
             // gridUsers
             // 
+            this.gridUsers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.gridUsers.AutoSizeRows = true;
             this.gridUsers.Location = new System.Drawing.Point(3, 3);
             // 
@@ -544,6 +570,7 @@ namespace StudiesPlans.Views
             // gbUsers1
             // 
             this.gbUsers1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.gbUsers1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbUsers1.Controls.Add(this.btnUpdate);
             this.gbUsers1.Controls.Add(this.btnCancelEdit);
             this.gbUsers1.Controls.Add(this.btnAddUser);
@@ -790,6 +817,11 @@ namespace StudiesPlans.Views
             // 
             // radToolStripElement2
             // 
+            this.radToolStripElement2.AutoSize = false;
+            this.radToolStripElement2.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
+            this.radToolStripElement2.Bounds = new System.Drawing.Rectangle(0, 0, 842, 26);
+            this.radToolStripElement2.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentBounds;
+            this.radToolStripElement2.FlipText = false;
             this.radToolStripElement2.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radToolStripItem3});
             this.radToolStripElement2.Name = "radToolStripElement2";
@@ -797,8 +829,9 @@ namespace StudiesPlans.Views
             // 
             // radToolStripItem3
             // 
-            this.radToolStripItem3.AutoSize = false;
-            this.radToolStripItem3.Bounds = new System.Drawing.Rectangle(0, 0, 842, 24);
+            this.radToolStripItem3.AutoSize = true;
+            this.radToolStripItem3.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
+            this.radToolStripItem3.FitToSizeMode = Telerik.WinControls.RadFitToSizeMode.FitToParentContent;
             this.radToolStripItem3.Items.AddRange(new Telerik.WinControls.RadItem[] {
             this.radButtonElement7,
             this.radButtonElement8,
@@ -810,6 +843,9 @@ namespace StudiesPlans.Views
             this.radToolStripItem3.Key = "0";
             this.radToolStripItem3.Name = "radToolStripItem3";
             this.radToolStripItem3.Shape = this.qaShape1;
+            this.radToolStripItem3.ShouldPaint = false;
+            this.radToolStripItem3.StretchHorizontally = true;
+            this.radToolStripItem3.StretchVertically = true;
             this.radToolStripItem3.Text = "Menu";
             // 
             // radButtonElement7
@@ -959,8 +995,6 @@ namespace StudiesPlans.Views
             this.Controls.Add(this.pages);
             this.Controls.Add(this.radToolStrip1);
             this.Controls.Add(this.radStatusStrip1);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "MainForm";
             // 
             // 
