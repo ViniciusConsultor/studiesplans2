@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using StudiesPlansModels.Models;
+using StudiesPlansModels.Helpers;
 
 namespace StudiesPlansModels.Repositories.Interfaces
 {
@@ -19,5 +20,7 @@ namespace StudiesPlansModels.Repositories.Interfaces
         void AddPlanData(NewPlanData npd);
 
         IEnumerable<Plan> ListArchivedPlans();
+
+        IEnumerable<Plan> ListPlans(PlanFilter filter);
     }
 }
