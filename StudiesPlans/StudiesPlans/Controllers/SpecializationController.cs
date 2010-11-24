@@ -5,7 +5,6 @@ using System.Text;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
 using System.Data;
-using System.Linq;
 
 namespace StudiesPlans.Controllers
 {

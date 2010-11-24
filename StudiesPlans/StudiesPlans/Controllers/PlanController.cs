@@ -5,6 +5,7 @@ using System.Text;
 using StudiesPlansModels.Repositories.Interfaces;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Repositories;
+using StudiesPlansModels.Helpers;
 
 namespace StudiesPlans.Controllers
 {
@@ -147,6 +148,11 @@ namespace StudiesPlans.Controllers
                     SubjectController.Instance.AddSubject(ns);
                 }
             }
+        }
+
+        public List<Plan> ListPlans(PlanFilter filter)
+        {
+            return this.repository.ListPlans(filter).ToList();
         }
     }
 }

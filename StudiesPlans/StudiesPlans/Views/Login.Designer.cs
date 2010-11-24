@@ -31,14 +31,14 @@ namespace StudiesPlans.Views
             this.components = new System.ComponentModel.Container();
             this.gbLogin = new System.Windows.Forms.GroupBox();
             this.bCancel = new Telerik.WinControls.UI.RadButton();
-            this.ellipseShape1 = new Telerik.WinControls.EllipseShape();
+            this.roundRectShape1 = new Telerik.WinControls.RoundRectShape(this.components);
             this.bLogin = new Telerik.WinControls.UI.RadButton();
             this.lErrors = new System.Windows.Forms.Label();
             this.tPassword = new System.Windows.Forms.TextBox();
             this.tUsername = new System.Windows.Forms.TextBox();
             this.lPassword = new System.Windows.Forms.Label();
             this.lUsername = new System.Windows.Forms.Label();
-            this.roundRectShape1 = new Telerik.WinControls.RoundRectShape(this.components);
+            this.ellipseShape1 = new Telerik.WinControls.EllipseShape();
             this.qaShape1 = new Telerik.WinControls.Tests.QAShape();
             this.donutShape1 = new Telerik.WinControls.Tests.DonutShape();
             this.mediaShape1 = new Telerik.WinControls.Tests.MediaShape();
@@ -72,14 +72,14 @@ namespace StudiesPlans.Views
             // 
             this.bCancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bCancel.ForeColor = System.Drawing.Color.Black;
-            this.bCancel.Location = new System.Drawing.Point(163, 111);
+            this.bCancel.Location = new System.Drawing.Point(163, 119);
             this.bCancel.Name = "bCancel";
             // 
             // 
             // 
             this.bCancel.RootElement.ForeColor = System.Drawing.Color.Black;
             this.bCancel.RootElement.Shape = this.roundRectShape1;
-            this.bCancel.Size = new System.Drawing.Size(95, 32);
+            this.bCancel.Size = new System.Drawing.Size(95, 24);
             this.bCancel.TabIndex = 8;
             this.bCancel.Text = "Anuluj";
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
@@ -90,7 +90,7 @@ namespace StudiesPlans.Views
             // 
             this.bLogin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bLogin.ForeColor = System.Drawing.Color.Black;
-            this.bLogin.Location = new System.Drawing.Point(42, 111);
+            this.bLogin.Location = new System.Drawing.Point(41, 119);
             this.bLogin.Name = "bLogin";
             // 
             // 
@@ -98,7 +98,7 @@ namespace StudiesPlans.Views
             this.bLogin.RootElement.ForeColor = System.Drawing.Color.Black;
             this.bLogin.RootElement.ShouldPaint = false;
             this.bLogin.RootElement.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            this.bLogin.Size = new System.Drawing.Size(95, 32);
+            this.bLogin.Size = new System.Drawing.Size(95, 24);
             this.bLogin.TabIndex = 7;
             this.bLogin.Text = "Zaloguj";
             this.bLogin.Click += new System.EventHandler(this.bLogin_Click);

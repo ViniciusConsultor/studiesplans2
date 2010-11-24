@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Helpers\Connection.cs" />
+    <Compile Include="Helpers\Filters.cs" />
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\DepartamentModels.cs" />
     <Compile Include="Models\PlanModels.cs" />
