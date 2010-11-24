@@ -525,7 +525,7 @@ namespace StudiesPlans.Views
                 XGraphics gfx = XGraphics.FromPdfPage(page);
                 render.Render(gfx);
                 page.Width = new XUnit(render.Width);
-                pdf.Save(@"D:\first.pdf");
+                pdf.Save(@"C:\first.pdf");
                 pagePreview1.PageSize = new XSize(render.Width, pagePreview1.PageSize.Height);
             }
 

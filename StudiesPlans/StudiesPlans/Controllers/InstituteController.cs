@@ -121,5 +121,10 @@ namespace StudiesPlans.Controllers
             }
             return null;
         }
+
+        public IEnumerable<Institute> ListInstitutes(int departamentId)
+        {
+            return this.repository.ListInstitutes(departamentId);
+        }
     }
 }

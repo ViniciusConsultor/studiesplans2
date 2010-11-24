@@ -21,26 +21,39 @@ namespace StudiesPlans.Views
         {
             InitializeComponent();
             FillWithDepartaments();
-            FillWithInstitutes();
+            FillWithInstitutes(null);
             Disable();
         }
 
         private void FillWithDepartaments()
         {
             clbDepartaments.Items.Clear();
+            cbDepartamentFilter.Items.Clear();
+            cbDepartamentFilter.Items.Add("Wszystkie");
+
             IEnumerable<Departament> departaments = DepartamentController.Instance.ListDepartaments();
             if (departaments != null)
                 foreach (Departament d in departaments)
+                {
                     clbDepartaments.Items.Add(d.Name);
+                    cbDepartamentFilter.Items.Add(d.Name);
+                }
+            cbDepartamentFilter.SelectedIndex = 0;
         }
 
-        private void FillWithInstitutes()
+        private void FillWithInstitutes(Departament dep)
         {
             listInstitutes.Items.Clear();
-            IEnumerable<Institute> institutes = InstituteController.Instance.ListInstitutes();
+            IEnumerable<Institute> institutes = null;
+
+            if (dep == null)
+                institutes = InstituteController.Instance.ListInstitutes();
+            else
+                institutes = InstituteController.Instance.ListInstitutes(dep.DepartamentID);
+
             if (institutes != null)
-                foreach (Institute i in institutes)
-                    listInstitutes.Items.Add(i.Name);
+                foreach (Institute f in institutes)
+                    listInstitutes.Items.Add(f.Name);
         }
 
         private void Disable()
@@ -109,7 +122,8 @@ namespace StudiesPlans.Views
             }
             else
             {
-                FillWithInstitutes();
+                FillWithInstitutes(null);
+                cbDepartamentFilter.SelectedIndex = 0;
                 Clear();
                 changes = true;
             }
@@ -123,7 +137,7 @@ namespace StudiesPlans.Views
                 try
                 {
                     InstituteController.Instance.DeleteInstitute(toEdit);
-                    FillWithInstitutes();
+                    FillWithInstitutes(null);
                     toEdit = null;
                     Disable();
                     Clear();
@@ -187,6 +201,7 @@ namespace StudiesPlans.Views
                 toEdit.InstituteName = tbNewInstituteName.Text;
                 if (toEdit.Errors != null)
                     toEdit.ClearErrors();
+
                 List<Departament> list = new List<Departament>();
                 for (int i = 0; i < clbDepartaments.CheckedItems.Count; i++)
                 {
@@ -194,6 +209,7 @@ namespace StudiesPlans.Views
                     if (d != null)
                         list.Add(d);
                 }
+
                 if (list.Count > 0)
                     toEdit.Departaments = list.AsEnumerable<Departament>();
                 else
@@ -210,7 +226,8 @@ namespace StudiesPlans.Views
                 else
                 {
                     FillWithDepartaments();
-                    FillWithInstitutes();
+                    FillWithInstitutes(null);
+                    cbDepartamentFilter.SelectedIndex = 0;
                     Clear();
                     Disable();
                     changes = true;
@@ -222,6 +239,12 @@ namespace StudiesPlans.Views
         {
             if (changes)
                 this.DialogResult = DialogResult.Yes;
+        }
+
+        private void cbDepartamentFilter_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
+        {
+            Departament dep = DepartamentController.Instance.GetDepartament(cbDepartamentFilter.SelectedItem.ToString());
+            FillWithInstitutes(dep);
         }
     }
 }
