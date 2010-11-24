@@ -232,14 +232,12 @@ namespace StudiesPlans.Views
             if (ckxSemStart.Enabled == true && ckxSemStart.Checked)
             {
                 int.TryParse(tbSemStart.Text, out semester);
-
                 filter.SemesterStart = semester;
             }
 
             if (ckxSemEnd.Enabled == true && ckxSemEnd.Checked)
             {
                 int.TryParse(tbSemEnd.Text, out semester);
-
                 filter.SemesterEnd = semester;
             }
 
@@ -247,11 +245,6 @@ namespace StudiesPlans.Views
                 FillWithArchive(filter);
             else
                 FillWithPlans(filter);
-
-            //DateTime year = Convert.ToDateTime(filter.YearStart);
-
-
-
         }
     }
 }
