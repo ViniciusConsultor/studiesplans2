@@ -29,16 +29,18 @@ namespace StudiesPlans.Views
         private void InitializeComponent()
         {
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.txtNewDepartamentName = new Telerik.WinControls.UI.RadTextBox();
             this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             this.btnDelete = new Telerik.WinControls.UI.RadButton();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
             this.btnAddDepartament = new Telerik.WinControls.UI.RadButton();
-            this.txtNewDepartamentName = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.listDepartaments = new Telerik.WinControls.UI.RadListControl();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNewDepartamentName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
@@ -50,13 +52,13 @@ namespace StudiesPlans.Views
             // 
             // radGroupBox1
             // 
+            this.radGroupBox1.Controls.Add(this.radLabel1);
+            this.radGroupBox1.Controls.Add(this.txtNewDepartamentName);
             this.radGroupBox1.Controls.Add(this.lblValidation);
             this.radGroupBox1.Controls.Add(this.btnDelete);
             this.radGroupBox1.Controls.Add(this.btnSave);
             this.radGroupBox1.Controls.Add(this.btnCancel);
             this.radGroupBox1.Controls.Add(this.btnAddDepartament);
-            this.radGroupBox1.Controls.Add(this.txtNewDepartamentName);
-            this.radGroupBox1.Controls.Add(this.label1);
             this.radGroupBox1.FooterImageIndex = -1;
             this.radGroupBox1.FooterImageKey = "";
             this.radGroupBox1.HeaderImageIndex = -1;
@@ -75,6 +77,27 @@ namespace StudiesPlans.Views
             this.radGroupBox1.Text = "Zarz¹dzanie";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            // 
+            // radLabel1
+            // 
+            this.radLabel1.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.radLabel1.Location = new System.Drawing.Point(14, 33);
+            this.radLabel1.Name = "radLabel1";
+            this.radLabel1.Size = new System.Drawing.Size(89, 18);
+            this.radLabel1.TabIndex = 19;
+            this.radLabel1.Text = "Nazwa wydzia³u:";
+            // 
+            // txtNewDepartamentName
+            // 
+            this.txtNewDepartamentName.Location = new System.Drawing.Point(105, 30);
+            this.txtNewDepartamentName.Name = "txtNewDepartamentName";
+            // 
+            // 
+            // 
+            this.txtNewDepartamentName.RootElement.ToolTipText = "Nazwa wydzia³u";
+            this.txtNewDepartamentName.Size = new System.Drawing.Size(150, 20);
+            this.txtNewDepartamentName.TabIndex = 18;
+            this.txtNewDepartamentName.TabStop = false;
             // 
             // lblValidation
             // 
@@ -104,6 +127,7 @@ namespace StudiesPlans.Views
             this.btnDelete.TabIndex = 16;
             this.btnDelete.Text = "Usuñ";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnDelete.GetChildAt(0))).Text = "Usuñ";
             // 
             // btnSave
             // 
@@ -120,6 +144,7 @@ namespace StudiesPlans.Views
             this.btnSave.TabIndex = 15;
             this.btnSave.Text = "Zapisz";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSave.GetChildAt(0))).Text = "Zapisz";
             // 
             // btnCancel
             // 
@@ -136,6 +161,7 @@ namespace StudiesPlans.Views
             this.btnCancel.TabIndex = 14;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnCancel.GetChildAt(0))).Text = "Anuluj";
             // 
             // btnAddDepartament
             // 
@@ -152,22 +178,7 @@ namespace StudiesPlans.Views
             this.btnAddDepartament.TabIndex = 13;
             this.btnAddDepartament.Text = "Dodaj";
             this.btnAddDepartament.Click += new System.EventHandler(this.btnAddDepartament_Click);
-            // 
-            // txtNewDepartamentName
-            // 
-            this.txtNewDepartamentName.Location = new System.Drawing.Point(103, 34);
-            this.txtNewDepartamentName.Name = "txtNewDepartamentName";
-            this.txtNewDepartamentName.Size = new System.Drawing.Size(147, 20);
-            this.txtNewDepartamentName.TabIndex = 12;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(9, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(92, 13);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "Nazwa wydzia³u:";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnAddDepartament.GetChildAt(0))).Text = "Dodaj";
             // 
             // listDepartaments
             // 
@@ -177,9 +188,9 @@ namespace StudiesPlans.Views
             this.listDepartaments.Size = new System.Drawing.Size(185, 252);
             this.listDepartaments.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
             this.listDepartaments.TabIndex = 1;
-            this.listDepartaments.Text = "radListControl1";
             this.listDepartaments.DoubleClick += new System.EventHandler(this.listDepartaments_DoubleClick);
             this.listDepartaments.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listDepartaments_KeyDown);
+            ((Telerik.WinControls.UI.RadListElement)(this.listDepartaments.GetChildAt(0))).CaseSensitiveSort = true;
             // 
             // Departaments
             // 
@@ -202,6 +213,8 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtNewDepartamentName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
@@ -221,9 +234,9 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadButton btnSave;
         private Telerik.WinControls.UI.RadButton btnCancel;
         private Telerik.WinControls.UI.RadButton btnAddDepartament;
-        private System.Windows.Forms.TextBox txtNewDepartamentName;
-        private System.Windows.Forms.Label label1;
         private Telerik.WinControls.UI.RadLabel lblValidation;
+        private Telerik.WinControls.UI.RadTextBox txtNewDepartamentName;
+        private Telerik.WinControls.UI.RadLabel radLabel1;
     }
 }
 

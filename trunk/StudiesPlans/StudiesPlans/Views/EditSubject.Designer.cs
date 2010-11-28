@@ -28,16 +28,26 @@ namespace StudiesPlans.Views
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewComboBoxColumn gridViewComboBoxColumn6 = new Telerik.WinControls.UI.GridViewComboBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn11 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn12 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewComboBoxColumn gridViewComboBoxColumn1 = new Telerik.WinControls.UI.GridViewComboBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             this.dgSubjectTypes = new Telerik.WinControls.UI.RadGridView();
             this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
             this.btnSaveSubject = new Telerik.WinControls.UI.RadButton();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
+            this.cbGeneral = new Telerik.WinControls.UI.RadCheckBox();
+            this.btnClearSpec = new Telerik.WinControls.UI.RadButton();
+            this.btnSpecMngmt = new Telerik.WinControls.UI.RadButton();
+            this.btnSubjectTypesMnmgt = new Telerik.WinControls.UI.RadButton();
+            this.btnSemestersMnmgt = new Telerik.WinControls.UI.RadButton();
+            this.btnInstitutesMngmt = new Telerik.WinControls.UI.RadButton();
+            this.dgSpecializations = new Telerik.WinControls.UI.RadGridView();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cbElective = new Telerik.WinControls.UI.RadCheckBox();
             this.cbInstitute = new Telerik.WinControls.UI.RadDropDownList();
             this.radLabel9 = new Telerik.WinControls.UI.RadLabel();
             this.lblDepartament = new Telerik.WinControls.UI.RadLabel();
@@ -52,22 +62,21 @@ namespace StudiesPlans.Views
             this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
-            this.cbGeneral = new Telerik.WinControls.UI.RadCheckBox();
-            this.btnClearSpec = new Telerik.WinControls.UI.RadButton();
-            this.btnSpecMngmt = new Telerik.WinControls.UI.RadButton();
-            this.btnSubjectTypesMnmgt = new Telerik.WinControls.UI.RadButton();
-            this.btnSemestersMnmgt = new Telerik.WinControls.UI.RadButton();
-            this.btnInstitutesMngmt = new Telerik.WinControls.UI.RadButton();
-            this.dgSpecializations = new Telerik.WinControls.UI.RadGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cbElective = new Telerik.WinControls.UI.RadCheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgSubjectTypes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSaveSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbGeneral)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClearSpec)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSpecMngmt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSubjectTypesMnmgt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSemestersMnmgt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInstitutesMngmt)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSpecializations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbElective)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbInstitute)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDepartament)).BeginInit();
@@ -82,15 +91,6 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbGeneral)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClearSpec)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSpecMngmt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSubjectTypesMnmgt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSemestersMnmgt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnInstitutesMngmt)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSpecializations)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbElective)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,18 +108,18 @@ namespace StudiesPlans.Views
             this.dgSubjectTypes.MasterTemplate.AllowDeleteRow = false;
             this.dgSubjectTypes.MasterTemplate.AllowRowResize = false;
             this.dgSubjectTypes.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn11.FormatString = "";
-            gridViewTextBoxColumn11.HeaderText = "Typ";
-            gridViewTextBoxColumn11.Name = "subjectType";
-            gridViewTextBoxColumn11.ReadOnly = true;
-            gridViewTextBoxColumn11.Width = 86;
-            gridViewTextBoxColumn12.FormatString = "";
-            gridViewTextBoxColumn12.HeaderText = "Godziny";
-            gridViewTextBoxColumn12.Name = "hours";
-            gridViewTextBoxColumn12.Width = 84;
+            gridViewTextBoxColumn1.FormatString = "";
+            gridViewTextBoxColumn1.HeaderText = "Typ";
+            gridViewTextBoxColumn1.Name = "subjectType";
+            gridViewTextBoxColumn1.ReadOnly = true;
+            gridViewTextBoxColumn1.Width = 86;
+            gridViewTextBoxColumn2.FormatString = "";
+            gridViewTextBoxColumn2.HeaderText = "Godziny";
+            gridViewTextBoxColumn2.Name = "hours";
+            gridViewTextBoxColumn2.Width = 84;
             this.dgSubjectTypes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn11,
-            gridViewTextBoxColumn12});
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2});
             this.dgSubjectTypes.MasterTemplate.EnableGrouping = false;
             this.dgSubjectTypes.Name = "dgSubjectTypes";
             this.dgSubjectTypes.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
@@ -214,6 +214,141 @@ namespace StudiesPlans.Views
             this.radGroupBox1.Text = "Edytuj przedmiot";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             // 
+            // radLabel6
+            // 
+            this.radLabel6.Location = new System.Drawing.Point(13, 199);
+            this.radLabel6.Name = "radLabel6";
+            this.radLabel6.Size = new System.Drawing.Size(78, 18);
+            this.radLabel6.TabIndex = 36;
+            this.radLabel6.Text = "Obowi¹zkowy:";
+            // 
+            // cbGeneral
+            // 
+            this.cbGeneral.Location = new System.Drawing.Point(117, 199);
+            this.cbGeneral.Name = "cbGeneral";
+            this.cbGeneral.Size = new System.Drawing.Size(15, 15);
+            this.cbGeneral.TabIndex = 35;
+            this.cbGeneral.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.cbGeneral_ToggleStateChanged);
+            // 
+            // btnClearSpec
+            // 
+            this.btnClearSpec.Location = new System.Drawing.Point(39, 395);
+            this.btnClearSpec.Name = "btnClearSpec";
+            this.btnClearSpec.Size = new System.Drawing.Size(130, 20);
+            this.btnClearSpec.TabIndex = 34;
+            this.btnClearSpec.Text = "Wyczyœæ specjalizacje";
+            this.btnClearSpec.Click += new System.EventHandler(this.btnClearSpec_Click);
+            // 
+            // btnSpecMngmt
+            // 
+            this.btnSpecMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
+            this.btnSpecMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSpecMngmt.Image = global::StudiesPlans.Properties.Resources.management;
+            this.btnSpecMngmt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSpecMngmt.Location = new System.Drawing.Point(13, 395);
+            this.btnSpecMngmt.Name = "btnSpecMngmt";
+            this.btnSpecMngmt.Size = new System.Drawing.Size(20, 20);
+            this.btnSpecMngmt.TabIndex = 32;
+            this.btnSpecMngmt.Click += new System.EventHandler(this.btnSpecMngmt_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSpecMngmt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSpecMngmt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnSubjectTypesMnmgt
+            // 
+            this.btnSubjectTypesMnmgt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
+            this.btnSubjectTypesMnmgt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSubjectTypesMnmgt.Image = global::StudiesPlans.Properties.Resources.management;
+            this.btnSubjectTypesMnmgt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSubjectTypesMnmgt.Location = new System.Drawing.Point(242, 395);
+            this.btnSubjectTypesMnmgt.Name = "btnSubjectTypesMnmgt";
+            this.btnSubjectTypesMnmgt.Size = new System.Drawing.Size(20, 20);
+            this.btnSubjectTypesMnmgt.TabIndex = 33;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSubjectTypesMnmgt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSubjectTypesMnmgt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnSemestersMnmgt
+            // 
+            this.btnSemestersMnmgt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
+            this.btnSemestersMnmgt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnSemestersMnmgt.Image = global::StudiesPlans.Properties.Resources.management;
+            this.btnSemestersMnmgt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnSemestersMnmgt.Location = new System.Drawing.Point(91, 49);
+            this.btnSemestersMnmgt.Name = "btnSemestersMnmgt";
+            this.btnSemestersMnmgt.Size = new System.Drawing.Size(20, 20);
+            this.btnSemestersMnmgt.TabIndex = 31;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSemestersMnmgt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSemestersMnmgt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnInstitutesMngmt
+            // 
+            this.btnInstitutesMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
+            this.btnInstitutesMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnInstitutesMngmt.Image = global::StudiesPlans.Properties.Resources.management;
+            this.btnInstitutesMngmt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnInstitutesMngmt.Location = new System.Drawing.Point(91, 173);
+            this.btnInstitutesMngmt.Name = "btnInstitutesMngmt";
+            this.btnInstitutesMngmt.Size = new System.Drawing.Size(20, 20);
+            this.btnInstitutesMngmt.TabIndex = 30;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnInstitutesMngmt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnInstitutesMngmt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dgSpecializations
+            // 
+            this.dgSpecializations.AutoSize = true;
+            this.dgSpecializations.Location = new System.Drawing.Point(13, 244);
+            // 
+            // dgSpecializations
+            // 
+            this.dgSpecializations.MasterTemplate.AllowCellContextMenu = false;
+            this.dgSpecializations.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
+            gridViewComboBoxColumn1.DisplayMember = null;
+            gridViewComboBoxColumn1.FormatString = "";
+            gridViewComboBoxColumn1.HeaderText = "Specjalizacja";
+            gridViewComboBoxColumn1.Name = "specialization";
+            gridViewComboBoxColumn1.ValueMember = null;
+            gridViewComboBoxColumn1.Width = 73;
+            gridViewCheckBoxColumn1.FormatString = "";
+            gridViewCheckBoxColumn1.HeaderText = "G³ówny";
+            gridViewCheckBoxColumn1.Name = "general";
+            gridViewCheckBoxColumn1.Width = 73;
+            gridViewCheckBoxColumn2.FormatString = "";
+            gridViewCheckBoxColumn2.HeaderText = "Obieralny";
+            gridViewCheckBoxColumn2.Name = "elective";
+            gridViewCheckBoxColumn2.Width = 72;
+            this.dgSpecializations.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewComboBoxColumn1,
+            gridViewCheckBoxColumn1,
+            gridViewCheckBoxColumn2});
+            this.dgSpecializations.MasterTemplate.EnableGrouping = false;
+            this.dgSpecializations.MasterTemplate.ShowRowHeaderColumn = false;
+            this.dgSpecializations.Name = "dgSpecializations";
+            this.dgSpecializations.NewRowEnterKeyMode = Telerik.WinControls.UI.RadGridViewNewRowEnterKeyMode.EnterMovesToNextCell;
+            this.dgSpecializations.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            // 
+            // 
+            // 
+            this.dgSpecializations.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.dgSpecializations.Size = new System.Drawing.Size(219, 145);
+            this.dgSpecializations.TabIndex = 29;
+            this.dgSpecializations.Text = "specializations";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 220);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Obieralny:";
+            // 
+            // cbElective
+            // 
+            this.cbElective.Location = new System.Drawing.Point(117, 220);
+            this.cbElective.Name = "cbElective";
+            this.cbElective.Size = new System.Drawing.Size(15, 15);
+            this.cbElective.TabIndex = 27;
+            this.cbElective.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.cbElective_ToggleStateChanged);
+            // 
             // cbInstitute
             // 
             this.cbInstitute.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
@@ -221,7 +356,6 @@ namespace StudiesPlans.Views
             this.cbInstitute.Name = "cbInstitute";
             this.cbInstitute.Size = new System.Drawing.Size(127, 20);
             this.cbInstitute.TabIndex = 13;
-            this.cbInstitute.Text = "radDropDownList2";
             // 
             // radLabel9
             // 
@@ -288,7 +422,7 @@ namespace StudiesPlans.Views
             this.cbSemester.Name = "cbSemester";
             this.cbSemester.Size = new System.Drawing.Size(127, 20);
             this.cbSemester.TabIndex = 6;
-            this.cbSemester.Text = "radDropDownList1";
+            ((Telerik.WinControls.UI.RadDropDownListElement)(this.cbSemester.GetChildAt(0))).DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
             // 
             // tbSubjectName
             // 
@@ -338,133 +472,6 @@ namespace StudiesPlans.Views
             this.radLabel1.TabIndex = 0;
             this.radLabel1.Text = "Nazwa:";
             // 
-            // radLabel6
-            // 
-            this.radLabel6.Location = new System.Drawing.Point(13, 199);
-            this.radLabel6.Name = "radLabel6";
-            this.radLabel6.Size = new System.Drawing.Size(78, 18);
-            this.radLabel6.TabIndex = 36;
-            this.radLabel6.Text = "Obowi¹zkowy:";
-            // 
-            // cbGeneral
-            // 
-            this.cbGeneral.Location = new System.Drawing.Point(117, 199);
-            this.cbGeneral.Name = "cbGeneral";
-            this.cbGeneral.Size = new System.Drawing.Size(15, 15);
-            this.cbGeneral.TabIndex = 35;
-            this.cbGeneral.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.cbGeneral_ToggleStateChanged);
-            // 
-            // btnClearSpec
-            // 
-            this.btnClearSpec.Location = new System.Drawing.Point(39, 395);
-            this.btnClearSpec.Name = "btnClearSpec";
-            this.btnClearSpec.Size = new System.Drawing.Size(130, 20);
-            this.btnClearSpec.TabIndex = 34;
-            this.btnClearSpec.Text = "Wyczyœæ specjalizacje";
-            this.btnClearSpec.Click += new System.EventHandler(this.btnClearSpec_Click);
-            // 
-            // btnSpecMngmt
-            // 
-            this.btnSpecMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
-            this.btnSpecMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSpecMngmt.Image = global::StudiesPlans.Properties.Resources.management;
-            this.btnSpecMngmt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSpecMngmt.Location = new System.Drawing.Point(13, 395);
-            this.btnSpecMngmt.Name = "btnSpecMngmt";
-            this.btnSpecMngmt.Size = new System.Drawing.Size(20, 20);
-            this.btnSpecMngmt.TabIndex = 32;
-            this.btnSpecMngmt.Click += new System.EventHandler(this.btnSpecMngmt_Click);
-            // 
-            // btnSubjectTypesMnmgt
-            // 
-            this.btnSubjectTypesMnmgt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
-            this.btnSubjectTypesMnmgt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSubjectTypesMnmgt.Image = global::StudiesPlans.Properties.Resources.management;
-            this.btnSubjectTypesMnmgt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSubjectTypesMnmgt.Location = new System.Drawing.Point(242, 395);
-            this.btnSubjectTypesMnmgt.Name = "btnSubjectTypesMnmgt";
-            this.btnSubjectTypesMnmgt.Size = new System.Drawing.Size(20, 20);
-            this.btnSubjectTypesMnmgt.TabIndex = 33;
-            // 
-            // btnSemestersMnmgt
-            // 
-            this.btnSemestersMnmgt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
-            this.btnSemestersMnmgt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnSemestersMnmgt.Image = global::StudiesPlans.Properties.Resources.management;
-            this.btnSemestersMnmgt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSemestersMnmgt.Location = new System.Drawing.Point(91, 49);
-            this.btnSemestersMnmgt.Name = "btnSemestersMnmgt";
-            this.btnSemestersMnmgt.Size = new System.Drawing.Size(20, 20);
-            this.btnSemestersMnmgt.TabIndex = 31;
-            // 
-            // btnInstitutesMngmt
-            // 
-            this.btnInstitutesMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
-            this.btnInstitutesMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnInstitutesMngmt.Image = global::StudiesPlans.Properties.Resources.management;
-            this.btnInstitutesMngmt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnInstitutesMngmt.Location = new System.Drawing.Point(91, 173);
-            this.btnInstitutesMngmt.Name = "btnInstitutesMngmt";
-            this.btnInstitutesMngmt.Size = new System.Drawing.Size(20, 20);
-            this.btnInstitutesMngmt.TabIndex = 30;
-            // 
-            // dgSpecializations
-            // 
-            this.dgSpecializations.AutoSize = true;
-            this.dgSpecializations.Location = new System.Drawing.Point(13, 244);
-            // 
-            // dgSpecializations
-            // 
-            this.dgSpecializations.MasterTemplate.AllowCellContextMenu = false;
-            this.dgSpecializations.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewComboBoxColumn6.DisplayMember = null;
-            gridViewComboBoxColumn6.FormatString = "";
-            gridViewComboBoxColumn6.HeaderText = "Specjalizacja";
-            gridViewComboBoxColumn6.Name = "specialization";
-            gridViewComboBoxColumn6.ValueMember = null;
-            gridViewComboBoxColumn6.Width = 73;
-            gridViewCheckBoxColumn11.FormatString = "";
-            gridViewCheckBoxColumn11.HeaderText = "G³ówny";
-            gridViewCheckBoxColumn11.Name = "general";
-            gridViewCheckBoxColumn11.Width = 73;
-            gridViewCheckBoxColumn12.FormatString = "";
-            gridViewCheckBoxColumn12.HeaderText = "Obieralny";
-            gridViewCheckBoxColumn12.Name = "elective";
-            gridViewCheckBoxColumn12.Width = 72;
-            this.dgSpecializations.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewComboBoxColumn6,
-            gridViewCheckBoxColumn11,
-            gridViewCheckBoxColumn12});
-            this.dgSpecializations.MasterTemplate.EnableGrouping = false;
-            this.dgSpecializations.MasterTemplate.ShowRowHeaderColumn = false;
-            this.dgSpecializations.Name = "dgSpecializations";
-            this.dgSpecializations.NewRowEnterKeyMode = Telerik.WinControls.UI.RadGridViewNewRowEnterKeyMode.EnterMovesToNextCell;
-            this.dgSpecializations.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            // 
-            // 
-            // 
-            this.dgSpecializations.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.dgSpecializations.Size = new System.Drawing.Size(219, 145);
-            this.dgSpecializations.TabIndex = 29;
-            this.dgSpecializations.Text = "specializations";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 220);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Obieralny:";
-            // 
-            // cbElective
-            // 
-            this.cbElective.Location = new System.Drawing.Point(117, 220);
-            this.cbElective.Name = "cbElective";
-            this.cbElective.Size = new System.Drawing.Size(15, 15);
-            this.cbElective.TabIndex = 27;
-            this.cbElective.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.cbElective_ToggleStateChanged);
-            // 
             // EditSubject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -489,6 +496,15 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbGeneral)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnClearSpec)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSpecMngmt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSubjectTypesMnmgt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnSemestersMnmgt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnInstitutesMngmt)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSpecializations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbElective)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbInstitute)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblDepartament)).EndInit();
@@ -503,15 +519,6 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbGeneral)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnClearSpec)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSpecMngmt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSubjectTypesMnmgt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSemestersMnmgt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btnInstitutesMngmt)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSpecializations)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbElective)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 

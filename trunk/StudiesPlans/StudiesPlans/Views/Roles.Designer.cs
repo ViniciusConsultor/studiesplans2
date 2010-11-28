@@ -203,6 +203,7 @@ namespace StudiesPlans.Views
             this.listRoles.TabIndex = 3;
             this.listRoles.Text = "radListControl1";
             this.listRoles.DoubleClick += new System.EventHandler(this.listRoles_DoubleClick);
+            ((Telerik.WinControls.UI.RadListElement)(this.listRoles.GetChildAt(0))).CaseSensitiveSort = true;
             // 
             // Roles
             // 

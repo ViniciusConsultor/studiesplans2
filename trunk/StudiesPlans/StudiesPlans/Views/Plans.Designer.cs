@@ -116,6 +116,7 @@ namespace StudiesPlans.Views
             this.btnStudiesTypesMngmt.Size = new System.Drawing.Size(20, 20);
             this.btnStudiesTypesMngmt.TabIndex = 23;
             this.btnStudiesTypesMngmt.Click += new System.EventHandler(this.btnStudiesTypesMngmt_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnStudiesTypesMngmt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
             // 
             // btnFacultiesMngmt
             // 
@@ -125,6 +126,7 @@ namespace StudiesPlans.Views
             this.btnFacultiesMngmt.Size = new System.Drawing.Size(20, 20);
             this.btnFacultiesMngmt.TabIndex = 22;
             this.btnFacultiesMngmt.Click += new System.EventHandler(this.btnFacultiesMngmt_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnFacultiesMngmt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
             // 
             // btnDepartamentsMngmt
             // 
@@ -137,6 +139,8 @@ namespace StudiesPlans.Views
             this.btnDepartamentsMngmt.Size = new System.Drawing.Size(20, 20);
             this.btnDepartamentsMngmt.TabIndex = 21;
             this.btnDepartamentsMngmt.Click += new System.EventHandler(this.btnDepartamentsMngmt_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnDepartamentsMngmt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnDepartamentsMngmt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblValidation
             // 
@@ -158,7 +162,6 @@ namespace StudiesPlans.Views
             this.cbStudiesType.Name = "cbStudiesType";
             this.cbStudiesType.Size = new System.Drawing.Size(159, 20);
             this.cbStudiesType.TabIndex = 17;
-            this.cbStudiesType.Text = "radDropDownList3";
             // 
             // cbFaculty
             // 
@@ -167,7 +170,6 @@ namespace StudiesPlans.Views
             this.cbFaculty.Name = "cbFaculty";
             this.cbFaculty.Size = new System.Drawing.Size(159, 20);
             this.cbFaculty.TabIndex = 16;
-            this.cbFaculty.Text = "radDropDownList2";
             // 
             // cbDepartament
             // 
@@ -176,13 +178,16 @@ namespace StudiesPlans.Views
             this.cbDepartament.Name = "cbDepartament";
             this.cbDepartament.Size = new System.Drawing.Size(159, 20);
             this.cbDepartament.TabIndex = 15;
-            this.cbDepartament.Text = "radDropDownList1";
             this.cbDepartament.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.cbDepartament_SelectedIndexChanged);
             // 
             // tbSemEnd
             // 
             this.tbSemEnd.Location = new System.Drawing.Point(151, 75);
             this.tbSemEnd.Name = "tbSemEnd";
+            // 
+            // 
+            // 
+            this.tbSemEnd.RootElement.ToolTipText = "Semestr zakoñczenia obowi¹zywania planu";
             this.tbSemEnd.Size = new System.Drawing.Size(159, 20);
             this.tbSemEnd.TabIndex = 14;
             this.tbSemEnd.TabStop = false;

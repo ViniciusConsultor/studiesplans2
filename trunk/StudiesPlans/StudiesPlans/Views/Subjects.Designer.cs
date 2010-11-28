@@ -137,7 +137,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.radGroupBox1.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
-            this.radGroupBox1.Size = new System.Drawing.Size(453, 465);
+            this.radGroupBox1.Size = new System.Drawing.Size(463, 465);
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "Dodaj przedmiot";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
@@ -160,8 +160,13 @@ namespace StudiesPlans.Views
             // 
             // btnClearSpec
             // 
+            this.btnClearSpec.ForeColor = System.Drawing.Color.Black;
             this.btnClearSpec.Location = new System.Drawing.Point(39, 395);
             this.btnClearSpec.Name = "btnClearSpec";
+            // 
+            // 
+            // 
+            this.btnClearSpec.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnClearSpec.Size = new System.Drawing.Size(130, 20);
             this.btnClearSpec.TabIndex = 23;
             this.btnClearSpec.Text = "Wyczyœæ specjalizacje";
@@ -178,6 +183,8 @@ namespace StudiesPlans.Views
             this.btnSpecMngmt.Size = new System.Drawing.Size(20, 20);
             this.btnSpecMngmt.TabIndex = 22;
             this.btnSpecMngmt.Click += new System.EventHandler(this.btnSpecMngmt_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSpecMngmt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSpecMngmt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSubjectTypesMnmgt
             // 
@@ -185,11 +192,13 @@ namespace StudiesPlans.Views
             this.btnSubjectTypesMnmgt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.btnSubjectTypesMnmgt.Image = global::StudiesPlans.Properties.Resources.management;
             this.btnSubjectTypesMnmgt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btnSubjectTypesMnmgt.Location = new System.Drawing.Point(242, 395);
+            this.btnSubjectTypesMnmgt.Location = new System.Drawing.Point(252, 395);
             this.btnSubjectTypesMnmgt.Name = "btnSubjectTypesMnmgt";
             this.btnSubjectTypesMnmgt.Size = new System.Drawing.Size(20, 20);
             this.btnSubjectTypesMnmgt.TabIndex = 22;
             this.btnSubjectTypesMnmgt.Click += new System.EventHandler(this.btnSubjectTypesMnmgt_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSubjectTypesMnmgt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSubjectTypesMnmgt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnSemestersMnmgt
             // 
@@ -202,6 +211,8 @@ namespace StudiesPlans.Views
             this.btnSemestersMnmgt.Size = new System.Drawing.Size(20, 20);
             this.btnSemestersMnmgt.TabIndex = 22;
             this.btnSemestersMnmgt.Click += new System.EventHandler(this.btnSemestersMnmgt_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSemestersMnmgt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnSemestersMnmgt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnInstitutesMngmt
             // 
@@ -214,6 +225,8 @@ namespace StudiesPlans.Views
             this.btnInstitutesMngmt.Size = new System.Drawing.Size(20, 20);
             this.btnInstitutesMngmt.TabIndex = 22;
             this.btnInstitutesMngmt.Click += new System.EventHandler(this.btnInstitutesMngmt_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnInstitutesMngmt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnInstitutesMngmt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // dgSpecializations
             // 
@@ -231,15 +244,15 @@ namespace StudiesPlans.Views
             gridViewComboBoxColumn1.HeaderText = "Specjalizacja";
             gridViewComboBoxColumn1.Name = "specialization";
             gridViewComboBoxColumn1.ValueMember = null;
-            gridViewComboBoxColumn1.Width = 73;
+            gridViewComboBoxColumn1.Width = 77;
             gridViewCheckBoxColumn1.FormatString = "";
             gridViewCheckBoxColumn1.HeaderText = "Obowi¹zkowy";
             gridViewCheckBoxColumn1.Name = "general";
-            gridViewCheckBoxColumn1.Width = 73;
+            gridViewCheckBoxColumn1.Width = 77;
             gridViewCheckBoxColumn2.FormatString = "";
             gridViewCheckBoxColumn2.HeaderText = "Obieralny";
             gridViewCheckBoxColumn2.Name = "elective";
-            gridViewCheckBoxColumn2.Width = 72;
+            gridViewCheckBoxColumn2.Width = 76;
             this.dgSpecializations.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewComboBoxColumn1,
             gridViewCheckBoxColumn1,
@@ -253,7 +266,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.dgSpecializations.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.dgSpecializations.Size = new System.Drawing.Size(219, 145);
+            this.dgSpecializations.Size = new System.Drawing.Size(231, 145);
             this.dgSpecializations.TabIndex = 20;
             this.dgSpecializations.Text = "specializations";
             this.dgSpecializations.UserAddingRow += new Telerik.WinControls.UI.GridViewRowCancelEventHandler(this.dgSpecializations_UserAddingRow);
@@ -281,7 +294,7 @@ namespace StudiesPlans.Views
             // 
             this.dgSubjectTypes.AutoSize = true;
             this.dgSubjectTypes.AutoSizeRows = true;
-            this.dgSubjectTypes.Location = new System.Drawing.Point(242, 244);
+            this.dgSubjectTypes.Location = new System.Drawing.Point(252, 244);
             // 
             // dgSubjectTypes
             // 
@@ -296,11 +309,11 @@ namespace StudiesPlans.Views
             gridViewTextBoxColumn1.HeaderText = "Typ";
             gridViewTextBoxColumn1.Name = "subjectType";
             gridViewTextBoxColumn1.ReadOnly = true;
-            gridViewTextBoxColumn1.Width = 100;
+            gridViewTextBoxColumn1.Width = 101;
             gridViewTextBoxColumn2.FormatString = "";
             gridViewTextBoxColumn2.HeaderText = "Godziny";
             gridViewTextBoxColumn2.Name = "hours";
-            gridViewTextBoxColumn2.Width = 96;
+            gridViewTextBoxColumn2.Width = 95;
             this.dgSubjectTypes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2});
@@ -364,7 +377,6 @@ namespace StudiesPlans.Views
             this.cbInstitute.Name = "cbInstitute";
             this.cbInstitute.Size = new System.Drawing.Size(127, 20);
             this.cbInstitute.TabIndex = 13;
-            this.cbInstitute.Text = "radDropDownList2";
             // 
             // radLabel9
             // 
@@ -431,7 +443,6 @@ namespace StudiesPlans.Views
             this.cbSemester.Name = "cbSemester";
             this.cbSemester.Size = new System.Drawing.Size(127, 20);
             this.cbSemester.TabIndex = 6;
-            this.cbSemester.Text = "radDropDownList1";
             // 
             // tbSubjectName
             // 
@@ -485,7 +496,7 @@ namespace StudiesPlans.Views
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(473, 489);
+            this.ClientSize = new System.Drawing.Size(483, 489);
             this.Controls.Add(this.radGroupBox1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
