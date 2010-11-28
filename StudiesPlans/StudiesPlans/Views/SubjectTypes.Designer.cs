@@ -34,9 +34,9 @@ namespace StudiesPlans.Views
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
             this.btnAdd = new Telerik.WinControls.UI.RadButton();
             this.lblValidation = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tbNewSubjectTypeName = new System.Windows.Forms.TextBox();
             this.listSubjectTypes = new Telerik.WinControls.UI.RadListControl();
+            this.tbNewSubjectTypeName = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
@@ -44,18 +44,20 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listSubjectTypes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewSubjectTypeName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // radGroupBox1
             // 
+            this.radGroupBox1.Controls.Add(this.radLabel1);
+            this.radGroupBox1.Controls.Add(this.tbNewSubjectTypeName);
             this.radGroupBox1.Controls.Add(this.btnSave);
             this.radGroupBox1.Controls.Add(this.btnDelete);
             this.radGroupBox1.Controls.Add(this.btnCancel);
             this.radGroupBox1.Controls.Add(this.btnAdd);
             this.radGroupBox1.Controls.Add(this.lblValidation);
-            this.radGroupBox1.Controls.Add(this.label1);
-            this.radGroupBox1.Controls.Add(this.tbNewSubjectTypeName);
             this.radGroupBox1.FooterImageIndex = -1;
             this.radGroupBox1.FooterImageKey = "";
             this.radGroupBox1.HeaderImageIndex = -1;
@@ -144,22 +146,6 @@ namespace StudiesPlans.Views
             this.lblValidation.TabIndex = 5;
             this.lblValidation.Text = "label2";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Nazwa:";
-            // 
-            // tbNewSubjectTypeName
-            // 
-            this.tbNewSubjectTypeName.Location = new System.Drawing.Point(62, 34);
-            this.tbNewSubjectTypeName.Name = "tbNewSubjectTypeName";
-            this.tbNewSubjectTypeName.Size = new System.Drawing.Size(161, 20);
-            this.tbNewSubjectTypeName.TabIndex = 4;
-            // 
             // listSubjectTypes
             // 
             this.listSubjectTypes.CaseSensitiveSort = true;
@@ -169,6 +155,22 @@ namespace StudiesPlans.Views
             this.listSubjectTypes.TabIndex = 4;
             this.listSubjectTypes.Text = "radListControl1";
             this.listSubjectTypes.DoubleClick += new System.EventHandler(this.listSubjectTypes_DoubleClick);
+            // 
+            // tbNewSubjectTypeName
+            // 
+            this.tbNewSubjectTypeName.Location = new System.Drawing.Point(80, 36);
+            this.tbNewSubjectTypeName.Name = "tbNewSubjectTypeName";
+            this.tbNewSubjectTypeName.Size = new System.Drawing.Size(144, 20);
+            this.tbNewSubjectTypeName.TabIndex = 9;
+            this.tbNewSubjectTypeName.TabStop = false;
+            // 
+            // radLabel1
+            // 
+            this.radLabel1.Location = new System.Drawing.Point(12, 38);
+            this.radLabel1.Name = "radLabel1";
+            this.radLabel1.Size = new System.Drawing.Size(42, 18);
+            this.radLabel1.TabIndex = 10;
+            this.radLabel1.Text = "Nazwa:";
             // 
             // SubjectTypes
             // 
@@ -195,6 +197,8 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listSubjectTypes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewSubjectTypeName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -208,9 +212,9 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadButton btnCancel;
         private Telerik.WinControls.UI.RadButton btnAdd;
         private System.Windows.Forms.Label lblValidation;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbNewSubjectTypeName;
         private Telerik.WinControls.UI.RadListControl listSubjectTypes;
+        private Telerik.WinControls.UI.RadLabel radLabel1;
+        private Telerik.WinControls.UI.RadTextBox tbNewSubjectTypeName;
     }
 }
 
