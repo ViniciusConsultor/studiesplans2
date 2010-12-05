@@ -1,11 +1,12 @@
 ﻿<%@ Page Title="Plan Studiów" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<dynamic>" %>
 <%@ Import Namespace="StudiesPlansModels.Models" %>
+<%@ Import Namespace="StudiesPlansModels.Models.Interfaces" %>
 <%@ Import Namespace="StudiesPlansModels.Repositories" %>
 <%@ Import Namespace="StudiesPlansModels.Repositories.Interfaces" %>
 <%@ Import Namespace="System.Data" %>
-<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
     <script runat="server">
-        readonly IPlansRepository _plansRepository = new PlansRepository();
+        private readonly IPlansRepository _plansRepository = new PlansRepository();
+        private static readonly ISubjectTypesRepository _typesRepository = new SubjectTypesRepository();
         protected void PlanDdlLoad(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -22,6 +23,7 @@
         private static DataTable CreateDataTable()
         {
             var myDataTable = new DataTable();
+            int count = _typesRepository.ListSubjectTypes().Count();
 
             var myDataColumn = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "Nazwa" };
             myDataTable.Columns.Add(myDataColumn);
@@ -39,14 +41,11 @@
             myDataTable.Columns.Add(myDataColumn);
             myDataColumn = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "Obieralny" };
             myDataTable.Columns.Add(myDataColumn);
-            myDataColumn = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "Projekt" };
-            myDataTable.Columns.Add(myDataColumn);
-            myDataColumn = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "Wykład" };
-            myDataTable.Columns.Add(myDataColumn);
-            myDataColumn = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "Laborka" };
-            myDataTable.Columns.Add(myDataColumn);
-            myDataColumn = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = "Ćwiczenia" };
-            myDataTable.Columns.Add(myDataColumn);
+            foreach(SubjectType st in _typesRepository.ListSubjectTypes())
+            {
+                myDataColumn = new DataColumn { DataType = Type.GetType("System.String"), ColumnName = st.Name };
+                myDataTable.Columns.Add(myDataColumn);
+            }
             return myDataTable;
         }
 
