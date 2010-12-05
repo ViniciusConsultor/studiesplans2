@@ -5,7 +5,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
   <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-	<link type="text/css" href="<%=Url.Content("~/Content/main.css")%>" rel="stylesheet"  />
+	<link type="text/css" href="<%= Url.Content("~/Content/main.css")%>" rel="stylesheet"  />
 
 </head>
 
@@ -19,12 +19,12 @@
              <% Html.RenderPartial("LogOnUserControl"); %>
         </div> 
     </div>
-
+    <br />
     <div class="page">
         <div id="menucontainer">
             <ul id="menu">              
                 <li><%: Html.ActionLink("Strona główna", "Index", "Home")%></li>
-                <li><%: Html.ActionLink("Plany studiów", "Plans", "Home")%></li>
+                <li><%: Html.ActionLink("Plany studiów", "Plan", "Plans")%></li>
                 <li><%: Html.ActionLink("About", "About", "Home")%></li>
             </ul>
         </div>

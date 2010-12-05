@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 using System.Web.Security;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
-using StudiesPlansModels.Helpers;
-using System.Data.Entity;
+using StudiesPlansModels.Repositories;
+using StudiesPlansModels.Repositories.Interfaces;
 
 namespace StudiesPlansWeb.Providers
 {
@@ -14,10 +13,12 @@ namespace StudiesPlansWeb.Providers
 	{
 		private string connectionString;
 		private IUsersRepository repository;
+	    private IPlansRepository _plansRepo;
 
 		public SPMembershipProvider()
-			: this(new UsersRepository())
 		{
+		    this.repository = new UsersRepository();
+
 		}
 
 		public SPMembershipProvider(IUsersRepository repository)

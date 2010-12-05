@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.Mvc;
+﻿using System.Web.Mvc;
 
 namespace StudiesPlansWeb.Controllers
 {
@@ -11,8 +7,7 @@ namespace StudiesPlansWeb.Controllers
     {
         public ActionResult Index()
         {
-            ViewData["Message"] = "Welcome to ASP.NET MVC!";
-
+            ViewData["Message"] = "Witaj w serwisie Plany Studiów";
             return View();
         }
 
