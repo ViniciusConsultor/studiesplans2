@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
 using System.Data;
@@ -10,38 +7,32 @@ namespace StudiesPlans.Controllers
 {
     public class FacultyController
     {
-        private static FacultyController instance;
-        private IFacultiesRepository repository;
+        private static FacultyController _instance;
+        private readonly IFacultiesRepository _repository;
 
         public static FacultyController Instance
         {
-            get
-            {
-                if (instance == null)
-                    instance = new FacultyController(new FacultiesRepository());
-
-                return instance;
-            }
+            get { return _instance ?? (_instance = new FacultyController(new FacultiesRepository())); }
         }
 
         public FacultyController(IFacultiesRepository repository)
         {
-            this.repository = repository;
+            this._repository = repository;
         }
 
         public IEnumerable<Faculty> ListFaculties()
         {
-            return this.repository.ListFaculties();
+            return this._repository.ListFaculties();
         }
 
         public bool AddFaculty(NewFaculty toAdd)
         {
-            Faculty f = this.repository.GetFaculty(toAdd.FacultyName);
+            Faculty f = this._repository.GetFaculty(toAdd.FacultyName);
             if (f != null)
                 toAdd.AddError("Kierunek o takiej nazwie już istnieje");
             if (toAdd.IsValid)
             {
-                this.repository.AddFaculty(toAdd);
+                this._repository.AddFaculty(toAdd);
                 return true;
             }
             return false;
@@ -49,22 +40,22 @@ namespace StudiesPlans.Controllers
 
         public FacultyEdit GetFacultyEdit(string facultyName)
         {
-            return this.repository.GetFacultyEdit(facultyName);
+            return this._repository.GetFacultyEdit(facultyName);
         }
 
         public Faculty GetFaculty(string facultyName)
         {
-            return this.repository.GetFaculty(facultyName);
+            return this._repository.GetFaculty(facultyName);
         }
 
         public void DeleteFaculty(FacultyEdit toEdit)
         {
-            Faculty f = this.repository.GetFaculty(toEdit.FacultyName);
+            Faculty f = this._repository.GetFaculty(toEdit.FacultyName);
             if (f != null && (f.Plans.Count > 0 || f.SubjectsDatas.Count > 0 || f.Specializations.Count > 0))
                 throw new UpdateException("Nie można usunąć kierunku,\nponieważ posiada powiązania");
             else
             {
-                this.repository.DeleteFaculty(f);
+                this._repository.DeleteFaculty(f);
             }
         }
 
@@ -72,19 +63,19 @@ namespace StudiesPlans.Controllers
         {
             if (toEdit != null)
             {
-                Faculty f = this.repository.GetFaculty(toEdit.FacultyName);
+                Faculty f = this._repository.GetFaculty(toEdit.FacultyName);
                 if (f != null && f.FacultyID != toEdit.FacultyID && f.Name.Equals(toEdit.FacultyName))
                     toEdit.AddError("Kierunek o takiej nazwie już istnieje");
 
                 if (toEdit.IsValid)
                 {
-                    f = this.repository.GetFaculty(toEdit.FacultyID);
+                    f = this._repository.GetFaculty(toEdit.FacultyID);
                     f.Name = toEdit.FacultyName;
                     f.Departaments.Clear();
                     foreach (Departament d in toEdit.Departaments)
                         f.Departaments.Add(d);
 
-                    this.repository.EditFaculty(f);
+                    this._repository.EditFaculty(f);
                     return true;
                 }
             }
@@ -93,12 +84,12 @@ namespace StudiesPlans.Controllers
 
         public List<Faculty> ListFaculties(int departamentId)
         {
-            return this.repository.ListFaculties(departamentId);
+            return this._repository.ListFaculties(departamentId);
         }
 
         public Faculty GetFaculty(int facultyId)
         {
-            return this.repository.GetFaculty(facultyId);
+            return this._repository.GetFaculty(facultyId);
         }
     }
 }
