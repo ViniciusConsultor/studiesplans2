@@ -19,6 +19,7 @@ namespace StudiesPlans.Views
         public static Plan LoadedPlan = null;
         PdfPage page = new PdfPage();
         public static Plan ArchivedPlan = null;
+        public List<string> types = null;
 
         public MainForm(User user)
         {
@@ -37,9 +38,25 @@ namespace StudiesPlans.Views
         private void CreateSubjectGrid()
         {
             List<SubjectType> subjectTypes = SubjectTypeController.Instance.ListSubjectTypes().ToList<SubjectType>();
+
+            if(types!= null)
+                foreach (string type in types)
+                {
+                    gridPlanSubjects.Columns.Remove(type);
+                    gridArchievePlan.Columns.Remove(type);
+                }
+
             if (subjectTypes != null)
+            {
+                if (types == null)
+                    types = new List<string>();
+
+                types.Clear();
                 foreach (SubjectType s in subjectTypes)
                 {
+                    types.Add(s.Name);
+                    //gridPlanSubjects.Columns.Remove(s.Name);
+                    //gridArchievePlan.Columns.Remove(s.Name);
                     gridPlanSubjects.Columns.Add(s.Name, s.Name);
                     gridArchievePlan.Columns.Add(s.Name, s.Name);
                     Telerik.WinControls.UI.GridViewDataColumn col = gridPlanSubjects.Columns[s.Name];
@@ -49,10 +66,7 @@ namespace StudiesPlans.Views
                     col.Width = 100;
                     col.AutoSizeMode = Telerik.WinControls.UI.BestFitColumnMode.DisplayedDataCells;
                 }
-
-           // gridPlanSubjects.AutoSizeRows = true;
-           // gridPlanSubjects.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-           // gridPlanSubjects.AutoSize = true;
+            }
         }
 
         private void ManageUsers(User user)
@@ -303,8 +317,7 @@ namespace StudiesPlans.Views
 
         private void btnNewPlan_Click(object sender, EventArgs e)
         {
-            if (new Plans(logged).ShowDialog() == DialogResult.Yes
-                && LoadedPlan != null)
+            if (new Plans(logged).ShowDialog() == DialogResult.Yes && LoadedPlan != null)
                 LoadPlanToGrid(LoadedPlan, false);               
         }
 
@@ -368,7 +381,8 @@ namespace StudiesPlans.Views
         {
             if (LoadedPlan != null)
             {
-                new Subjects(LoadedPlan).ShowDialog();
+                if (new Subjects(LoadedPlan).ShowDialog() == DialogResult.Yes)
+                    CreateSubjectGrid();
                 LoadPlanToGrid(LoadedPlan, false);
             }
         }

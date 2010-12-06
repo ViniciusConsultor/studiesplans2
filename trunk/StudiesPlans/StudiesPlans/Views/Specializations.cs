@@ -60,12 +60,12 @@ namespace StudiesPlans.Views
 
         private void FillWithSpecializations()
         {
-            listSpecializations.Items.Clear();
+            gridSpecializations.Rows.Clear();
             IEnumerable<Specialization> specializations = SpecializationController.Instance.ListSpecializations();
             if (specializations != null)
             {
                 foreach (Specialization s in specializations)
-                    listSpecializations.Items.Add(s.Name);
+                    gridSpecializations.Rows.Add(s.Name, s.Departament.Name, s.Faculty.Name);
             }
         }
 
@@ -146,41 +146,6 @@ namespace StudiesPlans.Views
             }
         }
 
-        private void listSpecializations_DoubleClick(object sender, EventArgs e)
-        {
-            lblValidation.Text = string.Empty;
-            if (listSpecializations.SelectedIndex >= 0)
-            {
-                SpecializationEdit specialization = SpecializationController.Instance.GetSpecializationEdit(listSpecializations.SelectedItem.ToString());
-                if (specialization != null)
-                {
-                    toEdit = specialization;
-                    Enable();
-                    tbNewSpecializationName.Text = specialization.SpecializationName;
-
-                    Departament dep = DepartamentController.Instance.GetDepartament(specialization.DepartamentId);
-                    Faculty fac = FacultyController.Instance.GetFaculty(specialization.FacultyId);
-
-                    if (dep != null)
-                        for (int i = 0; i<lstDepartaments.Items.Count; i++)
-                            if(lstDepartaments.Items[i].Text.Equals(dep.Name))
-                                lstDepartaments.SelectedIndex = i;
-                        //lstDepartaments.SelectedItem.Value = dep.Name;
-
-                    if (fac != null && dep != null)
-                        for (int i = 0; i < lstFaculties.Items.Count; i++)
-                            if (lstFaculties.Items[i].Text.Equals(fac.Name))
-                                lstFaculties.SelectedIndex = i;
-                        //lstFaculties.SelectedItem.Value = fac.Name;
-                }
-                else
-                {
-                    lblValidation.Text = "Specjalizacja nie istnieje";
-                    toEdit = null;
-                }
-            }
-        }
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             if (toEdit != null)
@@ -196,11 +161,17 @@ namespace StudiesPlans.Views
             lblValidation.Text = string.Empty;
             if (toEdit != null)
             {
+                toEdit.ClearErrors();
                 string oldName = toEdit.SpecializationName;
                 toEdit.SpecializationName = tbNewSpecializationName.Text;
 
-                Departament dep = DepartamentController.Instance.GetDepartament(lstDepartaments.SelectedItem.ToString());
-                Faculty fac = FacultyController.Instance.GetFaculty(lstFaculties.SelectedItem.ToString());
+                Departament dep = null;
+                if (lstDepartaments.Items.Count > 0)
+                    dep = DepartamentController.Instance.GetDepartament(lstDepartaments.SelectedItem.ToString());
+                
+                Faculty fac = null;
+                if (lstFaculties.Items.Count > 0)
+                    fac = FacultyController.Instance.GetFaculty(lstFaculties.SelectedItem.ToString());
                 
                 toEdit.DepartamentId = dep == null ? 0 : dep.DepartamentID;
                 toEdit.FacultyId = fac == null ? 0 : fac.FacultyID;
@@ -250,6 +221,41 @@ namespace StudiesPlans.Views
         {
             if (changes)
                 this.DialogResult = DialogResult.Yes;
+        }
+
+        private void gridSpecializations_CellDoubleClick(object sender, Telerik.WinControls.UI.GridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                SpecializationEdit specialization = SpecializationController.Instance.GetSpecializationEdit(gridSpecializations.Rows[e.RowIndex].Cells["name"].Value.ToString(),
+                                                    gridSpecializations.Rows[e.RowIndex].Cells["departament"].Value.ToString(), gridSpecializations.Rows[e.RowIndex].Cells["faculty"].Value.ToString());
+                if (specialization != null)
+                {
+                    toEdit = specialization;
+                    Enable();
+                    tbNewSpecializationName.Text = specialization.SpecializationName;
+
+                    Departament dep = DepartamentController.Instance.GetDepartament(specialization.DepartamentId);
+                    Faculty fac = FacultyController.Instance.GetFaculty(specialization.FacultyId);
+
+                    if (dep != null)
+                        for (int i = 0; i < lstDepartaments.Items.Count; i++)
+                            if (lstDepartaments.Items[i].Text.Equals(dep.Name))
+                                lstDepartaments.SelectedIndex = i;
+                    //lstDepartaments.SelectedItem.Value = dep.Name;
+
+                    if (fac != null && dep != null)
+                        for (int i = 0; i < lstFaculties.Items.Count; i++)
+                            if (lstFaculties.Items[i].Text.Equals(fac.Name))
+                                lstFaculties.SelectedIndex = i;
+                    //lstFaculties.SelectedItem.Value = fac.Name;
+                }
+                else
+                {
+                    lblValidation.Text = "Specjalizacja nie istnieje";
+                    toEdit = null;
+                }
+            }
         }
     }
 }

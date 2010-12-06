@@ -309,11 +309,11 @@ namespace StudiesPlans.Views
             gridViewTextBoxColumn1.HeaderText = "Typ";
             gridViewTextBoxColumn1.Name = "subjectType";
             gridViewTextBoxColumn1.ReadOnly = true;
-            gridViewTextBoxColumn1.Width = 101;
+            gridViewTextBoxColumn1.Width = 102;
             gridViewTextBoxColumn2.FormatString = "";
             gridViewTextBoxColumn2.HeaderText = "Godziny";
             gridViewTextBoxColumn2.Name = "hours";
-            gridViewTextBoxColumn2.Width = 95;
+            gridViewTextBoxColumn2.Width = 94;
             this.dgSubjectTypes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2});
@@ -508,6 +508,7 @@ namespace StudiesPlans.Views
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zarz¹dzanie przedmiotami - dodawanie przedmiotu";
             this.ThemeName = "ControlDefault";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Subjects_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();

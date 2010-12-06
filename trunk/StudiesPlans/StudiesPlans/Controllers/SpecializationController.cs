@@ -37,8 +37,8 @@ namespace StudiesPlans.Controllers
         public bool AddSpecialization(NewSpecialization toAdd)
         {
             Specialization s = this.repository.GetSpecialization(toAdd.SpecializationName);
-            if (s != null)
-                toAdd.AddError("Specjalizacja o takiej nazwie już\nistnieje");
+            if (s != null && s.DepartamentID == toAdd.DepartamentId && s.FacultyID == toAdd.FacultyId)
+                toAdd.AddError("Specjalizacja o takich danych już\nistnieje");
 
             if (toAdd.DepartamentId == 0 || toAdd.FacultyId == 0)
                 toAdd.AddError("Wydział lub kierunek nie istnieje");
@@ -56,6 +56,24 @@ namespace StudiesPlans.Controllers
             return this.repository.GetSpecializationEdit(specializationName);
         }
 
+        public SpecializationEdit GetSpecializationEdit(string specializationName, string departamentName, string facultyName)
+        {
+            Specialization s = this.repository.GetSpecialization(specializationName, departamentName, facultyName);
+            if (s != null)
+            {
+                SpecializationEdit se = new SpecializationEdit()
+                {
+                    DepartamentId = s.DepartamentID,
+                    FacultyId = s.FacultyID,
+                    SpecializationID = s.SpecializationID,
+                    SpecializationName = s.Name
+                };
+                return se;
+            }
+
+            return null;
+        }
+
         public void DeleteSpecialization(SpecializationEdit toEdit)
         {
             Specialization s = this.repository.GetSpecialization(toEdit.SpecializationName);
@@ -71,9 +89,10 @@ namespace StudiesPlans.Controllers
         {
             if (toEdit != null)
             {
-                Specialization s = this.repository.GetSpecialization(toEdit.SpecializationName);
-                if (s != null && s.SpecializationID != toEdit.SpecializationID && s.Name.Equals(toEdit.SpecializationName))
-                    toEdit.AddError("Specjalizacja o takiej nazwie\njuż istnieje");
+                Specialization s = this.repository.GetSpecialization(toEdit.SpecializationName, toEdit.DepartamentId, toEdit.FacultyId);
+                if (s != null && s.SpecializationID != toEdit.SpecializationID && s.Name.ToLower().Equals(toEdit.SpecializationName.ToLower())
+                    && s.FacultyID == toEdit.FacultyId && s.DepartamentID == toEdit.DepartamentId)
+                    toEdit.AddError("Specjalizacja o takich danych\njuż istnieje");
 
                 if (toEdit.DepartamentId == 0 || toEdit.FacultyId == 0)
                     toEdit.AddError("Wydział lub kierunek nie istnieje");
