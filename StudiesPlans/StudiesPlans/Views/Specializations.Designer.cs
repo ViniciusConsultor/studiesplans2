@@ -28,8 +28,12 @@ namespace StudiesPlans.Views
         /// </summary>
         private void InitializeComponent()
         {
-            this.listSpecializations = new Telerik.WinControls.UI.RadListControl();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
+            this.tbNewSpecializationName = new Telerik.WinControls.UI.RadTextBox();
             this.btnFacultiesManagement = new Telerik.WinControls.UI.RadButton();
             this.btnDepartamentsMngmt = new Telerik.WinControls.UI.RadButton();
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
@@ -41,11 +45,11 @@ namespace StudiesPlans.Views
             this.btnSave = new Telerik.WinControls.UI.RadButton();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
             this.btnAdd = new Telerik.WinControls.UI.RadButton();
-            this.tbNewSpecializationName = new Telerik.WinControls.UI.RadTextBox();
-            this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.listSpecializations)).BeginInit();
+            this.gridSpecializations = new Telerik.WinControls.UI.RadGridView();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewSpecializationName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFacultiesManagement)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDepartamentsMngmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
@@ -57,21 +61,9 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNewSpecializationName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSpecializations)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listSpecializations
-            // 
-            this.listSpecializations.CaseSensitiveSort = true;
-            this.listSpecializations.Location = new System.Drawing.Point(13, 13);
-            this.listSpecializations.Name = "listSpecializations";
-            this.listSpecializations.Size = new System.Drawing.Size(189, 252);
-            this.listSpecializations.TabIndex = 5;
-            this.listSpecializations.Text = "radListControl1";
-            this.listSpecializations.DoubleClick += new System.EventHandler(this.listSpecializations_DoubleClick);
-            ((Telerik.WinControls.UI.RadListElement)(this.listSpecializations.GetChildAt(0))).CaseSensitiveSort = true;
             // 
             // radGroupBox1
             // 
@@ -94,7 +86,7 @@ namespace StudiesPlans.Views
             this.radGroupBox1.HeaderImageKey = "";
             this.radGroupBox1.HeaderMargin = new System.Windows.Forms.Padding(0);
             this.radGroupBox1.HeaderText = "Zarz퉐zanie";
-            this.radGroupBox1.Location = new System.Drawing.Point(208, 3);
+            this.radGroupBox1.Location = new System.Drawing.Point(358, 3);
             this.radGroupBox1.Name = "radGroupBox1";
             this.radGroupBox1.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
             // 
@@ -105,6 +97,22 @@ namespace StudiesPlans.Views
             this.radGroupBox1.TabIndex = 6;
             this.radGroupBox1.Text = "Zarz퉐zanie";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            // 
+            // radLabel3
+            // 
+            this.radLabel3.Location = new System.Drawing.Point(12, 40);
+            this.radLabel3.Name = "radLabel3";
+            this.radLabel3.Size = new System.Drawing.Size(42, 18);
+            this.radLabel3.TabIndex = 26;
+            this.radLabel3.Text = "Nazwa:";
+            // 
+            // tbNewSpecializationName
+            // 
+            this.tbNewSpecializationName.Location = new System.Drawing.Point(92, 38);
+            this.tbNewSpecializationName.Name = "tbNewSpecializationName";
+            this.tbNewSpecializationName.Size = new System.Drawing.Size(163, 20);
+            this.tbNewSpecializationName.TabIndex = 27;
+            this.tbNewSpecializationName.TabStop = false;
             // 
             // btnFacultiesManagement
             // 
@@ -247,29 +255,48 @@ namespace StudiesPlans.Views
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // tbNewSpecializationName
+            // gridSpecializations
             // 
-            this.tbNewSpecializationName.Location = new System.Drawing.Point(92, 38);
-            this.tbNewSpecializationName.Name = "tbNewSpecializationName";
-            this.tbNewSpecializationName.Size = new System.Drawing.Size(163, 20);
-            this.tbNewSpecializationName.TabIndex = 27;
-            this.tbNewSpecializationName.TabStop = false;
+            this.gridSpecializations.AutoSizeRows = true;
+            this.gridSpecializations.Location = new System.Drawing.Point(12, 12);
             // 
-            // radLabel3
+            // gridSpecializations
             // 
-            this.radLabel3.Location = new System.Drawing.Point(12, 40);
-            this.radLabel3.Name = "radLabel3";
-            this.radLabel3.Size = new System.Drawing.Size(42, 18);
-            this.radLabel3.TabIndex = 26;
-            this.radLabel3.Text = "Nazwa:";
+            this.gridSpecializations.MasterTemplate.AllowAddNewRow = false;
+            this.gridSpecializations.MasterTemplate.AllowColumnReorder = false;
+            this.gridSpecializations.MasterTemplate.AllowEditRow = false;
+            gridViewTextBoxColumn1.FormatString = "";
+            gridViewTextBoxColumn1.HeaderText = "Nazwa";
+            gridViewTextBoxColumn1.Name = "name";
+            gridViewTextBoxColumn1.Width = 120;
+            gridViewTextBoxColumn2.FormatString = "";
+            gridViewTextBoxColumn2.HeaderText = "Wydzia�";
+            gridViewTextBoxColumn2.Name = "departament";
+            gridViewTextBoxColumn2.Width = 110;
+            gridViewTextBoxColumn3.FormatString = "";
+            gridViewTextBoxColumn3.HeaderText = "Kierunek";
+            gridViewTextBoxColumn3.Name = "faculty";
+            gridViewTextBoxColumn3.Width = 110;
+            this.gridSpecializations.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3});
+            this.gridSpecializations.MasterTemplate.EnableGrouping = false;
+            this.gridSpecializations.MasterTemplate.ShowRowHeaderColumn = false;
+            this.gridSpecializations.Name = "gridSpecializations";
+            this.gridSpecializations.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.gridSpecializations.Size = new System.Drawing.Size(340, 253);
+            this.gridSpecializations.TabIndex = 7;
+            this.gridSpecializations.Text = "radGridView1";
+            this.gridSpecializations.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.gridSpecializations_CellDoubleClick);
             // 
             // Specializations
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(488, 277);
+            this.ClientSize = new System.Drawing.Size(638, 277);
+            this.Controls.Add(this.gridSpecializations);
             this.Controls.Add(this.radGroupBox1);
-            this.Controls.Add(this.listSpecializations);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Specializations";
@@ -281,10 +308,11 @@ namespace StudiesPlans.Views
             this.Text = "Zarz퉐zanie specjalno쐁iami";
             this.ThemeName = "ControlDefault";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Specializations_FormClosing);
-            ((System.ComponentModel.ISupportInitialize)(this.listSpecializations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewSpecializationName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnFacultiesManagement)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDepartamentsMngmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
@@ -296,8 +324,7 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNewSpecializationName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridSpecializations)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -305,7 +332,6 @@ namespace StudiesPlans.Views
 
         #endregion
 
-        private Telerik.WinControls.UI.RadListControl listSpecializations;
         private Telerik.WinControls.UI.RadGroupBox radGroupBox1;
         private Telerik.WinControls.UI.RadLabel lblValidation;
         private Telerik.WinControls.UI.RadButton btnDelete;
@@ -320,6 +346,7 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadButton btnDepartamentsMngmt;
         private Telerik.WinControls.UI.RadLabel radLabel3;
         private Telerik.WinControls.UI.RadTextBox tbNewSpecializationName;
+        private Telerik.WinControls.UI.RadGridView gridSpecializations;
     }
 }
 

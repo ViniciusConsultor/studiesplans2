@@ -68,6 +68,24 @@ namespace StudiesPlansModels.Models
             return null;
         }
 
+        public Specialization GetSpecialization(string specializationName, string departamentName, string facultyName)
+        {
+            return (from Specialization s in SPDatabase.DB.Specializations
+                    where string.Compare(s.Name, specializationName, true) == 0 &&
+                    string.Compare(s.Departament.Name, departamentName, true) == 0 &&
+                    string.Compare(s.Faculty.Name, facultyName, true) == 0
+                    select s).FirstOrDefault();
+        }
+
+        public Specialization GetSpecialization(string specializationName, int departamentId, int facultyId)
+        {
+            return (from Specialization s in SPDatabase.DB.Specializations
+                    where string.Compare(s.Name, specializationName, true) == 0 &&
+                    s.DepartamentID == departamentId &&
+                    s.FacultyID == facultyId
+                    select s).FirstOrDefault();
+        }
+
         public void DeleteSpecialization(Specialization s)
         {
             SPDatabase.DB.Specializations.DeleteObject(s);

@@ -157,7 +157,8 @@ namespace StudiesPlans.Views
 
         private void SubjectTypes_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.DialogResult = DialogResult.Yes;
+            if(changes)
+                this.DialogResult = DialogResult.Yes;
         }
     }
 }

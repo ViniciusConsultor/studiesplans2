@@ -16,6 +16,7 @@ namespace StudiesPlans.Views
     public partial class Subjects : Telerik.WinControls.UI.RadForm
     {
         Plan plan = null;
+        bool changes = false;
         public Subjects(Plan plan)
         {
             InitializeComponent();
@@ -82,6 +83,7 @@ namespace StudiesPlans.Views
 
         private void btnAddSubject_Click(object sender, EventArgs e)
         {
+            lblValidation.Text = string.Empty;
             Institute institute = null;
             if (!cbInstitute.SelectedItem.ToString().Equals("Brak"))
                 institute = InstituteController.Instance.GetInstitute(cbInstitute.SelectedItem.ToString(), plan.DepartamentID);
@@ -158,6 +160,10 @@ namespace StudiesPlans.Views
                 IsGeneral = cbGeneral.Checked
             };
 
+            if ((plan.SemesterStart.HasValue && plan.SemesterStart.Value > semester.Semester1)
+                || (plan.SemesterEnd.HasValue && plan.SemesterEnd.Value < semester.Semester1))
+                subject.AddError("W planie nie mo¿e\nbyæ przedmiotu na takim semestrze");
+
             if (SubjectController.Instance.AddSubject(subject))
                 RadMessageBox.Show("Przedmiot zosta³ dodany", "Wiadomoœæ");
             else
@@ -213,7 +219,10 @@ namespace StudiesPlans.Views
         private void btnSubjectTypesMnmgt_Click(object sender, EventArgs e)
         {
             if (new SubjectTypes().ShowDialog() == DialogResult.Yes)
+            {
                 FillWithSubjectTypes();
+                changes = true;
+            }
         }
 
         private void btnClearSpec_Click(object sender, EventArgs e)
@@ -249,6 +258,12 @@ namespace StudiesPlans.Views
         {
             if (Convert.ToBoolean(e.Rows[0].Cells["general"].Value))
                 MessageBox.Show("general");
+        }
+
+        private void Subjects_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (changes)
+                this.DialogResult = DialogResult.Yes;
         }
 
     }

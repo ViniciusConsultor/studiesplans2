@@ -9,7 +9,7 @@ namespace StudiesPlansModels.Models
     public class NewSubject : BaseModel
     {
         [Required(ErrorMessage = "Nazwa przedmiotu jest wymagana")]
-        [StringLength(150, ErrorMessage = "Nazwa może mieć maskymalnie 150 znaków")]
+        [StringLength(150, ErrorMessage = "Nazwa może mieć maskymalnie\n150 znaków")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Wydział jest wymagany")]
@@ -43,7 +43,7 @@ namespace StudiesPlansModels.Models
     public class SubjectEdit : BaseModel
     {
         [Required(ErrorMessage = "Nazwa przedmiotu jest wymagana")]
-        [StringLength(150, ErrorMessage = "Nazwa może mieć maskymalnie 150 znaków")]
+        [StringLength(150, ErrorMessage = "Nazwa może mieć maskymalnie\n150 znaków")]
         public string Name { get; set; }
 
         [Required(ErrorMessage = "Wydział jest wymagany")]

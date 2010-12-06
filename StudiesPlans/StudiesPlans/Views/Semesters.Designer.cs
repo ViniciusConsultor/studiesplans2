@@ -32,32 +32,32 @@ namespace StudiesPlans.Views
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.tbNewSemesterYear = new Telerik.WinControls.UI.RadTextBox();
+            this.tbNewSemestrNo = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.tbNewSemesterName = new Telerik.WinControls.UI.RadTextBox();
             this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             this.btnDelete = new Telerik.WinControls.UI.RadButton();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
             this.btnAdd = new Telerik.WinControls.UI.RadButton();
             this.dgSemesters = new Telerik.WinControls.UI.RadGridView();
-            this.tbNewSemesterName = new Telerik.WinControls.UI.RadTextBox();
-            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
-            this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
-            this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
-            this.tbNewSemestrNo = new Telerik.WinControls.UI.RadTextBox();
-            this.tbNewSemesterYear = new Telerik.WinControls.UI.RadTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewSemesterYear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewSemestrNo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewSemesterName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSemesters)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNewSemesterName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNewSemestrNo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNewSemesterYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +91,54 @@ namespace StudiesPlans.Views
             this.radGroupBox1.TabIndex = 3;
             this.radGroupBox1.Text = "Zarz¹dzanie";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            // 
+            // tbNewSemesterYear
+            // 
+            this.tbNewSemesterYear.Location = new System.Drawing.Point(112, 89);
+            this.tbNewSemesterYear.Name = "tbNewSemesterYear";
+            this.tbNewSemesterYear.Size = new System.Drawing.Size(119, 20);
+            this.tbNewSemesterYear.TabIndex = 24;
+            this.tbNewSemesterYear.TabStop = false;
+            // 
+            // tbNewSemestrNo
+            // 
+            this.tbNewSemestrNo.Location = new System.Drawing.Point(112, 63);
+            this.tbNewSemestrNo.Name = "tbNewSemestrNo";
+            this.tbNewSemestrNo.Size = new System.Drawing.Size(119, 20);
+            this.tbNewSemestrNo.TabIndex = 24;
+            this.tbNewSemestrNo.TabStop = false;
+            // 
+            // radLabel3
+            // 
+            this.radLabel3.Location = new System.Drawing.Point(13, 85);
+            this.radLabel3.Name = "radLabel3";
+            this.radLabel3.Size = new System.Drawing.Size(28, 18);
+            this.radLabel3.TabIndex = 25;
+            this.radLabel3.Text = "Rok:";
+            // 
+            // radLabel2
+            // 
+            this.radLabel2.Location = new System.Drawing.Point(13, 61);
+            this.radLabel2.Name = "radLabel2";
+            this.radLabel2.Size = new System.Drawing.Size(92, 18);
+            this.radLabel2.TabIndex = 25;
+            this.radLabel2.Text = "Numer semestru:";
+            // 
+            // radLabel1
+            // 
+            this.radLabel1.Location = new System.Drawing.Point(13, 37);
+            this.radLabel1.Name = "radLabel1";
+            this.radLabel1.Size = new System.Drawing.Size(39, 18);
+            this.radLabel1.TabIndex = 24;
+            this.radLabel1.Text = "Nazwa";
+            // 
+            // tbNewSemesterName
+            // 
+            this.tbNewSemesterName.Location = new System.Drawing.Point(112, 37);
+            this.tbNewSemesterName.Name = "tbNewSemesterName";
+            this.tbNewSemesterName.Size = new System.Drawing.Size(119, 20);
+            this.tbNewSemesterName.TabIndex = 23;
+            this.tbNewSemesterName.TabStop = false;
             // 
             // lblValidation
             // 
@@ -181,19 +229,20 @@ namespace StudiesPlans.Views
             // dgSemesters
             // 
             this.dgSemesters.MasterTemplate.AllowAddNewRow = false;
+            this.dgSemesters.MasterTemplate.AllowColumnReorder = false;
             this.dgSemesters.MasterTemplate.AllowDragToGroup = false;
             this.dgSemesters.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             gridViewTextBoxColumn1.FormatString = "";
             gridViewTextBoxColumn1.HeaderText = "Nazwa";
             gridViewTextBoxColumn1.Name = "cName";
-            gridViewTextBoxColumn1.Width = 119;
+            gridViewTextBoxColumn1.Width = 120;
             gridViewTextBoxColumn2.FormatString = "";
             gridViewTextBoxColumn2.HeaderText = "Numer";
             gridViewTextBoxColumn2.Name = "cNo";
             gridViewTextBoxColumn3.FormatString = "";
             gridViewTextBoxColumn3.HeaderText = "Rok";
             gridViewTextBoxColumn3.Name = "cYear";
-            gridViewTextBoxColumn3.Width = 44;
+            gridViewTextBoxColumn3.Width = 43;
             this.dgSemesters.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
@@ -212,54 +261,6 @@ namespace StudiesPlans.Views
             this.dgSemesters.TabIndex = 4;
             this.dgSemesters.Text = "radGridView1";
             this.dgSemesters.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.dgSemesters_CellDoubleClick);
-            // 
-            // tbNewSemesterName
-            // 
-            this.tbNewSemesterName.Location = new System.Drawing.Point(112, 37);
-            this.tbNewSemesterName.Name = "tbNewSemesterName";
-            this.tbNewSemesterName.Size = new System.Drawing.Size(119, 20);
-            this.tbNewSemesterName.TabIndex = 23;
-            this.tbNewSemesterName.TabStop = false;
-            // 
-            // radLabel1
-            // 
-            this.radLabel1.Location = new System.Drawing.Point(13, 37);
-            this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(39, 18);
-            this.radLabel1.TabIndex = 24;
-            this.radLabel1.Text = "Nazwa";
-            // 
-            // radLabel2
-            // 
-            this.radLabel2.Location = new System.Drawing.Point(13, 61);
-            this.radLabel2.Name = "radLabel2";
-            this.radLabel2.Size = new System.Drawing.Size(92, 18);
-            this.radLabel2.TabIndex = 25;
-            this.radLabel2.Text = "Numer semestru:";
-            // 
-            // radLabel3
-            // 
-            this.radLabel3.Location = new System.Drawing.Point(13, 85);
-            this.radLabel3.Name = "radLabel3";
-            this.radLabel3.Size = new System.Drawing.Size(28, 18);
-            this.radLabel3.TabIndex = 25;
-            this.radLabel3.Text = "Rok:";
-            // 
-            // tbNewSemestrNo
-            // 
-            this.tbNewSemestrNo.Location = new System.Drawing.Point(112, 63);
-            this.tbNewSemestrNo.Name = "tbNewSemestrNo";
-            this.tbNewSemestrNo.Size = new System.Drawing.Size(119, 20);
-            this.tbNewSemestrNo.TabIndex = 24;
-            this.tbNewSemestrNo.TabStop = false;
-            // 
-            // tbNewSemesterYear
-            // 
-            this.tbNewSemesterYear.Location = new System.Drawing.Point(112, 89);
-            this.tbNewSemesterYear.Name = "tbNewSemesterYear";
-            this.tbNewSemesterYear.Size = new System.Drawing.Size(119, 20);
-            this.tbNewSemesterYear.TabIndex = 24;
-            this.tbNewSemesterYear.TabStop = false;
             // 
             // Semesters
             // 
@@ -282,18 +283,18 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewSemesterYear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewSemestrNo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewSemesterName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgSemesters)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNewSemesterName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNewSemestrNo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNewSemesterYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
