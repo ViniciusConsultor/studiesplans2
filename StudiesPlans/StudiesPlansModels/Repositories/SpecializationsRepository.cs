@@ -68,6 +68,30 @@ namespace StudiesPlansModels.Models
             return null;
         }
 
+        public SpecializationDataEdit GetSpecializationEdit(string specName, int planId, bool general, bool elective, string subjectName, int semesterValue)
+        {
+            SpecializationsData sd = (from SpecializationsData ssd in SPDatabase.DB.SpecializationsDatas.Include("SubjectDatas")
+                                      from SubjectsData subDat in ssd.SubjectsDatas
+                                      from Plan p in subDat.Plans
+                                      where string.Compare(ssd.Specialization.Name, specName, true) == 0 &&
+                                      string.Compare(subDat.Subject.Name, subjectName, true) == 0 &&
+                                      ssd.IsGeneral == general && ssd.IsElective == elective &&
+                                      subDat.Semester.Semester1 == semesterValue &&
+                                      p.PlanID == planId
+                                      select ssd).FirstOrDefault();
+
+            SpecializationDataEdit sde = new SpecializationDataEdit()
+            {
+                IsElective = sd.IsElective,
+                IsGenereal = sd.IsGeneral,
+                SpecializationDataID = sd.SpecializationDataID,
+                SpecializationId = sd.SpecializationID
+            };
+
+            return sde;
+                                      
+        }
+
         public Specialization GetSpecialization(string specializationName, string departamentName, string facultyName)
         {
             return (from Specialization s in SPDatabase.DB.Specializations

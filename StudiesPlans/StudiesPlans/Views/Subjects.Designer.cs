@@ -231,12 +231,14 @@ namespace StudiesPlans.Views
             // dgSpecializations
             // 
             this.dgSpecializations.AutoSize = true;
+            this.dgSpecializations.AutoSizeRows = true;
             this.dgSpecializations.Location = new System.Drawing.Point(13, 244);
             // 
             // dgSpecializations
             // 
             this.dgSpecializations.MasterTemplate.AddNewRowPosition = Telerik.WinControls.UI.SystemRowPosition.Bottom;
             this.dgSpecializations.MasterTemplate.AllowCellContextMenu = false;
+            this.dgSpecializations.MasterTemplate.AllowColumnReorder = false;
             this.dgSpecializations.MasterTemplate.AllowDragToGroup = false;
             this.dgSpecializations.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
             gridViewComboBoxColumn1.DisplayMember = null;
@@ -269,8 +271,6 @@ namespace StudiesPlans.Views
             this.dgSpecializations.Size = new System.Drawing.Size(231, 145);
             this.dgSpecializations.TabIndex = 20;
             this.dgSpecializations.Text = "specializations";
-            this.dgSpecializations.UserAddingRow += new Telerik.WinControls.UI.GridViewRowCancelEventHandler(this.dgSpecializations_UserAddingRow);
-            this.dgSpecializations.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.dgSpecializations_CellClick);
             this.dgSpecializations.CellValueChanged += new Telerik.WinControls.UI.GridViewCellEventHandler(this.dgSpecializations_CellValueChanged);
             // 
             // label1
@@ -309,11 +309,11 @@ namespace StudiesPlans.Views
             gridViewTextBoxColumn1.HeaderText = "Typ";
             gridViewTextBoxColumn1.Name = "subjectType";
             gridViewTextBoxColumn1.ReadOnly = true;
-            gridViewTextBoxColumn1.Width = 102;
+            gridViewTextBoxColumn1.Width = 104;
             gridViewTextBoxColumn2.FormatString = "";
             gridViewTextBoxColumn2.HeaderText = "Godziny";
             gridViewTextBoxColumn2.Name = "hours";
-            gridViewTextBoxColumn2.Width = 94;
+            gridViewTextBoxColumn2.Width = 92;
             this.dgSubjectTypes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2});

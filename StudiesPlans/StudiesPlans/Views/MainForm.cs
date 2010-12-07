@@ -55,8 +55,6 @@ namespace StudiesPlans.Views
                 foreach (SubjectType s in subjectTypes)
                 {
                     types.Add(s.Name);
-                    //gridPlanSubjects.Columns.Remove(s.Name);
-                    //gridArchievePlan.Columns.Remove(s.Name);
                     gridPlanSubjects.Columns.Add(s.Name, s.Name);
                     gridArchievePlan.Columns.Add(s.Name, s.Name);
                     Telerik.WinControls.UI.GridViewDataColumn col = gridPlanSubjects.Columns[s.Name];
@@ -410,6 +408,26 @@ namespace StudiesPlans.Views
                     IsElective = Convert.ToBoolean(gridPlanSubjects.Rows[row].Cells["isElective"].Value)
                 };
 
+                if (gridPlanSubjects.Rows[row].Cells["specialization"].Value != null
+                    && !gridPlanSubjects.Rows[row].Cells["specialization"].Value.ToString().Equals(string.Empty))
+                {
+                    string name = GetSpecializationFromGrid(gridPlanSubjects.Rows[row].Cells["specialization"].Value.ToString());
+                    
+                    SpecializationEdit se = SpecializationController.Instance.GetSpecializationEdit(name, LoadedPlan.Departament.Name, LoadedPlan.Faculty.Name);
+
+                    if (se!= null)
+                    {
+                        bool general = GetBoolFromGrid(gridPlanSubjects.Rows[row].Cells["specialization"].Value.ToString(), true, false);
+                        bool elective = GetBoolFromGrid(gridPlanSubjects.Rows[row].Cells["specialization"].Value.ToString(), false, true);
+                        
+                        SpecializationDataEdit nsd = SpecializationController.Instance.GetSpecializationDataEdit(name, LoadedPlan.PlanID, general, elective, ns.Name, sem.Semester1);
+
+                        List<SpecializationDataEdit> listnsd = new List<SpecializationDataEdit>();
+                        listnsd.Add(nsd);
+                        ns.Specializations = listnsd.AsEnumerable();
+                    }
+                }
+
                 List<NewSubjectTypeData> nstdlist = new List<NewSubjectTypeData>();
                 List<SubjectType> list = SubjectTypeController.Instance.ListSubjectTypes();
                 for (int i = 0; i < list.Count; i++)
@@ -431,6 +449,34 @@ namespace StudiesPlans.Views
                 SubjectsData sd = SubjectController.Instance.GetSubject(ns);
                 ns.SubjectId = sd.SubjectDataID;
                 return ns;
+            }
+
+            return null;
+        }
+
+        private bool GetBoolFromGrid(string stringValue, bool general, bool elective)
+        {
+            if (stringValue.ToLower().Contains("obowi¹zkowy") && general)
+                return true;
+
+            if (stringValue.ToLower().Contains("obieralny") && elective)
+                return true;
+
+            return false;
+        }
+
+        private string GetSpecializationFromGrid(string spec)
+        {
+            int index = 0;
+            if (spec.ToLower().Contains("obowi¹zkowy"))
+            {
+                index = spec.ToLower().IndexOf("obowi¹zkowy");
+                return spec.Substring(0, index - 1);
+            }
+            else if (spec.ToLower().Contains("obieralny"))
+            {
+                index = spec.ToLower().IndexOf("obieralny");
+                return spec.Substring(0, index - 1);
             }
 
             return null;

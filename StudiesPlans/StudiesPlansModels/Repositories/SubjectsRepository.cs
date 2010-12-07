@@ -57,7 +57,7 @@ namespace StudiesPlansModels.Models
                         SemesterID = subject.SemesterId,
                         SpecializationDataID = specDat.SpecializationDataID,
                         SubjectID = s.SubjectID,
-                        IsElective = subject.IsElective,
+                        IsElective = false,
                         IsGeneral = false
                     };
 
@@ -84,10 +84,10 @@ namespace StudiesPlansModels.Models
                     SPDatabase.DB.SubjectsDatas.AddObject(sd);
                     SPDatabase.DB.SaveChanges();
                 }
-
             }
-            //else
-           // {
+
+            if(subject.IsGeneral || subject.IsElective)
+            {
                 s = this.GetSubject(subject.Name);
 
                 SubjectsData sdd = new SubjectsData()
@@ -125,8 +125,7 @@ namespace StudiesPlansModels.Models
 
                 SPDatabase.DB.SubjectsDatas.AddObject(sdd);
                 SPDatabase.DB.SaveChanges();
-           // }
-            
+            }
         }
 
         private Plan GetPlan(int planId)
@@ -191,9 +190,7 @@ namespace StudiesPlansModels.Models
         public void EditSubject(SubjectsData subjectEdit)
         {
             if (subjectEdit != null)
-            {
                 SPDatabase.DB.SaveChanges();
-            }
         }
     }
 }

@@ -28,6 +28,7 @@ namespace StudiesPlans.Views
             FillWithSubjectTypes();
             FillWithSpecializations();
         }
+        List<string> names = new List<string>();
 
         private void FillWithSubjectTypes()
         {
@@ -41,9 +42,10 @@ namespace StudiesPlans.Views
         private void FillWithSpecializations()
         { 
             List<Specialization> list = SpecializationController.Instance.ListSpecializations(plan.DepartamentID, plan.FacultyID).ToList<Specialization>();
-            List<string> names = new List<string>();
+
             foreach (Specialization item in list)
                 names.Add(item.Name);
+
             GridViewComboBoxColumn chkCol = dgSpecializations.Columns["specialization"] as GridViewComboBoxColumn;
             if (chkCol != null)
             {
@@ -244,20 +246,21 @@ namespace StudiesPlans.Views
             }
         }
 
-        private void dgSpecializations_CellClick(object sender, GridViewCellEventArgs e)
-        {
-            
-        }
-
         private void dgSpecializations_CellValueChanged(object sender, GridViewCellEventArgs e)
         {
-            
-        }
+            if (e.Row.Cells["specialization"].Value != null && !e.Row.Cells["specialization"].Value.ToString().Equals(string.Empty))
+            {
+                names.Remove(e.Row.Cells["specialization"].Value.ToString());
+            }
 
-        private void dgSpecializations_UserAddingRow(object sender, GridViewRowCancelEventArgs e)
-        {
-            if (Convert.ToBoolean(e.Rows[0].Cells["general"].Value))
-                MessageBox.Show("general");
+
+            if (Convert.ToBoolean(e.Row.Cells["general"].Value) || cbElective.Checked)
+            {
+                e.Row.Cells["elective"].Value = false;
+                e.Row.Cells["elective"].ReadOnly = true;
+            }
+            else if(!Convert.ToBoolean(e.Row.Cells["general"].Value) && !cbElective.Checked)
+                e.Row.Cells["elective"].ReadOnly = false;
         }
 
         private void Subjects_FormClosing(object sender, FormClosingEventArgs e)
