@@ -115,5 +115,10 @@ namespace StudiesPlans.Controllers
         {
             return this.repository.ListSpecializations(departamentId, facultyId).ToList();
         }
+
+        public SpecializationDataEdit GetSpecializationDataEdit(string specName, int planId, bool general, bool elective, string subjectName, int semesterValue)
+        {
+            return this.repository.GetSpecializationEdit(specName, planId, general, elective, subjectName, semesterValue);
+        }
     }
 }

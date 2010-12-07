@@ -42,4 +42,15 @@ namespace StudiesPlansModels.Models
 
         public bool IsGenereal { get; set; }
     }
+
+    public class SpecializationDataEdit : BaseModel
+    {
+        public int SpecializationId { get; set; }
+
+        public bool IsElective { get; set; }
+
+        public bool IsGenereal { get; set; }
+
+        public int SpecializationDataID { get; set; }
+    }
 }

@@ -73,6 +73,6 @@ namespace StudiesPlansModels.Models
 
         public bool IsGeneral { get; set; }
 
-        public IEnumerable<NewSpecializationData> Specializations { get; set; }
+        public IEnumerable<SpecializationDataEdit> Specializations { get; set; }
     }
 }

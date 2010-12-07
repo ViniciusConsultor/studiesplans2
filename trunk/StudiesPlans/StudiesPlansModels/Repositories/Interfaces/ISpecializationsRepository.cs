@@ -26,5 +26,7 @@ namespace StudiesPlansModels.Models.Interfaces
         Specialization GetSpecialization(string specializationName, string departamentName, string facultyName);
 
         Specialization GetSpecialization(string specializationName, int departamentId, int facultyId);
+
+        SpecializationDataEdit GetSpecializationEdit(string specName, int planId, bool general, bool elective, string subjectName, int semesterValue);
     }
 }
