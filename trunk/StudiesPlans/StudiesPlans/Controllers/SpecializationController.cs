@@ -120,5 +120,15 @@ namespace StudiesPlans.Controllers
         {
             return this.repository.GetSpecializationEdit(specName, planId, general, elective, subjectName, semesterValue);
         }
+
+        public Specialization GetSpecialization(int specializationId)
+        {
+            return this.repository.GetSpecialization(specializationId);
+        }
+
+        public Specialization GetSpecialization(string specializationName)
+        {
+            return this.repository.GetSpecialization(specializationName);
+        }
     }
 }
