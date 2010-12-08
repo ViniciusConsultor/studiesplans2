@@ -17,7 +17,7 @@ namespace StudiesPlans.Views
     {
         public bool IsArchive { get; set; }
 
-        public PlansLoad(bool archive)
+        public PlansLoad(bool archive, bool preview)
         {
             InitializeComponent();
             IsArchive = archive;

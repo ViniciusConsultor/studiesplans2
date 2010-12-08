@@ -167,7 +167,7 @@ namespace StudiesPlans.Controllers
                         st.SubjectTypesDatas.Add(std);
                     }
 
-                    if (subject.Specializations == null)
+                    if (subject.Specializations == null || subject.Specializations.Count() <= 0)
                     {
                         st.SpecializationsData = null;
                     }

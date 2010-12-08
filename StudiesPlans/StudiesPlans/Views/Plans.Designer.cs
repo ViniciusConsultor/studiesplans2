@@ -114,7 +114,7 @@ namespace StudiesPlans.Views
             this.btnStudiesTypesMngmt.Location = new System.Drawing.Point(125, 153);
             this.btnStudiesTypesMngmt.Name = "btnStudiesTypesMngmt";
             this.btnStudiesTypesMngmt.Size = new System.Drawing.Size(20, 20);
-            this.btnStudiesTypesMngmt.TabIndex = 23;
+            this.btnStudiesTypesMngmt.TabIndex = 7;
             this.btnStudiesTypesMngmt.Click += new System.EventHandler(this.btnStudiesTypesMngmt_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnStudiesTypesMngmt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
             // 
@@ -124,7 +124,7 @@ namespace StudiesPlans.Views
             this.btnFacultiesMngmt.Location = new System.Drawing.Point(125, 127);
             this.btnFacultiesMngmt.Name = "btnFacultiesMngmt";
             this.btnFacultiesMngmt.Size = new System.Drawing.Size(20, 20);
-            this.btnFacultiesMngmt.TabIndex = 22;
+            this.btnFacultiesMngmt.TabIndex = 5;
             this.btnFacultiesMngmt.Click += new System.EventHandler(this.btnFacultiesMngmt_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnFacultiesMngmt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
             // 
@@ -137,7 +137,7 @@ namespace StudiesPlans.Views
             this.btnDepartamentsMngmt.Location = new System.Drawing.Point(125, 101);
             this.btnDepartamentsMngmt.Name = "btnDepartamentsMngmt";
             this.btnDepartamentsMngmt.Size = new System.Drawing.Size(20, 20);
-            this.btnDepartamentsMngmt.TabIndex = 21;
+            this.btnDepartamentsMngmt.TabIndex = 3;
             this.btnDepartamentsMngmt.Click += new System.EventHandler(this.btnDepartamentsMngmt_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnDepartamentsMngmt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnDepartamentsMngmt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -161,7 +161,7 @@ namespace StudiesPlans.Views
             this.cbStudiesType.Location = new System.Drawing.Point(151, 153);
             this.cbStudiesType.Name = "cbStudiesType";
             this.cbStudiesType.Size = new System.Drawing.Size(159, 20);
-            this.cbStudiesType.TabIndex = 17;
+            this.cbStudiesType.TabIndex = 8;
             // 
             // cbFaculty
             // 
@@ -169,7 +169,7 @@ namespace StudiesPlans.Views
             this.cbFaculty.Location = new System.Drawing.Point(151, 127);
             this.cbFaculty.Name = "cbFaculty";
             this.cbFaculty.Size = new System.Drawing.Size(159, 20);
-            this.cbFaculty.TabIndex = 16;
+            this.cbFaculty.TabIndex = 6;
             // 
             // cbDepartament
             // 
@@ -177,7 +177,7 @@ namespace StudiesPlans.Views
             this.cbDepartament.Location = new System.Drawing.Point(151, 101);
             this.cbDepartament.Name = "cbDepartament";
             this.cbDepartament.Size = new System.Drawing.Size(159, 20);
-            this.cbDepartament.TabIndex = 15;
+            this.cbDepartament.TabIndex = 4;
             this.cbDepartament.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.cbDepartament_SelectedIndexChanged);
             // 
             // tbSemEnd
@@ -189,7 +189,7 @@ namespace StudiesPlans.Views
             // 
             this.tbSemEnd.RootElement.ToolTipText = "Semestr zakoñczenia obowi¹zywania planu";
             this.tbSemEnd.Size = new System.Drawing.Size(159, 20);
-            this.tbSemEnd.TabIndex = 14;
+            this.tbSemEnd.TabIndex = 2;
             this.tbSemEnd.TabStop = false;
             // 
             // tbSemStart
@@ -197,7 +197,7 @@ namespace StudiesPlans.Views
             this.tbSemStart.Location = new System.Drawing.Point(151, 49);
             this.tbSemStart.Name = "tbSemStart";
             this.tbSemStart.Size = new System.Drawing.Size(159, 20);
-            this.tbSemStart.TabIndex = 13;
+            this.tbSemStart.TabIndex = 1;
             this.tbSemStart.TabStop = false;
             // 
             // tbPlanName
@@ -205,7 +205,7 @@ namespace StudiesPlans.Views
             this.tbPlanName.Location = new System.Drawing.Point(151, 23);
             this.tbPlanName.Name = "tbPlanName";
             this.tbPlanName.Size = new System.Drawing.Size(159, 20);
-            this.tbPlanName.TabIndex = 10;
+            this.tbPlanName.TabIndex = 0;
             this.tbPlanName.TabStop = false;
             // 
             // radLabel8
@@ -266,7 +266,7 @@ namespace StudiesPlans.Views
             // 
             this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Size = new System.Drawing.Size(130, 24);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -280,7 +280,7 @@ namespace StudiesPlans.Views
             // 
             this.btnAddPlan.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnAddPlan.Size = new System.Drawing.Size(130, 24);
-            this.btnAddPlan.TabIndex = 0;
+            this.btnAddPlan.TabIndex = 9;
             this.btnAddPlan.Text = "Dodaj plan";
             this.btnAddPlan.Click += new System.EventHandler(this.btnAddPlan_Click);
             // 
@@ -290,6 +290,7 @@ namespace StudiesPlans.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(347, 320);
             this.Controls.Add(this.radGroupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Plans";
@@ -297,7 +298,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Plan";
             this.ThemeName = "ControlDefault";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Plans_FormClosing);

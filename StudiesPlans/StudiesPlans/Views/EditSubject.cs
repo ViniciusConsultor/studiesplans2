@@ -56,6 +56,8 @@ namespace StudiesPlans.Views
                 {
                     Specialization s = SpecializationController.Instance.GetSpecialization(sde.SpecializationId);
                     dgSpecializations.Rows.Add(s.Name, sde.IsGenereal, sde.IsElective);
+                    if(sde.IsGenereal)
+                        dgSpecializations.Rows[dgSpecializations.Rows.Count - 1].Cells["elective"].ReadOnly = true;
                 }
             }
             else
@@ -159,23 +161,27 @@ namespace StudiesPlans.Views
             this.subject.SubjectTypes = nstdlist;
 
             if (subject.Specializations != null && subject.Specializations.Count() > 0)
-            { 
-                if(dgSpecializations.Rows.Count > 0 && dgSpecializations.Enabled)
+            {
+                if (dgSpecializations.Rows.Count > 0 && dgSpecializations.Enabled)
                 {
                     Specialization spec = SpecializationController.Instance.GetSpecialization(dgSpecializations.Rows[0].Cells["specialization"].Value.ToString());
 
-                    if(spec != null)
+                    if (spec != null)
                     {
                         subject.Specializations.ElementAt(0).SpecializationId = spec.SpecializationID;
                         subject.Specializations.ElementAt(0).IsElective = Convert.ToBoolean(dgSpecializations.Rows[0].Cells["elective"].Value);
                         subject.Specializations.ElementAt(0).IsGenereal = Convert.ToBoolean(dgSpecializations.Rows[0].Cells["general"].Value);
                     }
                 }
+                else
+                    subject.Specializations = null;
             }
 
             if (SubjectController.Instance.EditSubject(subject))
             {
                 changes = true;
+                RadMessageBox.Show("Zmiany zosta³y zapisane", "Wiadomoœæ");
+                this.Close();
             }
             else
             {
@@ -233,6 +239,17 @@ namespace StudiesPlans.Views
                 dgSpecializations.Columns["elective"].ReadOnly = false;
                 cbGeneral.Enabled = true;
             }
+        }
+
+        private void dgSpecializations_CellValueChanged(object sender, GridViewCellEventArgs e)
+        {
+            if (Convert.ToBoolean(e.Row.Cells["general"].Value) || cbElective.Checked)
+            {
+                e.Row.Cells["elective"].Value = false;
+                e.Row.Cells["elective"].ReadOnly = true;
+            }
+            else if (!Convert.ToBoolean(e.Row.Cells["general"].Value) && !cbElective.Checked)
+                e.Row.Cells["elective"].ReadOnly = false;
         }
     }
 }

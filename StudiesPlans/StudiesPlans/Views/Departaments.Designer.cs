@@ -96,7 +96,7 @@ namespace StudiesPlans.Views
             // 
             this.txtNewDepartamentName.RootElement.ToolTipText = "Nazwa wydzia³u";
             this.txtNewDepartamentName.Size = new System.Drawing.Size(150, 20);
-            this.txtNewDepartamentName.TabIndex = 18;
+            this.txtNewDepartamentName.TabIndex = 0;
             this.txtNewDepartamentName.TabStop = false;
             // 
             // lblValidation
@@ -124,7 +124,7 @@ namespace StudiesPlans.Views
             // 
             this.btnDelete.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.Size = new System.Drawing.Size(57, 33);
-            this.btnDelete.TabIndex = 16;
+            this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Usuñ";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnDelete.GetChildAt(0))).Text = "Usuñ";
@@ -141,7 +141,7 @@ namespace StudiesPlans.Views
             // 
             this.btnSave.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnSave.Size = new System.Drawing.Size(57, 33);
-            this.btnSave.TabIndex = 15;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Zapisz";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnSave.GetChildAt(0))).Text = "Zapisz";
@@ -158,7 +158,7 @@ namespace StudiesPlans.Views
             // 
             this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Size = new System.Drawing.Size(57, 33);
-            this.btnCancel.TabIndex = 14;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnCancel.GetChildAt(0))).Text = "Anuluj";
@@ -175,7 +175,7 @@ namespace StudiesPlans.Views
             // 
             this.btnAddDepartament.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnAddDepartament.Size = new System.Drawing.Size(57, 33);
-            this.btnAddDepartament.TabIndex = 13;
+            this.btnAddDepartament.TabIndex = 1;
             this.btnAddDepartament.Text = "Dodaj";
             this.btnAddDepartament.Click += new System.EventHandler(this.btnAddDepartament_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnAddDepartament.GetChildAt(0))).Text = "Dodaj";
@@ -187,7 +187,7 @@ namespace StudiesPlans.Views
             this.listDepartaments.Name = "listDepartaments";
             this.listDepartaments.Size = new System.Drawing.Size(185, 252);
             this.listDepartaments.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
-            this.listDepartaments.TabIndex = 1;
+            this.listDepartaments.TabIndex = 5;
             this.listDepartaments.DoubleClick += new System.EventHandler(this.listDepartaments_DoubleClick);
             this.listDepartaments.KeyDown += new System.Windows.Forms.KeyEventHandler(this.listDepartaments_KeyDown);
             ((Telerik.WinControls.UI.RadListElement)(this.listDepartaments.GetChildAt(0))).CaseSensitiveSort = true;
@@ -199,6 +199,7 @@ namespace StudiesPlans.Views
             this.ClientSize = new System.Drawing.Size(488, 277);
             this.Controls.Add(this.listDepartaments);
             this.Controls.Add(this.radGroupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Departaments";
@@ -206,7 +207,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zarz¹dzanie wydzia³ami";
             this.ThemeName = "ControlDefault";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Departaments_FormClosing);

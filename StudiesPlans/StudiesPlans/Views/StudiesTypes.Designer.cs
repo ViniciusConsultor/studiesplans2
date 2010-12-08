@@ -29,23 +29,23 @@ namespace StudiesPlans
         private void InitializeComponent()
         {
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.tbNewStudiesTypeName = new Telerik.WinControls.UI.RadTextBox();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
             this.btnDelete = new Telerik.WinControls.UI.RadButton();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
             this.btnAdd = new Telerik.WinControls.UI.RadButton();
             this.lblValidation = new System.Windows.Forms.Label();
             this.listStudiesTypes = new Telerik.WinControls.UI.RadListControl();
-            this.tbNewStudiesTypeName = new Telerik.WinControls.UI.RadTextBox();
-            this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewStudiesTypeName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.listStudiesTypes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNewStudiesTypeName)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,31 +79,47 @@ namespace StudiesPlans
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             ((Telerik.WinControls.Primitives.BorderPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(1).GetChildAt(1))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(221)))), ((int)(((byte)(32)))));
             // 
+            // radLabel1
+            // 
+            this.radLabel1.Location = new System.Drawing.Point(13, 37);
+            this.radLabel1.Name = "radLabel1";
+            this.radLabel1.Size = new System.Drawing.Size(42, 18);
+            this.radLabel1.TabIndex = 10;
+            this.radLabel1.Text = "Nazwa:";
+            // 
+            // tbNewStudiesTypeName
+            // 
+            this.tbNewStudiesTypeName.Location = new System.Drawing.Point(83, 35);
+            this.tbNewStudiesTypeName.Name = "tbNewStudiesTypeName";
+            this.tbNewStudiesTypeName.Size = new System.Drawing.Size(145, 20);
+            this.tbNewStudiesTypeName.TabIndex = 0;
+            this.tbNewStudiesTypeName.TabStop = false;
+            // 
             // btnSave
             // 
             this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(177, 217);
+            this.btnSave.Location = new System.Drawing.Point(120, 217);
             this.btnSave.Name = "btnSave";
             // 
             // 
             // 
             this.btnSave.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnSave.Size = new System.Drawing.Size(51, 31);
-            this.btnSave.TabIndex = 7;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Zapisz";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(120, 217);
+            this.btnDelete.Location = new System.Drawing.Point(177, 217);
             this.btnDelete.Name = "btnDelete";
             // 
             // 
             // 
             this.btnDelete.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.Size = new System.Drawing.Size(51, 31);
-            this.btnDelete.TabIndex = 8;
+            this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Usuñ";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -117,7 +133,7 @@ namespace StudiesPlans
             // 
             this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Size = new System.Drawing.Size(51, 31);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -131,7 +147,7 @@ namespace StudiesPlans
             // 
             this.btnAdd.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnAdd.Size = new System.Drawing.Size(51, 31);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -152,26 +168,10 @@ namespace StudiesPlans
             this.listStudiesTypes.Location = new System.Drawing.Point(12, 13);
             this.listStudiesTypes.Name = "listStudiesTypes";
             this.listStudiesTypes.Size = new System.Drawing.Size(163, 252);
-            this.listStudiesTypes.TabIndex = 1;
+            this.listStudiesTypes.TabIndex = 5;
             this.listStudiesTypes.Text = "radListControl1";
             this.listStudiesTypes.DoubleClick += new System.EventHandler(this.listStudiesTypes_DoubleClick);
             ((Telerik.WinControls.UI.RadListElement)(this.listStudiesTypes.GetChildAt(0))).CaseSensitiveSort = true;
-            // 
-            // tbNewStudiesTypeName
-            // 
-            this.tbNewStudiesTypeName.Location = new System.Drawing.Point(83, 35);
-            this.tbNewStudiesTypeName.Name = "tbNewStudiesTypeName";
-            this.tbNewStudiesTypeName.Size = new System.Drawing.Size(145, 20);
-            this.tbNewStudiesTypeName.TabIndex = 9;
-            this.tbNewStudiesTypeName.TabStop = false;
-            // 
-            // radLabel1
-            // 
-            this.radLabel1.Location = new System.Drawing.Point(13, 37);
-            this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(42, 18);
-            this.radLabel1.TabIndex = 10;
-            this.radLabel1.Text = "Nazwa:";
             // 
             // StudiesTypes
             // 
@@ -194,13 +194,13 @@ namespace StudiesPlans
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewStudiesTypeName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnSave)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.listStudiesTypes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tbNewStudiesTypeName)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 

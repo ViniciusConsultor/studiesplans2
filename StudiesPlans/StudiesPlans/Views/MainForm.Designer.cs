@@ -53,6 +53,7 @@ namespace StudiesPlans.Views
             Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn2 = new Telerik.WinControls.UI.GridViewImageColumn();
             this.pages = new Telerik.WinControls.UI.RadPageView();
             this.plancreate = new Telerik.WinControls.UI.RadPageViewPage();
+            this.btnPlanEdit = new Telerik.WinControls.UI.RadButton();
             this.lblPlanData = new Telerik.WinControls.UI.RadLabel();
             this.btnDeleteSubject = new Telerik.WinControls.UI.RadButton();
             this.btnEditSubject = new Telerik.WinControls.UI.RadButton();
@@ -61,10 +62,7 @@ namespace StudiesPlans.Views
             this.btnNewPlan = new Telerik.WinControls.UI.RadButton();
             this.gridPlanSubjects = new Telerik.WinControls.UI.RadGridView();
             this.review = new Telerik.WinControls.UI.RadPageViewPage();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pagePreview1 = new PdfSharp.Forms.PagePreview();
-            this.button1 = new System.Windows.Forms.Button();
             this.archive = new Telerik.WinControls.UI.RadPageViewPage();
             this.btnLoadArchivePlan = new Telerik.WinControls.UI.RadButton();
             this.btnCopyArchivePlan = new Telerik.WinControls.UI.RadButton();
@@ -113,9 +111,15 @@ namespace StudiesPlans.Views
             this.radButtonElement6 = new Telerik.WinControls.UI.RadButtonElement();
             this.radToolStripElement1 = new Telerik.WinControls.UI.RadToolStripElement();
             this.radToolStripItem2 = new Telerik.WinControls.UI.RadToolStripItem();
+            this.btnShowPreview = new Telerik.WinControls.UI.RadButton();
+            this.btnExportPdf = new Telerik.WinControls.UI.RadButton();
+            this.btnExportXML = new Telerik.WinControls.UI.RadButton();
+            this.dlZoom = new Telerik.WinControls.UI.RadDropDownList();
+            this.dlgSavePdf = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pages)).BeginInit();
             this.pages.SuspendLayout();
             this.plancreate.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPlanEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPlanData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteSubject)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditSubject)).BeginInit();
@@ -136,6 +140,10 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnAddUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radToolStrip1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnShowPreview)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExportPdf)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExportXML)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dlZoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -151,7 +159,7 @@ namespace StudiesPlans.Views
             this.pages.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.pages.Location = new System.Drawing.Point(0, 33);
             this.pages.Name = "pages";
-            this.pages.SelectedPage = this.plancreate;
+            this.pages.SelectedPage = this.review;
             this.pages.Size = new System.Drawing.Size(842, 545);
             this.pages.TabIndex = 15;
             this.pages.Text = "radPageView1";
@@ -161,6 +169,7 @@ namespace StudiesPlans.Views
             // 
             // plancreate
             // 
+            this.plancreate.Controls.Add(this.btnPlanEdit);
             this.plancreate.Controls.Add(this.lblPlanData);
             this.plancreate.Controls.Add(this.btnDeleteSubject);
             this.plancreate.Controls.Add(this.btnEditSubject);
@@ -172,6 +181,21 @@ namespace StudiesPlans.Views
             this.plancreate.Name = "plancreate";
             this.plancreate.Size = new System.Drawing.Size(821, 497);
             this.plancreate.Text = "Tworzenie planu";
+            // 
+            // btnPlanEdit
+            // 
+            this.btnPlanEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPlanEdit.ForeColor = System.Drawing.Color.Black;
+            this.btnPlanEdit.Location = new System.Drawing.Point(275, 473);
+            this.btnPlanEdit.Name = "btnPlanEdit";
+            // 
+            // 
+            // 
+            this.btnPlanEdit.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnPlanEdit.Size = new System.Drawing.Size(130, 24);
+            this.btnPlanEdit.TabIndex = 7;
+            this.btnPlanEdit.Text = "Edytuj plan";
+            this.btnPlanEdit.Click += new System.EventHandler(this.btnPlanEdit_Click);
             // 
             // lblPlanData
             // 
@@ -323,33 +347,15 @@ namespace StudiesPlans.Views
             // 
             // review
             // 
-            this.review.Controls.Add(this.button2);
-            this.review.Controls.Add(this.textBox1);
+            this.review.Controls.Add(this.dlZoom);
+            this.review.Controls.Add(this.btnExportXML);
+            this.review.Controls.Add(this.btnExportPdf);
+            this.review.Controls.Add(this.btnShowPreview);
             this.review.Controls.Add(this.pagePreview1);
-            this.review.Controls.Add(this.button1);
             this.review.Location = new System.Drawing.Point(10, 37);
             this.review.Name = "review";
             this.review.Size = new System.Drawing.Size(821, 497);
             this.review.Text = "Przegl¹d planu";
-            // 
-            // button2
-            // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button2.Location = new System.Drawing.Point(190, 471);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.Location = new System.Drawing.Point(84, 473);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
             // 
             // pagePreview1
             // 
@@ -367,19 +373,8 @@ namespace StudiesPlans.Views
             this.pagePreview1.PageSizeF = new System.Drawing.Size(1283, 595);
             this.pagePreview1.Size = new System.Drawing.Size(815, 465);
             this.pagePreview1.TabIndex = 3;
-            this.pagePreview1.Zoom = PdfSharp.Forms.Zoom.BestFit;
-            this.pagePreview1.ZoomPercent = 46;
-            // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.Location = new System.Drawing.Point(3, 471);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.pagePreview1.Zoom = PdfSharp.Forms.Zoom.Percent50;
+            this.pagePreview1.ZoomPercent = 50;
             // 
             // archive
             // 
@@ -989,6 +984,66 @@ namespace StudiesPlans.Views
             this.radToolStripItem2.Name = "radToolStripItem2";
             this.radToolStripItem2.Text = "radToolStripItem2";
             // 
+            // btnShowPreview
+            // 
+            this.btnShowPreview.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnShowPreview.ForeColor = System.Drawing.Color.Black;
+            this.btnShowPreview.Location = new System.Drawing.Point(3, 473);
+            this.btnShowPreview.Name = "btnShowPreview";
+            // 
+            // 
+            // 
+            this.btnShowPreview.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnShowPreview.Size = new System.Drawing.Size(130, 24);
+            this.btnShowPreview.TabIndex = 6;
+            this.btnShowPreview.Text = "Wczytaj plan";
+            this.btnShowPreview.Click += new System.EventHandler(this.btnShowPreview_Click);
+            // 
+            // btnExportPdf
+            // 
+            this.btnExportPdf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExportPdf.ForeColor = System.Drawing.Color.Black;
+            this.btnExportPdf.Location = new System.Drawing.Point(139, 473);
+            this.btnExportPdf.Name = "btnExportPdf";
+            // 
+            // 
+            // 
+            this.btnExportPdf.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnExportPdf.Size = new System.Drawing.Size(130, 24);
+            this.btnExportPdf.TabIndex = 7;
+            this.btnExportPdf.Text = "Zapisz jako PDF";
+            this.btnExportPdf.Click += new System.EventHandler(this.btnExportPdf_Click);
+            // 
+            // btnExportXML
+            // 
+            this.btnExportXML.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnExportXML.ForeColor = System.Drawing.Color.Black;
+            this.btnExportXML.Location = new System.Drawing.Point(275, 473);
+            this.btnExportXML.Name = "btnExportXML";
+            // 
+            // 
+            // 
+            this.btnExportXML.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnExportXML.Size = new System.Drawing.Size(130, 24);
+            this.btnExportXML.TabIndex = 8;
+            this.btnExportXML.Text = "Zapisz jako XML";
+            // 
+            // dlZoom
+            // 
+            this.dlZoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.dlZoom.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
+            this.dlZoom.Location = new System.Drawing.Point(712, 474);
+            this.dlZoom.Name = "dlZoom";
+            this.dlZoom.Size = new System.Drawing.Size(106, 20);
+            this.dlZoom.TabIndex = 9;
+            this.dlZoom.Text = "radDropDownList1";
+            this.dlZoom.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.dlZoom_SelectedIndexChanged);
+            // 
+            // dlgSavePdf
+            // 
+            this.dlgSavePdf.DefaultExt = "pdf";
+            this.dlgSavePdf.Filter = "Pliki PDF|*.pdf";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1009,6 +1064,7 @@ namespace StudiesPlans.Views
             this.pages.ResumeLayout(false);
             this.plancreate.ResumeLayout(false);
             this.plancreate.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPlanEdit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lblPlanData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnDeleteSubject)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditSubject)).EndInit();
@@ -1032,6 +1088,10 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnAddUser)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radToolStrip1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnShowPreview)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExportPdf)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnExportXML)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dlZoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1093,15 +1153,18 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadButtonElement radButtonElement6;
         private Telerik.WinControls.UI.RadToolStripElement radToolStripElement1;
         private Telerik.WinControls.UI.RadToolStripItem radToolStripItem2;
-        private System.Windows.Forms.Button button1;
         private PdfSharp.Forms.PagePreview pagePreview1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button3;
         private Telerik.WinControls.UI.RadButton btnLoadArchivePlan;
         private Telerik.WinControls.UI.RadButton btnCopyArchivePlan;
         private Telerik.WinControls.UI.RadGridView gridArchievePlan;
         private Telerik.WinControls.Tests.QAShape qaShape1;
+        private Telerik.WinControls.UI.RadButton btnPlanEdit;
+        private Telerik.WinControls.UI.RadButton btnShowPreview;
+        private Telerik.WinControls.UI.RadButton btnExportXML;
+        private Telerik.WinControls.UI.RadButton btnExportPdf;
+        private Telerik.WinControls.UI.RadDropDownList dlZoom;
+        private System.Windows.Forms.SaveFileDialog dlgSavePdf;
     }
 }
 
