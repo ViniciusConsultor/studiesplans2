@@ -37,9 +37,8 @@
     <ApplicationIcon>Resources\SP.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-  <TrackFileAccess>false</TrackFileAccess>
-</PropertyGroup>
-
+    <TrackFileAccess>false</TrackFileAccess>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
@@ -126,6 +125,12 @@
     <Compile Include="Controllers\SubjectTypeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Pdf\RenderPdf.cs" />
+    <Compile Include="Views\EditSubject.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Views\EditSubject.Designer.cs">
+      <DependentUpon>EditSubject.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\StudiesTypes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,12 +142,6 @@
     </Compile>
     <Compile Include="Views\Departaments.Designer.cs">
       <DependentUpon>Departaments.cs</DependentUpon>
-    </Compile>
-    <Compile Include="EditSubject.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditSubject.Designer.cs">
-      <DependentUpon>EditSubject.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Institutes.cs">
       <SubType>Form</SubType>
@@ -223,16 +222,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Views\EditSubject.resx">
+      <DependentUpon>EditSubject.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\StudiesTypes.resx">
       <DependentUpon>StudiesTypes.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Departaments.resx">
       <DependentUpon>Departaments.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="EditSubject.resx">
-      <DependentUpon>EditSubject.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Institutes.resx">

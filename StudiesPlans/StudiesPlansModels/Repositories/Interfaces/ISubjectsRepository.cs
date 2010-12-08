@@ -13,7 +13,7 @@ namespace StudiesPlansModels.Models.Interfaces
 
         SubjectsData GetSubjectData(int subjectDataId);
 
-        SubjectsData GetSubjectData(string subjectName, int departamentId, double ects, int facultyId, int instituteId, bool isExam, int planId, int semesterId);
+        SubjectsData GetSubjectDataForEditing(string subjectName, int departamentId, double ects, int facultyId, int instituteId, bool isExam, int planId, int semesterId, IEnumerable<SpecializationDataEdit> specializations);
 
         void DeleteSubject(SubjectsData sd);
 
@@ -22,5 +22,7 @@ namespace StudiesPlansModels.Models.Interfaces
         void AddSubjectName(Subject newSubject);
 
         void EditSubject(SubjectsData st);
+
+        SubjectsData GetSubjectDataForAdding(string subjectName, int departamentId, double ects, int facultyId, int instituteId, bool isExam, int planId, int semesterId, IEnumerable<NewSpecializationData> specializations);
     }
 }

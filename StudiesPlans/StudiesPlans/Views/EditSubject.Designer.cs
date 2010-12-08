@@ -28,11 +28,11 @@ namespace StudiesPlans.Views
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewComboBoxColumn gridViewComboBoxColumn1 = new Telerik.WinControls.UI.GridViewComboBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewComboBoxColumn gridViewComboBoxColumn3 = new Telerik.WinControls.UI.GridViewComboBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn5 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn6 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             this.dgSubjectTypes = new Telerik.WinControls.UI.RadGridView();
             this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             this.btnCancel = new Telerik.WinControls.UI.RadButton();
@@ -108,19 +108,20 @@ namespace StudiesPlans.Views
             this.dgSubjectTypes.MasterTemplate.AllowDeleteRow = false;
             this.dgSubjectTypes.MasterTemplate.AllowRowResize = false;
             this.dgSubjectTypes.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewTextBoxColumn1.FormatString = "";
-            gridViewTextBoxColumn1.HeaderText = "Typ";
-            gridViewTextBoxColumn1.Name = "subjectType";
-            gridViewTextBoxColumn1.ReadOnly = true;
-            gridViewTextBoxColumn1.Width = 86;
-            gridViewTextBoxColumn2.FormatString = "";
-            gridViewTextBoxColumn2.HeaderText = "Godziny";
-            gridViewTextBoxColumn2.Name = "hours";
-            gridViewTextBoxColumn2.Width = 84;
+            gridViewTextBoxColumn5.FormatString = "";
+            gridViewTextBoxColumn5.HeaderText = "Typ";
+            gridViewTextBoxColumn5.Name = "subjectType";
+            gridViewTextBoxColumn5.ReadOnly = true;
+            gridViewTextBoxColumn5.Width = 97;
+            gridViewTextBoxColumn6.FormatString = "";
+            gridViewTextBoxColumn6.HeaderText = "Godziny";
+            gridViewTextBoxColumn6.Name = "hours";
+            gridViewTextBoxColumn6.Width = 92;
             this.dgSubjectTypes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2});
+            gridViewTextBoxColumn5,
+            gridViewTextBoxColumn6});
             this.dgSubjectTypes.MasterTemplate.EnableGrouping = false;
+            this.dgSubjectTypes.MasterTemplate.ShowRowHeaderColumn = false;
             this.dgSubjectTypes.Name = "dgSubjectTypes";
             this.dgSubjectTypes.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             // 
@@ -133,8 +134,14 @@ namespace StudiesPlans.Views
             // 
             // lblValidation
             // 
+            this.lblValidation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblValidation.ForeColor = System.Drawing.Color.Red;
             this.lblValidation.Location = new System.Drawing.Point(250, 25);
             this.lblValidation.Name = "lblValidation";
+            // 
+            // 
+            // 
+            this.lblValidation.RootElement.ForeColor = System.Drawing.Color.Red;
             this.lblValidation.Size = new System.Drawing.Size(2, 2);
             this.lblValidation.TabIndex = 16;
             // 
@@ -295,30 +302,33 @@ namespace StudiesPlans.Views
             // dgSpecializations
             // 
             this.dgSpecializations.AutoSize = true;
+            this.dgSpecializations.AutoSizeRows = true;
             this.dgSpecializations.Location = new System.Drawing.Point(13, 244);
             // 
             // dgSpecializations
             // 
+            this.dgSpecializations.MasterTemplate.AllowAddNewRow = false;
             this.dgSpecializations.MasterTemplate.AllowCellContextMenu = false;
+            this.dgSpecializations.MasterTemplate.AllowColumnReorder = false;
             this.dgSpecializations.MasterTemplate.AutoSizeColumnsMode = Telerik.WinControls.UI.GridViewAutoSizeColumnsMode.Fill;
-            gridViewComboBoxColumn1.DisplayMember = null;
-            gridViewComboBoxColumn1.FormatString = "";
-            gridViewComboBoxColumn1.HeaderText = "Specjalizacja";
-            gridViewComboBoxColumn1.Name = "specialization";
-            gridViewComboBoxColumn1.ValueMember = null;
-            gridViewComboBoxColumn1.Width = 73;
-            gridViewCheckBoxColumn1.FormatString = "";
-            gridViewCheckBoxColumn1.HeaderText = "G³ówny";
-            gridViewCheckBoxColumn1.Name = "general";
-            gridViewCheckBoxColumn1.Width = 73;
-            gridViewCheckBoxColumn2.FormatString = "";
-            gridViewCheckBoxColumn2.HeaderText = "Obieralny";
-            gridViewCheckBoxColumn2.Name = "elective";
-            gridViewCheckBoxColumn2.Width = 72;
+            gridViewComboBoxColumn3.DisplayMember = null;
+            gridViewComboBoxColumn3.FormatString = "";
+            gridViewComboBoxColumn3.HeaderText = "Specjalizacja";
+            gridViewComboBoxColumn3.Name = "specialization";
+            gridViewComboBoxColumn3.ValueMember = null;
+            gridViewComboBoxColumn3.Width = 73;
+            gridViewCheckBoxColumn5.FormatString = "";
+            gridViewCheckBoxColumn5.HeaderText = "G³ówny";
+            gridViewCheckBoxColumn5.Name = "general";
+            gridViewCheckBoxColumn5.Width = 73;
+            gridViewCheckBoxColumn6.FormatString = "";
+            gridViewCheckBoxColumn6.HeaderText = "Obieralny";
+            gridViewCheckBoxColumn6.Name = "elective";
+            gridViewCheckBoxColumn6.Width = 72;
             this.dgSpecializations.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewComboBoxColumn1,
-            gridViewCheckBoxColumn1,
-            gridViewCheckBoxColumn2});
+            gridViewComboBoxColumn3,
+            gridViewCheckBoxColumn5,
+            gridViewCheckBoxColumn6});
             this.dgSpecializations.MasterTemplate.EnableGrouping = false;
             this.dgSpecializations.MasterTemplate.ShowRowHeaderColumn = false;
             this.dgSpecializations.Name = "dgSpecializations";

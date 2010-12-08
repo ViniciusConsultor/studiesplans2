@@ -50,6 +50,17 @@ namespace StudiesPlans.Views
                 }
             }
 
+            if (subject.Specializations != null)
+            {
+                foreach (SpecializationDataEdit sde in subject.Specializations)
+                {
+                    Specialization s = SpecializationController.Instance.GetSpecialization(sde.SpecializationId);
+                    dgSpecializations.Rows.Add(s.Name, sde.IsGenereal, sde.IsElective);
+                }
+            }
+            else
+                dgSpecializations.Enabled = false;
+
             cbElective.Checked = subject.IsElective;
             cbGeneral.Checked = subject.IsGeneral;
         }
@@ -119,6 +130,8 @@ namespace StudiesPlans.Views
             this.subject.Institute = cbInstitute.SelectedItem.ToString();
             this.subject.IsExam = ckbxExam.Checked;
             this.subject.Name = tbSubjectName.Text;
+            this.subject.IsElective = cbElective.Checked;
+            this.subject.IsGeneral = cbGeneral.Checked;
 
             Semester sem = SemesterController.Instance.GetSemester(cbSemester.SelectedItem.ToString());
             if (sem != null)
@@ -144,6 +157,21 @@ namespace StudiesPlans.Views
             }
 
             this.subject.SubjectTypes = nstdlist;
+
+            if (subject.Specializations != null && subject.Specializations.Count() > 0)
+            { 
+                if(dgSpecializations.Rows.Count > 0 && dgSpecializations.Enabled)
+                {
+                    Specialization spec = SpecializationController.Instance.GetSpecialization(dgSpecializations.Rows[0].Cells["specialization"].Value.ToString());
+
+                    if(spec != null)
+                    {
+                        subject.Specializations.ElementAt(0).SpecializationId = spec.SpecializationID;
+                        subject.Specializations.ElementAt(0).IsElective = Convert.ToBoolean(dgSpecializations.Rows[0].Cells["elective"].Value);
+                        subject.Specializations.ElementAt(0).IsGenereal = Convert.ToBoolean(dgSpecializations.Rows[0].Cells["general"].Value);
+                    }
+                }
+            }
 
             if (SubjectController.Instance.EditSubject(subject))
             {

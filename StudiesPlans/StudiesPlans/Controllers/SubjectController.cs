@@ -35,7 +35,7 @@ namespace StudiesPlans.Controllers
 
         public bool AddSubject(NewSubject ns)
         {
-            SubjectsData sd = this.repository.GetSubjectData(ns.Name, ns.DepartamentId, ns.Ects, ns.FacultyId, ns.InstituteId, ns.IsExam, ns.PlanId, ns.SemesterId);
+            SubjectsData sd = this.repository.GetSubjectDataForAdding(ns.Name, ns.DepartamentId, ns.Ects, ns.FacultyId, ns.InstituteId, ns.IsExam, ns.PlanId, ns.SemesterId, ns.Specializations);
             if (sd != null)
                 ns.AddError("Przedmiot o podanych danych już\nistnieje w planie");
 
@@ -47,6 +47,14 @@ namespace StudiesPlans.Controllers
 
             if (ns.SubjectTypes == null || ns.SubjectTypes.Count() == 0)
                 ns.AddError("Przedmiot musi być przypisany\nprzynajmniej do jednego typu");
+
+            if(ns.Specializations != null)
+            foreach(NewSpecializationData nsd in ns.Specializations)
+                if (!nsd.IsElective && !nsd.IsGenereal)
+                {
+                    ns.AddError("Przedmiot na specjalizacji musi być\nobowiązkowy lub obieralny");
+                    break;
+                }
 
             if (ns != null && ns.IsValid)
             {
@@ -72,8 +80,8 @@ namespace StudiesPlans.Controllers
             Institute inst = InstituteController.Instance.GetInstitute(subject.Institute, departamentId);
             int instituteId = inst == null ? 0 : inst.InstituteID;
 
-            return this.repository.GetSubjectData(subject.Name, departamentId, subject.Ects, 
-                facultyId, instituteId, subject.IsExam, subject.PlanId, subject.SemesterId);
+            return this.repository.GetSubjectDataForEditing(subject.Name, departamentId, subject.Ects, 
+                facultyId, instituteId, subject.IsExam, subject.PlanId, subject.SemesterId, subject.Specializations);
         }
 
         public bool DeleteSubject(SubjectEdit se)
@@ -97,7 +105,20 @@ namespace StudiesPlans.Controllers
                 SubjectsData st = GetSubject(subject);
                 if (st != null && st.SubjectDataID != subject.SubjectId && st.Subject.Name.ToLower().Equals(subject.Name.ToLower())
                     && subject.SemesterId == st.SemesterID)
-                    subject.AddError("Przedmiot o takich danych już istnieje");
+                    subject.AddError("Przedmiot o podanych danych już\nistnieje w planie");
+
+                if (subject.IsElective && subject.IsGeneral)
+                    subject.AddError("Przedmiot nie może być\njednocześnie obowiązkowy i obieralny");
+
+                if (!subject.IsElective && !subject.IsGeneral && (subject.Specializations == null || subject.Specializations.Count() == 0))
+                    subject.AddError("Przedmiot musi być obowiązkowy\nlub obieralny dla wszystkich lub\nprzynajmniej na jednej specjalności");
+
+                if (subject.SubjectTypes == null || subject.SubjectTypes.Count() == 0)
+                    subject.AddError("Przedmiot musi być przypisany\nprzynajmniej do jednego typu");
+
+                if(st != null && st.Ects != subject.Ects && st.SubjectDataID != subject.SubjectId && 
+                    st.Subject.Name.ToLower().Equals(subject.Name.ToLower()))
+                    subject.AddError("Istnieje przedmiot nadrzędny\n o innej liczbie ECTS");
 
                 if (subject.IsValid)
                 {
@@ -130,7 +151,11 @@ namespace StudiesPlans.Controllers
                     st.Ects = subject.Ects;
                     st.IsExam = subject.IsExam;
                     st.SemesterID = subject.SemesterId;
+                    st.IsElective = subject.IsElective;
+                    st.IsGeneral = subject.IsGeneral;
+
                     st.SubjectTypesDatas.Clear();
+
                     foreach (NewSubjectTypeData d in subject.SubjectTypes)
                     {
                         SubjectTypesData std = new SubjectTypesData()
@@ -140,6 +165,20 @@ namespace StudiesPlans.Controllers
                         };
 
                         st.SubjectTypesDatas.Add(std);
+                    }
+
+                    if (subject.Specializations == null)
+                    {
+                        st.SpecializationsData = null;
+                    }
+                    else 
+                    {
+                        st.SpecializationsData = new SpecializationsData()
+                        {
+                            SpecializationID = subject.Specializations.ElementAt(0).SpecializationId,
+                            IsElective = subject.Specializations.ElementAt(0).IsElective,
+                            IsGeneral = subject.Specializations.ElementAt(0).IsGenereal
+                        };
                     }
 
                     this.repository.EditSubject(st);

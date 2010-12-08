@@ -151,29 +151,90 @@ namespace StudiesPlansModels.Models
                     select sd).FirstOrDefault();
         }
 
-        public SubjectsData GetSubjectData(string subjectName, int departamentId, double ects, int facultyId, int instituteId, bool isExam, int planId, int semesterId)
+        public SubjectsData GetSubjectDataForEditing(string subjectName, int departamentId, double ects, int facultyId, int instituteId, bool isExam, int planId, int semesterId, IEnumerable<SpecializationDataEdit> specializations)
         {
             int? instituteId2 = null;
             if (instituteId > 0)
                 instituteId2 = instituteId;
 
-            SubjectsData s = (from SubjectsData sd in SPDatabase.DB.SubjectsDatas
-                              where sd.DepartamentID == departamentId &&
-                              sd.Ects == ects &&
-                              sd.FacultyID == facultyId &&
-                              ((instituteId == 0 && sd.InstituteID == null) ||
-                              sd.InstituteID == instituteId) &&
-                              sd.IsExam == isExam &&
-                              sd.SemesterID == semesterId &&
-                              string.Compare(sd.Subject.Name, subjectName, true) == 0
-                              select sd).FirstOrDefault();
+            IEnumerable<SubjectsData> s = (from SubjectsData sd in SPDatabase.DB.SubjectsDatas
+                                    where sd.DepartamentID == departamentId &&
+                                    //sd.Ects == ects &&
+                                    sd.FacultyID == facultyId &&
+                                    ((instituteId == 0 && sd.InstituteID == null) ||
+                                    sd.InstituteID == instituteId) &&
+                                    //sd.IsExam == isExam &&
+                                    sd.SemesterID == semesterId &&
+                                    string.Compare(sd.Subject.Name, subjectName, true) == 0
+                                    select sd);
 
-            if(s!=null)
-                foreach (Plan p in s.Plans)
+            if (s != null)
+            {
+                foreach (SubjectsData sd in s)
                 {
-                    if (p.PlanID == planId)
-                        return s;
+                    foreach (Plan p in sd.Plans)
+                    {
+                        if (p.PlanID == planId)
+                        {
+                            if (specializations != null && specializations.Count() > 0)
+                            {
+                                if ((sd.SpecializationsData != null &&
+                                    sd.SpecializationsData.IsElective == specializations.ElementAt(0).IsElective &&
+                                    sd.SpecializationsData.IsGeneral == specializations.ElementAt(0).IsGenereal &&
+                                    specializations.ElementAt(0).SpecializationId == sd.SpecializationsData.SpecializationID) ||
+                                    sd.IsGeneral || (specializations.ElementAt(0).IsElective && sd.IsElective))
+                                    return sd;
+                            }
+                            else if (specializations == null && sd.SpecializationsData == null)
+                                return sd;
+                        }
+                    }
                 }
+            }
+
+            return null;
+        }
+
+        public SubjectsData GetSubjectDataForAdding(string subjectName, int departamentId, double ects, int facultyId, int instituteId, bool isExam, int planId, int semesterId, IEnumerable<NewSpecializationData> specializations)
+        {
+            int? instituteId2 = null;
+            if (instituteId > 0)
+                instituteId2 = instituteId;
+
+            IEnumerable<SubjectsData> s = (from SubjectsData sd in SPDatabase.DB.SubjectsDatas
+                                           where sd.DepartamentID == departamentId &&
+                                           //sd.Ects == ects &&
+                                           sd.FacultyID == facultyId &&
+                                           ((instituteId == 0 && sd.InstituteID == null) ||
+                                           sd.InstituteID == instituteId) &&
+                                           //sd.IsExam == isExam &&
+                                           sd.SemesterID == semesterId &&
+                                           string.Compare(sd.Subject.Name, subjectName, true) == 0
+                                           select sd);
+
+            if (s != null)
+            {
+                foreach (SubjectsData sd in s)
+                {
+                    foreach (Plan p in sd.Plans)
+                    {
+                        if (p.PlanID == planId)
+                        {
+                            if (specializations != null && specializations.Count() > 0)
+                            {
+                                if ((sd.SpecializationsData != null &&
+                                    sd.SpecializationsData.IsElective == specializations.ElementAt(0).IsElective &&
+                                    sd.SpecializationsData.IsGeneral == specializations.ElementAt(0).IsGenereal &&
+                                    specializations.ElementAt(0).SpecializationId == sd.SpecializationsData.SpecializationID) ||
+                                    sd.IsGeneral || (specializations.ElementAt(0).IsElective && sd.IsElective))
+                                    return sd;
+                            }
+                            else if(specializations == null && sd.SpecializationsData == null)
+                                return sd;
+                        }
+                    }
+                }
+            }
 
             return null;
         }
