@@ -19,6 +19,8 @@ namespace StudiesPlans.Views
         public static Plan LoadedPlan = null;
         PdfPage page = new PdfPage();
         public static Plan ArchivedPlan = null;
+
+        public static Plan PreviewPlan = null;
         public List<string> types = null;
 
         public MainForm(User user)
@@ -33,6 +35,7 @@ namespace StudiesPlans.Views
             lUserName.Text += user.Name;
             logged = user;
             CreateSubjectGrid();
+            FillZoom();
         }
 
         private void CreateSubjectGrid()
@@ -319,10 +322,16 @@ namespace StudiesPlans.Views
                 LoadPlanToGrid(LoadedPlan, false);               
         }
 
+        private void btnPlanEdit_Click(object sender, EventArgs e)
+        {
+            if (LoadedPlan != null)
+                new PlanEdit(LoadedPlan).ShowDialog();
+        }
+
         private void btnLoadPlan_Click(object sender, EventArgs e)
         {
             Plan oldPlan = LoadedPlan;
-            new PlansLoad(false).ShowDialog();
+            new PlansLoad(false, false).ShowDialog();
             if ((oldPlan != null && oldPlan.PlanID != LoadedPlan.PlanID) || (oldPlan == null && LoadedPlan != null))
             {
                 LoadPlanToGrid(LoadedPlan, false);
@@ -564,12 +573,20 @@ namespace StudiesPlans.Views
 
         #region Preview
 
-        private void button1_Click(object sender, EventArgs e)
+        private void FillZoom()
         {
-            if (LoadedPlan != null)
+            for (int i = 25; i <= 800; i += 25)
+                dlZoom.Items.Add(i.ToString());
+            dlZoom.SelectedIndex = 3;
+        }
+
+        private void btnShowPreview_Click(object sender, EventArgs e)
+        {
+            new PlansLoad(false, true).ShowDialog();
+            if (PreviewPlan != null)
             {
                 RenderPdf render = new RenderPdf();
-                render.LoadedPlan = LoadedPlan;
+                render.LoadedPlan = PreviewPlan;
                 pagePreview1.SetRenderEvent(render.Render);
                 PdfDocument pdf = new PdfDocument();
                 page = pdf.AddPage();
@@ -577,17 +594,32 @@ namespace StudiesPlans.Views
                 XGraphics gfx = XGraphics.FromPdfPage(page);
                 render.Render(gfx);
                 page.Width = new XUnit(render.Width);
-                pdf.Save(@"C:\first.pdf");
                 pagePreview1.PageSize = new XSize(render.Width, pagePreview1.PageSize.Height);
             }
-
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void dlZoom_SelectedIndexChanged(object sender, Telerik.WinControls.UI.Data.PositionChangedEventArgs e)
         {
             int zoom = 0;
-            int.TryParse(textBox1.Text, out zoom);
+            int.TryParse(dlZoom.SelectedItem.ToString(), out zoom);
             pagePreview1.ZoomPercent = zoom;
+        }
+
+        private void btnExportPdf_Click(object sender, EventArgs e)
+        {
+            if (PreviewPlan != null && dlgSavePdf.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                RenderPdf render = new RenderPdf();
+                render.LoadedPlan = LoadedPlan;
+                PdfDocument pdf = new PdfDocument();
+                page = pdf.AddPage();
+                XGraphics gfx = XGraphics.FromPdfPage(page);
+                render.Render(gfx);
+                page.Width = new XUnit(render.Width);
+                pdf.Save(dlgSavePdf.FileName);
+            }
+            else
+                RadMessageBox.Show("Wczytaj plan", "Wiadomoœæ");
         }
 
         #endregion
@@ -604,7 +636,7 @@ namespace StudiesPlans.Views
         private void btnLoadArchivePlan_Click(object sender, EventArgs e)
         {
             Plan oldPlan = ArchivedPlan;
-            new PlansLoad(true).ShowDialog();
+            new PlansLoad(true, false).ShowDialog();
             if ((oldPlan != null && oldPlan.PlanID != ArchivedPlan.PlanID) || (oldPlan == null && ArchivedPlan != null))
             {
                 LoadPlanToGrid(ArchivedPlan, true);
@@ -630,5 +662,6 @@ namespace StudiesPlans.Views
         }
 
         #endregion
+
     }
 }

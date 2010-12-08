@@ -136,6 +136,7 @@ namespace StudiesPlans.Views
                 added = true;
                 addedPlan = PlanController.Instance.GetPlan(tbPlanName.Text);
                 Clear();
+                this.Close();
             }
             else
             { 

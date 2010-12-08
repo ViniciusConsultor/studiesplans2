@@ -79,5 +79,11 @@ namespace StudiesPlansModels.Repositories
                     select p);
             return query;
         }
+
+        public void EditPlan(Plan plan)
+        {
+            if (plan != null)
+                SPDatabase.DB.SaveChanges();
+        }
     }
 }

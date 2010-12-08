@@ -22,5 +22,7 @@ namespace StudiesPlansModels.Repositories.Interfaces
         IEnumerable<Plan> ListArchivedPlans();
 
         IEnumerable<Plan> ListPlans(PlanFilter filter);
+
+        void EditPlan(Plan plan);
     }
 }

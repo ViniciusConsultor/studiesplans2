@@ -154,5 +154,18 @@ namespace StudiesPlans.Controllers
         {
             return this.repository.ListPlans(filter).ToList();
         }
+
+        public bool EditPlan(Plan LoadedPlan)
+        {
+            try
+            {
+                this.repository.EditPlan(LoadedPlan);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
     }
 }

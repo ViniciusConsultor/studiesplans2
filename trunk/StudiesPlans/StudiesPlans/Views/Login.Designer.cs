@@ -61,7 +61,7 @@ namespace StudiesPlans.Views
             this.gbLogin.HeaderImageIndex = -1;
             this.gbLogin.HeaderImageKey = "";
             this.gbLogin.HeaderMargin = new System.Windows.Forms.Padding(0);
-            this.gbLogin.HeaderText = "Login";
+            this.gbLogin.HeaderText = "Zaloguj siê";
             this.gbLogin.Location = new System.Drawing.Point(12, 3);
             this.gbLogin.Name = "gbLogin";
             this.gbLogin.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
@@ -71,7 +71,7 @@ namespace StudiesPlans.Views
             this.gbLogin.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
             this.gbLogin.Size = new System.Drawing.Size(240, 145);
             this.gbLogin.TabIndex = 2;
-            this.gbLogin.Text = "Login";
+            this.gbLogin.Text = "Zaloguj siê";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.gbLogin.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             // 
             // tPassword
@@ -80,7 +80,7 @@ namespace StudiesPlans.Views
             this.tPassword.Name = "tPassword";
             this.tPassword.PasswordChar = '*';
             this.tPassword.Size = new System.Drawing.Size(158, 20);
-            this.tPassword.TabIndex = 16;
+            this.tPassword.TabIndex = 1;
             this.tPassword.TabStop = false;
             this.tPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tPassword_KeyDown);
             // 
@@ -105,7 +105,7 @@ namespace StudiesPlans.Views
             this.tUsername.Location = new System.Drawing.Point(71, 23);
             this.tUsername.Name = "tUsername";
             this.tUsername.Size = new System.Drawing.Size(158, 20);
-            this.tUsername.TabIndex = 15;
+            this.tUsername.TabIndex = 0;
             this.tUsername.TabStop = false;
             this.tUsername.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tUsername_KeyDown);
             // 
@@ -120,10 +120,10 @@ namespace StudiesPlans.Views
             // 
             this.bCancel.RootElement.ForeColor = System.Drawing.Color.Black;
             this.bCancel.Size = new System.Drawing.Size(95, 24);
-            this.bCancel.TabIndex = 14;
-            this.bCancel.Text = "Anuluj";
+            this.bCancel.TabIndex = 3;
+            this.bCancel.Text = "Zamknij";
             this.bCancel.Click += new System.EventHandler(this.bCancel_Click);
-            ((Telerik.WinControls.UI.RadButtonElement)(this.bCancel.GetChildAt(0))).Text = "Anuluj";
+            ((Telerik.WinControls.UI.RadButtonElement)(this.bCancel.GetChildAt(0))).Text = "Zamknij";
             // 
             // bLogin
             // 
@@ -138,7 +138,7 @@ namespace StudiesPlans.Views
             this.bLogin.RootElement.ShouldPaint = false;
             this.bLogin.RootElement.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             this.bLogin.Size = new System.Drawing.Size(95, 24);
-            this.bLogin.TabIndex = 13;
+            this.bLogin.TabIndex = 2;
             this.bLogin.Text = "Zaloguj";
             this.bLogin.Click += new System.EventHandler(this.bLogin_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.bLogin.GetChildAt(0))).Text = "Zaloguj";
@@ -159,6 +159,7 @@ namespace StudiesPlans.Views
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(264, 160);
             this.Controls.Add(this.gbLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
@@ -167,7 +168,7 @@ namespace StudiesPlans.Views
             // 
             this.RootElement.ApplyShapeToControl = true;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login";
+            this.Text = "Logowanie";
             this.ThemeName = "ControlDefault";
             ((System.ComponentModel.ISupportInitialize)(this.gbLogin)).EndInit();
             this.gbLogin.ResumeLayout(false);

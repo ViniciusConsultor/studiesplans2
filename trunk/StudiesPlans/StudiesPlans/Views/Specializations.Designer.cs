@@ -111,8 +111,7 @@ namespace StudiesPlans.Views
             this.tbNewSpecializationName.Location = new System.Drawing.Point(92, 38);
             this.tbNewSpecializationName.Name = "tbNewSpecializationName";
             this.tbNewSpecializationName.Size = new System.Drawing.Size(163, 20);
-            this.tbNewSpecializationName.TabIndex = 27;
-            this.tbNewSpecializationName.TabStop = false;
+            this.tbNewSpecializationName.TabIndex = 0;
             // 
             // btnFacultiesManagement
             // 
@@ -123,7 +122,7 @@ namespace StudiesPlans.Views
             this.btnFacultiesManagement.Location = new System.Drawing.Point(66, 90);
             this.btnFacultiesManagement.Name = "btnFacultiesManagement";
             this.btnFacultiesManagement.Size = new System.Drawing.Size(20, 20);
-            this.btnFacultiesManagement.TabIndex = 22;
+            this.btnFacultiesManagement.TabIndex = 3;
             this.btnFacultiesManagement.Click += new System.EventHandler(this.btnFacultiesManagement_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnFacultiesManagement.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnFacultiesManagement.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -137,7 +136,7 @@ namespace StudiesPlans.Views
             this.btnDepartamentsMngmt.Location = new System.Drawing.Point(66, 64);
             this.btnDepartamentsMngmt.Name = "btnDepartamentsMngmt";
             this.btnDepartamentsMngmt.Size = new System.Drawing.Size(20, 20);
-            this.btnDepartamentsMngmt.TabIndex = 22;
+            this.btnDepartamentsMngmt.TabIndex = 1;
             this.btnDepartamentsMngmt.Click += new System.EventHandler(this.btnDepartamentsMngmt_Click);
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnDepartamentsMngmt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
             ((Telerik.WinControls.UI.RadButtonElement)(this.btnDepartamentsMngmt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
@@ -164,7 +163,7 @@ namespace StudiesPlans.Views
             this.lstFaculties.Location = new System.Drawing.Point(92, 90);
             this.lstFaculties.Name = "lstFaculties";
             this.lstFaculties.Size = new System.Drawing.Size(163, 20);
-            this.lstFaculties.TabIndex = 24;
+            this.lstFaculties.TabIndex = 4;
             // 
             // lstDepartaments
             // 
@@ -172,7 +171,7 @@ namespace StudiesPlans.Views
             this.lstDepartaments.Location = new System.Drawing.Point(92, 64);
             this.lstDepartaments.Name = "lstDepartaments";
             this.lstDepartaments.Size = new System.Drawing.Size(163, 20);
-            this.lstDepartaments.TabIndex = 23;
+            this.lstDepartaments.TabIndex = 2;
             this.lstDepartaments.SelectedIndexChanged += new Telerik.WinControls.UI.Data.PositionChangedEventHandler(this.lstDepartaments_SelectedIndexChanged);
             // 
             // lblValidation
@@ -201,7 +200,7 @@ namespace StudiesPlans.Views
             // 
             this.btnDelete.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.Size = new System.Drawing.Size(57, 33);
-            this.btnDelete.TabIndex = 20;
+            this.btnDelete.TabIndex = 8;
             this.btnDelete.Text = "Usuñ";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -218,7 +217,7 @@ namespace StudiesPlans.Views
             // 
             this.btnSave.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnSave.Size = new System.Drawing.Size(57, 33);
-            this.btnSave.TabIndex = 19;
+            this.btnSave.TabIndex = 7;
             this.btnSave.Text = "Zapisz";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -235,7 +234,7 @@ namespace StudiesPlans.Views
             // 
             this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Size = new System.Drawing.Size(57, 33);
-            this.btnCancel.TabIndex = 18;
+            this.btnCancel.TabIndex = 6;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -251,7 +250,7 @@ namespace StudiesPlans.Views
             // 
             this.btnAdd.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnAdd.Size = new System.Drawing.Size(57, 33);
-            this.btnAdd.TabIndex = 17;
+            this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -285,8 +284,12 @@ namespace StudiesPlans.Views
             this.gridSpecializations.MasterTemplate.ShowRowHeaderColumn = false;
             this.gridSpecializations.Name = "gridSpecializations";
             this.gridSpecializations.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            // 
+            // 
+            // 
+            this.gridSpecializations.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.gridSpecializations.Size = new System.Drawing.Size(340, 253);
-            this.gridSpecializations.TabIndex = 7;
+            this.gridSpecializations.TabIndex = 9;
             this.gridSpecializations.Text = "radGridView1";
             this.gridSpecializations.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.gridSpecializations_CellDoubleClick);
             // 
@@ -297,6 +300,7 @@ namespace StudiesPlans.Views
             this.ClientSize = new System.Drawing.Size(638, 277);
             this.Controls.Add(this.gridSpecializations);
             this.Controls.Add(this.radGroupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Specializations";
@@ -304,7 +308,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zarz¹dzanie specjalnoœciami";
             this.ThemeName = "ControlDefault";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Specializations_FormClosing);

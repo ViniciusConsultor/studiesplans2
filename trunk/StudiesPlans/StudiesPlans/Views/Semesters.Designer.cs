@@ -97,7 +97,7 @@ namespace StudiesPlans.Views
             this.tbNewSemesterYear.Location = new System.Drawing.Point(112, 89);
             this.tbNewSemesterYear.Name = "tbNewSemesterYear";
             this.tbNewSemesterYear.Size = new System.Drawing.Size(119, 20);
-            this.tbNewSemesterYear.TabIndex = 24;
+            this.tbNewSemesterYear.TabIndex = 2;
             this.tbNewSemesterYear.TabStop = false;
             // 
             // tbNewSemestrNo
@@ -105,7 +105,7 @@ namespace StudiesPlans.Views
             this.tbNewSemestrNo.Location = new System.Drawing.Point(112, 63);
             this.tbNewSemestrNo.Name = "tbNewSemestrNo";
             this.tbNewSemestrNo.Size = new System.Drawing.Size(119, 20);
-            this.tbNewSemestrNo.TabIndex = 24;
+            this.tbNewSemestrNo.TabIndex = 1;
             this.tbNewSemestrNo.TabStop = false;
             // 
             // radLabel3
@@ -128,16 +128,16 @@ namespace StudiesPlans.Views
             // 
             this.radLabel1.Location = new System.Drawing.Point(13, 37);
             this.radLabel1.Name = "radLabel1";
-            this.radLabel1.Size = new System.Drawing.Size(39, 18);
+            this.radLabel1.Size = new System.Drawing.Size(42, 18);
             this.radLabel1.TabIndex = 24;
-            this.radLabel1.Text = "Nazwa";
+            this.radLabel1.Text = "Nazwa:";
             // 
             // tbNewSemesterName
             // 
             this.tbNewSemesterName.Location = new System.Drawing.Point(112, 37);
             this.tbNewSemesterName.Name = "tbNewSemesterName";
             this.tbNewSemesterName.Size = new System.Drawing.Size(119, 20);
-            this.tbNewSemesterName.TabIndex = 23;
+            this.tbNewSemesterName.TabIndex = 0;
             this.tbNewSemesterName.TabStop = false;
             // 
             // lblValidation
@@ -166,7 +166,7 @@ namespace StudiesPlans.Views
             // 
             this.btnDelete.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.Size = new System.Drawing.Size(50, 33);
-            this.btnDelete.TabIndex = 20;
+            this.btnDelete.TabIndex = 6;
             this.btnDelete.Text = "Usuñ";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -183,7 +183,7 @@ namespace StudiesPlans.Views
             // 
             this.btnSave.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnSave.Size = new System.Drawing.Size(50, 33);
-            this.btnSave.TabIndex = 19;
+            this.btnSave.TabIndex = 5;
             this.btnSave.Text = "Zapisz";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
@@ -200,7 +200,7 @@ namespace StudiesPlans.Views
             // 
             this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Size = new System.Drawing.Size(50, 33);
-            this.btnCancel.TabIndex = 18;
+            this.btnCancel.TabIndex = 4;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -216,7 +216,7 @@ namespace StudiesPlans.Views
             // 
             this.btnAdd.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnAdd.Size = new System.Drawing.Size(50, 33);
-            this.btnAdd.TabIndex = 17;
+            this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -235,14 +235,14 @@ namespace StudiesPlans.Views
             gridViewTextBoxColumn1.FormatString = "";
             gridViewTextBoxColumn1.HeaderText = "Nazwa";
             gridViewTextBoxColumn1.Name = "cName";
-            gridViewTextBoxColumn1.Width = 120;
+            gridViewTextBoxColumn1.Width = 121;
             gridViewTextBoxColumn2.FormatString = "";
             gridViewTextBoxColumn2.HeaderText = "Numer";
             gridViewTextBoxColumn2.Name = "cNo";
             gridViewTextBoxColumn3.FormatString = "";
             gridViewTextBoxColumn3.HeaderText = "Rok";
             gridViewTextBoxColumn3.Name = "cYear";
-            gridViewTextBoxColumn3.Width = 43;
+            gridViewTextBoxColumn3.Width = 42;
             this.dgSemesters.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
@@ -258,7 +258,7 @@ namespace StudiesPlans.Views
             this.dgSemesters.RootElement.ToolTipText = "Kliknij dwukrotnie element, aby edytowaæ";
             this.dgSemesters.ShowGroupPanel = false;
             this.dgSemesters.Size = new System.Drawing.Size(214, 252);
-            this.dgSemesters.TabIndex = 4;
+            this.dgSemesters.TabIndex = 7;
             this.dgSemesters.Text = "radGridView1";
             this.dgSemesters.CellDoubleClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.dgSemesters_CellDoubleClick);
             // 
@@ -269,6 +269,7 @@ namespace StudiesPlans.Views
             this.ClientSize = new System.Drawing.Size(488, 277);
             this.Controls.Add(this.dgSemesters);
             this.Controls.Add(this.radGroupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Semesters";
@@ -276,7 +277,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zarz¹dzanie semestrami";
             this.ThemeName = "ControlDefault";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Semesters_FormClosing);

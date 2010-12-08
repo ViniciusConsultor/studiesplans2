@@ -92,34 +92,34 @@ namespace StudiesPlans.Views
             this.tbNewSubjectTypeName.Location = new System.Drawing.Point(80, 36);
             this.tbNewSubjectTypeName.Name = "tbNewSubjectTypeName";
             this.tbNewSubjectTypeName.Size = new System.Drawing.Size(144, 20);
-            this.tbNewSubjectTypeName.TabIndex = 9;
+            this.tbNewSubjectTypeName.TabIndex = 0;
             this.tbNewSubjectTypeName.TabStop = false;
             // 
             // btnSave
             // 
             this.btnSave.ForeColor = System.Drawing.Color.Black;
-            this.btnSave.Location = new System.Drawing.Point(177, 217);
+            this.btnSave.Location = new System.Drawing.Point(120, 217);
             this.btnSave.Name = "btnSave";
             // 
             // 
             // 
             this.btnSave.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnSave.Size = new System.Drawing.Size(51, 31);
-            this.btnSave.TabIndex = 7;
+            this.btnSave.TabIndex = 3;
             this.btnSave.Text = "Zapisz";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // btnDelete
             // 
             this.btnDelete.ForeColor = System.Drawing.Color.Black;
-            this.btnDelete.Location = new System.Drawing.Point(120, 217);
+            this.btnDelete.Location = new System.Drawing.Point(177, 217);
             this.btnDelete.Name = "btnDelete";
             // 
             // 
             // 
             this.btnDelete.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.Size = new System.Drawing.Size(51, 31);
-            this.btnDelete.TabIndex = 8;
+            this.btnDelete.TabIndex = 4;
             this.btnDelete.Text = "Usuñ";
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -133,7 +133,7 @@ namespace StudiesPlans.Views
             // 
             this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Size = new System.Drawing.Size(51, 31);
-            this.btnCancel.TabIndex = 7;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -147,7 +147,7 @@ namespace StudiesPlans.Views
             // 
             this.btnAdd.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnAdd.Size = new System.Drawing.Size(51, 31);
-            this.btnAdd.TabIndex = 6;
+            this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -168,7 +168,7 @@ namespace StudiesPlans.Views
             this.listSubjectTypes.Location = new System.Drawing.Point(12, 13);
             this.listSubjectTypes.Name = "listSubjectTypes";
             this.listSubjectTypes.Size = new System.Drawing.Size(163, 252);
-            this.listSubjectTypes.TabIndex = 4;
+            this.listSubjectTypes.TabIndex = 5;
             this.listSubjectTypes.Text = "radListControl1";
             this.listSubjectTypes.DoubleClick += new System.EventHandler(this.listSubjectTypes_DoubleClick);
             // 
@@ -179,6 +179,7 @@ namespace StudiesPlans.Views
             this.ClientSize = new System.Drawing.Size(434, 277);
             this.Controls.Add(this.radGroupBox1);
             this.Controls.Add(this.listSubjectTypes);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SubjectTypes";
@@ -186,7 +187,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Typy przedmiotów";
             this.ThemeName = "ControlDefault";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.SubjectTypes_FormClosing);

@@ -93,7 +93,7 @@ namespace StudiesPlans.Views
             this.tbNewRoleName.Location = new System.Drawing.Point(100, 28);
             this.tbNewRoleName.Name = "tbNewRoleName";
             this.tbNewRoleName.Size = new System.Drawing.Size(155, 20);
-            this.tbNewRoleName.TabIndex = 25;
+            this.tbNewRoleName.TabIndex = 0;
             // 
             // label1
             // 
@@ -111,7 +111,7 @@ namespace StudiesPlans.Views
             this.clbPrivilages.Location = new System.Drawing.Point(100, 56);
             this.clbPrivilages.Name = "clbPrivilages";
             this.clbPrivilages.Size = new System.Drawing.Size(155, 106);
-            this.clbPrivilages.TabIndex = 23;
+            this.clbPrivilages.TabIndex = 1;
             // 
             // lblValidation
             // 
@@ -139,7 +139,7 @@ namespace StudiesPlans.Views
             // 
             this.btnDelete.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnDelete.Size = new System.Drawing.Size(57, 33);
-            this.btnDelete.TabIndex = 20;
+            this.btnDelete.TabIndex = 5;
             this.btnDelete.Text = "Usuñ";
             this.btnDelete.Click += new System.EventHandler(this.btnDeleteRole_Click);
             // 
@@ -156,7 +156,7 @@ namespace StudiesPlans.Views
             // 
             this.btnSave.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnSave.Size = new System.Drawing.Size(57, 33);
-            this.btnSave.TabIndex = 19;
+            this.btnSave.TabIndex = 4;
             this.btnSave.Text = "Zapisz";
             this.btnSave.Click += new System.EventHandler(this.btnUpdate_Click);
             // 
@@ -173,7 +173,7 @@ namespace StudiesPlans.Views
             // 
             this.btnCancel.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnCancel.Size = new System.Drawing.Size(57, 33);
-            this.btnCancel.TabIndex = 18;
+            this.btnCancel.TabIndex = 3;
             this.btnCancel.Text = "Anuluj";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
@@ -189,7 +189,7 @@ namespace StudiesPlans.Views
             // 
             this.btnAdd.RootElement.ForeColor = System.Drawing.Color.Black;
             this.btnAdd.Size = new System.Drawing.Size(57, 33);
-            this.btnAdd.TabIndex = 17;
+            this.btnAdd.TabIndex = 2;
             this.btnAdd.Text = "Dodaj";
             this.btnAdd.Click += new System.EventHandler(this.btnAddRole_Click);
             // 
@@ -200,7 +200,7 @@ namespace StudiesPlans.Views
             this.listRoles.Name = "listRoles";
             this.listRoles.Size = new System.Drawing.Size(185, 252);
             this.listRoles.SortStyle = Telerik.WinControls.Enumerations.SortStyle.Ascending;
-            this.listRoles.TabIndex = 3;
+            this.listRoles.TabIndex = 6;
             this.listRoles.Text = "radListControl1";
             this.listRoles.DoubleClick += new System.EventHandler(this.listRoles_DoubleClick);
             ((Telerik.WinControls.UI.RadListElement)(this.listRoles.GetChildAt(0))).CaseSensitiveSort = true;
@@ -212,6 +212,7 @@ namespace StudiesPlans.Views
             this.ClientSize = new System.Drawing.Size(488, 277);
             this.Controls.Add(this.listRoles);
             this.Controls.Add(this.radGroupBox1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Roles";
@@ -219,7 +220,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.RootElement.ApplyShapeToControl = true;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Zarz¹dzanie rolami";
             this.ThemeName = "ControlDefault";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Roles_FormClosing);
