@@ -316,6 +316,14 @@ namespace StudiesPlans.Views
 
         #region Plans
 
+        private void btnEditInfo_Click(object sender, EventArgs e)
+        {
+            if (LoadedPlan != null)
+                new PlanInfo(LoadedPlan).ShowDialog();
+            else
+                RadMessageBox.Show("Wczytaj plan", "Wiadomoœæ");
+        }
+
         private void btnNewPlan_Click(object sender, EventArgs e)
         {
             if (new Plans(logged).ShowDialog() == DialogResult.Yes && LoadedPlan != null)
@@ -634,9 +642,25 @@ namespace StudiesPlans.Views
                 RadMessageBox.Show("Wczytaj plan", "Wiadomoœæ");
         }
 
+        private void radButton1_Click(object sender, EventArgs e)
+        {
+            if (PreviewPlan != null)
+                new PlanInfo(PreviewPlan).ShowDialog();
+            else
+                RadMessageBox.Show("Wczytaj plan", "Wiadomoœæ");
+        }
+
         #endregion
 
         #region Archive
+
+        private void btnArchieveInfo_Click(object sender, EventArgs e)
+        {
+            if (ArchivedPlan != null)
+                new PlanInfo(ArchivedPlan).ShowDialog();
+            else
+                RadMessageBox.Show("Wczytaj plan", "Wiadomoœæ");
+        }
 
         private void btnLoadArchivePlan_Click(object sender, EventArgs e)
         {
