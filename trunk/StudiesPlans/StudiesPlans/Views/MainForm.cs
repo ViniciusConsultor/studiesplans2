@@ -618,7 +618,7 @@ namespace StudiesPlans.Views
             if (PreviewPlan != null && dlgSavePdf.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
                 RenderPdf render = new RenderPdf();
-                render.LoadedPlan = LoadedPlan;
+                render.LoadedPlan = PreviewPlan;
                 PdfDocument pdf = new PdfDocument();
                 page = pdf.AddPage();
                 XGraphics gfx = XGraphics.FromPdfPage(page);
