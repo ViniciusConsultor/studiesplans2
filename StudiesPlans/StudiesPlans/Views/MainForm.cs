@@ -618,7 +618,19 @@ namespace StudiesPlans.Views
                 page.Width = new XUnit(render.Width);
                 pdf.Save(dlgSavePdf.FileName);
             }
-            else
+            else if(PreviewPlan == null)
+                RadMessageBox.Show("Wczytaj plan", "Wiadomoœæ");
+        }
+
+        private void btnExportXML_Click(object sender, EventArgs e)
+        {
+            if (PreviewPlan != null && dlgSaveXml.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                XmlPlan plantToXml = new XmlPlan(PreviewPlan);
+                plantToXml.CreateXmlDocument();
+                plantToXml.SaveXmlDocument(dlgSaveXml.FileName);
+            }
+            else if (PreviewPlan == null)
                 RadMessageBox.Show("Wczytaj plan", "Wiadomoœæ");
         }
 
@@ -626,33 +638,20 @@ namespace StudiesPlans.Views
 
         #region Archive
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            XmlPlan plantToXml = new XmlPlan(LoadedPlan);
-            plantToXml.CreateXmlDocument();
-            plantToXml.SaveXmlDocument(@"C:\text.xml");
-        }
-
         private void btnLoadArchivePlan_Click(object sender, EventArgs e)
         {
             Plan oldPlan = ArchivedPlan;
             new PlansLoad(true, false).ShowDialog();
             if ((oldPlan != null && oldPlan.PlanID != ArchivedPlan.PlanID) || (oldPlan == null && ArchivedPlan != null))
-            {
                 LoadPlanToGrid(ArchivedPlan, true);
-            }
         }
 
         private void CopyFromArchive()
         {
             if (ArchivedPlan != null)
-            {
                 PlanController.Instance.CopyArchivePlan(ArchivedPlan.PlanID, LoadedPlan.PlanID);
-            }
             else
-            {
                 RadMessageBox.Show("Nale¿y wybraæ plan archiwalny", "B³¹d");
-            }
         }
 
         private void btnCopyArchivePlan_Click(object sender, EventArgs e)

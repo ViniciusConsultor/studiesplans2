@@ -49,11 +49,42 @@ namespace StudiesPlans.Xml
             
             // without spec first
             xml.AppendLine("<specjalnosc nazwa=\"\">");
+            float wyklad = 0;
+            float cwiczenia = 0;
+            float lab = 0;
+            float projekt = 0;
+            float seminarium = 0;
+            float seminariumD = 0;
+            float lektorat = 0;
+            float terenowe = 0;
+            float jezykowe = 0;
 
             foreach (SubjectsData sd in LoadedPlan.SubjectsDatas)
             {
                 if(sd.SpecializationsData==null)
                 {
+                    foreach (SubjectTypesData st in sd.SubjectTypesDatas)
+                    {
+                        if (st.SubjectType.Name.ToLower().Contains("wykład"))
+                            wyklad = (float)st.Hours;
+                        else if (st.SubjectType.Name.ToLower().Contains("ćwiczenia"))
+                            cwiczenia = (float)st.Hours;
+                        else if (st.SubjectType.Name.ToLower().Contains("laboratorium"))
+                            lab = (float)st.Hours;
+                        else if (st.SubjectType.Name.ToLower().Contains("projekt"))
+                            projekt = (float)st.Hours;
+                        else if (st.SubjectType.Name.ToLower().Contains("seminarium"))
+                            seminarium = (float)st.Hours;
+                        else if (st.SubjectType.Name.ToLower().Contains("seminarium d"))
+                            seminariumD = (float)st.Hours;
+                        else if (st.SubjectType.Name.ToLower().Contains("lektorat"))
+                            lektorat = (float)st.Hours;
+                        else if (st.SubjectType.Name.ToLower().Contains("terenowe"))
+                            terenowe = (float)st.Hours;
+                        else if (st.SubjectType.Name.ToLower().Contains("językowe"))
+                            jezykowe = (float)st.Hours;
+                    }
+
                     xml.AppendLine("<przedmiot>");
                     xml.AppendLine("<nazwa>" + sd.Subject.Name + "</nazwa>");
 
@@ -66,16 +97,16 @@ namespace StudiesPlans.Xml
                     string exam = sd.IsExam == true ? "true" : "false";
 
                     xml.AppendLine("<egzamin>" + exam + "</egzamin>");
-                    xml.AppendLine("<siatkaGodzinWyklad>" + 0 + "</siatkaGodzinWyklad>");
-                    xml.AppendLine("<siatkaGodzinCwiczenie>" + 0 + "</siatkaGodzinCwiczenie>");
-                    xml.AppendLine("<siatkaGodzinLaboratorium>" + 0 + "</siatkaGodzinLaboratorium>");
-                    xml.AppendLine("<siatkaGodzinProjekt>" + 0 + "</siatkaGodzinProjekt>");
-                    xml.AppendLine("<siatkaGodzinSeminarium>" + 0 + "</siatkaGodzinSeminarium>");
-                    xml.AppendLine("<siatkaGodzinSeminariumDyplomowe>" + 0 + "</siatkaGodzinSeminariumDyplomowe>");
-                    xml.AppendLine("<siatkaGodzinLektorat>" + 0 + "</siatkaGodzinLektorat>");
+                    xml.AppendLine("<siatkaGodzinWyklad>" + wyklad.ToString() + "</siatkaGodzinWyklad>");
+                    xml.AppendLine("<siatkaGodzinCwiczenie>" + cwiczenia.ToString() + "</siatkaGodzinCwiczenie>");
+                    xml.AppendLine("<siatkaGodzinLaboratorium>" + lab.ToString() + "</siatkaGodzinLaboratorium>");
+                    xml.AppendLine("<siatkaGodzinProjekt>" + projekt.ToString() + "</siatkaGodzinProjekt>");
+                    xml.AppendLine("<siatkaGodzinSeminarium>" + seminarium.ToString() + "</siatkaGodzinSeminarium>");
+                    xml.AppendLine("<siatkaGodzinSeminariumDyplomowe>" + seminariumD.ToString() + "</siatkaGodzinSeminariumDyplomowe>");
+                    xml.AppendLine("<siatkaGodzinLektorat>" + lektorat.ToString() + "</siatkaGodzinLektorat>");
                     xml.AppendLine("<siatkaGodzinWF>" + 0 + "</siatkaGodzinWF>");
-                    xml.AppendLine("<siatkaGodzinZajeciaTerenowe>" + 0 + "</siatkaGodzinZajeciaTerenowe>");
-                    xml.AppendLine("<siatkaGodzinZajeciaJezykowe>" + 0 + "</siatkaGodzinZajeciaJezykowe>");
+                    xml.AppendLine("<siatkaGodzinZajeciaTerenowe>" + terenowe.ToString() + "</siatkaGodzinZajeciaTerenowe>");
+                    xml.AppendLine("<siatkaGodzinZajeciaJezykowe>" + jezykowe.ToString() + "</siatkaGodzinZajeciaJezykowe>");
                     xml.AppendLine("</przedmiot>");
                 }
             }
@@ -92,6 +123,28 @@ namespace StudiesPlans.Xml
                 {
                     if (sd.SpecializationsData != null && name.Equals(sd.SpecializationsData.Specialization.Name))
                     {
+                        foreach (SubjectTypesData st in sd.SubjectTypesDatas)
+                        {
+                            if (st.SubjectType.Name.ToLower().Contains("wykład"))
+                                wyklad = (float)st.Hours;
+                            else if (st.SubjectType.Name.ToLower().Contains("ćwiczenia"))
+                                cwiczenia = (float)st.Hours;
+                            else if (st.SubjectType.Name.ToLower().Contains("laboratorium"))
+                                lab = (float)st.Hours;
+                            else if (st.SubjectType.Name.ToLower().Contains("projekt"))
+                                projekt = (float)st.Hours;
+                            else if (st.SubjectType.Name.ToLower().Contains("seminarium"))
+                                seminarium = (float)st.Hours;
+                            else if (st.SubjectType.Name.ToLower().Contains("seminarium d"))
+                                seminariumD = (float)st.Hours;
+                            else if (st.SubjectType.Name.ToLower().Contains("lektorat"))
+                                lektorat = (float)st.Hours;
+                            else if (st.SubjectType.Name.ToLower().Contains("terenowe"))
+                                terenowe = (float)st.Hours;
+                            else if (st.SubjectType.Name.ToLower().Contains("językowe"))
+                                jezykowe = (float)st.Hours;
+                        }
+
                         xml.AppendLine("<przedmiot>");
                         xml.AppendLine("<nazwa>" + sd.Subject.Name + "</nazwa>");
 
@@ -104,16 +157,16 @@ namespace StudiesPlans.Xml
                         string exam = sd.IsExam == true ? "true" : "false";
 
                         xml.AppendLine("<egzamin>" + exam + "</egzamin>");
-                        xml.AppendLine("<siatkaGodzinWyklad>" + 0 + "</siatkaGodzinWyklad>");
-                        xml.AppendLine("<siatkaGodzinCwiczenie>" + 0 + "</siatkaGodzinCwiczenie>");
-                        xml.AppendLine("<siatkaGodzinLaboratorium>" + 0 + "</siatkaGodzinLaboratorium>");
-                        xml.AppendLine("<siatkaGodzinProjekt>" + 0 + "</siatkaGodzinProjekt>");
-                        xml.AppendLine("<siatkaGodzinSeminarium>" + 0 + "</siatkaGodzinSeminarium>");
-                        xml.AppendLine("<siatkaGodzinSeminariumDyplomowe>" + 0 + "</siatkaGodzinSeminariumDyplomowe>");
-                        xml.AppendLine("<siatkaGodzinLektorat>" + 0 + "</siatkaGodzinLektorat>");
+                        xml.AppendLine("<siatkaGodzinWyklad>" + wyklad.ToString() + "</siatkaGodzinWyklad>");
+                        xml.AppendLine("<siatkaGodzinCwiczenie>" + cwiczenia.ToString() + "</siatkaGodzinCwiczenie>");
+                        xml.AppendLine("<siatkaGodzinLaboratorium>" + lab.ToString() + "</siatkaGodzinLaboratorium>");
+                        xml.AppendLine("<siatkaGodzinProjekt>" + projekt.ToString() + "</siatkaGodzinProjekt>");
+                        xml.AppendLine("<siatkaGodzinSeminarium>" + seminarium.ToString() + "</siatkaGodzinSeminarium>");
+                        xml.AppendLine("<siatkaGodzinSeminariumDyplomowe>" + seminariumD.ToString() + "</siatkaGodzinSeminariumDyplomowe>");
+                        xml.AppendLine("<siatkaGodzinLektorat>" + lektorat.ToString() + "</siatkaGodzinLektorat>");
                         xml.AppendLine("<siatkaGodzinWF>" + 0 + "</siatkaGodzinWF>");
-                        xml.AppendLine("<siatkaGodzinZajeciaTerenowe>" + 0 + "</siatkaGodzinZajeciaTerenowe>");
-                        xml.AppendLine("<siatkaGodzinZajeciaJezykowe>" + 0 + "</siatkaGodzinZajeciaJezykowe>");
+                        xml.AppendLine("<siatkaGodzinZajeciaTerenowe>" + terenowe.ToString() + "</siatkaGodzinZajeciaTerenowe>");
+                        xml.AppendLine("<siatkaGodzinZajeciaJezykowe>" + jezykowe.ToString() + "</siatkaGodzinZajeciaJezykowe>");
                         xml.AppendLine("</przedmiot>");
                     }
                 }
