@@ -16,6 +16,7 @@ namespace StudiesPlans.Views
     public partial class PlansLoad : Telerik.WinControls.UI.RadForm
     {
         public bool IsArchive { get; set; }
+        public bool IsPreview { get; set; }
 
         public PlansLoad(bool archive, bool preview)
         {
@@ -31,7 +32,16 @@ namespace StudiesPlans.Views
             FillWithFaculties();
             FillWithYears();
 
-            if (this.IsArchive)
+            this.IsPreview = preview;
+
+            if (preview)
+            {
+                rbAll.Enabled = true;
+                rbMandatory.Enabled = true;
+                rbArchived.Enabled = true;
+                rbMandatory.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
+            }
+            else if (this.IsArchive)
             {
                 rbAll.Enabled = false;
                 rbMandatory.Enabled = false;
@@ -150,7 +160,9 @@ namespace StudiesPlans.Views
 
                 if (toLoad != null)
                 {
-                    if (!this.IsArchive)
+                    if(this.IsPreview)
+                        StudiesPlans.Views.MainForm.PreviewPlan = toLoad;
+                    else if (!this.IsArchive)
                         StudiesPlans.Views.MainForm.LoadedPlan = toLoad;
                     else
                         StudiesPlans.Views.MainForm.ArchivedPlan = toLoad;
@@ -195,6 +207,14 @@ namespace StudiesPlans.Views
 
         private void btnClearFilter_Click(object sender, EventArgs e)
         {
+            if (this.IsPreview)
+            {
+                rbAll.Enabled = true;
+                rbMandatory.Enabled = true;
+                rbArchived.Enabled = true;
+                rbMandatory.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
+            }
+            
             if (!this.IsArchive)
                 FillWithPlans(null);
             else
@@ -245,6 +265,26 @@ namespace StudiesPlans.Views
                 FillWithArchive(filter);
             else
                 FillWithPlans(filter);
+        }
+
+        private void rbArchived_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+            if (rbArchived.ToggleState == Telerik.WinControls.Enumerations.ToggleState.On)
+                EnableAll();
+        }
+
+        private void EnableAll()
+        {
+            ckxSemEnd.Enabled = true;
+            ckxSemStart.Enabled = true;
+            ckxYearEnd.Enabled = true;
+            ckxYearStart.Enabled = true;
+
+            cbYearEnd.Enabled = true;
+            cbYearStart.Enabled = true;
+
+            tbSemEnd.Enabled = true;
+            tbSemStart.Enabled = true;
         }
     }
 }

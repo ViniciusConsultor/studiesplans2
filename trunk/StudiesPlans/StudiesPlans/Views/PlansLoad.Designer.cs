@@ -218,6 +218,7 @@ namespace StudiesPlans.Views
             this.rbArchived.Size = new System.Drawing.Size(147, 18);
             this.rbArchived.TabIndex = 15;
             this.rbArchived.Text = "Archiwalne";
+            this.rbArchived.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.rbArchived_ToggleStateChanged);
             // 
             // radLabel6
             // 
