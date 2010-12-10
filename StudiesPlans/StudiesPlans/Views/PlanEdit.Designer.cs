@@ -108,6 +108,7 @@ namespace StudiesPlans.Views
             this.radGroupBox1.Size = new System.Drawing.Size(353, 320);
             this.radGroupBox1.TabIndex = 1;
             this.radGroupBox1.Text = "Edycja planu";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             // 
             // btnClose
             // 

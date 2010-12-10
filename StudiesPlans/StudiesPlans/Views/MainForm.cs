@@ -185,7 +185,7 @@ namespace StudiesPlans.Views
         {
             if (EditUser(userToEdit))
             {
-                btnUpdate.Enabled = false;
+                btnAddUser.Enabled = false;
                 btnCancelEdit.Enabled = false;
                 btnAddUser.Enabled = true;
                 Clear();
@@ -257,9 +257,9 @@ namespace StudiesPlans.Views
                     if (r != null)
                     {
                         int index = 0;
-                        foreach (string role in cbRoles.Items)
+                        foreach (object role in cbRoles.Items)
                         {
-                            if (!role.ToLower().Equals(r.Name.ToLower()))
+                            if (!role.ToString().ToLower().Equals(r.Name.ToLower()))
                                 index++;
                             else
                                 break;
@@ -272,8 +272,8 @@ namespace StudiesPlans.Views
                     tbNewUsername.Text = u.UserName;
                     tbNewPassword.Text = string.Empty;
                     tbNewRepeatPassword.Text = string.Empty;
-                    btnUpdate.Enabled = true;
                     btnAddUser.Enabled = false;
+                    btnUpdate.Enabled = true;
                     btnCancelEdit.Enabled = true;
                 }
                 else
@@ -295,8 +295,8 @@ namespace StudiesPlans.Views
                         {
                             gridUsers.Rows.RemoveAt(e.RowIndex);
                             Clear();
-                            btnUpdate.Enabled = false;
                             btnAddUser.Enabled = true;
+                            btnUpdate.Enabled = false;
                             btnCancelEdit.Enabled = false;
                         }
                     }

@@ -141,6 +141,7 @@ namespace StudiesPlans.Views
             this.radGroupBox1.TabIndex = 0;
             this.radGroupBox1.Text = "Dodaj przedmiot";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             // 
             // radLabel6
             // 
@@ -309,11 +310,11 @@ namespace StudiesPlans.Views
             gridViewTextBoxColumn1.HeaderText = "Typ";
             gridViewTextBoxColumn1.Name = "subjectType";
             gridViewTextBoxColumn1.ReadOnly = true;
-            gridViewTextBoxColumn1.Width = 105;
+            gridViewTextBoxColumn1.Width = 106;
             gridViewTextBoxColumn2.FormatString = "";
             gridViewTextBoxColumn2.HeaderText = "Godziny";
             gridViewTextBoxColumn2.Name = "hours";
-            gridViewTextBoxColumn2.Width = 91;
+            gridViewTextBoxColumn2.Width = 90;
             this.dgSubjectTypes.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2});
