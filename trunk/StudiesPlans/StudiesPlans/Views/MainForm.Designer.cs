@@ -28,29 +28,29 @@ namespace StudiesPlans.Views
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn29 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn30 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn31 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn13 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn32 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn33 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn14 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn15 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn3 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn34 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn35 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn36 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn16 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn37 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn38 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn17 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn18 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn39 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn40 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn41 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn42 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn5 = new Telerik.WinControls.UI.GridViewImageColumn();
-            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn6 = new Telerik.WinControls.UI.GridViewImageColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn4 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn5 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn6 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn13 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn14 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn1 = new Telerik.WinControls.UI.GridViewImageColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn2 = new Telerik.WinControls.UI.GridViewImageColumn();
             this.pages = new Telerik.WinControls.UI.RadPageView();
             this.plancreate = new Telerik.WinControls.UI.RadPageViewPage();
             this.btnEditInfo = new Telerik.WinControls.UI.RadButton();
@@ -75,23 +75,22 @@ namespace StudiesPlans.Views
             this.btnCopyArchivePlan = new Telerik.WinControls.UI.RadButton();
             this.gridArchievePlan = new Telerik.WinControls.UI.RadGridView();
             this.users = new Telerik.WinControls.UI.RadPageViewPage();
-            this.gridUsers = new Telerik.WinControls.UI.RadGridView();
-            this.gbUsers1 = new System.Windows.Forms.GroupBox();
+            this.radGroupBox2 = new Telerik.WinControls.UI.RadGroupBox();
             this.btnUpdate = new Telerik.WinControls.UI.RadButton();
+            this.cbRoles = new Telerik.WinControls.UI.RadDropDownList();
             this.btnCancelEdit = new Telerik.WinControls.UI.RadButton();
-            this.btnAddUser = new Telerik.WinControls.UI.RadButton();
             this.btnRolesMngmt = new System.Windows.Forms.Button();
-            this.lblValidation = new System.Windows.Forms.Label();
-            this.cbRoles = new System.Windows.Forms.ComboBox();
-            this.tbNewEmail = new System.Windows.Forms.TextBox();
-            this.tbNewRepeatPassword = new System.Windows.Forms.TextBox();
-            this.tbNewPassword = new System.Windows.Forms.TextBox();
-            this.tbNewUsername = new System.Windows.Forms.TextBox();
-            this.txtRoleId = new System.Windows.Forms.Label();
-            this.txtNewEmail = new System.Windows.Forms.Label();
-            this.txtNewRepeatPassword = new System.Windows.Forms.Label();
-            this.txtNewPassword = new System.Windows.Forms.Label();
-            this.txtNewUsername = new System.Windows.Forms.Label();
+            this.tbNewEmail = new Telerik.WinControls.UI.RadTextBox();
+            this.btnAddUser = new Telerik.WinControls.UI.RadButton();
+            this.tbNewRepeatPassword = new Telerik.WinControls.UI.RadTextBox();
+            this.tbNewPassword = new Telerik.WinControls.UI.RadTextBox();
+            this.tbNewUsername = new Telerik.WinControls.UI.RadTextBox();
+            this.radLabel4 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel6 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel8 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel10 = new Telerik.WinControls.UI.RadLabel();
+            this.radLabel12 = new Telerik.WinControls.UI.RadLabel();
+            this.gridUsers = new Telerik.WinControls.UI.RadGridView();
             this.radStatusStrip1 = new Telerik.WinControls.UI.RadStatusStrip();
             this.lUserName = new Telerik.WinControls.UI.RadLabelElement();
             this.lRole = new Telerik.WinControls.UI.RadLabelElement();
@@ -119,6 +118,8 @@ namespace StudiesPlans.Views
             this.dlgSaveXml = new System.Windows.Forms.SaveFileDialog();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed = new Telerik.WinControls.RootRadElement();
+            this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.pages)).BeginInit();
             this.pages.SuspendLayout();
             this.plancreate.SuspendLayout();
@@ -143,13 +144,25 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnCopyArchivePlan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridArchievePlan)).BeginInit();
             this.users.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gridUsers)).BeginInit();
-            this.gbUsers1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).BeginInit();
+            this.radGroupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbRoles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelEdit)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewEmail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddUser)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewRepeatPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewPassword)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewUsername)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel12)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radToolStrip1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,13 +178,14 @@ namespace StudiesPlans.Views
             this.pages.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.pages.Location = new System.Drawing.Point(0, 33);
             this.pages.Name = "pages";
-            this.pages.SelectedPage = this.review;
+            this.pages.SelectedPage = this.users;
             this.pages.Size = new System.Drawing.Size(842, 545);
             this.pages.TabIndex = 15;
             this.pages.Text = "radPageView1";
             this.pages.ThemeName = "ControlDefault";
             this.pages.SelectedPageChanged += new System.EventHandler(this.pages_SelectedPageChanged);
             ((Telerik.WinControls.UI.RadPageViewStripElement)(this.pages.GetChildAt(0))).StripButtons = Telerik.WinControls.UI.StripViewButtons.None;
+            ((Telerik.WinControls.UI.RadPageViewContentAreaElement)(this.pages.GetChildAt(0).GetChildAt(1))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
             // 
             // plancreate
             // 
@@ -314,46 +328,46 @@ namespace StudiesPlans.Views
             // 
             // gridPlanSubjects
             // 
-            gridViewTextBoxColumn29.FormatString = "";
-            gridViewTextBoxColumn29.HeaderText = "Nazwa";
-            gridViewTextBoxColumn29.Multiline = true;
-            gridViewTextBoxColumn29.Name = "subjectName";
-            gridViewTextBoxColumn29.Width = 100;
-            gridViewTextBoxColumn30.FormatString = "";
-            gridViewTextBoxColumn30.HeaderText = "Semestr";
-            gridViewTextBoxColumn30.Name = "semester";
-            gridViewTextBoxColumn30.Width = 100;
-            gridViewTextBoxColumn31.FormatString = "";
-            gridViewTextBoxColumn31.HeaderText = "ECTS";
-            gridViewTextBoxColumn31.Name = "ects";
-            gridViewTextBoxColumn31.Width = 100;
-            gridViewCheckBoxColumn13.FormatString = "";
-            gridViewCheckBoxColumn13.HeaderText = "Egzamin";
-            gridViewCheckBoxColumn13.Name = "isExam";
-            gridViewCheckBoxColumn13.Width = 100;
-            gridViewTextBoxColumn32.HeaderText = "Instytut";
-            gridViewTextBoxColumn32.Multiline = true;
-            gridViewTextBoxColumn32.Name = "institute";
-            gridViewTextBoxColumn32.Width = 100;
-            gridViewTextBoxColumn33.HeaderText = "Specializacja";
-            gridViewTextBoxColumn33.Multiline = true;
-            gridViewTextBoxColumn33.Name = "specialization";
-            gridViewTextBoxColumn33.Width = 100;
-            gridViewCheckBoxColumn14.HeaderText = "Obowi¹zkowy";
-            gridViewCheckBoxColumn14.Name = "isGeneral";
-            gridViewCheckBoxColumn14.Width = 100;
-            gridViewCheckBoxColumn15.HeaderText = "Obieralny";
-            gridViewCheckBoxColumn15.Name = "isElective";
-            gridViewCheckBoxColumn15.Width = 100;
+            gridViewTextBoxColumn1.FormatString = "";
+            gridViewTextBoxColumn1.HeaderText = "Nazwa";
+            gridViewTextBoxColumn1.Multiline = true;
+            gridViewTextBoxColumn1.Name = "subjectName";
+            gridViewTextBoxColumn1.Width = 100;
+            gridViewTextBoxColumn2.FormatString = "";
+            gridViewTextBoxColumn2.HeaderText = "Semestr";
+            gridViewTextBoxColumn2.Name = "semester";
+            gridViewTextBoxColumn2.Width = 100;
+            gridViewTextBoxColumn3.FormatString = "";
+            gridViewTextBoxColumn3.HeaderText = "ECTS";
+            gridViewTextBoxColumn3.Name = "ects";
+            gridViewTextBoxColumn3.Width = 100;
+            gridViewCheckBoxColumn1.FormatString = "";
+            gridViewCheckBoxColumn1.HeaderText = "Egzamin";
+            gridViewCheckBoxColumn1.Name = "isExam";
+            gridViewCheckBoxColumn1.Width = 100;
+            gridViewTextBoxColumn4.HeaderText = "Instytut";
+            gridViewTextBoxColumn4.Multiline = true;
+            gridViewTextBoxColumn4.Name = "institute";
+            gridViewTextBoxColumn4.Width = 100;
+            gridViewTextBoxColumn5.HeaderText = "Specializacja";
+            gridViewTextBoxColumn5.Multiline = true;
+            gridViewTextBoxColumn5.Name = "specialization";
+            gridViewTextBoxColumn5.Width = 100;
+            gridViewCheckBoxColumn2.HeaderText = "Obowi¹zkowy";
+            gridViewCheckBoxColumn2.Name = "isGeneral";
+            gridViewCheckBoxColumn2.Width = 100;
+            gridViewCheckBoxColumn3.HeaderText = "Obieralny";
+            gridViewCheckBoxColumn3.Name = "isElective";
+            gridViewCheckBoxColumn3.Width = 100;
             this.gridPlanSubjects.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn29,
-            gridViewTextBoxColumn30,
-            gridViewTextBoxColumn31,
-            gridViewCheckBoxColumn13,
-            gridViewTextBoxColumn32,
-            gridViewTextBoxColumn33,
-            gridViewCheckBoxColumn14,
-            gridViewCheckBoxColumn15});
+            gridViewTextBoxColumn1,
+            gridViewTextBoxColumn2,
+            gridViewTextBoxColumn3,
+            gridViewCheckBoxColumn1,
+            gridViewTextBoxColumn4,
+            gridViewTextBoxColumn5,
+            gridViewCheckBoxColumn2,
+            gridViewCheckBoxColumn3});
             this.gridPlanSubjects.MasterTemplate.EnableGrouping = false;
             this.gridPlanSubjects.MasterTemplate.HorizontalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysShow;
             this.gridPlanSubjects.Name = "gridPlanSubjects";
@@ -537,46 +551,46 @@ namespace StudiesPlans.Views
             // 
             // gridArchievePlan
             // 
-            gridViewTextBoxColumn34.FormatString = "";
-            gridViewTextBoxColumn34.HeaderText = "Nazwa";
-            gridViewTextBoxColumn34.Multiline = true;
-            gridViewTextBoxColumn34.Name = "subjectName";
-            gridViewTextBoxColumn34.Width = 100;
-            gridViewTextBoxColumn35.FormatString = "";
-            gridViewTextBoxColumn35.HeaderText = "Semestr";
-            gridViewTextBoxColumn35.Name = "semester";
-            gridViewTextBoxColumn35.Width = 100;
-            gridViewTextBoxColumn36.FormatString = "";
-            gridViewTextBoxColumn36.HeaderText = "ECTS";
-            gridViewTextBoxColumn36.Name = "ects";
-            gridViewTextBoxColumn36.Width = 100;
-            gridViewCheckBoxColumn16.FormatString = "";
-            gridViewCheckBoxColumn16.HeaderText = "Egzamin";
-            gridViewCheckBoxColumn16.Name = "isExam";
-            gridViewCheckBoxColumn16.Width = 100;
-            gridViewTextBoxColumn37.HeaderText = "Instytut";
-            gridViewTextBoxColumn37.Multiline = true;
-            gridViewTextBoxColumn37.Name = "institute";
-            gridViewTextBoxColumn37.Width = 100;
-            gridViewTextBoxColumn38.HeaderText = "Specializacja";
-            gridViewTextBoxColumn38.Multiline = true;
-            gridViewTextBoxColumn38.Name = "specialization";
-            gridViewTextBoxColumn38.Width = 100;
-            gridViewCheckBoxColumn17.HeaderText = "Obowi¹zkowy";
-            gridViewCheckBoxColumn17.Name = "isGeneral";
-            gridViewCheckBoxColumn17.Width = 100;
-            gridViewCheckBoxColumn18.HeaderText = "Obieralny";
-            gridViewCheckBoxColumn18.Name = "isElective";
-            gridViewCheckBoxColumn18.Width = 100;
+            gridViewTextBoxColumn6.FormatString = "";
+            gridViewTextBoxColumn6.HeaderText = "Nazwa";
+            gridViewTextBoxColumn6.Multiline = true;
+            gridViewTextBoxColumn6.Name = "subjectName";
+            gridViewTextBoxColumn6.Width = 100;
+            gridViewTextBoxColumn7.FormatString = "";
+            gridViewTextBoxColumn7.HeaderText = "Semestr";
+            gridViewTextBoxColumn7.Name = "semester";
+            gridViewTextBoxColumn7.Width = 100;
+            gridViewTextBoxColumn8.FormatString = "";
+            gridViewTextBoxColumn8.HeaderText = "ECTS";
+            gridViewTextBoxColumn8.Name = "ects";
+            gridViewTextBoxColumn8.Width = 100;
+            gridViewCheckBoxColumn4.FormatString = "";
+            gridViewCheckBoxColumn4.HeaderText = "Egzamin";
+            gridViewCheckBoxColumn4.Name = "isExam";
+            gridViewCheckBoxColumn4.Width = 100;
+            gridViewTextBoxColumn9.HeaderText = "Instytut";
+            gridViewTextBoxColumn9.Multiline = true;
+            gridViewTextBoxColumn9.Name = "institute";
+            gridViewTextBoxColumn9.Width = 100;
+            gridViewTextBoxColumn10.HeaderText = "Specializacja";
+            gridViewTextBoxColumn10.Multiline = true;
+            gridViewTextBoxColumn10.Name = "specialization";
+            gridViewTextBoxColumn10.Width = 100;
+            gridViewCheckBoxColumn5.HeaderText = "Obowi¹zkowy";
+            gridViewCheckBoxColumn5.Name = "isGeneral";
+            gridViewCheckBoxColumn5.Width = 100;
+            gridViewCheckBoxColumn6.HeaderText = "Obieralny";
+            gridViewCheckBoxColumn6.Name = "isElective";
+            gridViewCheckBoxColumn6.Width = 100;
             this.gridArchievePlan.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn34,
-            gridViewTextBoxColumn35,
-            gridViewTextBoxColumn36,
-            gridViewCheckBoxColumn16,
-            gridViewTextBoxColumn37,
-            gridViewTextBoxColumn38,
-            gridViewCheckBoxColumn17,
-            gridViewCheckBoxColumn18});
+            gridViewTextBoxColumn6,
+            gridViewTextBoxColumn7,
+            gridViewTextBoxColumn8,
+            gridViewCheckBoxColumn4,
+            gridViewTextBoxColumn9,
+            gridViewTextBoxColumn10,
+            gridViewCheckBoxColumn5,
+            gridViewCheckBoxColumn6});
             this.gridArchievePlan.MasterTemplate.EnableGrouping = false;
             this.gridArchievePlan.MasterTemplate.HorizontalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysShow;
             this.gridArchievePlan.Name = "gridArchievePlan";
@@ -592,12 +606,220 @@ namespace StudiesPlans.Views
             // 
             // users
             // 
+            this.users.AutoSize = true;
+            this.users.Controls.Add(this.radGroupBox2);
             this.users.Controls.Add(this.gridUsers);
-            this.users.Controls.Add(this.gbUsers1);
             this.users.Location = new System.Drawing.Point(10, 37);
             this.users.Name = "users";
             this.users.Size = new System.Drawing.Size(821, 497);
             this.users.Text = "U¿ytkownicy";
+            // 
+            // radGroupBox2
+            // 
+            this.radGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.radGroupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.radGroupBox2.Controls.Add(this.lblValidation);
+            this.radGroupBox2.Controls.Add(this.btnUpdate);
+            this.radGroupBox2.Controls.Add(this.cbRoles);
+            this.radGroupBox2.Controls.Add(this.btnCancelEdit);
+            this.radGroupBox2.Controls.Add(this.btnRolesMngmt);
+            this.radGroupBox2.Controls.Add(this.tbNewEmail);
+            this.radGroupBox2.Controls.Add(this.btnAddUser);
+            this.radGroupBox2.Controls.Add(this.tbNewRepeatPassword);
+            this.radGroupBox2.Controls.Add(this.tbNewPassword);
+            this.radGroupBox2.Controls.Add(this.tbNewUsername);
+            this.radGroupBox2.Controls.Add(this.radLabel4);
+            this.radGroupBox2.Controls.Add(this.radLabel6);
+            this.radGroupBox2.Controls.Add(this.radLabel8);
+            this.radGroupBox2.Controls.Add(this.radLabel10);
+            this.radGroupBox2.Controls.Add(this.radLabel12);
+            this.radGroupBox2.FooterImageIndex = -1;
+            this.radGroupBox2.FooterImageKey = "";
+            this.radGroupBox2.HeaderImageIndex = -1;
+            this.radGroupBox2.HeaderImageKey = "";
+            this.radGroupBox2.HeaderMargin = new System.Windows.Forms.Padding(0);
+            this.radGroupBox2.HeaderText = "Zarz¹dzanie";
+            this.radGroupBox2.Location = new System.Drawing.Point(542, 3);
+            this.radGroupBox2.Name = "radGroupBox2";
+            this.radGroupBox2.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
+            // 
+            // 
+            // 
+            this.radGroupBox2.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
+            this.radGroupBox2.Size = new System.Drawing.Size(278, 374);
+            this.radGroupBox2.TabIndex = 22;
+            this.radGroupBox2.Text = "Zarz¹dzanie";
+            ((Telerik.WinControls.UI.RadGroupBoxElement)(this.radGroupBox2.GetChildAt(0))).BackColor = System.Drawing.Color.Transparent;
+            ((Telerik.WinControls.UI.GroupBoxContent)(this.radGroupBox2.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox2.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.Transparent;
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox2.GetChildAt(0).GetChildAt(1).GetChildAt(0))).BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox2.GetChildAt(0).GetChildAt(1).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(233)))), ((int)(((byte)(240)))), ((int)(((byte)(249)))));
+            ((Telerik.WinControls.UI.GroupBoxFooter)(this.radGroupBox2.GetChildAt(0).GetChildAt(2))).BackColor = System.Drawing.Color.Transparent;
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox2.GetChildAt(0).GetChildAt(2).GetChildAt(0))).BackColor2 = System.Drawing.Color.Transparent;
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox2.GetChildAt(0).GetChildAt(2).GetChildAt(0))).BackColor = System.Drawing.Color.Transparent;
+            // 
+            // btnUpdate
+            // 
+            this.btnUpdate.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnUpdate.Enabled = false;
+            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.btnUpdate.ForeColor = System.Drawing.Color.Black;
+            this.btnUpdate.Location = new System.Drawing.Point(188, 325);
+            this.btnUpdate.Name = "btnUpdate";
+            // 
+            // 
+            // 
+            this.btnUpdate.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnUpdate.Size = new System.Drawing.Size(85, 36);
+            this.btnUpdate.TabIndex = 17;
+            this.btnUpdate.Text = "Zapisz zmiany";
+            this.btnUpdate.TextWrap = true;
+            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            // 
+            // cbRoles
+            // 
+            this.cbRoles.Location = new System.Drawing.Point(122, 130);
+            this.cbRoles.Name = "cbRoles";
+            this.cbRoles.Size = new System.Drawing.Size(116, 20);
+            this.cbRoles.TabIndex = 15;
+            // 
+            // btnCancelEdit
+            // 
+            this.btnCancelEdit.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnCancelEdit.Enabled = false;
+            this.btnCancelEdit.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.btnCancelEdit.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelEdit.Location = new System.Drawing.Point(98, 325);
+            this.btnCancelEdit.Name = "btnCancelEdit";
+            // 
+            // 
+            // 
+            this.btnCancelEdit.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnCancelEdit.Size = new System.Drawing.Size(85, 36);
+            this.btnCancelEdit.TabIndex = 16;
+            this.btnCancelEdit.Text = "Anuluj edycjê";
+            this.btnCancelEdit.TextWrap = true;
+            this.btnCancelEdit.Click += new System.EventHandler(this.btnCancelEdit_Click);
+            // 
+            // btnRolesMngmt
+            // 
+            this.btnRolesMngmt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnRolesMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
+            this.btnRolesMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRolesMngmt.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnRolesMngmt.Location = new System.Drawing.Point(244, 129);
+            this.btnRolesMngmt.Margin = new System.Windows.Forms.Padding(0);
+            this.btnRolesMngmt.Name = "btnRolesMngmt";
+            this.btnRolesMngmt.Size = new System.Drawing.Size(21, 21);
+            this.btnRolesMngmt.TabIndex = 14;
+            this.btnRolesMngmt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRolesMngmt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRolesMngmt.UseVisualStyleBackColor = true;
+            this.btnRolesMngmt.Click += new System.EventHandler(this.btnRolesMngmt_Click);
+            // 
+            // tbNewEmail
+            // 
+            this.tbNewEmail.Location = new System.Drawing.Point(122, 105);
+            this.tbNewEmail.Name = "tbNewEmail";
+            this.tbNewEmail.Size = new System.Drawing.Size(143, 20);
+            this.tbNewEmail.TabIndex = 14;
+            this.tbNewEmail.TabStop = false;
+            // 
+            // btnAddUser
+            // 
+            this.btnAddUser.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.btnAddUser.Font = new System.Drawing.Font("Segoe UI", 8.25F);
+            this.btnAddUser.ForeColor = System.Drawing.Color.Black;
+            this.btnAddUser.Location = new System.Drawing.Point(6, 325);
+            this.btnAddUser.Name = "btnAddUser";
+            // 
+            // 
+            // 
+            this.btnAddUser.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnAddUser.Size = new System.Drawing.Size(85, 36);
+            this.btnAddUser.TabIndex = 15;
+            this.btnAddUser.Text = "Dodaj u¿ytkownika";
+            this.btnAddUser.TextWrap = true;
+            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
+            // 
+            // tbNewRepeatPassword
+            // 
+            this.tbNewRepeatPassword.Location = new System.Drawing.Point(122, 80);
+            this.tbNewRepeatPassword.Name = "tbNewRepeatPassword";
+            this.tbNewRepeatPassword.Size = new System.Drawing.Size(143, 20);
+            this.tbNewRepeatPassword.TabIndex = 13;
+            this.tbNewRepeatPassword.TabStop = false;
+            // 
+            // tbNewPassword
+            // 
+            this.tbNewPassword.Location = new System.Drawing.Point(122, 55);
+            this.tbNewPassword.Name = "tbNewPassword";
+            this.tbNewPassword.Size = new System.Drawing.Size(143, 20);
+            this.tbNewPassword.TabIndex = 12;
+            this.tbNewPassword.TabStop = false;
+            // 
+            // tbNewUsername
+            // 
+            this.tbNewUsername.Location = new System.Drawing.Point(122, 30);
+            this.tbNewUsername.Name = "tbNewUsername";
+            this.tbNewUsername.Size = new System.Drawing.Size(143, 20);
+            this.tbNewUsername.TabIndex = 11;
+            this.tbNewUsername.TabStop = false;
+            // 
+            // radLabel4
+            // 
+            this.radLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.radLabel4.Location = new System.Drawing.Point(16, 132);
+            this.radLabel4.Name = "radLabel4";
+            this.radLabel4.Size = new System.Drawing.Size(31, 18);
+            this.radLabel4.TabIndex = 4;
+            this.radLabel4.Text = "Rola:";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.radLabel4.GetChildAt(0))).Text = "Rola:";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radLabel4.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.Transparent;
+            // 
+            // radLabel6
+            // 
+            this.radLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.radLabel6.Location = new System.Drawing.Point(16, 107);
+            this.radLabel6.Name = "radLabel6";
+            this.radLabel6.Size = new System.Drawing.Size(35, 18);
+            this.radLabel6.TabIndex = 3;
+            this.radLabel6.Text = "Email:";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.radLabel6.GetChildAt(0))).Text = "Email:";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radLabel6.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.Transparent;
+            // 
+            // radLabel8
+            // 
+            this.radLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.radLabel8.Location = new System.Drawing.Point(16, 82);
+            this.radLabel8.Name = "radLabel8";
+            this.radLabel8.Size = new System.Drawing.Size(79, 18);
+            this.radLabel8.TabIndex = 2;
+            this.radLabel8.Text = "Powtórz has³o:";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.radLabel8.GetChildAt(0))).Text = "Powtórz has³o:";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radLabel8.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.Transparent;
+            // 
+            // radLabel10
+            // 
+            this.radLabel10.BackColor = System.Drawing.Color.Transparent;
+            this.radLabel10.Location = new System.Drawing.Point(16, 57);
+            this.radLabel10.Name = "radLabel10";
+            this.radLabel10.Size = new System.Drawing.Size(37, 18);
+            this.radLabel10.TabIndex = 1;
+            this.radLabel10.Text = "Has³o:";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.radLabel10.GetChildAt(0))).Text = "Has³o:";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radLabel10.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.Transparent;
+            // 
+            // radLabel12
+            // 
+            this.radLabel12.BackColor = System.Drawing.Color.Transparent;
+            this.radLabel12.Location = new System.Drawing.Point(16, 32);
+            this.radLabel12.Name = "radLabel12";
+            this.radLabel12.Size = new System.Drawing.Size(107, 18);
+            this.radLabel12.TabIndex = 0;
+            this.radLabel12.Text = "Nazwa u¿ytkownika:";
+            ((Telerik.WinControls.UI.RadLabelElement)(this.radLabel12.GetChildAt(0))).Text = "Nazwa u¿ytkownika:";
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radLabel12.GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.Transparent;
             // 
             // gridUsers
             // 
@@ -610,43 +832,43 @@ namespace StudiesPlans.Views
             // gridUsers
             // 
             this.gridUsers.MasterTemplate.AllowEditRow = false;
-            gridViewTextBoxColumn39.FormatString = "";
-            gridViewTextBoxColumn39.HeaderText = "Nazwa";
-            gridViewTextBoxColumn39.Name = "usernameColumn";
-            gridViewTextBoxColumn39.Width = 110;
-            gridViewTextBoxColumn40.FormatString = "";
-            gridViewTextBoxColumn40.HeaderText = "Email";
-            gridViewTextBoxColumn40.Name = "emailColumn";
-            gridViewTextBoxColumn40.Width = 110;
-            gridViewTextBoxColumn41.FormatString = "";
-            gridViewTextBoxColumn41.HeaderText = "Ostatnie logowanie";
-            gridViewTextBoxColumn41.MinWidth = 8;
-            gridViewTextBoxColumn41.Name = "lastLoginColumn";
-            gridViewTextBoxColumn41.Width = 144;
-            gridViewTextBoxColumn41.WrapText = true;
-            gridViewTextBoxColumn42.FormatString = "";
-            gridViewTextBoxColumn42.HeaderText = "Rola";
-            gridViewTextBoxColumn42.Name = "roleColumn";
-            gridViewTextBoxColumn42.Width = 100;
-            gridViewImageColumn5.AllowSort = false;
-            gridViewImageColumn5.DataType = typeof(System.Drawing.Image);
-            gridViewImageColumn5.FormatString = "";
-            gridViewImageColumn5.HeaderText = "";
-            gridViewImageColumn5.Name = "editUserColumn";
-            gridViewImageColumn5.Width = 25;
-            gridViewImageColumn6.AllowSort = false;
-            gridViewImageColumn6.DataType = typeof(System.Drawing.Image);
-            gridViewImageColumn6.FormatString = "";
-            gridViewImageColumn6.HeaderText = "";
-            gridViewImageColumn6.Name = "deleteUserColumn";
-            gridViewImageColumn6.Width = 25;
+            gridViewTextBoxColumn11.FormatString = "";
+            gridViewTextBoxColumn11.HeaderText = "Nazwa";
+            gridViewTextBoxColumn11.Name = "usernameColumn";
+            gridViewTextBoxColumn11.Width = 110;
+            gridViewTextBoxColumn12.FormatString = "";
+            gridViewTextBoxColumn12.HeaderText = "Email";
+            gridViewTextBoxColumn12.Name = "emailColumn";
+            gridViewTextBoxColumn12.Width = 110;
+            gridViewTextBoxColumn13.FormatString = "";
+            gridViewTextBoxColumn13.HeaderText = "Ostatnie logowanie";
+            gridViewTextBoxColumn13.MinWidth = 8;
+            gridViewTextBoxColumn13.Name = "lastLoginColumn";
+            gridViewTextBoxColumn13.Width = 144;
+            gridViewTextBoxColumn13.WrapText = true;
+            gridViewTextBoxColumn14.FormatString = "";
+            gridViewTextBoxColumn14.HeaderText = "Rola";
+            gridViewTextBoxColumn14.Name = "roleColumn";
+            gridViewTextBoxColumn14.Width = 100;
+            gridViewImageColumn1.AllowSort = false;
+            gridViewImageColumn1.DataType = typeof(System.Drawing.Image);
+            gridViewImageColumn1.FormatString = "";
+            gridViewImageColumn1.HeaderText = "";
+            gridViewImageColumn1.Name = "editUserColumn";
+            gridViewImageColumn1.Width = 25;
+            gridViewImageColumn2.AllowSort = false;
+            gridViewImageColumn2.DataType = typeof(System.Drawing.Image);
+            gridViewImageColumn2.FormatString = "";
+            gridViewImageColumn2.HeaderText = "";
+            gridViewImageColumn2.Name = "deleteUserColumn";
+            gridViewImageColumn2.Width = 25;
             this.gridUsers.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn39,
-            gridViewTextBoxColumn40,
-            gridViewTextBoxColumn41,
-            gridViewTextBoxColumn42,
-            gridViewImageColumn5,
-            gridViewImageColumn6});
+            gridViewTextBoxColumn11,
+            gridViewTextBoxColumn12,
+            gridViewTextBoxColumn13,
+            gridViewTextBoxColumn14,
+            gridViewImageColumn1,
+            gridViewImageColumn2});
             this.gridUsers.Name = "gridUsers";
             this.gridUsers.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.gridUsers.ReadOnly = true;
@@ -655,202 +877,10 @@ namespace StudiesPlans.Views
             // 
             this.gridUsers.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.gridUsers.ShowGroupPanel = false;
-            this.gridUsers.Size = new System.Drawing.Size(531, 494);
+            this.gridUsers.Size = new System.Drawing.Size(533, 494);
             this.gridUsers.TabIndex = 3;
             this.gridUsers.Text = "radGridView2";
             this.gridUsers.CellClick += new Telerik.WinControls.UI.GridViewCellEventHandler(this.gridUsers_CellClick);
-            // 
-            // gbUsers1
-            // 
-            this.gbUsers1.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.gbUsers1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.gbUsers1.Controls.Add(this.btnUpdate);
-            this.gbUsers1.Controls.Add(this.btnCancelEdit);
-            this.gbUsers1.Controls.Add(this.btnAddUser);
-            this.gbUsers1.Controls.Add(this.btnRolesMngmt);
-            this.gbUsers1.Controls.Add(this.lblValidation);
-            this.gbUsers1.Controls.Add(this.cbRoles);
-            this.gbUsers1.Controls.Add(this.tbNewEmail);
-            this.gbUsers1.Controls.Add(this.tbNewRepeatPassword);
-            this.gbUsers1.Controls.Add(this.tbNewPassword);
-            this.gbUsers1.Controls.Add(this.tbNewUsername);
-            this.gbUsers1.Controls.Add(this.txtRoleId);
-            this.gbUsers1.Controls.Add(this.txtNewEmail);
-            this.gbUsers1.Controls.Add(this.txtNewRepeatPassword);
-            this.gbUsers1.Controls.Add(this.txtNewPassword);
-            this.gbUsers1.Controls.Add(this.txtNewUsername);
-            this.gbUsers1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.gbUsers1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.gbUsers1.ForeColor = System.Drawing.Color.Black;
-            this.gbUsers1.Location = new System.Drawing.Point(540, 3);
-            this.gbUsers1.Name = "gbUsers1";
-            this.gbUsers1.Size = new System.Drawing.Size(278, 340);
-            this.gbUsers1.TabIndex = 2;
-            this.gbUsers1.TabStop = false;
-            this.gbUsers1.Text = "Zarz¹dzanie";
-            // 
-            // btnUpdate
-            // 
-            this.btnUpdate.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnUpdate.Enabled = false;
-            this.btnUpdate.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.btnUpdate.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdate.Location = new System.Drawing.Point(188, 293);
-            this.btnUpdate.Name = "btnUpdate";
-            // 
-            // 
-            // 
-            this.btnUpdate.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.btnUpdate.Size = new System.Drawing.Size(85, 36);
-            this.btnUpdate.TabIndex = 17;
-            this.btnUpdate.Text = "Zapisz zmiany";
-            this.btnUpdate.TextWrap = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
-            // 
-            // btnCancelEdit
-            // 
-            this.btnCancelEdit.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnCancelEdit.Enabled = false;
-            this.btnCancelEdit.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.btnCancelEdit.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelEdit.Location = new System.Drawing.Point(97, 293);
-            this.btnCancelEdit.Name = "btnCancelEdit";
-            // 
-            // 
-            // 
-            this.btnCancelEdit.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.btnCancelEdit.Size = new System.Drawing.Size(85, 36);
-            this.btnCancelEdit.TabIndex = 16;
-            this.btnCancelEdit.Text = "Anuluj edycjê";
-            this.btnCancelEdit.TextWrap = true;
-            this.btnCancelEdit.Click += new System.EventHandler(this.btnCancelEdit_Click);
-            // 
-            // btnAddUser
-            // 
-            this.btnAddUser.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.btnAddUser.Font = new System.Drawing.Font("Segoe UI", 8.25F);
-            this.btnAddUser.ForeColor = System.Drawing.Color.Black;
-            this.btnAddUser.Location = new System.Drawing.Point(6, 293);
-            this.btnAddUser.Name = "btnAddUser";
-            // 
-            // 
-            // 
-            this.btnAddUser.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.btnAddUser.Size = new System.Drawing.Size(85, 36);
-            this.btnAddUser.TabIndex = 15;
-            this.btnAddUser.Text = "Dodaj u¿ytkownika";
-            this.btnAddUser.TextWrap = true;
-            this.btnAddUser.Click += new System.EventHandler(this.btnAddUser_Click);
-            // 
-            // btnRolesMngmt
-            // 
-            this.btnRolesMngmt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRolesMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
-            this.btnRolesMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRolesMngmt.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRolesMngmt.Location = new System.Drawing.Point(234, 124);
-            this.btnRolesMngmt.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRolesMngmt.Name = "btnRolesMngmt";
-            this.btnRolesMngmt.Size = new System.Drawing.Size(21, 21);
-            this.btnRolesMngmt.TabIndex = 14;
-            this.btnRolesMngmt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRolesMngmt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRolesMngmt.UseVisualStyleBackColor = true;
-            this.btnRolesMngmt.Click += new System.EventHandler(this.btnRolesMngmt_Click);
-            // 
-            // lblValidation
-            // 
-            this.lblValidation.AutoSize = true;
-            this.lblValidation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lblValidation.ForeColor = System.Drawing.Color.Red;
-            this.lblValidation.Location = new System.Drawing.Point(6, 151);
-            this.lblValidation.Name = "lblValidation";
-            this.lblValidation.Size = new System.Drawing.Size(0, 13);
-            this.lblValidation.TabIndex = 10;
-            // 
-            // cbRoles
-            // 
-            this.cbRoles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbRoles.FormattingEnabled = true;
-            this.cbRoles.Location = new System.Drawing.Point(117, 124);
-            this.cbRoles.Name = "cbRoles";
-            this.cbRoles.Size = new System.Drawing.Size(114, 21);
-            this.cbRoles.TabIndex = 9;
-            // 
-            // tbNewEmail
-            // 
-            this.tbNewEmail.Location = new System.Drawing.Point(117, 98);
-            this.tbNewEmail.Name = "tbNewEmail";
-            this.tbNewEmail.Size = new System.Drawing.Size(143, 20);
-            this.tbNewEmail.TabIndex = 8;
-            // 
-            // tbNewRepeatPassword
-            // 
-            this.tbNewRepeatPassword.Location = new System.Drawing.Point(117, 74);
-            this.tbNewRepeatPassword.Name = "tbNewRepeatPassword";
-            this.tbNewRepeatPassword.Size = new System.Drawing.Size(143, 20);
-            this.tbNewRepeatPassword.TabIndex = 7;
-            this.tbNewRepeatPassword.UseSystemPasswordChar = true;
-            // 
-            // tbNewPassword
-            // 
-            this.tbNewPassword.Location = new System.Drawing.Point(117, 48);
-            this.tbNewPassword.Name = "tbNewPassword";
-            this.tbNewPassword.Size = new System.Drawing.Size(143, 20);
-            this.tbNewPassword.TabIndex = 6;
-            this.tbNewPassword.UseSystemPasswordChar = true;
-            // 
-            // tbNewUsername
-            // 
-            this.tbNewUsername.Location = new System.Drawing.Point(117, 22);
-            this.tbNewUsername.Name = "tbNewUsername";
-            this.tbNewUsername.Size = new System.Drawing.Size(143, 20);
-            this.tbNewUsername.TabIndex = 5;
-            // 
-            // txtRoleId
-            // 
-            this.txtRoleId.AutoSize = true;
-            this.txtRoleId.Location = new System.Drawing.Point(6, 127);
-            this.txtRoleId.Name = "txtRoleId";
-            this.txtRoleId.Size = new System.Drawing.Size(33, 13);
-            this.txtRoleId.TabIndex = 4;
-            this.txtRoleId.Text = "Rola:";
-            // 
-            // txtNewEmail
-            // 
-            this.txtNewEmail.AutoSize = true;
-            this.txtNewEmail.Location = new System.Drawing.Point(6, 101);
-            this.txtNewEmail.Name = "txtNewEmail";
-            this.txtNewEmail.Size = new System.Drawing.Size(37, 13);
-            this.txtNewEmail.TabIndex = 3;
-            this.txtNewEmail.Text = "Email:";
-            // 
-            // txtNewRepeatPassword
-            // 
-            this.txtNewRepeatPassword.AutoSize = true;
-            this.txtNewRepeatPassword.Location = new System.Drawing.Point(6, 77);
-            this.txtNewRepeatPassword.Name = "txtNewRepeatPassword";
-            this.txtNewRepeatPassword.Size = new System.Drawing.Size(83, 13);
-            this.txtNewRepeatPassword.TabIndex = 2;
-            this.txtNewRepeatPassword.Text = "Powtórz has³o:";
-            // 
-            // txtNewPassword
-            // 
-            this.txtNewPassword.AutoSize = true;
-            this.txtNewPassword.Location = new System.Drawing.Point(6, 51);
-            this.txtNewPassword.Name = "txtNewPassword";
-            this.txtNewPassword.Size = new System.Drawing.Size(39, 13);
-            this.txtNewPassword.TabIndex = 1;
-            this.txtNewPassword.Text = "Has³o:";
-            // 
-            // txtNewUsername
-            // 
-            this.txtNewUsername.AutoSize = true;
-            this.txtNewUsername.Location = new System.Drawing.Point(6, 25);
-            this.txtNewUsername.Name = "txtNewUsername";
-            this.txtNewUsername.Size = new System.Drawing.Size(112, 13);
-            this.txtNewUsername.TabIndex = 0;
-            this.txtNewUsername.Text = "Nazwa u¿ytkownika:";
             // 
             // radStatusStrip1
             // 
@@ -1093,6 +1123,26 @@ namespace StudiesPlans.Views
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 22;
             // 
+            // object_c2749966_bbcb_47a3_8420_002a54d9f6ed
+            // 
+            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.Name = "object_c2749966_bbcb_47a3_8420_002a54d9f6ed";
+            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
+            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.StretchHorizontally = true;
+            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.StretchVertically = true;
+            // 
+            // lblValidation
+            // 
+            this.lblValidation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblValidation.ForeColor = System.Drawing.Color.Red;
+            this.lblValidation.Location = new System.Drawing.Point(16, 157);
+            this.lblValidation.Name = "lblValidation";
+            // 
+            // 
+            // 
+            this.lblValidation.RootElement.ForeColor = System.Drawing.Color.Red;
+            this.lblValidation.Size = new System.Drawing.Size(2, 2);
+            this.lblValidation.TabIndex = 18;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1111,6 +1161,7 @@ namespace StudiesPlans.Views
             this.ThemeName = "ControlDefault";
             ((System.ComponentModel.ISupportInitialize)(this.pages)).EndInit();
             this.pages.ResumeLayout(false);
+            this.pages.PerformLayout();
             this.plancreate.ResumeLayout(false);
             this.plancreate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnEditInfo)).EndInit();
@@ -1136,14 +1187,26 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnCopyArchivePlan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridArchievePlan)).EndInit();
             this.users.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gridUsers)).EndInit();
-            this.gbUsers1.ResumeLayout(false);
-            this.gbUsers1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).EndInit();
+            this.radGroupBox2.ResumeLayout(false);
+            this.radGroupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbRoles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelEdit)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewEmail)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnAddUser)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewRepeatPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewPassword)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tbNewUsername)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel12)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radToolStrip1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1157,25 +1220,9 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadPageViewPage review;
         private Telerik.WinControls.UI.RadPageViewPage archive;
         private Telerik.WinControls.UI.RadPageViewPage users;
-        private System.Windows.Forms.GroupBox gbUsers1;
-        private System.Windows.Forms.Button btnRolesMngmt;
-        private System.Windows.Forms.Label lblValidation;
-        private System.Windows.Forms.ComboBox cbRoles;
-        private System.Windows.Forms.TextBox tbNewEmail;
-        private System.Windows.Forms.TextBox tbNewRepeatPassword;
-        private System.Windows.Forms.TextBox tbNewPassword;
-        private System.Windows.Forms.TextBox tbNewUsername;
-        private System.Windows.Forms.Label txtRoleId;
-        private System.Windows.Forms.Label txtNewEmail;
-        private System.Windows.Forms.Label txtNewRepeatPassword;
-        private System.Windows.Forms.Label txtNewPassword;
-        private System.Windows.Forms.Label txtNewUsername;
         private Telerik.WinControls.UI.RadStatusStrip radStatusStrip1;
         private Telerik.WinControls.UI.RadLabelElement lUserName;
         private Telerik.WinControls.UI.RadLabelElement lRole;
-        private Telerik.WinControls.UI.RadButton btnUpdate;
-        private Telerik.WinControls.UI.RadButton btnCancelEdit;
-        private Telerik.WinControls.UI.RadButton btnAddUser;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
         private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn2;
         private Telerik.WinControls.UI.RadGridView gridUsers;
@@ -1220,6 +1267,23 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadButton radButton1;
         private Telerik.WinControls.UI.RadButton btnEditInfo;
         private Telerik.WinControls.UI.RadButton btnArchieveInfo;
+        private System.Windows.Forms.Button btnRolesMngmt;
+        private Telerik.WinControls.UI.RadGroupBox radGroupBox2;
+        private Telerik.WinControls.UI.RadButton btnUpdate;
+        private Telerik.WinControls.UI.RadDropDownList cbRoles;
+        private Telerik.WinControls.UI.RadButton btnCancelEdit;
+        private Telerik.WinControls.UI.RadTextBox tbNewEmail;
+        private Telerik.WinControls.UI.RadButton btnAddUser;
+        private Telerik.WinControls.UI.RadTextBox tbNewRepeatPassword;
+        private Telerik.WinControls.UI.RadTextBox tbNewPassword;
+        private Telerik.WinControls.UI.RadTextBox tbNewUsername;
+        private Telerik.WinControls.UI.RadLabel radLabel4;
+        private Telerik.WinControls.UI.RadLabel radLabel6;
+        private Telerik.WinControls.UI.RadLabel radLabel8;
+        private Telerik.WinControls.UI.RadLabel radLabel10;
+        private Telerik.WinControls.UI.RadLabel radLabel12;
+        private Telerik.WinControls.RootRadElement object_c2749966_bbcb_47a3_8420_002a54d9f6ed;
+        private Telerik.WinControls.UI.RadLabel lblValidation;
     }
 }
 

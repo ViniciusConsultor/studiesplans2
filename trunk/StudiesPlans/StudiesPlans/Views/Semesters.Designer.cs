@@ -91,6 +91,7 @@ namespace StudiesPlans.Views
             this.radGroupBox1.TabIndex = 3;
             this.radGroupBox1.Text = "Zarz¹dzanie";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
+            ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             // 
             // tbNewSemesterYear
             // 
@@ -235,14 +236,14 @@ namespace StudiesPlans.Views
             gridViewTextBoxColumn1.FormatString = "";
             gridViewTextBoxColumn1.HeaderText = "Nazwa";
             gridViewTextBoxColumn1.Name = "cName";
-            gridViewTextBoxColumn1.Width = 121;
+            gridViewTextBoxColumn1.Width = 122;
             gridViewTextBoxColumn2.FormatString = "";
             gridViewTextBoxColumn2.HeaderText = "Numer";
             gridViewTextBoxColumn2.Name = "cNo";
             gridViewTextBoxColumn3.FormatString = "";
             gridViewTextBoxColumn3.HeaderText = "Rok";
             gridViewTextBoxColumn3.Name = "cYear";
-            gridViewTextBoxColumn3.Width = 42;
+            gridViewTextBoxColumn3.Width = 41;
             this.dgSemesters.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
             gridViewTextBoxColumn1,
             gridViewTextBoxColumn2,
