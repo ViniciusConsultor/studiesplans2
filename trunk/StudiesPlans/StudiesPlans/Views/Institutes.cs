@@ -23,6 +23,16 @@ namespace StudiesPlans.Views
             FillWithDepartaments();
             FillWithInstitutes(null);
             Disable();
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            btnAdd.ButtonElement.ToolTipText = "Dodaj instytut";
+            btnCancel.ButtonElement.ToolTipText = "Anuluj edycjê";
+            btnDelete.ButtonElement.ToolTipText = "Usuñ instytut";
+            btnDepartamentsMnmgt.ButtonElement.ToolTipText = "Zarz¹dzaj wydzia³ami";
+            btnSave.ButtonElement.ToolTipText = "Zapisz zmiany";
         }
 
         private void FillWithDepartaments()

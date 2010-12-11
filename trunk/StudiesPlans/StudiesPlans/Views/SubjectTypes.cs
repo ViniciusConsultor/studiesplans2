@@ -18,6 +18,15 @@ namespace StudiesPlans.Views
             FillWithSubjectTypes();
             Clear();
             Disable();
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            btnAdd.ButtonElement.ToolTipText = "Dodaj typ przedmiotu";
+            btnCancel.ButtonElement.ToolTipText = "Anuluj edycjê";
+            btnDelete.ButtonElement.ToolTipText = "Usuñ typ przedmiotu";
+            btnSave.ButtonElement.ToolTipText = "Zapisz zmiany";
         }
 
         private void FillWithSubjectTypes()

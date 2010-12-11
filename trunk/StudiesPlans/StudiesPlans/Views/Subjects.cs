@@ -17,6 +17,8 @@ namespace StudiesPlans.Views
     {
         Plan plan = null;
         bool changes = false;
+        List<string> names = new List<string>();
+
         public Subjects(Plan plan)
         {
             InitializeComponent();
@@ -27,8 +29,19 @@ namespace StudiesPlans.Views
             FillWithSemesters();
             FillWithSubjectTypes();
             FillWithSpecializations();
+            ShowButtonsToolTips();
         }
-        List<string> names = new List<string>();
+
+        private void ShowButtonsToolTips()
+        {
+            btnAddSubject.ButtonElement.ToolTipText = "Dodaj przedmiot";
+            btnCancel.ButtonElement.ToolTipText = "Zamknij";
+            btnClearSpec.ButtonElement.ToolTipText = "Wyczyœæ specjalizacje";
+            btnInstitutesMngmt.ButtonElement.ToolTipText = "Zarz¹dzaj instytutami";
+            btnSemestersMnmgt.ButtonElement.ToolTipText = "Zarz¹dzaj semestrami";
+            btnSpecMngmt.ButtonElement.ToolTipText = "Zarz¹dzaj specjalizacjami";
+            btnSubjectTypesMnmgt.ButtonElement.ToolTipText = "Zarz¹dzaj typami przedmiotów";
+        }
 
         private void FillWithSubjectTypes()
         {

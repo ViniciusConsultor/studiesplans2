@@ -23,6 +23,15 @@ namespace StudiesPlans
             FillWithStudiesTypes();
             Clear();
             Disable();
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            btnAdd.ButtonElement.ToolTipText = "Dodaj typ studiów";
+            btnCancel.ButtonElement.ToolTipText = "Anuluj edycjê";
+            btnDelete.ButtonElement.ToolTipText = "Usuñ typ studiów";
+            btnSave.ButtonElement.ToolTipText = "Zapisz zmiany";
         }
 
         private void FillWithStudiesTypes()

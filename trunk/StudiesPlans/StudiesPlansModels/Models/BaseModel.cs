@@ -14,7 +14,7 @@ namespace StudiesPlansModels.Models
         // List with error messages for each object which was validate
         public List<string> Errors { get; set; }
         
-        // Method to validate object
+        // Property to validate object
         public bool IsValid
         {
             get

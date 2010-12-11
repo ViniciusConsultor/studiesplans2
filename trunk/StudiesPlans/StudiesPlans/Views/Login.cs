@@ -12,6 +12,13 @@ namespace StudiesPlans.Views
         public Login()
         {
             InitializeComponent();
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            bLogin.ButtonElement.ToolTipText = "Zaloguj siê";
+            bCancel.ButtonElement.ToolTipText = "Zamknij";
         }
 
          // Login button event

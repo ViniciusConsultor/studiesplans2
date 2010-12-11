@@ -28,29 +28,29 @@ namespace StudiesPlans.Views
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn1 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn2 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn3 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn15 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn16 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn17 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn7 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn18 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn19 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn8 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn9 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn6 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn4 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn5 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn6 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn13 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn14 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn1 = new Telerik.WinControls.UI.GridViewImageColumn();
-            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn2 = new Telerik.WinControls.UI.GridViewImageColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn20 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn21 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn22 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn10 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn23 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn24 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn11 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewCheckBoxColumn gridViewCheckBoxColumn12 = new Telerik.WinControls.UI.GridViewCheckBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn25 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn26 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn27 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn28 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn3 = new Telerik.WinControls.UI.GridViewImageColumn();
+            Telerik.WinControls.UI.GridViewImageColumn gridViewImageColumn4 = new Telerik.WinControls.UI.GridViewImageColumn();
             this.pages = new Telerik.WinControls.UI.RadPageView();
             this.plancreate = new Telerik.WinControls.UI.RadPageViewPage();
             this.btnEditInfo = new Telerik.WinControls.UI.RadButton();
@@ -63,7 +63,7 @@ namespace StudiesPlans.Views
             this.btnNewPlan = new Telerik.WinControls.UI.RadButton();
             this.gridPlanSubjects = new Telerik.WinControls.UI.RadGridView();
             this.review = new Telerik.WinControls.UI.RadPageViewPage();
-            this.radButton1 = new Telerik.WinControls.UI.RadButton();
+            this.btnPreviewInfo = new Telerik.WinControls.UI.RadButton();
             this.dlZoom = new Telerik.WinControls.UI.RadDropDownList();
             this.btnExportXML = new Telerik.WinControls.UI.RadButton();
             this.btnExportPdf = new Telerik.WinControls.UI.RadButton();
@@ -76,10 +76,10 @@ namespace StudiesPlans.Views
             this.gridArchievePlan = new Telerik.WinControls.UI.RadGridView();
             this.users = new Telerik.WinControls.UI.RadPageViewPage();
             this.radGroupBox2 = new Telerik.WinControls.UI.RadGroupBox();
+            this.lblValidation = new Telerik.WinControls.UI.RadLabel();
             this.btnUpdate = new Telerik.WinControls.UI.RadButton();
             this.cbRoles = new Telerik.WinControls.UI.RadDropDownList();
             this.btnCancelEdit = new Telerik.WinControls.UI.RadButton();
-            this.btnRolesMngmt = new System.Windows.Forms.Button();
             this.tbNewEmail = new Telerik.WinControls.UI.RadTextBox();
             this.btnAddUser = new Telerik.WinControls.UI.RadButton();
             this.tbNewRepeatPassword = new Telerik.WinControls.UI.RadTextBox();
@@ -119,7 +119,7 @@ namespace StudiesPlans.Views
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed = new Telerik.WinControls.RootRadElement();
-            this.lblValidation = new Telerik.WinControls.UI.RadLabel();
+            this.btnRolesMngmt = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.pages)).BeginInit();
             this.pages.SuspendLayout();
             this.plancreate.SuspendLayout();
@@ -133,7 +133,7 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnNewPlan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridPlanSubjects)).BeginInit();
             this.review.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPreviewInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dlZoom)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExportXML)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExportPdf)).BeginInit();
@@ -146,6 +146,7 @@ namespace StudiesPlans.Views
             this.users.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).BeginInit();
             this.radGroupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbRoles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelEdit)).BeginInit();
@@ -162,7 +163,7 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.gridUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radToolStrip1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRolesMngmt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -178,7 +179,7 @@ namespace StudiesPlans.Views
             this.pages.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.pages.Location = new System.Drawing.Point(0, 33);
             this.pages.Name = "pages";
-            this.pages.SelectedPage = this.users;
+            this.pages.SelectedPage = this.plancreate;
             this.pages.Size = new System.Drawing.Size(842, 545);
             this.pages.TabIndex = 15;
             this.pages.Text = "radPageView1";
@@ -328,46 +329,46 @@ namespace StudiesPlans.Views
             // 
             // gridPlanSubjects
             // 
-            gridViewTextBoxColumn1.FormatString = "";
-            gridViewTextBoxColumn1.HeaderText = "Nazwa";
-            gridViewTextBoxColumn1.Multiline = true;
-            gridViewTextBoxColumn1.Name = "subjectName";
-            gridViewTextBoxColumn1.Width = 100;
-            gridViewTextBoxColumn2.FormatString = "";
-            gridViewTextBoxColumn2.HeaderText = "Semestr";
-            gridViewTextBoxColumn2.Name = "semester";
-            gridViewTextBoxColumn2.Width = 100;
-            gridViewTextBoxColumn3.FormatString = "";
-            gridViewTextBoxColumn3.HeaderText = "ECTS";
-            gridViewTextBoxColumn3.Name = "ects";
-            gridViewTextBoxColumn3.Width = 100;
-            gridViewCheckBoxColumn1.FormatString = "";
-            gridViewCheckBoxColumn1.HeaderText = "Egzamin";
-            gridViewCheckBoxColumn1.Name = "isExam";
-            gridViewCheckBoxColumn1.Width = 100;
-            gridViewTextBoxColumn4.HeaderText = "Instytut";
-            gridViewTextBoxColumn4.Multiline = true;
-            gridViewTextBoxColumn4.Name = "institute";
-            gridViewTextBoxColumn4.Width = 100;
-            gridViewTextBoxColumn5.HeaderText = "Specializacja";
-            gridViewTextBoxColumn5.Multiline = true;
-            gridViewTextBoxColumn5.Name = "specialization";
-            gridViewTextBoxColumn5.Width = 100;
-            gridViewCheckBoxColumn2.HeaderText = "Obowi¹zkowy";
-            gridViewCheckBoxColumn2.Name = "isGeneral";
-            gridViewCheckBoxColumn2.Width = 100;
-            gridViewCheckBoxColumn3.HeaderText = "Obieralny";
-            gridViewCheckBoxColumn3.Name = "isElective";
-            gridViewCheckBoxColumn3.Width = 100;
+            gridViewTextBoxColumn15.FormatString = "";
+            gridViewTextBoxColumn15.HeaderText = "Nazwa";
+            gridViewTextBoxColumn15.Multiline = true;
+            gridViewTextBoxColumn15.Name = "subjectName";
+            gridViewTextBoxColumn15.Width = 100;
+            gridViewTextBoxColumn16.FormatString = "";
+            gridViewTextBoxColumn16.HeaderText = "Semestr";
+            gridViewTextBoxColumn16.Name = "semester";
+            gridViewTextBoxColumn16.Width = 100;
+            gridViewTextBoxColumn17.FormatString = "";
+            gridViewTextBoxColumn17.HeaderText = "ECTS";
+            gridViewTextBoxColumn17.Name = "ects";
+            gridViewTextBoxColumn17.Width = 100;
+            gridViewCheckBoxColumn7.FormatString = "";
+            gridViewCheckBoxColumn7.HeaderText = "Egzamin";
+            gridViewCheckBoxColumn7.Name = "isExam";
+            gridViewCheckBoxColumn7.Width = 100;
+            gridViewTextBoxColumn18.HeaderText = "Instytut";
+            gridViewTextBoxColumn18.Multiline = true;
+            gridViewTextBoxColumn18.Name = "institute";
+            gridViewTextBoxColumn18.Width = 100;
+            gridViewTextBoxColumn19.HeaderText = "Specializacja";
+            gridViewTextBoxColumn19.Multiline = true;
+            gridViewTextBoxColumn19.Name = "specialization";
+            gridViewTextBoxColumn19.Width = 100;
+            gridViewCheckBoxColumn8.HeaderText = "Obowi¹zkowy";
+            gridViewCheckBoxColumn8.Name = "isGeneral";
+            gridViewCheckBoxColumn8.Width = 100;
+            gridViewCheckBoxColumn9.HeaderText = "Obieralny";
+            gridViewCheckBoxColumn9.Name = "isElective";
+            gridViewCheckBoxColumn9.Width = 100;
             this.gridPlanSubjects.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2,
-            gridViewTextBoxColumn3,
-            gridViewCheckBoxColumn1,
-            gridViewTextBoxColumn4,
-            gridViewTextBoxColumn5,
-            gridViewCheckBoxColumn2,
-            gridViewCheckBoxColumn3});
+            gridViewTextBoxColumn15,
+            gridViewTextBoxColumn16,
+            gridViewTextBoxColumn17,
+            gridViewCheckBoxColumn7,
+            gridViewTextBoxColumn18,
+            gridViewTextBoxColumn19,
+            gridViewCheckBoxColumn8,
+            gridViewCheckBoxColumn9});
             this.gridPlanSubjects.MasterTemplate.EnableGrouping = false;
             this.gridPlanSubjects.MasterTemplate.HorizontalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysShow;
             this.gridPlanSubjects.Name = "gridPlanSubjects";
@@ -383,31 +384,31 @@ namespace StudiesPlans.Views
             // 
             // review
             // 
-            this.review.Controls.Add(this.radButton1);
+            this.review.Controls.Add(this.btnPreviewInfo);
             this.review.Controls.Add(this.dlZoom);
+            this.review.Controls.Add(this.btnShowPreview);
             this.review.Controls.Add(this.btnExportXML);
             this.review.Controls.Add(this.btnExportPdf);
-            this.review.Controls.Add(this.btnShowPreview);
             this.review.Controls.Add(this.pagePreview1);
             this.review.Location = new System.Drawing.Point(10, 37);
             this.review.Name = "review";
             this.review.Size = new System.Drawing.Size(821, 497);
             this.review.Text = "Przegl¹d planu";
             // 
-            // radButton1
+            // btnPreviewInfo
             // 
-            this.radButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.radButton1.ForeColor = System.Drawing.Color.Black;
-            this.radButton1.Location = new System.Drawing.Point(411, 473);
-            this.radButton1.Name = "radButton1";
+            this.btnPreviewInfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnPreviewInfo.ForeColor = System.Drawing.Color.Black;
+            this.btnPreviewInfo.Location = new System.Drawing.Point(411, 473);
+            this.btnPreviewInfo.Name = "btnPreviewInfo";
             // 
             // 
             // 
-            this.radButton1.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.radButton1.Size = new System.Drawing.Size(130, 24);
-            this.radButton1.TabIndex = 10;
-            this.radButton1.Text = "Informacje o planie";
-            this.radButton1.Click += new System.EventHandler(this.radButton1_Click);
+            this.btnPreviewInfo.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnPreviewInfo.Size = new System.Drawing.Size(130, 24);
+            this.btnPreviewInfo.TabIndex = 10;
+            this.btnPreviewInfo.Text = "Informacje o planie";
+            this.btnPreviewInfo.Click += new System.EventHandler(this.radButton1_Click);
             // 
             // dlZoom
             // 
@@ -549,48 +550,48 @@ namespace StudiesPlans.Views
             this.gridArchievePlan.AutoSizeRows = true;
             this.gridArchievePlan.Location = new System.Drawing.Point(3, 27);
             // 
-            // gridArchievePlan
             // 
-            gridViewTextBoxColumn6.FormatString = "";
-            gridViewTextBoxColumn6.HeaderText = "Nazwa";
-            gridViewTextBoxColumn6.Multiline = true;
-            gridViewTextBoxColumn6.Name = "subjectName";
-            gridViewTextBoxColumn6.Width = 100;
-            gridViewTextBoxColumn7.FormatString = "";
-            gridViewTextBoxColumn7.HeaderText = "Semestr";
-            gridViewTextBoxColumn7.Name = "semester";
-            gridViewTextBoxColumn7.Width = 100;
-            gridViewTextBoxColumn8.FormatString = "";
-            gridViewTextBoxColumn8.HeaderText = "ECTS";
-            gridViewTextBoxColumn8.Name = "ects";
-            gridViewTextBoxColumn8.Width = 100;
-            gridViewCheckBoxColumn4.FormatString = "";
-            gridViewCheckBoxColumn4.HeaderText = "Egzamin";
-            gridViewCheckBoxColumn4.Name = "isExam";
-            gridViewCheckBoxColumn4.Width = 100;
-            gridViewTextBoxColumn9.HeaderText = "Instytut";
-            gridViewTextBoxColumn9.Multiline = true;
-            gridViewTextBoxColumn9.Name = "institute";
-            gridViewTextBoxColumn9.Width = 100;
-            gridViewTextBoxColumn10.HeaderText = "Specializacja";
-            gridViewTextBoxColumn10.Multiline = true;
-            gridViewTextBoxColumn10.Name = "specialization";
-            gridViewTextBoxColumn10.Width = 100;
-            gridViewCheckBoxColumn5.HeaderText = "Obowi¹zkowy";
-            gridViewCheckBoxColumn5.Name = "isGeneral";
-            gridViewCheckBoxColumn5.Width = 100;
-            gridViewCheckBoxColumn6.HeaderText = "Obieralny";
-            gridViewCheckBoxColumn6.Name = "isElective";
-            gridViewCheckBoxColumn6.Width = 100;
+            // 
+            gridViewTextBoxColumn20.FormatString = "";
+            gridViewTextBoxColumn20.HeaderText = "Nazwa";
+            gridViewTextBoxColumn20.Multiline = true;
+            gridViewTextBoxColumn20.Name = "subjectName";
+            gridViewTextBoxColumn20.Width = 100;
+            gridViewTextBoxColumn21.FormatString = "";
+            gridViewTextBoxColumn21.HeaderText = "Semestr";
+            gridViewTextBoxColumn21.Name = "semester";
+            gridViewTextBoxColumn21.Width = 100;
+            gridViewTextBoxColumn22.FormatString = "";
+            gridViewTextBoxColumn22.HeaderText = "ECTS";
+            gridViewTextBoxColumn22.Name = "ects";
+            gridViewTextBoxColumn22.Width = 100;
+            gridViewCheckBoxColumn10.FormatString = "";
+            gridViewCheckBoxColumn10.HeaderText = "Egzamin";
+            gridViewCheckBoxColumn10.Name = "isExam";
+            gridViewCheckBoxColumn10.Width = 100;
+            gridViewTextBoxColumn23.HeaderText = "Instytut";
+            gridViewTextBoxColumn23.Multiline = true;
+            gridViewTextBoxColumn23.Name = "institute";
+            gridViewTextBoxColumn23.Width = 100;
+            gridViewTextBoxColumn24.HeaderText = "Specializacja";
+            gridViewTextBoxColumn24.Multiline = true;
+            gridViewTextBoxColumn24.Name = "specialization";
+            gridViewTextBoxColumn24.Width = 100;
+            gridViewCheckBoxColumn11.HeaderText = "Obowi¹zkowy";
+            gridViewCheckBoxColumn11.Name = "isGeneral";
+            gridViewCheckBoxColumn11.Width = 100;
+            gridViewCheckBoxColumn12.HeaderText = "Obieralny";
+            gridViewCheckBoxColumn12.Name = "isElective";
+            gridViewCheckBoxColumn12.Width = 100;
             this.gridArchievePlan.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn6,
-            gridViewTextBoxColumn7,
-            gridViewTextBoxColumn8,
-            gridViewCheckBoxColumn4,
-            gridViewTextBoxColumn9,
-            gridViewTextBoxColumn10,
-            gridViewCheckBoxColumn5,
-            gridViewCheckBoxColumn6});
+            gridViewTextBoxColumn20,
+            gridViewTextBoxColumn21,
+            gridViewTextBoxColumn22,
+            gridViewCheckBoxColumn10,
+            gridViewTextBoxColumn23,
+            gridViewTextBoxColumn24,
+            gridViewCheckBoxColumn11,
+            gridViewCheckBoxColumn12});
             this.gridArchievePlan.MasterTemplate.EnableGrouping = false;
             this.gridArchievePlan.MasterTemplate.HorizontalScrollState = Telerik.WinControls.UI.ScrollState.AlwaysShow;
             this.gridArchievePlan.Name = "gridArchievePlan";
@@ -618,11 +619,11 @@ namespace StudiesPlans.Views
             // 
             this.radGroupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.radGroupBox2.BackColor = System.Drawing.Color.Transparent;
+            this.radGroupBox2.Controls.Add(this.btnRolesMngmt);
             this.radGroupBox2.Controls.Add(this.lblValidation);
             this.radGroupBox2.Controls.Add(this.btnUpdate);
             this.radGroupBox2.Controls.Add(this.cbRoles);
             this.radGroupBox2.Controls.Add(this.btnCancelEdit);
-            this.radGroupBox2.Controls.Add(this.btnRolesMngmt);
             this.radGroupBox2.Controls.Add(this.tbNewEmail);
             this.radGroupBox2.Controls.Add(this.btnAddUser);
             this.radGroupBox2.Controls.Add(this.tbNewRepeatPassword);
@@ -658,6 +659,19 @@ namespace StudiesPlans.Views
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox2.GetChildAt(0).GetChildAt(2).GetChildAt(0))).BackColor2 = System.Drawing.Color.Transparent;
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox2.GetChildAt(0).GetChildAt(2).GetChildAt(0))).BackColor = System.Drawing.Color.Transparent;
             // 
+            // lblValidation
+            // 
+            this.lblValidation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
+            this.lblValidation.ForeColor = System.Drawing.Color.Red;
+            this.lblValidation.Location = new System.Drawing.Point(16, 157);
+            this.lblValidation.Name = "lblValidation";
+            // 
+            // 
+            // 
+            this.lblValidation.RootElement.ForeColor = System.Drawing.Color.Red;
+            this.lblValidation.Size = new System.Drawing.Size(2, 2);
+            this.lblValidation.TabIndex = 18;
+            // 
             // btnUpdate
             // 
             this.btnUpdate.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
@@ -678,6 +692,7 @@ namespace StudiesPlans.Views
             // 
             // cbRoles
             // 
+            this.cbRoles.DropDownStyle = Telerik.WinControls.RadDropDownStyle.DropDownList;
             this.cbRoles.Location = new System.Drawing.Point(122, 130);
             this.cbRoles.Name = "cbRoles";
             this.cbRoles.Size = new System.Drawing.Size(116, 20);
@@ -700,22 +715,6 @@ namespace StudiesPlans.Views
             this.btnCancelEdit.Text = "Anuluj edycjê";
             this.btnCancelEdit.TextWrap = true;
             this.btnCancelEdit.Click += new System.EventHandler(this.btnCancelEdit_Click);
-            // 
-            // btnRolesMngmt
-            // 
-            this.btnRolesMngmt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnRolesMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
-            this.btnRolesMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnRolesMngmt.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnRolesMngmt.Location = new System.Drawing.Point(244, 129);
-            this.btnRolesMngmt.Margin = new System.Windows.Forms.Padding(0);
-            this.btnRolesMngmt.Name = "btnRolesMngmt";
-            this.btnRolesMngmt.Size = new System.Drawing.Size(21, 21);
-            this.btnRolesMngmt.TabIndex = 14;
-            this.btnRolesMngmt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRolesMngmt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRolesMngmt.UseVisualStyleBackColor = true;
-            this.btnRolesMngmt.Click += new System.EventHandler(this.btnRolesMngmt_Click);
             // 
             // tbNewEmail
             // 
@@ -832,43 +831,43 @@ namespace StudiesPlans.Views
             // gridUsers
             // 
             this.gridUsers.MasterTemplate.AllowEditRow = false;
-            gridViewTextBoxColumn11.FormatString = "";
-            gridViewTextBoxColumn11.HeaderText = "Nazwa";
-            gridViewTextBoxColumn11.Name = "usernameColumn";
-            gridViewTextBoxColumn11.Width = 110;
-            gridViewTextBoxColumn12.FormatString = "";
-            gridViewTextBoxColumn12.HeaderText = "Email";
-            gridViewTextBoxColumn12.Name = "emailColumn";
-            gridViewTextBoxColumn12.Width = 110;
-            gridViewTextBoxColumn13.FormatString = "";
-            gridViewTextBoxColumn13.HeaderText = "Ostatnie logowanie";
-            gridViewTextBoxColumn13.MinWidth = 8;
-            gridViewTextBoxColumn13.Name = "lastLoginColumn";
-            gridViewTextBoxColumn13.Width = 144;
-            gridViewTextBoxColumn13.WrapText = true;
-            gridViewTextBoxColumn14.FormatString = "";
-            gridViewTextBoxColumn14.HeaderText = "Rola";
-            gridViewTextBoxColumn14.Name = "roleColumn";
-            gridViewTextBoxColumn14.Width = 100;
-            gridViewImageColumn1.AllowSort = false;
-            gridViewImageColumn1.DataType = typeof(System.Drawing.Image);
-            gridViewImageColumn1.FormatString = "";
-            gridViewImageColumn1.HeaderText = "";
-            gridViewImageColumn1.Name = "editUserColumn";
-            gridViewImageColumn1.Width = 25;
-            gridViewImageColumn2.AllowSort = false;
-            gridViewImageColumn2.DataType = typeof(System.Drawing.Image);
-            gridViewImageColumn2.FormatString = "";
-            gridViewImageColumn2.HeaderText = "";
-            gridViewImageColumn2.Name = "deleteUserColumn";
-            gridViewImageColumn2.Width = 25;
+            gridViewTextBoxColumn25.FormatString = "";
+            gridViewTextBoxColumn25.HeaderText = "Nazwa";
+            gridViewTextBoxColumn25.Name = "usernameColumn";
+            gridViewTextBoxColumn25.Width = 110;
+            gridViewTextBoxColumn26.FormatString = "";
+            gridViewTextBoxColumn26.HeaderText = "Email";
+            gridViewTextBoxColumn26.Name = "emailColumn";
+            gridViewTextBoxColumn26.Width = 110;
+            gridViewTextBoxColumn27.FormatString = "";
+            gridViewTextBoxColumn27.HeaderText = "Ostatnie logowanie";
+            gridViewTextBoxColumn27.MinWidth = 8;
+            gridViewTextBoxColumn27.Name = "lastLoginColumn";
+            gridViewTextBoxColumn27.Width = 144;
+            gridViewTextBoxColumn27.WrapText = true;
+            gridViewTextBoxColumn28.FormatString = "";
+            gridViewTextBoxColumn28.HeaderText = "Rola";
+            gridViewTextBoxColumn28.Name = "roleColumn";
+            gridViewTextBoxColumn28.Width = 100;
+            gridViewImageColumn3.AllowSort = false;
+            gridViewImageColumn3.DataType = typeof(System.Drawing.Image);
+            gridViewImageColumn3.FormatString = "";
+            gridViewImageColumn3.HeaderText = "";
+            gridViewImageColumn3.Name = "editUserColumn";
+            gridViewImageColumn3.Width = 25;
+            gridViewImageColumn4.AllowSort = false;
+            gridViewImageColumn4.DataType = typeof(System.Drawing.Image);
+            gridViewImageColumn4.FormatString = "";
+            gridViewImageColumn4.HeaderText = "";
+            gridViewImageColumn4.Name = "deleteUserColumn";
+            gridViewImageColumn4.Width = 25;
             this.gridUsers.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn11,
-            gridViewTextBoxColumn12,
-            gridViewTextBoxColumn13,
-            gridViewTextBoxColumn14,
-            gridViewImageColumn1,
-            gridViewImageColumn2});
+            gridViewTextBoxColumn25,
+            gridViewTextBoxColumn26,
+            gridViewTextBoxColumn27,
+            gridViewTextBoxColumn28,
+            gridViewImageColumn3,
+            gridViewImageColumn4});
             this.gridUsers.Name = "gridUsers";
             this.gridUsers.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
             this.gridUsers.ReadOnly = true;
@@ -978,6 +977,7 @@ namespace StudiesPlans.Views
             this.btnDepMngmt.Name = "btnDepMngmt";
             this.btnDepMngmt.ShowBorder = false;
             this.btnDepMngmt.Text = "Wydzia³y";
+            this.btnDepMngmt.ToolTipText = "Zarz¹dzaj wydzia³ami";
             this.btnDepMngmt.Click += new System.EventHandler(this.radButtonElement7_Click);
             // 
             // btnFacMnmgt
@@ -986,6 +986,7 @@ namespace StudiesPlans.Views
             this.btnFacMnmgt.Name = "btnFacMnmgt";
             this.btnFacMnmgt.ShowBorder = false;
             this.btnFacMnmgt.Text = "Kierunki";
+            this.btnFacMnmgt.ToolTipText = "Zarz¹dzaj kierunkami";
             this.btnFacMnmgt.Click += new System.EventHandler(this.radButtonElement8_Click);
             // 
             // btnSubTMnmgt
@@ -994,6 +995,7 @@ namespace StudiesPlans.Views
             this.btnSubTMnmgt.Name = "btnSubTMnmgt";
             this.btnSubTMnmgt.ShowBorder = false;
             this.btnSubTMnmgt.Text = "Typy przedmiotów";
+            this.btnSubTMnmgt.ToolTipText = "Zarz¹dzaj typami przedmiotów";
             this.btnSubTMnmgt.Click += new System.EventHandler(this.radButtonElement9_Click);
             // 
             // btnStuMnmgt
@@ -1002,6 +1004,7 @@ namespace StudiesPlans.Views
             this.btnStuMnmgt.Name = "btnStuMnmgt";
             this.btnStuMnmgt.ShowBorder = false;
             this.btnStuMnmgt.Text = "Typy studiów";
+            this.btnStuMnmgt.ToolTipText = "Zarz¹dzaj typami studiów";
             this.btnStuMnmgt.Click += new System.EventHandler(this.radButtonElement10_Click);
             // 
             // btnInstMnmgt
@@ -1010,6 +1013,7 @@ namespace StudiesPlans.Views
             this.btnInstMnmgt.Name = "btnInstMnmgt";
             this.btnInstMnmgt.ShowBorder = false;
             this.btnInstMnmgt.Text = "Instytuty";
+            this.btnInstMnmgt.ToolTipText = "Zarz¹dzaj instytutami";
             this.btnInstMnmgt.Click += new System.EventHandler(this.radButtonElement11_Click);
             // 
             // btnSpecMnmgt
@@ -1018,6 +1022,7 @@ namespace StudiesPlans.Views
             this.btnSpecMnmgt.Name = "btnSpecMnmgt";
             this.btnSpecMnmgt.ShowBorder = false;
             this.btnSpecMnmgt.Text = "Specjalizacje";
+            this.btnSpecMnmgt.ToolTipText = "Zarz¹dzaj specjalizacjami";
             this.btnSpecMnmgt.Click += new System.EventHandler(this.radButtonElement12_Click);
             // 
             // btnSemMnmgt
@@ -1027,6 +1032,7 @@ namespace StudiesPlans.Views
             this.btnSemMnmgt.Name = "btnSemMnmgt";
             this.btnSemMnmgt.ShowBorder = false;
             this.btnSemMnmgt.Text = "Semestry";
+            this.btnSemMnmgt.ToolTipText = "Zarz¹dzaj semestrami";
             this.btnSemMnmgt.Click += new System.EventHandler(this.radButtonElement13_Click);
             // 
             // radToolStripItem1
@@ -1130,18 +1136,20 @@ namespace StudiesPlans.Views
             this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.StretchHorizontally = true;
             this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.StretchVertically = true;
             // 
-            // lblValidation
+            // btnRolesMngmt
             // 
-            this.lblValidation.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold);
-            this.lblValidation.ForeColor = System.Drawing.Color.Red;
-            this.lblValidation.Location = new System.Drawing.Point(16, 157);
-            this.lblValidation.Name = "lblValidation";
-            // 
-            // 
-            // 
-            this.lblValidation.RootElement.ForeColor = System.Drawing.Color.Red;
-            this.lblValidation.Size = new System.Drawing.Size(2, 2);
-            this.lblValidation.TabIndex = 18;
+            this.btnRolesMngmt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRolesMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
+            this.btnRolesMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnRolesMngmt.Image = global::StudiesPlans.Properties.Resources.management;
+            this.btnRolesMngmt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnRolesMngmt.Location = new System.Drawing.Point(245, 130);
+            this.btnRolesMngmt.Name = "btnRolesMngmt";
+            this.btnRolesMngmt.Size = new System.Drawing.Size(20, 20);
+            this.btnRolesMngmt.TabIndex = 19;
+            this.btnRolesMngmt.Click += new System.EventHandler(this.btnRolesMngmt_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnRolesMngmt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnRolesMngmt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainForm
             // 
@@ -1175,7 +1183,7 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.gridPlanSubjects)).EndInit();
             this.review.ResumeLayout(false);
             this.review.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.radButton1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnPreviewInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dlZoom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExportXML)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnExportPdf)).EndInit();
@@ -1190,6 +1198,7 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox2)).EndInit();
             this.radGroupBox2.ResumeLayout(false);
             this.radGroupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnUpdate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbRoles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCancelEdit)).EndInit();
@@ -1206,7 +1215,7 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.gridUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radStatusStrip1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radToolStrip1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lblValidation)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnRolesMngmt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1264,10 +1273,9 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadDropDownList dlZoom;
         private System.Windows.Forms.SaveFileDialog dlgSavePdf;
         private System.Windows.Forms.SaveFileDialog dlgSaveXml;
-        private Telerik.WinControls.UI.RadButton radButton1;
+        private Telerik.WinControls.UI.RadButton btnPreviewInfo;
         private Telerik.WinControls.UI.RadButton btnEditInfo;
         private Telerik.WinControls.UI.RadButton btnArchieveInfo;
-        private System.Windows.Forms.Button btnRolesMngmt;
         private Telerik.WinControls.UI.RadGroupBox radGroupBox2;
         private Telerik.WinControls.UI.RadButton btnUpdate;
         private Telerik.WinControls.UI.RadDropDownList cbRoles;
@@ -1284,6 +1292,7 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadLabel radLabel12;
         private Telerik.WinControls.RootRadElement object_c2749966_bbcb_47a3_8420_002a54d9f6ed;
         private Telerik.WinControls.UI.RadLabel lblValidation;
+        private Telerik.WinControls.UI.RadButton btnRolesMngmt;
     }
 }
 

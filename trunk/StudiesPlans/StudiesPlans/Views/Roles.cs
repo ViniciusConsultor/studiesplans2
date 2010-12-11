@@ -25,6 +25,15 @@ namespace StudiesPlans.Views
             FillWithRoles();
             FillWithPrivilages();
             Clear();
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            btnAdd.ButtonElement.ToolTipText = "Dodaj rolê";
+            btnCancel.ButtonElement.ToolTipText = "Anuluj edycjê";
+            btnDelete.ButtonElement.ToolTipText = "Usuñ rolê";
+            btnSave.ButtonElement.ToolTipText = "Zapisz zmiany";
         }
 
         private void FillWithRoles()

@@ -25,6 +25,17 @@ namespace StudiesPlans.Views
             FillWithFaculties();
             Clear();
             Disable();
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            btnAdd.ButtonElement.ToolTipText = "Dodaj specjalizacjê";
+            btnCancel.ButtonElement.ToolTipText = "Anuluj edycjê";
+            btnDelete.ButtonElement.ToolTipText = "Usuñ specjalizacjê";
+            btnDepartamentsMngmt.ButtonElement.ToolTipText = "Zarz¹dzaj wydzia³ami";
+            btnFacultiesManagement.ButtonElement.ToolTipText = "Zarz¹dzaj kierunkami";
+            btnSave.ButtonElement.ToolTipText = "Zapisz zmiany";
         }
 
         private void FillWithFaculties()

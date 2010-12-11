@@ -53,6 +53,16 @@ namespace StudiesPlans.Views
                 rbAll.ToggleState = Telerik.WinControls.Enumerations.ToggleState.On;
                 rbArchived.Enabled = false;
             }
+
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            btnClearFilter.ButtonElement.ToolTipText = "Usuñ filtr";
+            btnCancel.ButtonElement.ToolTipText = "Anuluj";
+            btnLoad.ButtonElement.ToolTipText = "Wczytaj plan";
+            btnSetFilter.ButtonElement.ToolTipText = "Ustaw filtr";
         }
 
         private void DisableAll()
