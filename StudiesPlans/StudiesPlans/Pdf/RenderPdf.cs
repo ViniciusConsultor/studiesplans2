@@ -163,20 +163,6 @@ namespace StudiesPlans.Pdf
 
                 foreach (string name in subjectNames)
                 {
-                    //int offset = 0;
-                    //tablePositionY = tablePositionY2;
-                    //tablePositionY2 += 15;
-                    //gfx.DrawLine(pen, tablePositionX, tablePositionY, tablePositionX, tablePositionY2);
-                    //offset += 2;
-                    //gfx.DrawString(lp.ToString(), font, XBrushes.Black, tablePositionX + offset, tablePositionY + 11);
-                    //gfx.DrawLine(pen, tablePositionX, tablePositionY2, fullLength, tablePositionY2);
-                    //offset += 28;
-                    //gfx.DrawLine(pen, tablePositionX + 30, tablePositionY, tablePositionX + offset, tablePositionY2);
-                    //lp++;
-                    //offset += 2;
-                    //gfx.DrawString(name, font, XBrushes.Black, tablePositionX + offset, tablePositionY + 11);
-                    //gfx.DrawLine(pen, nameLength.Width + 2, tablePositionY, nameLength.Width + 2, tablePositionY2);
-
                     foreach (SubjectsData sd in LoadedPlan.SubjectsDatas)
                     {
                         if (sd.Subject.Name.Equals(name) && sd.SpecializationsData == null)

@@ -24,6 +24,16 @@ namespace StudiesPlans.Views
             FillWithFaculties(null);
             FillWithDepartaments();
             Disable();
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            btnAddFaculty.ButtonElement.ToolTipText = "Dodaj kierunek";
+            btnCancel.ButtonElement.ToolTipText = "Anuluj edycjê";
+            btnDelete.ButtonElement.ToolTipText = "Usuñ kierunek";
+            btnDepartamentsMngmt.ButtonElement.ToolTipText = "Zarz¹dzaj wydzia³ami";
+            btnSave.ButtonElement.ToolTipText = "Zapisz zmiany";
         }
 
         private void Disable()

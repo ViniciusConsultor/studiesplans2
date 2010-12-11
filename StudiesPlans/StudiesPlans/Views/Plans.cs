@@ -24,6 +24,16 @@ namespace StudiesPlans.Views
             FillWithFaculties();
             FillWithStudiesTypes();
             loggedUser = user;
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            btnFacultiesMngmt.ButtonElement.ToolTipText = "Zarz¹dzaj kierunkami";
+            btnCancel.ButtonElement.ToolTipText = "Anuluj";
+            btnStudiesTypesMngmt.ButtonElement.ToolTipText = "Zarz¹dzaj typami studiów";
+            btnDepartamentsMngmt.ButtonElement.ToolTipText = "Zarz¹dzaj wydzia³ami";
+            btnAddPlan.ButtonElement.ToolTipText = "Dodaj plan";
         }
 
         private void FillWithStudiesTypes()

@@ -25,6 +25,12 @@ namespace StudiesPlans.Views
             lblMandatory.Text = plan.IsMandatory ? "Tak" : "Nie";
             lblArchieved.Text = plan.IsArchiewed ? "Tak" : "Nie";
             tbReview.Text = plan.Review;
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            btnOk.ButtonElement.ToolTipText = "OK";
         }
 
         private void btnOk_Click(object sender, EventArgs e)

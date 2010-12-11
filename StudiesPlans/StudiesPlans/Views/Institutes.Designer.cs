@@ -34,7 +34,6 @@ namespace StudiesPlans.Views
             this.radLabel2 = new Telerik.WinControls.UI.RadLabel();
             this.tbNewInstituteName = new Telerik.WinControls.UI.RadTextBox();
             this.lblValidation = new Telerik.WinControls.UI.RadLabel();
-            this.btnDepartamentsMngmt = new System.Windows.Forms.Button();
             this.btnDelete = new Telerik.WinControls.UI.RadButton();
             this.btnSave = new Telerik.WinControls.UI.RadButton();
             this.clbDepartaments = new System.Windows.Forms.CheckedListBox();
@@ -42,6 +41,7 @@ namespace StudiesPlans.Views
             this.btnAdd = new Telerik.WinControls.UI.RadButton();
             this.cbDepartamentFilter = new Telerik.WinControls.UI.RadDropDownList();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
+            this.btnDepartamentsMnmgt = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.listInstitutes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
@@ -55,6 +55,7 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDepartamentFilter)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDepartamentsMnmgt)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,11 +73,11 @@ namespace StudiesPlans.Views
             // 
             // radGroupBox1
             // 
+            this.radGroupBox1.Controls.Add(this.btnDepartamentsMnmgt);
             this.radGroupBox1.Controls.Add(this.radLabel3);
             this.radGroupBox1.Controls.Add(this.radLabel2);
             this.radGroupBox1.Controls.Add(this.tbNewInstituteName);
             this.radGroupBox1.Controls.Add(this.lblValidation);
-            this.radGroupBox1.Controls.Add(this.btnDepartamentsMngmt);
             this.radGroupBox1.Controls.Add(this.btnDelete);
             this.radGroupBox1.Controls.Add(this.btnSave);
             this.radGroupBox1.Controls.Add(this.clbDepartaments);
@@ -136,21 +137,6 @@ namespace StudiesPlans.Views
             this.lblValidation.RootElement.ForeColor = System.Drawing.Color.Red;
             this.lblValidation.Size = new System.Drawing.Size(2, 2);
             this.lblValidation.TabIndex = 22;
-            // 
-            // btnDepartamentsMngmt
-            // 
-            this.btnDepartamentsMngmt.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnDepartamentsMngmt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
-            this.btnDepartamentsMngmt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.btnDepartamentsMngmt.Location = new System.Drawing.Point(72, 56);
-            this.btnDepartamentsMngmt.Margin = new System.Windows.Forms.Padding(0);
-            this.btnDepartamentsMngmt.Name = "btnDepartamentsMngmt";
-            this.btnDepartamentsMngmt.Size = new System.Drawing.Size(21, 21);
-            this.btnDepartamentsMngmt.TabIndex = 1;
-            this.btnDepartamentsMngmt.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDepartamentsMngmt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDepartamentsMngmt.UseVisualStyleBackColor = true;
-            this.btnDepartamentsMngmt.Click += new System.EventHandler(this.btnDepartamentsMngmt_Click);
             // 
             // btnDelete
             // 
@@ -244,6 +230,20 @@ namespace StudiesPlans.Views
             this.radLabel1.TabIndex = 27;
             this.radLabel1.Text = "Filtruj po wydziale:";
             // 
+            // btnDepartamentsMnmgt
+            // 
+            this.btnDepartamentsMnmgt.BackgroundImage = global::StudiesPlans.Properties.Resources.management;
+            this.btnDepartamentsMnmgt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnDepartamentsMnmgt.Image = global::StudiesPlans.Properties.Resources.management;
+            this.btnDepartamentsMnmgt.ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btnDepartamentsMnmgt.Location = new System.Drawing.Point(76, 56);
+            this.btnDepartamentsMnmgt.Name = "btnDepartamentsMnmgt";
+            this.btnDepartamentsMnmgt.Size = new System.Drawing.Size(20, 20);
+            this.btnDepartamentsMnmgt.TabIndex = 28;
+            this.btnDepartamentsMnmgt.Click += new System.EventHandler(this.btnDepartamentsMngmt_Click);
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnDepartamentsMnmgt.GetChildAt(0))).Image = global::StudiesPlans.Properties.Resources.management;
+            ((Telerik.WinControls.UI.RadButtonElement)(this.btnDepartamentsMnmgt.GetChildAt(0))).ImageAlignment = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Institutes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -279,6 +279,7 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.btnAdd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbDepartamentFilter)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDepartamentsMnmgt)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -293,7 +294,6 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadButton btnSave;
         private Telerik.WinControls.UI.RadButton btnCancel;
         private Telerik.WinControls.UI.RadButton btnAdd;
-        private System.Windows.Forms.Button btnDepartamentsMngmt;
         private System.Windows.Forms.CheckedListBox clbDepartaments;
         private Telerik.WinControls.UI.RadLabel lblValidation;
         private Telerik.WinControls.UI.RadDropDownList cbDepartamentFilter;
@@ -301,6 +301,7 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadLabel radLabel3;
         private Telerik.WinControls.UI.RadLabel radLabel2;
         private Telerik.WinControls.UI.RadTextBox tbNewInstituteName;
+        private Telerik.WinControls.UI.RadButton btnDepartamentsMnmgt;
     }
 }
 

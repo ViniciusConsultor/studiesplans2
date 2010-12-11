@@ -36,6 +36,7 @@ namespace StudiesPlans.Views
             logged = user;
             CreateSubjectGrid();
             FillZoom();
+            SetButtonsToolTips();
         }
 
         private void CreateSubjectGrid()
@@ -113,6 +114,28 @@ namespace StudiesPlans.Views
         private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();
+        }
+
+        private void SetButtonsToolTips()
+        {
+            btnAddSubject.ButtonElement.ToolTipText = "Dodaj przedmiot do planu";
+            btnAddUser.ButtonElement.ToolTipText = "Dodaj u¿ytkownika";
+            btnArchieveInfo.ButtonElement.ToolTipText = "Informacje o planie";
+            btnCancelEdit.ButtonElement.ToolTipText = "Anuluj edycjê";
+            btnCopyArchivePlan.ButtonElement.ToolTipText = "Kopiuj zarchwizowany plan";
+            btnDeleteSubject.ButtonElement.ToolTipText = "Usuñ przedmiot z planu";
+            btnEditInfo.ButtonElement.ToolTipText = "Informacje o planie";
+            btnEditSubject.ButtonElement.ToolTipText = "Edytuj przedmiot";
+            btnExportPdf.ButtonElement.ToolTipText = "Zapisz plan jako PDF";
+            btnExportXML.ButtonElement.ToolTipText = "Zapisz plan jako XML";
+            btnLoadArchivePlan.ButtonElement.ToolTipText = "Wczytaj zarchiwizowany plan";
+            btnLoadPlan.ButtonElement.ToolTipText = "Wczytaj plan";
+            btnNewPlan.ButtonElement.ToolTipText = "Stwórz nowy plan";
+            btnPlanEdit.ButtonElement.ToolTipText = "Edytuj plan";
+            btnRolesMngmt.ButtonElement.ToolTipText = "Zarz¹dzaj rolami";
+            btnShowPreview.ButtonElement.ToolTipText = "Wczytaj plan";
+            btnUpdate.ButtonElement.ToolTipText = "Zapisz zmiany";
+            btnPreviewInfo.ButtonElement.ToolTipText = "Informacje o planie";
         }
 
         #region Users

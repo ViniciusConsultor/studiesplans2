@@ -27,6 +27,14 @@ namespace StudiesPlans.Views
             CheckMandatory(LoadedPlan.IsMandatory);
             FillWithYears(LoadedPlan.YearStart.HasValue? LoadedPlan.YearStart.Value.Year : 0,
                 LoadedPlan.YearEnd.HasValue? LoadedPlan.YearEnd.Value.Year : 0);
+
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            btnClose.ButtonElement.ToolTipText = "Zamknij";
+            btnSave.ButtonElement.ToolTipText = "Zapisz zmiany";
         }
 
         private void CheckMandatory(bool mandatory)

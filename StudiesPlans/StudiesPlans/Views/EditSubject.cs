@@ -65,6 +65,19 @@ namespace StudiesPlans.Views
 
             cbElective.Checked = subject.IsElective;
             cbGeneral.Checked = subject.IsGeneral;
+
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            btnSaveSubject.ButtonElement.ToolTipText = "Zapisz zmiany";
+            btnCancel.ButtonElement.ToolTipText = "Zamknij";
+            btnClearSpec.ButtonElement.ToolTipText = "Wyczyœæ specjalizacje";
+            btnInstitutesMngmt.ButtonElement.ToolTipText = "Zarz¹dzaj instytutami";
+            btnSemestersMnmgt.ButtonElement.ToolTipText = "Zarz¹dzaj semestrami";
+            btnSpecMngmt.ButtonElement.ToolTipText = "Zarz¹dzaj specjalizacjami";
+            btnSubjectTypesMnmgt.ButtonElement.ToolTipText = "Zarz¹dzaj typami przedmiotów";
         }
 
         private void FillWithSubjectTypes()

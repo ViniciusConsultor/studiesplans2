@@ -24,6 +24,15 @@ namespace StudiesPlans.Views
             InitializeComponent();
             FillWithDepartaments();
             Disable();
+            ShowButtonsToolTips();
+        }
+
+        private void ShowButtonsToolTips()
+        {
+            btnAddDepartament.ButtonElement.ToolTipText = "Dodaj wydzia³";
+            btnCancel.ButtonElement.ToolTipText = "Anuluj edycjê";
+            btnDelete.ButtonElement.ToolTipText = "Usuñ wydzia³";
+            btnSave.ButtonElement.ToolTipText = "Zapisz zmiany";
         }
 
         private void Disable()
