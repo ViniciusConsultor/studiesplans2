@@ -30,17 +30,32 @@ namespace StudiesPlans.Views
             IEnumerable<Rule> rules = _rulesRepository.GetRules(_selectedPlan.PlanID);
             if (rules.Count() != 0)
             {
-                foreach (Rule rule in rules)
+                if (_selectedPlan.SubjectsDatas.Count != 0)
                 {
-                    if (rule.Description.Equals("Total ECTS Count"))
-                        resultList.Add(ValidateTotalEctsCount(rule.Value));
-                    if (rule.Description.Equals("Total ECTS Subject Count"))
-                        resultList.Add(ValidateTotalEctsSubjectCount(rule.Value, rule.Subject));
-                    if (rule.Description.Equals("Total ECTS Subject Count"))
-                        resultList.Add(ValidateTotalEctsSubjectTypeCount(rule.Value, rule.SubjectType));
+                    foreach (Rule rule in rules)
+                    {
+
+                        if (rule.Description.Equals("Total ECTS Count"))
+                            resultList.Add(ValidateTotalEctsCount(rule));
+                        if (rule.Description.Equals("Total ECTS Subject Count"))
+                            resultList.Add(ValidateTotalEctsSubjectCount(rule));
+                        if (rule.Description.Equals("Total ECTS Subject Type Count"))
+                            resultList.Add(ValidateTotalEctsSubjectTypeCount(rule));
+                        if (rule.Description.Equals("Total Hours Count"))
+                            resultList.Add(ValidateTotalHoursCount(rule));
+                        if (rule.Description.Equals("Total Hours Subject Count"))
+                            resultList.Add(ValidateTotalHoursSubjectCount(rule));
+                        if (rule.Description.Equals("Total Hours Subject Type Count"))
+                            resultList.Add(ValidateTotalHoursSubjectTypeCount(rule));
+                    }
                     updateGrid(resultList);
                 }
-                
+                else
+                {
+                    RadMessageBox.Show(
+                        "Nastąpił błąd - w planie nie ma żadnego przedmiotu!", "Brak przedmiotów", MessageBoxButtons.OK,
+                        RadMessageIcon.Error);
+                }
 
             }
             else
@@ -71,15 +86,24 @@ namespace StudiesPlans.Views
             }
         }
 
-
         #region TotalEctsCount
 
-        private bool ValidateTotalEctsCount(double expectedEcts)
+        private bool ValidateTotalEctsCount(Rule rule)
         {
             if (_selectedPlan.SubjectsDatas.Count != 0)
             {
-                double ectsCount = _selectedPlan.SubjectsDatas.Sum(sd => sd.Ects);
-                if (expectedEcts.Equals(ectsCount))
+                double ectsCount = 0;
+                foreach (SubjectsData sd in _selectedPlan.SubjectsDatas)
+                {
+                    if(rule.Semester == 0)
+                        ectsCount += sd.Ects;
+                    else
+                    {
+                        if (sd.Semester.Semester1.Equals(rule.Semester))
+                            ectsCount += sd.Ects;
+                    }
+                }
+                if (rule.Value.Equals(ectsCount))
                     return true;
                 else
                     return false;
@@ -96,19 +120,29 @@ namespace StudiesPlans.Views
 
         #region TotalEctsSubjectCount
 
-        private bool ValidateTotalEctsSubjectCount(double expectedEcts, string subject)
+        private bool ValidateTotalEctsSubjectCount(Rule rule)
         {
             double ectsCount = 0;
 
             if (_selectedPlan.SubjectsDatas.Count != 0)
             {
-                foreach (SubjectsData sd in _selectedPlan.SubjectsDatas.Where(sd => sd.Subject.Name.Equals(subject)))
+                foreach (SubjectsData sd in _selectedPlan.SubjectsDatas)
                 {
-                    ectsCount = sd.Ects;
+                    if(rule.Subject.Equals(sd.Subject.Name))
+                    {
+                        if(rule.Semester == 0)
+                            ectsCount += sd.Ects;
+                        else
+                         {
+                             if (sd.Semester.Semester1.Equals(rule.Semester))
+                                 ectsCount += sd.Ects;
+                         }
+                        ectsCount = sd.Ects;
+                    }
                 }
-                if (expectedEcts.Equals(ectsCount))
+                if (rule.Value.Equals(ectsCount))
                     return true;
-                else
+                else       
                     return false;
             }
             else
@@ -123,7 +157,7 @@ namespace StudiesPlans.Views
 
         #region TotalEctsSubjectTypeCount
 
-        private bool ValidateTotalEctsSubjectTypeCount(double expectedEcts, string subjectType)
+        private bool ValidateTotalEctsSubjectTypeCount(Rule rule)
         {
             double ectsCount = 0;
 
@@ -133,11 +167,143 @@ namespace StudiesPlans.Views
                 {
                     foreach (SubjectTypesData st in sd.SubjectTypesDatas)
                     {
-                        if (st.SubjectType.Name.Equals(subjectType))
-                            ectsCount += sd.Ects;
+                        if (st.SubjectType.Name.Equals(rule.SubjectType))
+                        {
+                            if (rule.Semester == 0)
+                                ectsCount += sd.Ects;
+                            else
+                            {
+                                if (sd.Semester.Semester1.Equals(rule.Semester))
+                                    ectsCount += sd.Ects;
+                            }
+                        }
                     }
                 }
-                if (expectedEcts.Equals(ectsCount))
+                if (rule.Value.Equals(ectsCount))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                RadMessageBox.Show(
+                   "Nastąpił błąd - w planie nie ma żadnego przedmiotu!", "Brak przedmiotów", MessageBoxButtons.OK, RadMessageIcon.Error);
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region TotalHoursCount
+
+        private bool ValidateTotalHoursCount(Rule rule)
+        {
+            double hoursCount = 0;
+
+            if (_selectedPlan.SubjectsDatas.Count != 0)
+            {
+                foreach (SubjectsData sd in _selectedPlan.SubjectsDatas)
+                {
+                        if (rule.Semester == 0)
+                        {
+                            foreach ( SubjectTypesData std in sd.SubjectTypesDatas)
+                            {
+                                hoursCount += std.Hours;
+                            }
+                        }
+                        else
+                        {
+                            foreach (SubjectTypesData std in sd.SubjectTypesDatas)
+                            {
+                                if (sd.Semester.Semester1.Equals(rule.Semester))
+                                hoursCount += std.Hours;
+                            } 
+                        }
+                }
+                if (rule.Value.Equals(hoursCount))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                RadMessageBox.Show(
+                   "Nastąpił błąd - w planie nie ma żadnego przedmiotu!", "Brak przedmiotów", MessageBoxButtons.OK, RadMessageIcon.Error);
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region TotalHoursSubjectCount
+
+        private bool ValidateTotalHoursSubjectCount(Rule rule)
+        {
+            double hoursCount = 0;
+
+            if (_selectedPlan.SubjectsDatas.Count != 0)
+            {
+                foreach (SubjectsData sd in _selectedPlan.SubjectsDatas)
+                {
+                    if (rule.Subject.Equals(sd.Subject.Name))
+                    {
+                        if (rule.Semester == 0)
+                        {
+                            foreach (SubjectTypesData std in sd.SubjectTypesDatas)
+                            {
+                                hoursCount += std.Hours;
+                            }
+                        }
+                        else
+                        {
+                            foreach (SubjectTypesData std in sd.SubjectTypesDatas)
+                            {
+                                if (sd.Semester.Semester1.Equals(rule.Semester))
+                                    hoursCount += std.Hours;
+                            }
+                        }
+                    }
+                }
+                if (rule.Value.Equals(hoursCount))
+                    return true;
+                else
+                    return false;
+            }
+            else
+            {
+                RadMessageBox.Show(
+                   "Nastąpił błąd - w planie nie ma żadnego przedmiotu!", "Brak przedmiotów", MessageBoxButtons.OK, RadMessageIcon.Error);
+            }
+            return false;
+        }
+
+        #endregion
+
+        #region TotalHoursSubjectCount
+
+        private bool ValidateTotalHoursSubjectTypeCount(Rule rule)
+        {
+            double hoursCount = 0;
+
+            if (_selectedPlan.SubjectsDatas.Count != 0)
+            {
+                foreach (SubjectsData sd in _selectedPlan.SubjectsDatas)
+                {
+                    foreach (SubjectTypesData st in sd.SubjectTypesDatas)
+                    {
+                        if (st.SubjectType.Name.Equals(rule.Subject))
+                        {
+                            if (rule.Semester == 0)
+                                hoursCount += st.Hours;
+                            else
+                            {
+                                if (sd.Semester.Semester1.Equals(rule.Semester))
+                                    hoursCount += st.Hours;
+                            }
+                        }
+                    }
+                }
+                if (rule.Value.Equals(hoursCount))
                     return true;
                 else
                     return false;
@@ -159,11 +325,13 @@ namespace StudiesPlans.Views
 
         private void updateGrid(ArrayList resultList)
         {
-            for (int i = 0; i < gvRules.Rows.Count; i++ )
+            if (resultList.Count != 0)
             {
-                gvRules.Rows[i].Cells["passed"].Value = resultList[i];
+                for (int i = 0; i < gvRules.Rows.Count; i++)
+                {
+                    gvRules.Rows[i].Cells["passed"].Value = resultList[i];
+                }
             }
         }
-
     }
 }

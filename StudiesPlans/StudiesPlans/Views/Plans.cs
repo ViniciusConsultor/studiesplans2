@@ -142,7 +142,7 @@ namespace StudiesPlans.Views
 
             if (PlanController.Instance.AddPlan(plan))
             {
-                MessageBox.Show("Plan zosta³ dodany", "Info");
+                RadMessageBox.Show("Plan zosta³ dodany", "Info", MessageBoxButtons.OK, RadMessageIcon.Info);
                 added = true;
                 addedPlan = PlanController.Instance.GetPlan(tbPlanName.Text);
                 Clear();

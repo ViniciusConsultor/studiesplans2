@@ -255,7 +255,7 @@ namespace StudiesPlans.Views
                 Rule newRule = new Rule()
                 {
                     PlanId = _selectedPlan.PlanID,
-                    Description = "Total Hours Subject Count",
+                    Description = "Total Hours Subject Type Count",
                     Semester = (short)ddlSemester.SelectedIndex,
                     SubjectType = ddlHoursSubjectType.SelectedText,
                     Value = parseValue
