@@ -709,5 +709,27 @@ namespace StudiesPlans.Views
 
         #endregion
 
+        private void radButtonElement7_Click_1(object sender, EventArgs e)
+        {
+            if (LoadedPlan != null)
+            {
+                new Rules(LoadedPlan).ShowDialog();
+            }
+        }
+
+        private void btnAddRule_Click(object sender, EventArgs e)
+        {
+            if (LoadedPlan != null)
+            {
+                new Rules(LoadedPlan).ShowDialog();
+            }
+        }
+
+        private void rulesButton_Click(object sender, EventArgs e)
+        {
+            if (LoadedPlan != null)
+                new Rules(LoadedPlan).ShowDialog();
+        }
+
     }
 }

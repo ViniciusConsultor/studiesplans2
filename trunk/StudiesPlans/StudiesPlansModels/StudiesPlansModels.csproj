@@ -50,6 +50,7 @@
     <Compile Include="Models\BaseModel.cs" />
     <Compile Include="Models\DepartamentModels.cs" />
     <Compile Include="Models\PlanModels.cs" />
+    <Compile Include="Repositories\Interfaces\IRulesRepository.cs" />
     <Compile Include="Repositories\PlansRepository.cs" />
     <Compile Include="Models\SubjectDataModels.cs" />
     <Compile Include="Models\SubjectTypesModels.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Models\RoleModels.cs" />
     <Compile Include="Repositories\RolesRepository.cs" />
     <Compile Include="Models\SemesterModels.cs" />
+    <Compile Include="Repositories\RulesRepository.cs" />
     <Compile Include="Repositories\SemestersRepository.cs" />
     <Compile Include="Models\SPDatabase.cs" />
     <Compile Include="Models\SPDatabase.Designer.cs">
@@ -101,6 +103,7 @@
     <None Include="App.Config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="Properties\DataSources\StudiesPlansModels.Models.SPDatabase.datasource" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

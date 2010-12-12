@@ -38,6 +38,7 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("SPModel", "FK_Plans_StudiesTypes", "StudiesType", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.StudiesType), "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "FK_Plans_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.User), "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), true)]
 [assembly: EdmRelationshipAttribute("SPModel", "PlansData", "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Plan), "SubjectsData", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.SubjectsData))]
+[assembly: EdmRelationshipAttribute("SPModel", "FK_Rules_Plans", "Plan", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(StudiesPlansModels.Models.Plan), "Rule", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(StudiesPlansModels.Models.Rule), true)]
 
 #endregion
 
@@ -328,6 +329,22 @@ namespace StudiesPlansModels.Models
             }
         }
         private ObjectSet<Plan> _Plans;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<Rule> Rules
+        {
+            get
+            {
+                if ((_Rules == null))
+                {
+                    _Rules = base.CreateObjectSet<Rule>("Rules");
+                }
+                return _Rules;
+            }
+        }
+        private ObjectSet<Rule> _Rules;
 
         #endregion
         #region AddTo Methods
@@ -450,6 +467,14 @@ namespace StudiesPlansModels.Models
         public void AddToPlans(Plan plan)
         {
             base.AddObject("Plans", plan);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the Rules EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToRules(Rule rule)
+        {
+            base.AddObject("Rules", rule);
         }
 
         #endregion
@@ -1484,6 +1509,28 @@ namespace StudiesPlansModels.Models
                 }
             }
         }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_Rules_Plans", "Rule")]
+        public EntityCollection<Rule> Rules
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Rule>("SPModel.FK_Rules_Plans", "Rule");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Rule>("SPModel.FK_Rules_Plans", "Rule", value);
+                }
+            }
+        }
 
         #endregion
     }
@@ -1715,6 +1762,254 @@ namespace StudiesPlansModels.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Privilage>("SPModel.RolesPrivilages", "Privilage", value);
+                }
+            }
+        }
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="SPModel", Name="Rule")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class Rule : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new Rule object.
+        /// </summary>
+        /// <param name="ruleId">Initial value of the RuleId property.</param>
+        /// <param name="description">Initial value of the Description property.</param>
+        /// <param name="value">Initial value of the Value property.</param>
+        /// <param name="semester">Initial value of the Semester property.</param>
+        /// <param name="planId">Initial value of the PlanId property.</param>
+        public static Rule CreateRule(global::System.Int32 ruleId, global::System.String description, global::System.Double value, global::System.Int16 semester, global::System.Int32 planId)
+        {
+            Rule rule = new Rule();
+            rule.RuleId = ruleId;
+            rule.Description = description;
+            rule.Value = value;
+            rule.Semester = semester;
+            rule.PlanId = planId;
+            return rule;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 RuleId
+        {
+            get
+            {
+                return _RuleId;
+            }
+            set
+            {
+                if (_RuleId != value)
+                {
+                    OnRuleIdChanging(value);
+                    ReportPropertyChanging("RuleId");
+                    _RuleId = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("RuleId");
+                    OnRuleIdChanged();
+                }
+            }
+        }
+        private global::System.Int32 _RuleId;
+        partial void OnRuleIdChanging(global::System.Int32 value);
+        partial void OnRuleIdChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String Description
+        {
+            get
+            {
+                return _Description;
+            }
+            set
+            {
+                OnDescriptionChanging(value);
+                ReportPropertyChanging("Description");
+                _Description = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("Description");
+                OnDescriptionChanged();
+            }
+        }
+        private global::System.String _Description;
+        partial void OnDescriptionChanging(global::System.String value);
+        partial void OnDescriptionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Double Value
+        {
+            get
+            {
+                return _Value;
+            }
+            set
+            {
+                OnValueChanging(value);
+                ReportPropertyChanging("Value");
+                _Value = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Value");
+                OnValueChanged();
+            }
+        }
+        private global::System.Double _Value;
+        partial void OnValueChanging(global::System.Double value);
+        partial void OnValueChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String SubjectType
+        {
+            get
+            {
+                return _SubjectType;
+            }
+            set
+            {
+                OnSubjectTypeChanging(value);
+                ReportPropertyChanging("SubjectType");
+                _SubjectType = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("SubjectType");
+                OnSubjectTypeChanged();
+            }
+        }
+        private global::System.String _SubjectType;
+        partial void OnSubjectTypeChanging(global::System.String value);
+        partial void OnSubjectTypeChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int16 Semester
+        {
+            get
+            {
+                return _Semester;
+            }
+            set
+            {
+                OnSemesterChanging(value);
+                ReportPropertyChanging("Semester");
+                _Semester = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("Semester");
+                OnSemesterChanged();
+            }
+        }
+        private global::System.Int16 _Semester;
+        partial void OnSemesterChanging(global::System.Int16 value);
+        partial void OnSemesterChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String Subject
+        {
+            get
+            {
+                return _Subject;
+            }
+            set
+            {
+                OnSubjectChanging(value);
+                ReportPropertyChanging("Subject");
+                _Subject = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("Subject");
+                OnSubjectChanged();
+            }
+        }
+        private global::System.String _Subject;
+        partial void OnSubjectChanging(global::System.String value);
+        partial void OnSubjectChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 PlanId
+        {
+            get
+            {
+                return _PlanId;
+            }
+            set
+            {
+                OnPlanIdChanging(value);
+                ReportPropertyChanging("PlanId");
+                _PlanId = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("PlanId");
+                OnPlanIdChanged();
+            }
+        }
+        private global::System.Int32 _PlanId;
+        partial void OnPlanIdChanging(global::System.Int32 value);
+        partial void OnPlanIdChanged();
+
+        #endregion
+    
+        #region Navigation Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [XmlIgnoreAttribute()]
+        [SoapIgnoreAttribute()]
+        [DataMemberAttribute()]
+        [EdmRelationshipNavigationPropertyAttribute("SPModel", "FK_Rules_Plans", "Plan")]
+        public Plan Plan
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Plan>("SPModel.FK_Rules_Plans", "Plan").Value;
+            }
+            set
+            {
+                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Plan>("SPModel.FK_Rules_Plans", "Plan").Value = value;
+            }
+        }
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [BrowsableAttribute(false)]
+        [DataMemberAttribute()]
+        public EntityReference<Plan> PlanReference
+        {
+            get
+            {
+                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<Plan>("SPModel.FK_Rules_Plans", "Plan");
+            }
+            set
+            {
+                if ((value != null))
+                {
+                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<Plan>("SPModel.FK_Rules_Plans", "Plan", value);
                 }
             }
         }
