@@ -731,5 +731,11 @@ namespace StudiesPlans.Views
                 new Rules(LoadedPlan).ShowDialog();
         }
 
+        private void radButtonElement7_Click_2(object sender, EventArgs e)
+        {
+            if (LoadedPlan != null)
+                new ValidateRules(LoadedPlan).ShowDialog();
+        }
+
     }
 }
