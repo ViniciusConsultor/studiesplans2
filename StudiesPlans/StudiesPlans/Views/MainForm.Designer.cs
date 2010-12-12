@@ -104,6 +104,8 @@ namespace StudiesPlans.Views
             this.btnStuMnmgt = new Telerik.WinControls.UI.RadButtonElement();
             this.btnInstMnmgt = new Telerik.WinControls.UI.RadButtonElement();
             this.btnSpecMnmgt = new Telerik.WinControls.UI.RadButtonElement();
+            this.rulesButton = new Telerik.WinControls.UI.RadButtonElement();
+            this.radButtonElement7 = new Telerik.WinControls.UI.RadButtonElement();
             this.btnSemMnmgt = new Telerik.WinControls.UI.RadButtonElement();
             this.qaShape1 = new Telerik.WinControls.Tests.QAShape();
             this.radToolStripItem1 = new Telerik.WinControls.UI.RadToolStripItem();
@@ -117,10 +119,9 @@ namespace StudiesPlans.Views
             this.radToolStripItem2 = new Telerik.WinControls.UI.RadToolStripItem();
             this.dlgSavePdf = new System.Windows.Forms.SaveFileDialog();
             this.dlgSaveXml = new System.Windows.Forms.SaveFileDialog();
+            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed = new Telerik.WinControls.RootRadElement();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed = new Telerik.WinControls.RootRadElement();
-            this.rulesButton = new Telerik.WinControls.UI.RadButtonElement();
             ((System.ComponentModel.ISupportInitialize)(this.pages)).BeginInit();
             this.pages.SuspendLayout();
             this.plancreate.SuspendLayout();
@@ -949,7 +950,7 @@ namespace StudiesPlans.Views
             this.radToolStrip1.RootElement.AutoSizeMode = Telerik.WinControls.RadAutoSizeMode.WrapAroundChildren;
             this.radToolStrip1.RootElement.MinSize = new System.Drawing.Size(5, 5);
             this.radToolStrip1.ShowOverFlowButton = true;
-            this.radToolStrip1.Size = new System.Drawing.Size(842, 49);
+            this.radToolStrip1.Size = new System.Drawing.Size(842, 27);
             this.radToolStrip1.TabIndex = 17;
             this.radToolStrip1.Text = "radToolStrip1";
             // 
@@ -978,6 +979,7 @@ namespace StudiesPlans.Views
             this.btnInstMnmgt,
             this.btnSpecMnmgt,
             this.rulesButton,
+            this.radButtonElement7,
             this.btnSemMnmgt});
             this.radToolStripItem3.Key = "0";
             this.radToolStripItem3.Name = "radToolStripItem3";
@@ -1041,6 +1043,22 @@ namespace StudiesPlans.Views
             this.btnSpecMnmgt.Text = "Specjalizacje";
             this.btnSpecMnmgt.ToolTipText = "Zarz¹dzaj specjalizacjami";
             this.btnSpecMnmgt.Click += new System.EventHandler(this.radButtonElement12_Click);
+            // 
+            // rulesButton
+            // 
+            this.rulesButton.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.rulesButton.Name = "rulesButton";
+            this.rulesButton.ShowBorder = false;
+            this.rulesButton.Text = "Regu³y";
+            this.rulesButton.Click += new System.EventHandler(this.rulesButton_Click);
+            // 
+            // radButtonElement7
+            // 
+            this.radButtonElement7.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
+            this.radButtonElement7.Name = "radButtonElement7";
+            this.radButtonElement7.ShowBorder = false;
+            this.radButtonElement7.Text = "Weryfikuj";
+            this.radButtonElement7.Click += new System.EventHandler(this.radButtonElement7_Click_2);
             // 
             // btnSemMnmgt
             // 
@@ -1131,6 +1149,13 @@ namespace StudiesPlans.Views
             this.dlgSaveXml.FileName = "plan";
             this.dlgSaveXml.Filter = "Pliki XML|*.xml";
             // 
+            // object_c2749966_bbcb_47a3_8420_002a54d9f6ed
+            // 
+            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.Name = "object_c2749966_bbcb_47a3_8420_002a54d9f6ed";
+            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
+            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.StretchHorizontally = true;
+            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.StretchVertically = true;
+            // 
             // dataGridViewImageColumn1
             // 
             this.dataGridViewImageColumn1.HeaderText = "";
@@ -1145,21 +1170,6 @@ namespace StudiesPlans.Views
             this.dataGridViewImageColumn2.MinimumWidth = 22;
             this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
             this.dataGridViewImageColumn2.Width = 22;
-            // 
-            // object_c2749966_bbcb_47a3_8420_002a54d9f6ed
-            // 
-            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.Name = "object_c2749966_bbcb_47a3_8420_002a54d9f6ed";
-            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
-            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.StretchHorizontally = true;
-            this.object_c2749966_bbcb_47a3_8420_002a54d9f6ed.StretchVertically = true;
-            // 
-            // rulesButton
-            // 
-            this.rulesButton.Alignment = System.Drawing.ContentAlignment.MiddleLeft;
-            this.rulesButton.Name = "rulesButton";
-            this.rulesButton.ShowBorder = false;
-            this.rulesButton.Text = "Regu³y";
-            this.rulesButton.Click += new System.EventHandler(this.rulesButton_Click);
             // 
             // MainForm
             // 
@@ -1304,6 +1314,7 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadLabel lblValidation;
         private Telerik.WinControls.UI.RadButton btnRolesMngmt;
         private Telerik.WinControls.UI.RadButtonElement rulesButton;
+        private Telerik.WinControls.UI.RadButtonElement radButtonElement7;
     }
 }
 
