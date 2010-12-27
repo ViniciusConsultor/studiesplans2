@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 using StudiesPlansModels.Repositories;
 using StudiesPlansModels.Models;
@@ -16,17 +17,16 @@ namespace StudiesPlans.Views
         public Rules()
         {
             InitializeComponent();
-            FillDdlSubjectType();
         }
 
         public Rules(Plan selectedPlan)
         {
             InitializeComponent();
             _selectedPlan = selectedPlan;
+            FillGrid();
             FillDdlSubjectType();
             FillDdlSemester();
             FillDdlSubject();
-            addToRuleList();
         }
 
         private void FillDdlSubjectType()
@@ -97,7 +97,7 @@ namespace StudiesPlans.Views
                     AddTotalHoursSubjectTypeRule();
                 if (cbTotalHoursSubjectCount.Checked)
                     AddTotalHoursSubjectRule();
-                addToRuleList();
+                FillGrid();
             }
             else
             {
@@ -125,9 +125,9 @@ namespace StudiesPlans.Views
             }
             else
             {
-                RadMessageBox.Show(
-                    "Nastąpił błąd - podana liczba ECTS jest nieprawidłowa. \n Reguła nie zostanie " +
-                    "dodana", "Całkowita liczba punktów ECTS", MessageBoxButtons.OK, RadMessageIcon.Error);
+                    RadMessageBox.Show(
+                        "Nastąpił błąd - podana liczba ECTS jest nieprawidłowa. \nReguła nie zostanie " +
+                        "dodana", "Całkowita liczba punktów ECTS", MessageBoxButtons.OK, RadMessageIcon.Error);
             }
         }
 
@@ -139,7 +139,7 @@ namespace StudiesPlans.Views
         {
             double parseValue;
             double.TryParse(tbECTSSubjectTypeCount.Text, out parseValue);
-            if (parseValue != 0)
+            if (parseValue != 0 && ddlECTSSubjectType.SelectedIndex != -1)
             {
                 Rule newRule = new Rule()
                 {
@@ -153,9 +153,14 @@ namespace StudiesPlans.Views
             }
             else
             {
-                RadMessageBox.Show(
-                    "Nastąpił błąd - podana liczba ECTS jest nieprawidłowa. \n Reguła nie zostanie " +
-                    "dodana", "Sumaryczna liczba punktów ECTS dla przedmiotu typu:" + ddlECTSSubjectType.SelectedText, MessageBoxButtons.OK, RadMessageIcon.Error);
+                if (ddlECTSSubjectType.SelectedIndex == -1)
+                    RadMessageBox.Show(
+                        "Nastąpił błąd - nie wybrano typu przesmiotu. \nReguła nie zostanie " +
+                        "dodana", "Sumaryczna liczba punktów ECTS dla przedmiotu typu:" + ddlECTSSubjectType.SelectedText, MessageBoxButtons.OK, RadMessageIcon.Error);
+                else
+                    RadMessageBox.Show(
+                        "Nastąpił błąd - podana liczba ECTS jest nieprawidłowa. \nReguła nie zostanie " +
+                        "dodana", "Sumaryczna liczba punktów ECTS dla przedmiotu typu:" + ddlECTSSubjectType.SelectedText, MessageBoxButtons.OK, RadMessageIcon.Error);
             }
         }
 
@@ -167,7 +172,7 @@ namespace StudiesPlans.Views
         {
             double parseValue;
             double.TryParse(tbECTSSubjectCount.Text, out parseValue);
-            if (parseValue != 0)
+            if (parseValue != 0 && ddlECTSSubject.SelectedIndex != -1)
             {
                 Rule newRule = new Rule()
                 {
@@ -181,9 +186,14 @@ namespace StudiesPlans.Views
             }
             else
             {
-                RadMessageBox.Show(
-                    "Nastąpił błąd - podana liczba ECTS jest nieprawidłowa. \n Reguła nie zostanie " +
-                    "dodana", "Sumaryczna liczba punktów ECTS dla przedmiotu:" + ddlECTSSubject.SelectedText, MessageBoxButtons.OK, RadMessageIcon.Error);
+                if(ddlECTSSubject.SelectedIndex == -1)
+                    RadMessageBox.Show(
+                        "Nastąpił błąd - nie wybrano przemiotu. \nReguła nie zostanie " +
+                        "dodana", "Sumaryczna liczba punktów ECTS dla przedmiotu:" + ddlECTSSubject.SelectedText, MessageBoxButtons.OK, RadMessageIcon.Error);
+                else
+                    RadMessageBox.Show(
+                        "Nastąpił błąd - podana liczba ECTS jest nieprawidłowa. \nReguła nie zostanie " +
+                        "dodana", "Sumaryczna liczba punktów ECTS dla przedmiotu:" + ddlECTSSubject.SelectedText, MessageBoxButtons.OK, RadMessageIcon.Error);
             }
         }
 
@@ -208,9 +218,9 @@ namespace StudiesPlans.Views
             }
             else
             {
-                RadMessageBox.Show(
-                    "Nastąpił błąd - podana liczba godzin jest nieprawidłowa. \n Reguła nie zostanie " +
-                    "dodana", "Sumaryczna liczba godzin", MessageBoxButtons.OK, RadMessageIcon.Error);
+                    RadMessageBox.Show(
+                        "Nastąpił błąd - podana liczba godzin jest nieprawidłowa. \nReguła nie zostanie " +
+                        "dodana", "Sumaryczna liczba godzin", MessageBoxButtons.OK, RadMessageIcon.Error);
             }
         }
 
@@ -221,8 +231,8 @@ namespace StudiesPlans.Views
         private void AddTotalHoursSubjectRule()
         {
             double parseValue;
-            double.TryParse(tbHoursCount.Text, out parseValue);
-            if (parseValue != 0)
+            double.TryParse(tbHoursSubjectCount.Text, out parseValue);
+            if (parseValue != 0 && ddlHoursSubject.SelectedIndex != -1)
             {
                 Rule newRule = new Rule()
                 {
@@ -236,9 +246,14 @@ namespace StudiesPlans.Views
             }
             else
             {
-                RadMessageBox.Show(
-                    "Nastąpił błąd - podana liczba godzin jest nieprawidłowa. \n Reguła nie zostanie " +
-                    "dodana", "Sumaryczna liczba godzin dla przedmiotu:" + ddlHoursSubject.SelectedText, MessageBoxButtons.OK, RadMessageIcon.Error);
+                if(ddlHoursSubject.SelectedIndex == -1)
+                    RadMessageBox.Show(
+                        "Nastąpił błąd - nie wybrano przedmiotu. \nReguła nie zostanie " +
+                        "dodana", "Sumaryczna liczba godzin dla przedmiotu:" + ddlHoursSubject.SelectedText, MessageBoxButtons.OK, RadMessageIcon.Error);
+                else
+                    RadMessageBox.Show(
+                        "Nastąpił błąd - podana liczba godzin jest nieprawidłowa. \nReguła nie zostanie " +
+                        "dodana", "Sumaryczna liczba godzin dla przedmiotu:" + ddlHoursSubject.SelectedText, MessageBoxButtons.OK, RadMessageIcon.Error);
             }
         }
 
@@ -249,7 +264,7 @@ namespace StudiesPlans.Views
         private void AddTotalHoursSubjectTypeRule()
         {
             double parseValue;
-            double.TryParse(tbHoursCount.Text, out parseValue);
+            double.TryParse(tbHoursSubjectTypeCount.Text, out parseValue);
             if (parseValue != 0)
             {
                 Rule newRule = new Rule()
@@ -264,31 +279,40 @@ namespace StudiesPlans.Views
             }
             else
             {
-                RadMessageBox.Show(
-                    "Nastąpił błąd - podana liczba godzin jest nieprawidłowa. \n Reguła nie zostanie " +
-                    "dodana", "Sumaryczna liczba godzin dla przedmiotu typu:" + ddlHoursSubjectType.SelectedText, MessageBoxButtons.OK, RadMessageIcon.Error);
+                if (ddlHoursSubjectType.SelectedIndex == -1)
+                    RadMessageBox.Show(
+                        "Nastąpił błąd - nie wybrano typu przedmiotu. \nReguła nie zostanie " +
+                        "dodana", "Sumaryczna liczba godzin dla przedmiotu typu:" + ddlHoursSubjectType.SelectedText, MessageBoxButtons.OK, RadMessageIcon.Error);
+                else
+                    RadMessageBox.Show(
+                        "Nastąpił błąd - podana liczba godzin jest nieprawidłowa. \nReguła nie zostanie " +
+                        "dodana", "Sumaryczna liczba godzin dla przedmiotu typu:" + ddlHoursSubjectType.SelectedText, MessageBoxButtons.OK, RadMessageIcon.Error);
             }
         }
 
         #endregion
 
-        private void addToRuleList()
+        private void FillGrid()
         {
-            ruleList.Items.Clear();
             IEnumerable<Rule> rules = _rulesRepository.GetRules(_selectedPlan.PlanID);
-            if (rules != null)
+            
+            gvRules.Rows.Clear();
+
+            if (rules.Count() != 0)
             {
+                const string semester = "Cały plan";
                 foreach (Rule rule in rules)
                 {
-                    string semester = "Cały plan";
+                    gvRules.Rows.Add(null, null);
+
+                    gvRules.Rows[gvRules.Rows.Count - 1].Cells["rule"].Value = rule.Description;
                     if (rule.Semester == 0)
-                        ruleList.Items.Add(rule.Description + "  Value: " + rule.Value + "  Semester: " + semester +
-                                           "  Subject: " + rule.Subject + "  SubjectType: " + rule.SubjectType);
+                        gvRules.Rows[gvRules.Rows.Count - 1].Cells["semester"].Value = semester;
                     else
-                    {
-                        ruleList.Items.Add(rule.Description + "  Value: " + rule.Value + "  Semester: " + rule.Semester +
-                                           "  Subject: " + rule.Subject + "  SubjectType: " + rule.SubjectType);
-                    }
+                        gvRules.Rows[gvRules.Rows.Count - 1].Cells["semester"].Value = rule.Semester;
+                    gvRules.Rows[gvRules.Rows.Count - 1].Cells["subject"].Value = rule.Subject;
+                    gvRules.Rows[gvRules.Rows.Count - 1].Cells["subjectType"].Value = rule.SubjectType;
+                    gvRules.Rows[gvRules.Rows.Count - 1].Cells["value"].Value = rule.Value;
                 }
             }
         }

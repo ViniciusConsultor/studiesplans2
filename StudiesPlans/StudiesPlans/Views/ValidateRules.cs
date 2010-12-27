@@ -53,14 +53,14 @@ namespace StudiesPlans.Views
                 else
                 {
                     RadMessageBox.Show(
-                        "Nastąpił błąd - w planie nie ma żadnego przedmiotu!", "Brak przedmiotów", MessageBoxButtons.OK,
-                        RadMessageIcon.Error);
+                        "W planie nie ma żadnego przedmiotu!", "Brak przedmiotów", MessageBoxButtons.OK,
+                        RadMessageIcon.Info);
                 }
 
             }
             else
                 RadMessageBox.Show(
-                   "Nastąpił błąd - nie ma reguł dla zadanego planu!", "Brak reguł", MessageBoxButtons.OK, RadMessageIcon.Error);
+                   "Nie ma reguł dla zadanego planu!", "Brak reguł", MessageBoxButtons.OK, RadMessageIcon.Info);
         }
 
         private void fillGrid()
@@ -108,11 +108,6 @@ namespace StudiesPlans.Views
                 else
                     return false;
             }
-            else
-            {
-                RadMessageBox.Show(
-                   "Nastąpił błąd - w planie nie ma żadnego przedmiotu!", "Brak przedmiotów", MessageBoxButtons.OK, RadMessageIcon.Error);
-            }
             return false;
         }
         
@@ -144,11 +139,6 @@ namespace StudiesPlans.Views
                     return true;
                 else       
                     return false;
-            }
-            else
-            {
-                RadMessageBox.Show(
-                   "Nastąpił błąd - w planie nie ma żadnego przedmiotu!", "Brak przedmiotów", MessageBoxButtons.OK, RadMessageIcon.Error);
             }
             return false;
         }
@@ -183,11 +173,6 @@ namespace StudiesPlans.Views
                     return true;
                 else
                     return false;
-            }
-            else
-            {
-                RadMessageBox.Show(
-                   "Nastąpił błąd - w planie nie ma żadnego przedmiotu!", "Brak przedmiotów", MessageBoxButtons.OK, RadMessageIcon.Error);
             }
             return false;
         }
@@ -224,11 +209,6 @@ namespace StudiesPlans.Views
                     return true;
                 else
                     return false;
-            }
-            else
-            {
-                RadMessageBox.Show(
-                   "Nastąpił błąd - w planie nie ma żadnego przedmiotu!", "Brak przedmiotów", MessageBoxButtons.OK, RadMessageIcon.Error);
             }
             return false;
         }
@@ -269,11 +249,6 @@ namespace StudiesPlans.Views
                 else
                     return false;
             }
-            else
-            {
-                RadMessageBox.Show(
-                   "Nastąpił błąd - w planie nie ma żadnego przedmiotu!", "Brak przedmiotów", MessageBoxButtons.OK, RadMessageIcon.Error);
-            }
             return false;
         }
 
@@ -307,11 +282,6 @@ namespace StudiesPlans.Views
                     return true;
                 else
                     return false;
-            }
-            else
-            {
-                RadMessageBox.Show(
-                   "Nastąpił błąd - w planie nie ma żadnego przedmiotu!", "Brak przedmiotów", MessageBoxButtons.OK, RadMessageIcon.Error);
             }
             return false;
         }
