@@ -377,8 +377,13 @@ namespace StudiesPlans.Views
             else
                 grid = gridArchievePlan;
 
-            lblPlanData.Text = "Plan: " + LoadedPlan.Name + " Wydzia³: " + LoadedPlan.Departament.Name + " Kierunek: "
-                + LoadedPlan.Faculty.Name + " Studia: " + LoadedPlan.StudiesType.Name;
+            if(!archive)
+                lblPlanData.Text = "Plan: " + LoadedPlan.Name + " Wydzia³: " + LoadedPlan.Departament.Name + " Kierunek: "
+                    + LoadedPlan.Faculty.Name + " Studia: " + LoadedPlan.StudiesType.Name;
+            else
+                lblArchievedPlanData.Text = "Plan: " + LoadedPlan.Name + " Wydzia³: " + LoadedPlan.Departament.Name + " Kierunek: "
+                    + LoadedPlan.Faculty.Name + " Studia: " + LoadedPlan.StudiesType.Name;
+            
             
             grid.Rows.Clear();
             grid.EnableSorting = false;
@@ -696,7 +701,10 @@ namespace StudiesPlans.Views
         private void CopyFromArchive()
         {
             if (ArchivedPlan != null)
+            {
                 PlanController.Instance.CopyArchivePlan(ArchivedPlan.PlanID, LoadedPlan.PlanID);
+                LoadPlanToGrid(LoadedPlan, false);
+            }
             else
                 RadMessageBox.Show("Nale¿y wybraæ plan archiwalny", "B³¹d");
         }

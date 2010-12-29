@@ -43,6 +43,8 @@ namespace StudiesPlans.Views
             {
                 dlYearEnd.Enabled = true;
                 dlYearStart.Enabled = true;
+                dlYearStart.SelectedIndex = 1;
+                dlYearEnd.SelectedIndex = 0;
             }
             else
             {

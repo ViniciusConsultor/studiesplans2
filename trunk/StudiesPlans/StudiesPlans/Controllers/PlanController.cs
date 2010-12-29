@@ -39,6 +39,9 @@ namespace StudiesPlans.Controllers
             if (plan.SemesterEnd <= 0 || plan.SemesterStart <= 0)
                 plan.AddError("Niepoprawna wartość semestru");
 
+            if (plan.SemesterEnd < plan.SemesterStart)
+                plan.AddError("Semestr kończący nie może być\nmniejszy od semestru początkowego");
+
             if (plan != null)
             {
                 if (plan.IsValid)
@@ -98,54 +101,58 @@ namespace StudiesPlans.Controllers
             {
                 foreach (SubjectsData sd in source.SubjectsDatas)
                 {
-                    NewSubject ns = new NewSubject()
+                    if (target.SemesterStart <= sd.Semester.Semester1 && target.SemesterEnd >= sd.Semester.Semester1)
                     {
-                        PlanId = targetPlanId,
-                        DepartamentId = sd.DepartamentID,
-                        Ects = sd.Ects,
-                        FacultyId = sd.FacultyID,
-                        IsElective = sd.IsElective,
-                        IsExam = sd.IsExam,
-                        IsGeneral = sd.IsGeneral,
-                        Name = sd.Subject.Name,
-                        SemesterId = sd.SemesterID,
-                    };
+                        NewSubject ns = new NewSubject()
+                                            {
+                                                PlanId = targetPlanId,
+                                                DepartamentId = sd.DepartamentID,
+                                                Ects = sd.Ects,
+                                                FacultyId = sd.FacultyID,
+                                                IsElective = sd.IsElective,
+                                                IsExam = sd.IsExam,
+                                                IsGeneral = sd.IsGeneral,
+                                                Name = sd.Subject.Name,
+                                                SemesterId = sd.SemesterID,
+                                            };
 
-                    if(sd.SpecializationsData != null)
-                    {
-                        List<NewSpecializationData> specList = new List<NewSpecializationData>();
-                        NewSpecializationData nsd = new NewSpecializationData()
+                        if (sd.SpecializationsData != null)
                         {
-                            IsElective = sd.SpecializationsData.IsElective,
-                            IsGenereal = sd.SpecializationsData.IsGeneral,
-                            SpecializationId = sd.SpecializationsData.SpecializationID
-                        };
+                            List<NewSpecializationData> specList = new List<NewSpecializationData>();
+                            NewSpecializationData nsd = new NewSpecializationData()
+                                                            {
+                                                                IsElective = sd.SpecializationsData.IsElective,
+                                                                IsGenereal = sd.SpecializationsData.IsGeneral,
+                                                                SpecializationId =
+                                                                    sd.SpecializationsData.SpecializationID
+                                                            };
 
-                        specList.Add(nsd);
-                        ns.Specializations = specList.AsEnumerable();
-                    }
+                            specList.Add(nsd);
+                            ns.Specializations = specList.AsEnumerable();
+                        }
 
-                    List<NewSubjectTypeData> nstdList = new List<NewSubjectTypeData>();
+                        List<NewSubjectTypeData> nstdList = new List<NewSubjectTypeData>();
 
-                    foreach (SubjectTypesData std in sd.SubjectTypesDatas)
-                    {
-                        NewSubjectTypeData nstd = new NewSubjectTypeData()
+                        foreach (SubjectTypesData std in sd.SubjectTypesDatas)
                         {
-                            Hours = (float)std.Hours,
-                            SubjectTypeId = std.SubjectTypeID
-                        };
+                            NewSubjectTypeData nstd = new NewSubjectTypeData()
+                                                          {
+                                                              Hours = (float) std.Hours,
+                                                              SubjectTypeId = std.SubjectTypeID
+                                                          };
 
-                        nstdList.Add(nstd);
+                            nstdList.Add(nstd);
+                        }
+
+                        ns.SubjectTypes = nstdList.AsEnumerable();
+
+                        if (sd.InstituteID > 0)
+                            ns.InstituteId = (int) sd.InstituteID;
+                        else
+                            sd.InstituteID = null;
+
+                        SubjectController.Instance.AddSubject(ns);
                     }
-
-                    ns.SubjectTypes = nstdList.AsEnumerable();
-
-                    if (sd.InstituteID > 0)
-                        ns.InstituteId = (int)sd.InstituteID;
-                    else
-                        sd.InstituteID = null;
-
-                    SubjectController.Instance.AddSubject(ns);
                 }
             }
         }
