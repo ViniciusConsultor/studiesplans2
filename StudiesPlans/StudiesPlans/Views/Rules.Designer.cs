@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn1 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn2 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn3 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn4 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
-            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn5 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn7 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn8 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn9 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn10 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn11 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
+            Telerik.WinControls.UI.GridViewTextBoxColumn gridViewTextBoxColumn12 = new Telerik.WinControls.UI.GridViewTextBoxColumn();
             this.radGroupBox1 = new Telerik.WinControls.UI.RadGroupBox();
+            this.gvRules = new Telerik.WinControls.UI.RadGridView();
             this.radLabel1 = new Telerik.WinControls.UI.RadLabel();
             this.bntAddRule = new Telerik.WinControls.UI.RadButton();
             this.tbHoursSubjectTypeCount = new Telerik.WinControls.UI.RadTextBox();
@@ -53,9 +55,10 @@
             this.cbTotalECTSSubjectTypeCount = new Telerik.WinControls.UI.RadCheckBox();
             this.cbTotalECTSSubjectCount = new Telerik.WinControls.UI.RadCheckBox();
             this.cbTotalECTSCount = new Telerik.WinControls.UI.RadCheckBox();
-            this.gvRules = new Telerik.WinControls.UI.RadGridView();
+            this.btnDelete = new Telerik.WinControls.UI.RadButton();
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).BeginInit();
             this.radGroupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvRules)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bntAddRule)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbHoursSubjectTypeCount)).BeginInit();
@@ -75,12 +78,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbTotalECTSSubjectTypeCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTotalECTSSubjectCount)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTotalECTSCount)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvRules)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // radGroupBox1
             // 
+            this.radGroupBox1.Controls.Add(this.btnDelete);
             this.radGroupBox1.Controls.Add(this.gvRules);
             this.radGroupBox1.Controls.Add(this.radLabel1);
             this.radGroupBox1.Controls.Add(this.bntAddRule);
@@ -120,9 +124,61 @@
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.radGroupBox1.GetChildAt(0).GetChildAt(1).GetChildAt(0))).BackColor2 = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
             // 
+            // gvRules
+            // 
+            this.gvRules.Location = new System.Drawing.Point(13, 209);
+            // 
+            // gvRules
+            // 
+            this.gvRules.MasterTemplate.AddNewRowPosition = Telerik.WinControls.UI.SystemRowPosition.Bottom;
+            this.gvRules.MasterTemplate.AllowAddNewRow = false;
+            this.gvRules.MasterTemplate.AllowColumnReorder = false;
+            this.gvRules.MasterTemplate.AllowColumnResize = false;
+            this.gvRules.MasterTemplate.AllowDeleteRow = false;
+            this.gvRules.MasterTemplate.AllowDragToGroup = false;
+            this.gvRules.MasterTemplate.AllowEditRow = false;
+            this.gvRules.MasterTemplate.AllowRowResize = false;
+            gridViewTextBoxColumn7.HeaderText = "ID";
+            gridViewTextBoxColumn7.IsVisible = false;
+            gridViewTextBoxColumn7.Name = "Id";
+            gridViewTextBoxColumn8.FormatString = "";
+            gridViewTextBoxColumn8.HeaderText = "Reguła";
+            gridViewTextBoxColumn8.Name = "rule";
+            gridViewTextBoxColumn8.Width = 180;
+            gridViewTextBoxColumn9.HeaderText = "Semestr";
+            gridViewTextBoxColumn9.Name = "semester";
+            gridViewTextBoxColumn9.Width = 100;
+            gridViewTextBoxColumn10.HeaderText = "Przedmiot";
+            gridViewTextBoxColumn10.Name = "subject";
+            gridViewTextBoxColumn10.Width = 150;
+            gridViewTextBoxColumn11.HeaderText = "Typ Przedmiotu";
+            gridViewTextBoxColumn11.Name = "subjectType";
+            gridViewTextBoxColumn11.Width = 120;
+            gridViewTextBoxColumn12.HeaderText = "Wartość";
+            gridViewTextBoxColumn12.Name = "value";
+            gridViewTextBoxColumn12.Width = 75;
+            this.gvRules.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
+            gridViewTextBoxColumn7,
+            gridViewTextBoxColumn8,
+            gridViewTextBoxColumn9,
+            gridViewTextBoxColumn10,
+            gridViewTextBoxColumn11,
+            gridViewTextBoxColumn12});
+            this.gvRules.MasterTemplate.ShowFilteringRow = false;
+            this.gvRules.Name = "gvRules";
+            this.gvRules.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            // 
+            // 
+            // 
+            this.gvRules.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.gvRules.ShowGroupPanel = false;
+            this.gvRules.Size = new System.Drawing.Size(644, 214);
+            this.gvRules.TabIndex = 26;
+            this.gvRules.Text = "radGridView1";
+            // 
             // radLabel1
             // 
-            this.radLabel1.Location = new System.Drawing.Point(265, 180);
+            this.radLabel1.Location = new System.Drawing.Point(12, 185);
             this.radLabel1.Name = "radLabel1";
             this.radLabel1.Size = new System.Drawing.Size(70, 18);
             this.radLabel1.TabIndex = 25;
@@ -131,13 +187,13 @@
             // bntAddRule
             // 
             this.bntAddRule.ForeColor = System.Drawing.Color.Black;
-            this.bntAddRule.Location = new System.Drawing.Point(505, 178);
+            this.bntAddRule.Location = new System.Drawing.Point(341, 178);
             this.bntAddRule.Name = "bntAddRule";
             // 
             // 
             // 
             this.bntAddRule.RootElement.ForeColor = System.Drawing.Color.Black;
-            this.bntAddRule.Size = new System.Drawing.Size(127, 25);
+            this.bntAddRule.Size = new System.Drawing.Size(123, 25);
             this.bntAddRule.TabIndex = 23;
             this.bntAddRule.Text = "Dodaj regułę";
             this.bntAddRule.Click += new System.EventHandler(this.BtnAddRuleClick);
@@ -192,7 +248,7 @@
             // 
             // ddlSemester
             // 
-            this.ddlSemester.Location = new System.Drawing.Point(341, 178);
+            this.ddlSemester.Location = new System.Drawing.Point(88, 183);
             this.ddlSemester.Name = "ddlSemester";
             this.ddlSemester.Size = new System.Drawing.Size(123, 20);
             this.ddlSemester.TabIndex = 16;
@@ -273,53 +329,19 @@
             this.cbTotalECTSCount.TabIndex = 1;
             this.cbTotalECTSCount.Text = "Sumaryczna liczba punktów ECTS:";
             // 
-            // gvRules
+            // btnDelete
             // 
-            this.gvRules.Location = new System.Drawing.Point(13, 209);
-            // 
-            // gvRules
-            // 
-            this.gvRules.MasterTemplate.AddNewRowPosition = Telerik.WinControls.UI.SystemRowPosition.Bottom;
-            this.gvRules.MasterTemplate.AllowAddNewRow = false;
-            this.gvRules.MasterTemplate.AllowColumnReorder = false;
-            this.gvRules.MasterTemplate.AllowColumnResize = false;
-            this.gvRules.MasterTemplate.AllowDeleteRow = false;
-            this.gvRules.MasterTemplate.AllowDragToGroup = false;
-            this.gvRules.MasterTemplate.AllowEditRow = false;
-            this.gvRules.MasterTemplate.AllowRowResize = false;
-            gridViewTextBoxColumn1.FormatString = "";
-            gridViewTextBoxColumn1.HeaderText = "Reguła";
-            gridViewTextBoxColumn1.Name = "rule";
-            gridViewTextBoxColumn1.Width = 180;
-            gridViewTextBoxColumn2.HeaderText = "Semestr";
-            gridViewTextBoxColumn2.Name = "semester";
-            gridViewTextBoxColumn2.Width = 100;
-            gridViewTextBoxColumn3.HeaderText = "Przedmiot";
-            gridViewTextBoxColumn3.Name = "subject";
-            gridViewTextBoxColumn3.Width = 150;
-            gridViewTextBoxColumn4.HeaderText = "Typ Przedmiotu";
-            gridViewTextBoxColumn4.Name = "subjectType";
-            gridViewTextBoxColumn4.Width = 120;
-            gridViewTextBoxColumn5.HeaderText = "Wartość";
-            gridViewTextBoxColumn5.Name = "value";
-            gridViewTextBoxColumn5.Width = 75;
-            this.gvRules.MasterTemplate.Columns.AddRange(new Telerik.WinControls.UI.GridViewDataColumn[] {
-            gridViewTextBoxColumn1,
-            gridViewTextBoxColumn2,
-            gridViewTextBoxColumn3,
-            gridViewTextBoxColumn4,
-            gridViewTextBoxColumn5});
-            this.gvRules.MasterTemplate.ShowFilteringRow = false;
-            this.gvRules.Name = "gvRules";
-            this.gvRules.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
+            this.btnDelete.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.Location = new System.Drawing.Point(505, 178);
+            this.btnDelete.Name = "btnDelete";
             // 
             // 
             // 
-            this.gvRules.RootElement.Padding = new System.Windows.Forms.Padding(0, 0, 0, 1);
-            this.gvRules.ShowGroupPanel = false;
-            this.gvRules.Size = new System.Drawing.Size(644, 214);
-            this.gvRules.TabIndex = 26;
-            this.gvRules.Text = "radGridView1";
+            this.btnDelete.RootElement.ForeColor = System.Drawing.Color.Black;
+            this.btnDelete.Size = new System.Drawing.Size(127, 25);
+            this.btnDelete.TabIndex = 24;
+            this.btnDelete.Text = "Usuń regułę";
+            this.btnDelete.Click += new System.EventHandler(this.BtnDeleteClick);
             // 
             // Rules
             // 
@@ -339,6 +361,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.radGroupBox1)).EndInit();
             this.radGroupBox1.ResumeLayout(false);
             this.radGroupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gvRules)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.radLabel1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bntAddRule)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tbHoursSubjectTypeCount)).EndInit();
@@ -358,7 +381,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.cbTotalECTSSubjectTypeCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTotalECTSSubjectCount)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbTotalECTSCount)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gvRules)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btnDelete)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -387,5 +410,6 @@
         private Telerik.WinControls.UI.RadButton bntAddRule;
         private Telerik.WinControls.UI.RadLabel radLabel1;
         private Telerik.WinControls.UI.RadGridView gvRules;
+        private Telerik.WinControls.UI.RadButton btnDelete;
     }
 }
