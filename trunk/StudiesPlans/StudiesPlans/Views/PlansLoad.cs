@@ -164,7 +164,7 @@ namespace StudiesPlans.Views
 
         private void btnLoad_Click(object sender, EventArgs e)
         {
-            if (lstPlan.Items.Count > 0)
+            if (lstPlan.Items.Count > 0 && lstPlan.SelectedItem != null)
             {
                 Plan toLoad = PlanController.Instance.GetPlan(lstPlan.SelectedItem.ToString());
 
