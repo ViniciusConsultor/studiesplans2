@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using StudiesPlans.Controllers;
 using StudiesPlansModels.Repositories;
 using StudiesPlansModels.Models;
 using StudiesPlansModels.Models.Interfaces;
@@ -305,6 +306,7 @@ namespace StudiesPlans.Views
                 {
                     gvRules.Rows.Add(null, null);
 
+                    gvRules.Rows[gvRules.Rows.Count - 1].Cells["Id"].Value = rule.RuleId;
                     gvRules.Rows[gvRules.Rows.Count - 1].Cells["rule"].Value = rule.Description;
                     if (rule.Semester == 0)
                         gvRules.Rows[gvRules.Rows.Count - 1].Cells["semester"].Value = semester;
@@ -314,6 +316,24 @@ namespace StudiesPlans.Views
                     gvRules.Rows[gvRules.Rows.Count - 1].Cells["subjectType"].Value = rule.SubjectType;
                     gvRules.Rows[gvRules.Rows.Count - 1].Cells["value"].Value = rule.Value;
                 }
+            }
+        }
+
+        private void BtnDeleteClick(object sender, System.EventArgs e)
+        {
+            if(gvRules.SelectedRows.Count != 0)
+            {
+                int row = gvRules.SelectedRows.ElementAt(0).Index;
+                int parsed = 0;
+
+                int.TryParse(gvRules.Rows[row].Cells["Id"].Value.ToString(), out parsed);
+                if(parsed != 0)
+                {
+                    Rule rule = RuleController.Instance.GetRule(parsed);
+                    if (RuleController.Instance.DeleteRule(rule))
+                        FillGrid();
+                }
+                
             }
         }
     }
