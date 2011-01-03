@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace StudiesPlansModels.Models
 {
+
     public class NewPlan : BaseModel
     {
         [Required(ErrorMessage = "Nazwa planu jest wymagana")]

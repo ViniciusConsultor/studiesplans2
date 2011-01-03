@@ -38,6 +38,13 @@ p, ul
     line-height: 1.6em;
 }
 
+.ddwn { border: solid 1px #9ab2c8;	padding: 0px; background-color: #fff; margin: 2px 5px 2px 2px; width: 150px; }
+.ddwn option {padding: 1px;}
+.planHeader { background-color: #5d7b9d; color: #fff; }
+.tbl_std_row1 { background-color: #eee; color: #333; }
+.tbl_std_row2 { background-color: #fff; color: #284775; }
+.tbl_std_row1:hover, .tbl_std_row2:hover { background-color: #ddf; color: #229; }
+
 
 /*MENU
 ----------------------------------------------------------*/
@@ -46,7 +53,7 @@ p, ul
     background-color: #fff;
     margin-top: 20px;
     _height: 1px; /* only IE6 applies CSS properties starting with an underscore */
-	width: 768px;
+	width: 90%;
 	float:right;
 	-moz-border-radius-topright:8px;
 	-moz-border-radius-topleft:8px;
@@ -196,7 +203,7 @@ first child of the left and right table columns */
 page width. Or, you can specify an exact pixel width. */
 .page
 {
-    width: 900px;
+    width: 98%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -209,7 +216,7 @@ page width. Or, you can specify an exact pixel width. */
     background-color: #4682B4;
     border: 1px solid #000;
     padding: 0;
-    width: 900px;
+    width: 98%;
     height: 100px;
     -moz-border-radius-topleft:6px;
 	-moz-border-radius-bottomleft:6px;
