@@ -6,7 +6,7 @@
 <head runat="server">
   <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
 	<link type="text/css" href="<%= Url.Content("~/Content/main.css")%>" rel="stylesheet"  />
-
+    <script type="text/javascript" language="javascript" src="<%=Url.Content("~/Scripts/jquery-1.4.1.js")%>"></script>
 </head>
 
 <body>
@@ -15,9 +15,6 @@
             <h1>Plany studiów</h1>
         </div>
         <br />
-        <div id="logindisplay">
-             <% Html.RenderPartial("LogOnUserControl"); %>
-        </div> 
     </div>
     <br />
     <div class="page">
