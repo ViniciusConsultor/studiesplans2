@@ -72,8 +72,8 @@ namespace StudiesPlansModels.Repositories
                     && (filter.DepartamentName != null ? string.Compare(filter.DepartamentName, p.Departament.Name, true) == 0 : true)
                     && (filter.FacultyName != null ? string.Compare(filter.FacultyName, p.Faculty.Name, true) == 0 : true)
                     && (filter.All == true? true : ( p.IsArchiewed == filter.IsArchieved && p.IsMandatory == filter.IsMandatory)) //filter.IsArchieved)// && p.IsMandatory == filter.IsMandatory)
-                    && ((filter.YearStart > 0 && p.YearStart.HasValue) ? filter.YearStart <= p.YearStart.Value.Year : true)
-                    && ((filter.YearEnd > 0 && p.YearEnd.HasValue) ? filter.YearEnd <= p.YearEnd.Value.Year : true )
+                    && ((filter.YearStart > 0 && p.YearStart.HasValue) ? filter.YearStart == p.YearStart.Value.Year : true)
+                    && ((filter.YearEnd > 0 && p.YearEnd.HasValue) ? filter.YearEnd == p.YearEnd.Value.Year : true )
                     && ((filter.SemesterStart > 0 && p.SemesterStart.HasValue) ? filter.SemesterStart == p.SemesterStart.Value : true)
                     && ((filter.SemesterEnd > 0 && p.SemesterEnd.HasValue) ? filter.SemesterEnd == p.SemesterEnd.Value : true)
                     select p);

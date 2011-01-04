@@ -46,7 +46,7 @@ namespace StudiesPlans.Views
             if(types!= null)
                 foreach (string type in types)
                 {
-                    gridPlanSubjects.Columns.Remove(type);
+                    btnVerify.Columns.Remove(type);
                     gridArchievePlan.Columns.Remove(type);
                 }
 
@@ -59,9 +59,9 @@ namespace StudiesPlans.Views
                 foreach (SubjectType s in subjectTypes)
                 {
                     types.Add(s.Name);
-                    gridPlanSubjects.Columns.Add(s.Name, s.Name);
+                    btnVerify.Columns.Add(s.Name, s.Name);
                     gridArchievePlan.Columns.Add(s.Name, s.Name);
-                    Telerik.WinControls.UI.GridViewDataColumn col = gridPlanSubjects.Columns[s.Name];
+                    Telerik.WinControls.UI.GridViewDataColumn col = btnVerify.Columns[s.Name];
                     col.Width = 100;
                     col.AutoSizeMode = Telerik.WinControls.UI.BestFitColumnMode.DisplayedDataCells;
                     col = gridArchievePlan.Columns[s.Name];
@@ -373,7 +373,7 @@ namespace StudiesPlans.Views
         {
             RadGridView grid = null;
             if (!archive)
-                grid = gridPlanSubjects;
+                grid = btnVerify;
             else
                 grid = gridArchievePlan;
 
@@ -432,38 +432,38 @@ namespace StudiesPlans.Views
 
         private SubjectEdit CreateSubjectEditFromGrid()
         {
-            if (LoadedPlan != null && gridPlanSubjects.Rows.Count > 0)
+            if (LoadedPlan != null && btnVerify.Rows.Count > 0)
             {
-                int row = gridPlanSubjects.SelectedRows.ElementAt(0).Index;
+                int row = btnVerify.SelectedRows.ElementAt(0).Index;
 
-                Semester sem = SemesterController.Instance.GetSemester(gridPlanSubjects.Rows[row].Cells["semester"].Value.ToString());
+                Semester sem = SemesterController.Instance.GetSemester(btnVerify.Rows[row].Cells["semester"].Value.ToString());
                 int semId = sem == null ? 0 : sem.SemesterID;
 
                 SubjectEdit ns = new SubjectEdit()
                 {
                     Departament = LoadedPlan.Departament.Name,
                     Faculty = LoadedPlan.Faculty.Name,
-                    Institute = gridPlanSubjects.Rows[row].Cells["institute"].Value.ToString().Equals("Brak") ? null : gridPlanSubjects.Rows[row].Cells["institute"].Value.ToString(),
-                    Ects = Convert.ToDouble(gridPlanSubjects.Rows[row].Cells["ects"].Value),
-                    IsExam = Convert.ToBoolean(gridPlanSubjects.Rows[row].Cells["isExam"].Value),
-                    Name = gridPlanSubjects.Rows[row].Cells["subjectName"].Value.ToString(),
+                    Institute = btnVerify.Rows[row].Cells["institute"].Value.ToString().Equals("Brak") ? null : btnVerify.Rows[row].Cells["institute"].Value.ToString(),
+                    Ects = Convert.ToDouble(btnVerify.Rows[row].Cells["ects"].Value),
+                    IsExam = Convert.ToBoolean(btnVerify.Rows[row].Cells["isExam"].Value),
+                    Name = btnVerify.Rows[row].Cells["subjectName"].Value.ToString(),
                     PlanId = LoadedPlan.PlanID,
                     SemesterId = semId,
-                    IsGeneral = Convert.ToBoolean(gridPlanSubjects.Rows[row].Cells["isGeneral"].Value),
-                    IsElective = Convert.ToBoolean(gridPlanSubjects.Rows[row].Cells["isElective"].Value)
+                    IsGeneral = Convert.ToBoolean(btnVerify.Rows[row].Cells["isGeneral"].Value),
+                    IsElective = Convert.ToBoolean(btnVerify.Rows[row].Cells["isElective"].Value)
                 };
 
-                if (gridPlanSubjects.Rows[row].Cells["specialization"].Value != null
-                    && !gridPlanSubjects.Rows[row].Cells["specialization"].Value.ToString().Equals(string.Empty))
+                if (btnVerify.Rows[row].Cells["specialization"].Value != null
+                    && !btnVerify.Rows[row].Cells["specialization"].Value.ToString().Equals(string.Empty))
                 {
-                    string name = GetSpecializationFromGrid(gridPlanSubjects.Rows[row].Cells["specialization"].Value.ToString());
+                    string name = GetSpecializationFromGrid(btnVerify.Rows[row].Cells["specialization"].Value.ToString());
                     
                     SpecializationEdit se = SpecializationController.Instance.GetSpecializationEdit(name, LoadedPlan.Departament.Name, LoadedPlan.Faculty.Name);
 
                     if (se!= null)
                     {
-                        bool general = GetBoolFromGrid(gridPlanSubjects.Rows[row].Cells["specialization"].Value.ToString(), true, false);
-                        bool elective = GetBoolFromGrid(gridPlanSubjects.Rows[row].Cells["specialization"].Value.ToString(), false, true);
+                        bool general = GetBoolFromGrid(btnVerify.Rows[row].Cells["specialization"].Value.ToString(), true, false);
+                        bool elective = GetBoolFromGrid(btnVerify.Rows[row].Cells["specialization"].Value.ToString(), false, true);
                         
                         SpecializationDataEdit nsd = SpecializationController.Instance.GetSpecializationDataEdit(name, LoadedPlan.PlanID, general, elective, ns.Name, sem.Semester1);
 
@@ -477,12 +477,12 @@ namespace StudiesPlans.Views
                 List<SubjectType> list = SubjectTypeController.Instance.ListSubjectTypes();
                 for (int i = 0; i < list.Count; i++)
                 {
-                    if (gridPlanSubjects.Rows[row].Cells[list.ElementAt(i).Name].Value != null
-                        && !gridPlanSubjects.Rows[row].Cells[list.ElementAt(i).Name].Value.ToString().Equals(string.Empty))
+                    if (btnVerify.Rows[row].Cells[list.ElementAt(i).Name].Value != null
+                        && !btnVerify.Rows[row].Cells[list.ElementAt(i).Name].Value.ToString().Equals(string.Empty))
                     {
                         NewSubjectTypeData nstd = new NewSubjectTypeData()
                         {
-                            Hours = Convert.ToInt32(gridPlanSubjects.Rows[row].Cells[list.ElementAt(i).Name].Value),
+                            Hours = Convert.ToInt32(btnVerify.Rows[row].Cells[list.ElementAt(i).Name].Value),
                             SubjectTypeId = list.ElementAt(i).SubjectTypeID
                         };
                         nstdlist.Add(nstd);
@@ -580,7 +580,7 @@ namespace StudiesPlans.Views
             if (new SubjectTypes().ShowDialog() == DialogResult.Yes)
             {
                 foreach (SubjectType st in subjectTypes)
-                    gridPlanSubjects.Columns.Remove(st.Name);
+                    btnVerify.Columns.Remove(st.Name);
                 CreateSubjectGrid();
             }
         }
@@ -740,6 +740,18 @@ namespace StudiesPlans.Views
         }
 
         private void radButtonElement7_Click_2(object sender, EventArgs e)
+        {
+            if (LoadedPlan != null)
+                new ValidateRules(LoadedPlan).ShowDialog();
+        }
+
+        private void btnRules_Click(object sender, EventArgs e)
+        {
+            if (LoadedPlan != null)
+                new Rules(LoadedPlan).ShowDialog();
+        }
+
+        private void radButton2_Click(object sender, EventArgs e)
         {
             if (LoadedPlan != null)
                 new ValidateRules(LoadedPlan).ShowDialog();

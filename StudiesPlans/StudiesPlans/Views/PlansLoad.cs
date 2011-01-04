@@ -117,14 +117,17 @@ namespace StudiesPlans.Views
         private void FillWithArchive(PlanFilter filter)
         {
             lstPlan.Items.Clear();
+            List<Plan> plans = null;
 
             if (filter == null)
-            {
-                List<Plan> plans = PlanController.Instance.ListArchivedPlans();
-                if (plans != null)
-                    foreach (Plan p in plans)
-                        lstPlan.Items.Add(p.Name);
-            }
+                plans = PlanController.Instance.ListArchivedPlans();
+
+            else
+                plans = PlanController.Instance.ListPlans(filter);
+
+            if (plans != null)
+                foreach (Plan p in plans)
+                    lstPlan.Items.Add(p.Name);
         }
 
         private void FillWithPlans(PlanFilter filter)
