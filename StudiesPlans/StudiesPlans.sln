@@ -9,7 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudiesPlansModels", "Studi
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "Setup\Setup.vdproj", "{39930538-1B0C-45B7-BC39-791498CEC277}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacultyModelTest", "FacultyModelTest\FacultyModelTest.csproj", "{5121C207-AFB2-4C0E-91B6-F2B8F2A399DE}"
+EndProject
 Global
+	GlobalSection(TestCaseManagementSettings) = postSolution
+		CategoryFile = StudiesPlans.vsmdi
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -55,6 +60,16 @@ Global
 		{39930538-1B0C-45B7-BC39-791498CEC277}.Release|Any CPU.ActiveCfg = Release
 		{39930538-1B0C-45B7-BC39-791498CEC277}.Release|Mixed Platforms.ActiveCfg = Release
 		{39930538-1B0C-45B7-BC39-791498CEC277}.Release|x86.ActiveCfg = Release
+		{5121C207-AFB2-4C0E-91B6-F2B8F2A399DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5121C207-AFB2-4C0E-91B6-F2B8F2A399DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5121C207-AFB2-4C0E-91B6-F2B8F2A399DE}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{5121C207-AFB2-4C0E-91B6-F2B8F2A399DE}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{5121C207-AFB2-4C0E-91B6-F2B8F2A399DE}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{5121C207-AFB2-4C0E-91B6-F2B8F2A399DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5121C207-AFB2-4C0E-91B6-F2B8F2A399DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5121C207-AFB2-4C0E-91B6-F2B8F2A399DE}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{5121C207-AFB2-4C0E-91B6-F2B8F2A399DE}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{5121C207-AFB2-4C0E-91B6-F2B8F2A399DE}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
