@@ -41,6 +41,9 @@ namespace StudiesPlans.Pdf
             gfx.DrawString(title, font, XBrushes.Black, x, 20);
             double fullLength = 0;
 
+            string legend = "Kolorem czerwonym oznaczono przedmioty obieralne, kolorem czarnym - przedmioty obowiązkowe";
+            Size legendSize = System.Windows.Forms.TextRenderer.MeasureText(legend, ff);
+
             if (LoadedPlan.SubjectsDatas.Count > 0)
             {
                 // draw table headers
@@ -339,14 +342,20 @@ namespace StudiesPlans.Pdf
                     tablePositionY += 15; 
                 }
                 gfx.DrawString("E - Egzamin", font, XBrushes.Black, tablePositionX, tablePositionY);
-                gfx.DrawString("Kolorem czerwonym oznaczono przedmioty obieralne, kolorem czarnym - przedmioty obowiązkowe", font, XBrushes.Black, tablePositionX, tablePositionY+15);
+                gfx.DrawString(legend, font, XBrushes.Black, tablePositionX, tablePositionY+15);
             }
 
 
             if (titleSize.Width > fullLength)
-                this.Width = titleSize.Width + 30;
+                if (titleSize.Width > legendSize.Width)
+                    this.Width = titleSize.Width + 30;
+                else
+                    this.Width = legendSize.Width + 30;
             else
-                this.Width = fullLength + 30;
+                if (fullLength> legendSize.Width)
+                    this.Width = fullLength + 30;
+                else
+                    this.Width = legendSize.Width + 30;
         }
     }
 }
