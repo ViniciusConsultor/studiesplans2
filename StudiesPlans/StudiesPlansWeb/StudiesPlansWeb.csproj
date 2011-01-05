@@ -120,6 +120,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Helpers\" />
+    <Folder Include="Img\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StudiesPlansModels\StudiesPlansModels.csproj">
