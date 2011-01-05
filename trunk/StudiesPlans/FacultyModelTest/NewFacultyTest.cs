@@ -1,27 +1,21 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 using StudiesPlansModels.Models;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace FacultyModelTest
 {
-    [TestClass]
     public class NewFacultyTest
     {
         private NewFaculty _newFaculty;
 
-        #region Additional test attributes
-
-        [TestInitialize]
-        public void MyTestInitialize()
+        [SetUp]
+        public void Init()
         {
             _newFaculty = new NewFaculty();
         }
 
-        #endregion
-
-
-        [TestMethod]
+        [Test]
         public void ShouldCreateErrorMessageForNullDepartment()
         {
            const string errorMessage = "Wybierz przynajmniej jeden wydział";
@@ -35,7 +29,7 @@ namespace FacultyModelTest
            Assert.IsTrue(_newFaculty.Errors.Contains(errorMessage));
         }
 
-        [TestMethod]
+        [Test]
         public void ShouldNotCreateErrorMessageForValidDepartment()
         {
             var departaments = new List<Departament>();
@@ -50,7 +44,7 @@ namespace FacultyModelTest
             Assert.IsNull(_newFaculty.Errors);
         }
 
-        [TestMethod]
+        [Test]
         public void ShouldCreateErrorMessageForEmptyFacultyName()
         {
             const string errorMessage = "Nazwa kierunku jest wymagana";
@@ -64,7 +58,7 @@ namespace FacultyModelTest
             Assert.IsTrue(_newFaculty.Errors.Contains(errorMessage));
         }
 
-        [TestMethod]
+        [Test]
         public void ShouldCreateErrorMessageForTooLongFacultyName()
         {
             const string errorMessage = "Maksymalna długość nawy kierunku to\n250 znaków";
@@ -78,7 +72,7 @@ namespace FacultyModelTest
             Assert.IsTrue(_newFaculty.Errors.Contains(errorMessage));
         }
 
-        [TestMethod]
+        [Test]
         public void ShouldNotCreateErrorMessageForCorrectFacultyName()
         {
             var departaments = new List<Departament>();
@@ -93,4 +87,5 @@ namespace FacultyModelTest
             Assert.IsNull(_newFaculty.Errors);
         }
     }
+    
 }
