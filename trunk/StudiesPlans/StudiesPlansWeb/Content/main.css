@@ -5,7 +5,8 @@ to use a different color start by replacing all instances of
 ----------------------------------------------------------*/
 body
 {
-    background-color: #f0f8ff;
+    background-color: #fff;
+    
     font-size: .75em;
     font-family: Verdana, Helvetica, Sans-Serif;
     margin: 0;
@@ -13,23 +14,28 @@ body
     color: #696969;
 }
 
+a
+{
+    color: fff;
+}
+
 a:link
 {
-    color: #000;
+    color: #fff;
     text-decoration: underline;
 }
 a:visited
 {
-    color: #505abc;
+    color: #fff;
 }
 a:hover
 {
-    color: #1d60ff;
+    color: #fff;
     text-decoration: none;
 }
 a:active
 {
-    color: #12eb87;
+    color: #fff;
 }
 
 p, ul
@@ -68,6 +74,11 @@ p, ul
 	border: 1px solid black;
 }
 
+#content
+{
+    margin: 20px;
+    }
+
 #menucontainer
 {
     margin-top:20px;
@@ -86,6 +97,7 @@ ul#menu
     margin: 0;   
     width: 120px;
     border: 1px solid #000;
+    background-color: #5d7b9d;
 }
 
 ul#menu li
@@ -93,14 +105,13 @@ ul#menu li
     display: block;
     list-style: none;
     width: 120px;
-   /* background-color: #e8eef4;
-    -moz-border-radius-topleft:6px;
-	-moz-border-radius-bottomleft:6px;
-	-webkit-border-top-left-radius:6px;
-	-webkit-border-bottom-left-radius:6px;
-	border-top-left-radius:6px;
-	border-bottom-left-radius:6px;
-	border: 1px solid black;*/
+   /*background-color: #5d7b9d;*/
+   color: white;
+    -moz-border-radius-topright:8px;
+	-moz-border-radius-topleft:8px;
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:8px;
+	/*border: 1px solid black;*/
 }
 
 ul#menu li:hover
@@ -108,11 +119,13 @@ ul#menu li:hover
     display: block;
     list-style: none;
     width: 120px;
-    background-color: #fff;
-    -moz-border-radius-topright:8px;
-	-moz-border-radius-topleft:8px;
-	-moz-border-radius-bottomleft:8px;
-	-moz-border-radius-bottomright:8px;
+    color: #fff; 
+   /*  -moz-border-radius-topleft:6px;
+	-moz-border-radius-bottomleft:6px;
+	-webkit-border-top-left-radius:6px;
+	-webkit-border-bottom-left-radius:6px;
+	border-top-left-radius:6px;
+	border-bottom-left-radius:6px;*/
 }
 
 ul#menu li#greeting
@@ -121,7 +134,13 @@ ul#menu li#greeting
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;
-    color: #fff;
+   /* color: #5757FF;
+    -moz-border-radius-topright:8px;
+	-moz-border-radius-topleft:8px;
+	-moz-border-radius-bottomleft:8px;
+	-moz-border-radius-bottomright:8px;
+	border-top-left-radius:8px;
+	border-bottom-left-radius:8px;*/
 }
 
 ul#menu li a
@@ -131,13 +150,13 @@ ul#menu li a
     font-weight: bold;
     text-decoration: none;
     line-height: 2.8em;
-    color: #034af3;
+    color: #fff;
 }
 
 ul#menu li a:hover
 {
-    background-color: #fff;
-    text-decoration: none;
+    
+    text-decoration: underline;
     width: 120px;
 }
 
@@ -145,7 +164,6 @@ ul#menu li a:hover
 ul#menu li a:active
 {
 	padding-left: 10px;
-    background-color: #a6e2a6;
     text-decoration: none;
 }
 
@@ -159,7 +177,7 @@ ul#menu li.selected a
 
 /* HEADINGS   
 ----------------------------------------------------------*/
-h1, h2, h3, h4, h5, h6
+h2, h3, h4, h5, h6
 {
     font-size: 1.5em;
     color: #000;
@@ -171,6 +189,7 @@ h1
     font-size: 2em;
     padding-bottom: 0;
     margin-bottom: 0;
+    color: #fff;
 }
 h2
 {
@@ -213,7 +232,7 @@ page width. Or, you can specify an exact pixel width. */
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
-    background-color: #4682B4;
+    background: url(../Img/header.jpg);
     border: 1px solid #000;
     padding: 0;
     width: 98%;
@@ -357,6 +376,7 @@ div#title
 {
    display: inline;
     text-align:left;
+    color: #fff;
 }
 
 #logindisplay
