@@ -49,56 +49,61 @@
     <%
             int rowCount = 0;
             string[] rowStyles = { "tbl_std_row1", "tbl_std_row2" };
-        foreach(StudiesPlansModels.Models.SubjectsData sd in p.SelectedPlan.SubjectsDatas)
-        {
-            rowCount = ++rowCount % 2;
+            if (p.SelectedPlan != null)
+            {
+                foreach (StudiesPlansModels.Models.SubjectsData sd in p.SelectedPlan.SubjectsDatas)
+                {
+                    rowCount = ++rowCount%2;
 %>
-    <tr class="<%= rowStyles[rowCount]%>">
+    <tr class="<%=rowStyles[rowCount]%>">
         <td>
             <%:
-                sd.Subject.Name
-                %>
-        </td>
-        <td>
-            <%:
-                sd.Semester.Name%>
+                        sd.Subject.Name
+                        %>
         </td>
         <td>
             <%:
-                sd.Ects%>
+                        sd.Semester.Name%>
         </td>
         <td>
             <%:
-                sd.IsExam ? "Tak" : string.Empty 
-            %>
+                        sd.Ects%>
         </td>
         <td>
-            <%: sd.Institute != null? sd.Institute.Name : "Brak" %>
+            <%:
+                        sd.IsExam ? "Tak" : string.Empty
+                        %>
         </td>
         <td>
-            <%: sd.SpecializationsData != null ? sd.SpecializationsData.Specialization.Name : string.Empty%>
+            <%:sd.Institute != null ? sd.Institute.Name : "Brak"%>
         </td>
         <td>
-            <%: sd.IsGeneral ? "Tak" : string.Empty%>
+            <%:sd.SpecializationsData != null
+                                          ? sd.SpecializationsData.Specialization.Name
+                                          : string.Empty%>
         </td>
         <td>
-            <%: sd.IsElective ? "Tak" : string.Empty%>
+            <%:sd.IsGeneral ? "Tak" : string.Empty%>
+        </td>
+        <td>
+            <%:sd.IsElective ? "Tak" : string.Empty%>
         </td>
 
         <%
-            foreach (SubjectType st in list)
-            {
-                %><td><%
-                foreach (SubjectTypesData std in sd.SubjectTypesDatas)
-                {
-%><%: st.Name.Equals(std.SubjectType.Name)? std.Hours.ToString():string.Empty%>
+                    foreach (SubjectType st in list)
+                    {
+%><td><%
+                        foreach (SubjectTypesData std in sd.SubjectTypesDatas)
+                        {
+%><%:st.Name.Equals(std.SubjectType.Name) ? std.Hours.ToString() : string.Empty%>
                         <%
-                }%>
+                        }%>
                 </td>
                 <%
-            }%>
+                    }%>
     </tr>
     <%
-        }
+                }
+            }
 %>
 </table>
