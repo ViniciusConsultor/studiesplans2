@@ -13,13 +13,14 @@ namespace StudiesPlansWeb.Controllers
     {
         IPlansRepository plansRepository = new PlansRepository();
 
-        public ActionResult Plan(int planId = 0)
+        public ActionResult Plan(int planId = 0, PlanFilter filter = null)
         {       
-            //IEnumerable<Plan> plans = plansRepository.ListActivePlans();
-            //ViewData["Plany"] = new SelectList(plans, "PlanID", "Name");
-            //return View();
+            PlanList data;
+            if(filter == null)
+                data = new PlanList(this.plansRepository.ListPlans(new PlanFilter() ));
+            else
+                data = new PlanList(this.plansRepository.ListPlans(filter));
 
-            PlanList data = new PlanList(this.plansRepository.ListPlans(new PlanFilter() ));
             data.PlanID = planId;
             List<SelectListItem> plans = new List<SelectListItem>(data.Plans);
             data.SelectedPlan = this.plansRepository.GetPlan(data.PlanID);
@@ -34,15 +35,6 @@ namespace StudiesPlansWeb.Controllers
                     return View(data);
             }
             return View(data);
-        }
-            
-        [HttpPost]
-        public ActionResult PlanView(int index)
-        {
-
-            Plan plan = plansRepository.GetPlan(index);
-            ViewData["Plany"] = plan;
-            return View();
         }
     }
 }
