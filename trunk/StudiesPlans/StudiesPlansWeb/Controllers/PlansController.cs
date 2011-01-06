@@ -16,7 +16,7 @@ namespace StudiesPlansWeb.Controllers
         IFacultiesRepository _facultiesRepository = new FacultiesRepository();
         private PlanFilter filter = new PlanFilter();
 
-        public ActionResult Plan(int planId = 0, string name ="", int departamentId = 0, int facultyId = 0, string selectedPlan = "")
+        public ActionResult Plan(int planId = 0, string name ="", int departamentId = 0, int facultyId = 0, string selectedPlan = "", int yearStart = 0, int yearEnd = 0)
         {
             PlanList data;
                 filter.Name = name;
@@ -33,6 +33,12 @@ namespace StudiesPlansWeb.Controllers
                     else if (selectedPlan.Equals("curr"))
                         filter.IsMandatory = true;
                 }
+                if (yearStart != 0 )
+                  filter.YearStart = yearStart;
+                if (yearEnd != 0)
+                    filter.YearEnd = yearEnd;
+                   
+
 
             data = new PlanList(this.plansRepository.ListPlans(filter));
 
@@ -43,7 +49,9 @@ namespace StudiesPlansWeb.Controllers
             data.FacultyID = int.Parse(faculties[0].Value);
             List<SelectListItem> departaments = new List<SelectListItem>(data.Departaments);
             data.DepartamentID = int.Parse(departaments[0].Value);
-
+            List<SelectListItem> years = new List<SelectListItem>(data.Years);
+            data.YearStartID = int.Parse(years[0].Value);
+            data.YearEndID = data.YearStartID;
             data.SelectedPlan = this.plansRepository.GetPlan(data.PlanID);
             if (data.PlanID == 0)
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,9 +14,12 @@ namespace StudiesPlansWeb.Models
         public int PlanID { get; set; }
         public int DepartamentID { get; set; }
         public int FacultyID { get; set; }
+        public int YearStartID { get; set; }
+        public int YearEndID { get; set; }
         public Plan SelectedPlan { get; set; }
         public IEnumerable<SelectListItem> Departaments { get; set; }
         public IEnumerable<SelectListItem> Faculties { get; set; }
+        public IEnumerable<SelectListItem> Years { get; set; }
 
         public PlanList(IEnumerable<StudiesPlansModels.Models.Plan> plans)
         {
@@ -46,6 +50,24 @@ namespace StudiesPlansWeb.Models
             }
 
             Faculties = facultiesList;
+
+
+            IEnumerable<int> years = GetYears();
+            List <SelectListItem> yearsList = new List<SelectListItem>();
+            foreach (int year in years)
+            {
+                yearsList.Add(new SelectListItem() { Text = year.ToString(), Value = year.ToString() });
+            }
+
+            Years = yearsList;
+        
+        }
+
+        private IEnumerable<int> GetYears()
+        {
+            return Enumerable.Range(1940, DateTime.UtcNow.Year - 1930);
         }
     }
+
+        
 }
