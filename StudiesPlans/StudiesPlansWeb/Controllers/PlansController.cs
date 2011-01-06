@@ -20,33 +20,37 @@ namespace StudiesPlansWeb.Controllers
             string selectedPlan = "", int yearStart = 0, int yearEnd = 0, string semesterStart = "", string semesterEnd = "")
         {
             PlanList data;
-                filter.Name = name;
-                if (departamentId != 0)
-                    filter.DepartamentName = _departamentsRepository.GetDepartament(departamentId).Name;
-                if (facultyId != 0)
-                    filter.FacultyName = _facultiesRepository.GetFaculty(facultyId).Name;
-                if (selectedPlan != null && !selectedPlan.Equals(""))
-                {
-                    if (selectedPlan.Equals("all"))
-                        filter.All = true;
-                    else if (selectedPlan.Equals("arch"))
-                        filter.IsArchieved = true;
-                    else if (selectedPlan.Equals("curr"))
-                        filter.IsMandatory = true;
-                }
-                if (yearStart != 0 )
-                  filter.YearStart = yearStart;
-                if (yearEnd != 0)
-                    filter.YearEnd = yearEnd;
+            filter.Name = name;
+            if (departamentId != 0)
+                filter.DepartamentName = _departamentsRepository.GetDepartament(departamentId).Name;
+            if (facultyId != 0)
+                filter.FacultyName = _facultiesRepository.GetFaculty(facultyId).Name;
+            if (selectedPlan != null && !selectedPlan.Equals(""))
+            {
+                if (selectedPlan.Equals("all"))
+                    filter.All = true;
+                else if (selectedPlan.Equals("arch"))
+                    filter.IsArchieved = true;
+                else if (selectedPlan.Equals("curr"))
+                    filter.IsMandatory = true;
+            }
 
-                int parsed;
-                int.TryParse(semesterStart, out parsed);
-                if (parsed != 0)
-                    filter.SemesterStart = parsed;
+            if (selectedPlan != null && selectedPlan.Equals("") && planId == 0)
+                filter.All = true;
+
+            if (yearStart != 0 )
+                filter.YearStart = yearStart;
+            if (yearEnd != 0)
+                filter.YearEnd = yearEnd;
+
+            int parsed;
+            int.TryParse(semesterStart, out parsed);
+            if (parsed != 0)
+                filter.SemesterStart = parsed;
             int parsed2;
             int.TryParse(semesterEnd, out parsed2);
             if (parsed2 != 0)
-                filter.SemesterEnd = parsed2;
+            filter.SemesterEnd = parsed2;
 
             data = new PlanList(this.plansRepository.ListPlans(filter));
 

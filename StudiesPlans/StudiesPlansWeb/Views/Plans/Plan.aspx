@@ -67,19 +67,19 @@
             <td id="leftfilter">
                 Plany:</td>
             <td >
-               <input id="RadioAll" name="plan" type="radio" value="all" checked="checked"/> Wszystkie</td>
+               <input id="RadioAll" name="plan" type="radio" value="all" checked="true"/> Wszystkie</td>
         </tr>
         <tr>
             <td id="leftfilter">
                 </td>
             <td >
-               <input id="RadioArch" name="plan" value="arch" type="radio" /> Archiwalne</td>
+               <input id="RadioArch" name="plan" value="arch" type="radio"/> Archiwalne</td>
         </tr>
         <tr>
             <td id="leftfilter">
                 </td>
             <td >
-               <input id="RadioCurr" name="plan" value="curr" type="radio" /> Obowiązujące</td>
+               <input id="RadioCurr" name="plan" value="curr" type="radio"/> Obowiązujące</td>
         </tr>
         <tr>
             <td id="leftfilter">
@@ -108,6 +108,7 @@
 
 
     <script language="javascript" type="text/javascript">
+
         $("#PlanID").change(function () {
             document.location.href = '<%:Url.Content("~/") %>Plans/Plan?PlanId=' + $("#PlanID").val();
         });
