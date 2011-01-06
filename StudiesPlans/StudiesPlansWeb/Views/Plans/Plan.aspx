@@ -13,62 +13,61 @@
     </h2>
     <table style="width:100%;">
         <tr>
-            <td style="width: 56px">
+            <td style="width: 134px">
                 Nazwa:</td>
             <td style="width: 212px">
                 <%: Html.TextBox("name")%></td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 56px">
+            <td style="width: 134px">
                 Wydział:</td>
             <td style="width: 212px">
                  <%: Html.DropDownListFor(m => m.DepartamentID, Model.Departaments , new { @class = "ddwn" })%></td>
-            <td>
-                &nbsp;</td>
         </tr>
-        <tr>
-            <td style="width: 56px">
+                <tr>
+            <td style="width: 134px">
                 Kierunek:</td>
             <td style="width: 212px">
                 <%: Html.DropDownListFor(m => m.FacultyID, Model.Faculties , new { @class = "ddwn" })%></td>
-            <td>
-                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 134px">
+                Rok rozpoczęcia: <input id="Checkbox1" type="checkbox" /></td>
+            <td style="width: 212px">
+                <%: Html.DropDownListFor(m => m.YearStartID, Model.Years , new { @class = "ddwn" })%></td>
+            
+        </tr>
+        <tr>
+            <td style="width: 134px">
+                Rok zakończenia:  <input id="Checkbox2" type="checkbox" /></td>
+            <td style="width: 212px">
+                <%: Html.DropDownListFor(m => m.YearEndID, Model.Years, new { @class = "ddwn" })%></td>
         </tr>
              <tr>
-            <td style="width: 56px">
+            <td style="width: 134px">
                 Plany:</td>
             <td style="width: 212px">
                <input id="RadioAll" name="plan" type="radio" value="all" checked="checked"/> Wszystkie</td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 56px">
+            <td style="width: 134px">
                 </td>
             <td style="width: 212px">
                <input id="RadioArch" name="plan" value="arch" type="radio" /> Archiwalne</td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 56px">
+            <td style="width: 134px">
                 </td>
-            
             <td style="width: 212px">
                <input id="RadioCurr" name="plan" value="curr" type="radio" /> Obowiązujące</td>
-            <td>
-                &nbsp;</td>
         </tr>
         <tr>
-            <td style="width: 56px">
+            <td style="width: 134px">
                 </td>
             <td style="width: 212px">
              
                 <input id="Button1" type="button" value="Szukaj" /></td>
-            <td>
-                &nbsp;</td>
+
         </tr>
         
     </table>
@@ -85,7 +84,7 @@
         $("#Button1").click(function () {
             document.location.href = '<%:Url.Content("~/") %>Plans/Plan?PlanId=0' + '&name=' + $("#name").val() +
             '&departamentID=' + $("#DepartamentID").val() + '&facultyID=' + $("#FacultyID").val() +
-            '&selectedPlan=' + checkRadio();
+            '&selectedPlan=' + checkRadio() + '&yearStart=' + yearStart() + '&yearEnd=' + yearEnd();
         });
 
         function checkRadio() {
@@ -95,6 +94,22 @@
                 }
             }
         }
+
+        function yearStart() {
+            if (document.getElementById("Checkbox1").checked == true)
+                return $("#YearStartID").val();
+            else
+                return 0;
+        }
+
+        function yearEnd() {
+            if (document.getElementById("Checkbox2").checked == true)
+                return $("#YearEndID").val();
+            else
+                return 0;
+        }
+
+
 
 	</script>
 
