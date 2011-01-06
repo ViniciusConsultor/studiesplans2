@@ -84,6 +84,7 @@
     <Content Include="Global.asax" />
     <Content Include="Views\Plans\List.ascx" />
     <Content Include="Views\Plans\Plan.aspx" />
+    <Content Include="Views\Plans\PlanInfo.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
