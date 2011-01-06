@@ -44,7 +44,7 @@ p, ul
     line-height: 1.6em;
 }
 
-.ddwn { border: solid 1px #9ab2c8;	padding: 0px; background-color: #fff; margin: 2px 5px 2px 2px; width: 150px; }
+.ddwn { border: solid 1px #9ab2c8;	padding: 0px; background-color: #fff; margin: 2px 5px 2px 2px; width: 200px; }
 .ddwn option {padding: 1px;}
 .planHeader { background-color: #5d7b9d; color: #fff; }
 .tbl_std_row1 { background-color: #eee; color: #333; }
@@ -184,6 +184,14 @@ h2, h3, h4, h5, h6
     font-family: Arial, Helvetica, sans-serif;
 }
 
+h2#filterheader
+{
+    font-size: 10pt;
+    color: Gray;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    }
+
 h1
 {
     font-size: 2em;
@@ -193,7 +201,7 @@ h1
 }
 h2
 {
-    padding: 0 0 10px 0;
+    padding: 0 0 0px 0;
 }
 h3
 {
@@ -276,6 +284,40 @@ page width. Or, you can specify an exact pixel width. */
 
 /* FORM LAYOUT ELEMENTS   
 ----------------------------------------------------------*/
+div#filterbox
+{
+    width:450px;
+    border: 1px solid gray;
+}
+
+td#leftinfo
+{
+    width:450px;
+}
+
+table#infos
+{
+    width:100%}
+    
+div#planbox
+{
+    width:100%;
+    color: gray;
+    }
+    
+table#filter
+{
+    width: 450px;
+    vertical-align:middle;
+    }
+    
+td#leftfilter
+{
+    width: 150px;
+    text-align:right;
+    vertical-align:inherit;
+    }    
+    
 table#login
 {
 	margin: auto;

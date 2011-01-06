@@ -24,6 +24,7 @@ namespace StudiesPlansWeb.Models
         public PlanList(IEnumerable<StudiesPlansModels.Models.Plan> plans)
         {
             List<SelectListItem> items = new List<SelectListItem>();
+            items.Add(new SelectListItem() { Text = "Wybierz", Value = "0" });
             foreach (Plan p in plans)
             {
                 items.Add(new SelectListItem() { Text = p.Name, Value = p.PlanID.ToString() });

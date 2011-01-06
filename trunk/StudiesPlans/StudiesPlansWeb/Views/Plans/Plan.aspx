@@ -1,89 +1,107 @@
 ﻿<%@ Page Title="Plan Studiów" Language="C#" MasterPageFile="~/Views/Shared/Site.Master" Inherits="System.Web.Mvc.ViewPage<StudiesPlansWeb.Models.PlanList>" %>
 <%@ Register Src="~/Views/Plans/List.ascx" TagName="PlanList" TagPrefix="sp" %>
+<%@ Register Src="~/Views/Plans/PlanInfo.ascx" TagName="PlanInfo" TagPrefix="sp" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
-	Plan
+	Plany Studiów - Przeglądanie planów
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     <h2 style="height: 34px">
-        Wybierz plan: 
-           <%: Html.DropDownListFor(m => m.PlanID, Model.Plans, new { @class = "ddwn" })%>
-    </h2>
-    <table style="width:100%;">
+        Przeglądanie planów:</h2>
+        <p style="color: Gray">Wybierz plan: <%: Html.DropDownListFor(m => m.PlanID, Model.Plans, new { @class = "ddwn" })%>
+    </p>
+    <table id="infos">
+    <tr>
+    <td id="leftinfo">
+    <div id="filterbox">
+    <h2 id="filterheader">&nbsp;Filtr</h2>
+    <table id="filter">
         <tr>
-            <td style="width: 134px">
+            <td  id="leftfilter">
                 Nazwa:</td>
-            <td style="width: 212px">
+            <td>
                 <%: Html.TextBox("name")%></td>
         </tr>
         <tr>
-            <td style="width: 134px">
+            <td id="leftfilter">
                 Wydział:</td>
-            <td style="width: 212px">
+            <td >
                  <%: Html.DropDownListFor(m => m.DepartamentID, Model.Departaments , new { @class = "ddwn" })%></td>
         </tr>
                 <tr>
-            <td style="width: 134px">
+            <td id="leftfilter">
                 Kierunek:</td>
-            <td style="width: 212px">
+            <td >
                 <%: Html.DropDownListFor(m => m.FacultyID, Model.Faculties , new { @class = "ddwn" })%></td>
         </tr>
         <tr>
-            <td style="width: 134px">
-                Rok rozpoczęcia:    <input id="Checkbox1" type="checkbox" /></td>
-            <td style="width: 212px">
+            <td id="leftfilter">
+                Rok rozpoczęcia:    </td>
+            <td ><input id="Checkbox1" type="checkbox" />
                 <%: Html.DropDownListFor(m => m.YearStartID, Model.Years , new { @class = "ddwn" })%></td>
             
         </tr>
         <tr>
-            <td style="width: 134px">
-                Rok zakończenia:    <input id="Checkbox2" type="checkbox" /></td>
-            <td style="width: 212px">
+            <td id="leftfilter">
+                Rok zakończenia:    </td>
+            <td >
+            <input id="Checkbox2" type="checkbox" />
                 <%: Html.DropDownListFor(m => m.YearEndID, Model.Years, new { @class = "ddwn" })%></td>
         </tr>
         <tr>
-            <td style="width: 134px">
-                Semestr początkowy: <input id="Checkbox3" type="checkbox" /></td>
-            <td style="width: 212px">
+            <td id="leftfilter">
+                Semestr początkowy: </td>
+            <td ><input id="Checkbox3" type="checkbox" />
                 <%: Html.TextBox("semesterStart")%></td>
             
         </tr>
         <tr>
-            <td style="width: 134px">
-                Semestr końcowy:    <input id="Checkbox4" type="checkbox" /></td>
-            <td style="width: 212px">
+            <td id="leftfilter">
+                Semestr końcowy:    </td>
+            <td ><input id="Checkbox4" type="checkbox" />
                 <%: Html.TextBox("semesterEnd")%></td>
         </tr>
              <tr>
-            <td style="width: 134px">
+            <td id="leftfilter">
                 Plany:</td>
-            <td style="width: 212px">
+            <td >
                <input id="RadioAll" name="plan" type="radio" value="all" checked="checked"/> Wszystkie</td>
         </tr>
         <tr>
-            <td style="width: 134px">
+            <td id="leftfilter">
                 </td>
-            <td style="width: 212px">
+            <td >
                <input id="RadioArch" name="plan" value="arch" type="radio" /> Archiwalne</td>
         </tr>
         <tr>
-            <td style="width: 134px">
+            <td id="leftfilter">
                 </td>
-            <td style="width: 212px">
+            <td >
                <input id="RadioCurr" name="plan" value="curr" type="radio" /> Obowiązujące</td>
         </tr>
         <tr>
-            <td style="width: 134px">
+            <td id="leftfilter">
                 </td>
-            <td style="width: 212px">
+            <td >
              
                 <input id="Button1" type="button" value="Szukaj" /></td>
 
         </tr>
         
     </table>
+    </div>
+    </td>
+    <td class="info">
+    <h2 id="filterheader">Informacje o planie</h2>
+    <div id="planbox">
+    <sp:PlanInfo ID="PlanInfo1" runat="server" />
+    </div>
+    </td>
+    </tr>
+    </table>
+    <br /><br />
     <sp:PlanList ID="frmPlanList" runat="server" />
     <br />
 
