@@ -32,16 +32,29 @@
         </tr>
         <tr>
             <td style="width: 134px">
-                Rok rozpoczęcia: <input id="Checkbox1" type="checkbox" /></td>
+                Rok rozpoczęcia:    <input id="Checkbox1" type="checkbox" /></td>
             <td style="width: 212px">
                 <%: Html.DropDownListFor(m => m.YearStartID, Model.Years , new { @class = "ddwn" })%></td>
             
         </tr>
         <tr>
             <td style="width: 134px">
-                Rok zakończenia:  <input id="Checkbox2" type="checkbox" /></td>
+                Rok zakończenia:    <input id="Checkbox2" type="checkbox" /></td>
             <td style="width: 212px">
                 <%: Html.DropDownListFor(m => m.YearEndID, Model.Years, new { @class = "ddwn" })%></td>
+        </tr>
+        <tr>
+            <td style="width: 134px">
+                Semestr początkowy: <input id="Checkbox3" type="checkbox" /></td>
+            <td style="width: 212px">
+                <%: Html.TextBox("semesterStart")%></td>
+            
+        </tr>
+        <tr>
+            <td style="width: 134px">
+                Semestr końcowy:    <input id="Checkbox4" type="checkbox" /></td>
+            <td style="width: 212px">
+                <%: Html.TextBox("semesterEnd")%></td>
         </tr>
              <tr>
             <td style="width: 134px">
@@ -84,7 +97,8 @@
         $("#Button1").click(function () {
             document.location.href = '<%:Url.Content("~/") %>Plans/Plan?PlanId=0' + '&name=' + $("#name").val() +
             '&departamentID=' + $("#DepartamentID").val() + '&facultyID=' + $("#FacultyID").val() +
-            '&selectedPlan=' + checkRadio() + '&yearStart=' + yearStart() + '&yearEnd=' + yearEnd();
+            '&selectedPlan=' + checkRadio() + '&yearStart=' + yearStart() + '&yearEnd=' + yearEnd() +
+            '&semesterStart=' + semesterStart() + '&semesterEnd=' + semesterEnd();
         });
 
         function checkRadio() {
@@ -105,6 +119,20 @@
         function yearEnd() {
             if (document.getElementById("Checkbox2").checked == true)
                 return $("#YearEndID").val();
+            else
+                return 0;
+        }
+
+        function semesterStart() {
+            if (document.getElementById("Checkbox3").checked == true)
+                return $("#semesterStart").val();
+            else
+                return 0;
+        }
+
+        function semesterEnd() {
+            if (document.getElementById("Checkbox4").checked == true)
+                return $("#semesterEnd").val();
             else
                 return 0;
         }
