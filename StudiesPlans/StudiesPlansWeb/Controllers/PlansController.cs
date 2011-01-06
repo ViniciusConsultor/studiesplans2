@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Web.Mvc;
 using StudiesPlansModels.Helpers;
 using StudiesPlansModels.Models;
@@ -15,18 +14,26 @@ namespace StudiesPlansWeb.Controllers
         IPlansRepository plansRepository = new PlansRepository();
         IDepartamentsRepository _departamentsRepository = new DepartamentsRepository();
         IFacultiesRepository _facultiesRepository = new FacultiesRepository();
+        private PlanFilter filter = new PlanFilter();
 
-        public ActionResult Plan(int planId = 0, string name ="", int departamentId = 0, int facultyId = 0)
+        public ActionResult Plan(int planId = 0, string name ="", int departamentId = 0, int facultyId = 0, string selectedPlan = "")
         {
             PlanList data;
-            PlanFilter filter = new PlanFilter();
-            filter.Name = name;
-            if(departamentId != 0)
-                filter.DepartamentName = _departamentsRepository.GetDepartament(departamentId).Name;
-            if(facultyId != 0)
-                filter.FacultyName = _facultiesRepository.GetFaculty(facultyId).Name;
+                filter.Name = name;
+                if (departamentId != 0)
+                    filter.DepartamentName = _departamentsRepository.GetDepartament(departamentId).Name;
+                if (facultyId != 0)
+                    filter.FacultyName = _facultiesRepository.GetFaculty(facultyId).Name;
+                if (selectedPlan != null && !selectedPlan.Equals(""))
+                {
+                    if (selectedPlan.Equals("all"))
+                        filter.All = true;
+                    else if (selectedPlan.Equals("arch"))
+                        filter.IsArchieved = true;
+                    else if (selectedPlan.Equals("curr"))
+                        filter.IsMandatory = true;
+                }
 
-            
             data = new PlanList(this.plansRepository.ListPlans(filter));
 
 
