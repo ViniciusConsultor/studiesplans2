@@ -11,7 +11,6 @@
         Wybierz plan: 
            <%: Html.DropDownListFor(m => m.PlanID, Model.Plans, new { @class = "ddwn" })%>
     </h2>
-   
     <table style="width:100%;">
         <tr>
             <td style="width: 56px">
@@ -37,11 +36,11 @@
             <td>
                 &nbsp;</td>
         </tr>
-        <tr>
+             <tr>
             <td style="width: 56px">
-                </td>
+                Plany:</td>
             <td style="width: 212px">
-               </td>
+               <input id="RadioAll" name="plan" type="radio" value="all" checked="checked"/> Wszystkie</td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -49,7 +48,16 @@
             <td style="width: 56px">
                 </td>
             <td style="width: 212px">
-               </td>
+               <input id="RadioArch" name="plan" value="arch" type="radio" /> Archiwalne</td>
+            <td>
+                &nbsp;</td>
+        </tr>
+        <tr>
+            <td style="width: 56px">
+                </td>
+            
+            <td style="width: 212px">
+               <input id="RadioCurr" name="plan" value="curr" type="radio" /> Obowiązujące</td>
             <td>
                 &nbsp;</td>
         </tr>
@@ -62,8 +70,8 @@
             <td>
                 &nbsp;</td>
         </tr>
+        
     </table>
-   
     <sp:PlanList ID="frmPlanList" runat="server" />
     <br />
 
@@ -76,8 +84,17 @@
 
         $("#Button1").click(function () {
             document.location.href = '<%:Url.Content("~/") %>Plans/Plan?PlanId=0' + '&name=' + $("#name").val() +
-            '&departament=' + $("#DepartamentID").val() + '&faculty=' + $("#FacultyID").val();
+            '&departamentID=' + $("#DepartamentID").val() + '&facultyID=' + $("#FacultyID").val() +
+            '&selectedPlan=' + checkRadio();
         });
+
+        function checkRadio() {
+            for (i = 0; i < document.getElementsByName("plan").length; i++) {
+                if (document.getElementsByName("plan")[i].checked == true) {
+                    return document.getElementsByName("plan")[i].value;
+                }
+            }
+        }
 
 	</script>
 

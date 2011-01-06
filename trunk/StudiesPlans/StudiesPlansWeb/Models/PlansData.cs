@@ -29,6 +29,7 @@ namespace StudiesPlansWeb.Models
 
             IEnumerable<Departament> departaments = new DepartamentsRepository().ListDepartaments();
             List<SelectListItem> departmentsList = new List<SelectListItem>();
+            departmentsList.Add(new SelectListItem() { Text = "Wszystkie", Value = "0" });
             foreach (Departament d in departaments)
             {
                 departmentsList.Add(new SelectListItem() { Text = d.Name, Value = d.DepartamentID.ToString() });
@@ -38,6 +39,7 @@ namespace StudiesPlansWeb.Models
 
             IEnumerable<Faculty> faculties = new FacultiesRepository().ListFaculties();
             List<SelectListItem> facultiesList = new List<SelectListItem>();
+            facultiesList.Add(new SelectListItem() {Text = "Wszystkie", Value = "0"});
             foreach (Faculty f in faculties)
             {
                 facultiesList.Add(new SelectListItem() { Text = f.Name, Value = f.FacultyID.ToString() });
