@@ -16,7 +16,8 @@ namespace StudiesPlansWeb.Controllers
         IFacultiesRepository _facultiesRepository = new FacultiesRepository();
         private PlanFilter filter = new PlanFilter();
 
-        public ActionResult Plan(int planId = 0, string name ="", int departamentId = 0, int facultyId = 0, string selectedPlan = "", int yearStart = 0, int yearEnd = 0)
+        public ActionResult Plan(int planId = 0, string name ="", int departamentId = 0, int facultyId = 0, 
+            string selectedPlan = "", int yearStart = 0, int yearEnd = 0, string semesterStart = "", string semesterEnd = "")
         {
             PlanList data;
                 filter.Name = name;
@@ -37,8 +38,15 @@ namespace StudiesPlansWeb.Controllers
                   filter.YearStart = yearStart;
                 if (yearEnd != 0)
                     filter.YearEnd = yearEnd;
-                   
 
+                int parsed;
+                int.TryParse(semesterStart, out parsed);
+                if (parsed != 0)
+                    filter.SemesterStart = parsed;
+            int parsed2;
+            int.TryParse(semesterEnd, out parsed2);
+            if (parsed2 != 0)
+                filter.SemesterEnd = parsed2;
 
             data = new PlanList(this.plansRepository.ListPlans(filter));
 
