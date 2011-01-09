@@ -1,16 +1,21 @@
 using System;
+using System.Data.Objects.DataClasses;
 using System.Text;
 using System.Windows.Forms;
 using StudiesPlansModels.Models;
 using StudiesPlans.Controllers;
 using System.Security.Cryptography;
+using Telerik.WinControls.Enumerations;
 
 namespace StudiesPlans.Views
 {
     public partial class Login : Telerik.WinControls.UI.RadForm
     {
+        private bool _anonymous { get; set; }
+
         public Login()
         {
+            _anonymous = false;
             InitializeComponent();
             ShowButtonsToolTips();
         }
@@ -24,31 +29,49 @@ namespace StudiesPlans.Views
          // Login button event
         private void bLogin_Click(object sender, EventArgs e)
         {
-            lErrors.Text = "";
-
-            UserLogin login = new UserLogin()
+            if (!_anonymous)
             {
-                UserName = tUsername.Text,
-                Password = tPassword.Text
-            };
+                lErrors.Text = "";
 
-            // if user is valid and exists in databse
-            if (AccountController.Instance.LoginUser(ref login))
-            {
-                UserLastActive updateActive = new UserLastActive()
+                UserLogin login = new UserLogin()
+                                      {
+                                          UserName = tUsername.Text,
+                                          Password = tPassword.Text
+                                      };
+
+                // if user is valid and exists in databse
+                if (AccountController.Instance.LoginUser(ref login))
                 {
-                    LastActiveDate = DateTime.Now,
-                    UserID = login.UserId
-                };
+                    UserLastActive updateActive = new UserLastActive()
+                                                      {
+                                                          LastActiveDate = DateTime.Now,
+                                                          UserID = login.UserId
+                                                      };
 
-                //set new last login time
-                AccountController.Instance.UpdateLastActiveUser(updateActive);
-                StudiesPlans.Program.user = AccountController.Instance.GetUser(login);
+                    //set new last login time
+                    AccountController.Instance.UpdateLastActiveUser(updateActive);
+                    StudiesPlans.Program.user = AccountController.Instance.GetUser(login);
+                    this.DialogResult = DialogResult.OK;
+                }
+                else // if user is not valid show errors
+                    foreach (string error in login.Errors)
+                        lErrors.Text += error + "\n";
+            }
+            else
+            {
+                User u = new User()
+                             {
+                                 Name = "Anonim",
+                                 Role = new Role()
+                                            {
+                                                Name = "Anonim"
+                                            }
+                             };
+                Privilage p = RoleController.Instance.GetPrivilage("Przegl¹danie");
+                u.Role.Privilages.Add(p);
+                StudiesPlans.Program.user = u;
                 this.DialogResult = DialogResult.OK;
             }
-            else // if user is not valid show errors
-                foreach (string error in login.Errors)
-                    lErrors.Text += error + "\n";
         }
 
         // Cancel button event
@@ -69,6 +92,22 @@ namespace StudiesPlans.Views
         {
             if (e.KeyValue == 13)
                 this.bLogin_Click(this, null);
+        }
+
+        private void cbAnnymous_ToggleStateChanged(object sender, Telerik.WinControls.UI.StateChangedEventArgs args)
+        {
+            if(args.ToggleState == ToggleState.On)
+            {
+                _anonymous = true;
+                this.tUsername.Enabled = false;
+                this.tPassword.Enabled = false;
+            }
+            else
+            {
+                _anonymous = false;
+                this.tUsername.Enabled = true;
+                this.tPassword.Enabled = true;
+            }
         }
     }
     
