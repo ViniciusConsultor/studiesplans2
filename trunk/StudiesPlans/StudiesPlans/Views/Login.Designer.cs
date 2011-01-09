@@ -36,6 +36,8 @@ namespace StudiesPlans.Views
             this.bCancel = new Telerik.WinControls.UI.RadButton();
             this.bLogin = new Telerik.WinControls.UI.RadButton();
             this.lErrors = new System.Windows.Forms.Label();
+            this.cbAnnymous = new Telerik.WinControls.UI.RadCheckBox();
+            this.radLabel3 = new Telerik.WinControls.UI.RadLabel();
             ((System.ComponentModel.ISupportInitialize)(this.gbLogin)).BeginInit();
             this.gbLogin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tPassword)).BeginInit();
@@ -44,11 +46,15 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.tUsername)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bCancel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAnnymous)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             this.SuspendLayout();
             // 
             // gbLogin
             // 
+            this.gbLogin.Controls.Add(this.radLabel3);
+            this.gbLogin.Controls.Add(this.cbAnnymous);
             this.gbLogin.Controls.Add(this.tPassword);
             this.gbLogin.Controls.Add(this.radLabel2);
             this.gbLogin.Controls.Add(this.radLabel1);
@@ -69,7 +75,7 @@ namespace StudiesPlans.Views
             // 
             // 
             this.gbLogin.RootElement.Padding = new System.Windows.Forms.Padding(10, 20, 10, 10);
-            this.gbLogin.Size = new System.Drawing.Size(240, 145);
+            this.gbLogin.Size = new System.Drawing.Size(240, 167);
             this.gbLogin.TabIndex = 2;
             this.gbLogin.Text = "Zaloguj siê";
             ((Telerik.WinControls.Primitives.FillPrimitive)(this.gbLogin.GetChildAt(0).GetChildAt(0).GetChildAt(0))).BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(191)))), ((int)(((byte)(219)))), ((int)(((byte)(255)))));
@@ -114,7 +120,7 @@ namespace StudiesPlans.Views
             // 
             this.bCancel.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bCancel.ForeColor = System.Drawing.Color.Black;
-            this.bCancel.Location = new System.Drawing.Point(134, 108);
+            this.bCancel.Location = new System.Drawing.Point(134, 130);
             this.bCancel.Name = "bCancel";
             // 
             // 
@@ -130,7 +136,7 @@ namespace StudiesPlans.Views
             // 
             this.bLogin.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bLogin.ForeColor = System.Drawing.Color.Black;
-            this.bLogin.Location = new System.Drawing.Point(12, 108);
+            this.bLogin.Location = new System.Drawing.Point(12, 130);
             this.bLogin.Name = "bLogin";
             // 
             // 
@@ -149,16 +155,33 @@ namespace StudiesPlans.Views
             this.lErrors.AutoSize = true;
             this.lErrors.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lErrors.ForeColor = System.Drawing.Color.Red;
-            this.lErrors.Location = new System.Drawing.Point(14, 81);
+            this.lErrors.Location = new System.Drawing.Point(13, 96);
             this.lErrors.Name = "lErrors";
             this.lErrors.Size = new System.Drawing.Size(0, 13);
             this.lErrors.TabIndex = 12;
+            // 
+            // cbAnnymous
+            // 
+            this.cbAnnymous.Location = new System.Drawing.Point(71, 75);
+            this.cbAnnymous.Name = "cbAnnymous";
+            this.cbAnnymous.Size = new System.Drawing.Size(15, 15);
+            this.cbAnnymous.TabIndex = 19;
+            this.cbAnnymous.TextAlignment = System.Drawing.ContentAlignment.TopLeft;
+            this.cbAnnymous.ToggleStateChanged += new Telerik.WinControls.UI.StateChangedEventHandler(this.cbAnnymous_ToggleStateChanged);
+            // 
+            // radLabel3
+            // 
+            this.radLabel3.Location = new System.Drawing.Point(13, 75);
+            this.radLabel3.Name = "radLabel3";
+            this.radLabel3.Size = new System.Drawing.Size(48, 18);
+            this.radLabel3.TabIndex = 20;
+            this.radLabel3.Text = "Anonim:";
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(264, 160);
+            this.ClientSize = new System.Drawing.Size(263, 182);
             this.Controls.Add(this.gbLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -180,6 +203,8 @@ namespace StudiesPlans.Views
             ((System.ComponentModel.ISupportInitialize)(this.tUsername)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bCancel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cbAnnymous)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.radLabel3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
             this.ResumeLayout(false);
 
@@ -195,6 +220,8 @@ namespace StudiesPlans.Views
         private Telerik.WinControls.UI.RadButton bCancel;
         private Telerik.WinControls.UI.RadButton bLogin;
         private System.Windows.Forms.Label lErrors;
+        private Telerik.WinControls.UI.RadLabel radLabel3;
+        private Telerik.WinControls.UI.RadCheckBox cbAnnymous;
 
     }
 }
