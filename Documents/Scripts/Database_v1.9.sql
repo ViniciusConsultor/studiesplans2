@@ -1,5 +1,10 @@
 USE [master]
 GO
+
+IF EXISTS (SELECT name FROM sys.databases WHERE name = N'SP')
+Drop database SP
+go
+
 /****** Object:  Database [SP]    Script Date: 11/20/2010 16:40:35 ******/
 IF NOT EXISTS (SELECT name FROM sys.databases WHERE name = N'SP')
 BEGIN
